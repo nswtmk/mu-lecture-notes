@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>makers Unlearn 2026｜科目・講義一覧 & AIまとめ</title>
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --ink:#17171A;
+    --sub:#5B5B63;
+    --accent:#1130E8;
+    --hairline:#DEDCD3;
+    --black:#0D0D0F;
+    --card:#FFFFFF;
+    --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:15px;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:60px 24px 48px;}
+  .hero-inner{max-width:860px;margin:0 auto;}
+  .eyebrow{font-size:11px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 20px;font-weight:600;}
+  .hero h1{
+    font-size:clamp(24px,4.5vw,34px);
+    font-weight:700;letter-spacing:.02em;line-height:1.5;
+    margin:0 0 8px;text-wrap:balance;
+  }
+  .hero .subtitle{font-size:14px;color:#c9c9d2;margin:0 0 28px;}
+  .hero-stats{display:flex;gap:28px;border-top:1px solid #2e2e34;padding-top:18px;font-size:12.5px;flex-wrap:wrap;}
+  .hero-stats div{color:#84848e;}
+  .hero-stats b{color:#fff;font-weight:700;font-size:15px;margin-right:4px;font-variant-numeric:tabular-nums;}
+  main{max-width:860px;margin:0 auto;padding:8px 24px 96px;}
+  .intro{font-size:14px;color:var(--sub);margin:28px 0 8px;}
+  .program-note{
+    font-size:13px;background:var(--card);border:1px solid var(--hairline);
+    border-radius:6px;padding:16px 20px;margin:20px 0 0;line-height:1.9;
+  }
+  .program-note b{font-weight:700;}
+  .step{margin-top:48px;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin-bottom:6px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;font-weight:700;margin:0;letter-spacing:.03em;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 18px;}
+  .subject{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    margin:14px 0;
+    overflow:hidden;
+  }
+  .subject summary{
+    list-style:none;cursor:pointer;
+    padding:16px 20px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:4px 16px;align-items:center;
+  }
+  .subject summary::-webkit-details-marker{display:none;}
+  .subject summary:hover{background:#FBFAF7;}
+  .s-name{font-size:16px;font-weight:700;letter-spacing:.02em;}
+  .s-name .s-icon{margin-right:8px;}
+  .s-name .tag{
+    display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;
+    padding:1px 8px;border-radius:999px;margin-left:10px;vertical-align:2px;
+  }
+  .tag.online{background:#E8EAF9;color:var(--accent);}
+  .tag.field{background:#E4F2EA;color:var(--field);}
+  .s-meta{grid-column:1;font-size:12px;color:var(--sub);line-height:1.7;}
+  .s-badge{
+    grid-column:2;grid-row:1 / span 2;
+    font-size:11px;font-weight:600;letter-spacing:.06em;
+    padding:3px 10px;border-radius:999px;white-space:nowrap;
+    align-self:center;
+  }
+  .s-badge.live{background:var(--accent);color:#fff;}
+  .s-badge.soon{background:#EFEEE8;color:var(--sub);}
+  .s-body{padding:4px 20px 18px;border-top:1px solid var(--hairline);}
+  .s-desc{font-size:13px;color:var(--sub);margin:12px 0 4px;}
+  table.lect{
+    width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:13px;
+  }
+  table.lect th{
+    text-align:left;font-size:10.5px;letter-spacing:.12em;color:var(--sub);
+    font-weight:600;padding:6px 8px;border-bottom:2px solid var(--ink);white-space:nowrap;
+  }
+  table.lect td{
+    padding:10px 8px;border-bottom:1px solid var(--hairline);vertical-align:top;
+  }
+  table.lect td.no{font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent);white-space:nowrap;}
+  table.lect td.date{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--sub);}
+  table.lect .lt{font-weight:600;}
+  table.lect .lect-lecturer{display:block;font-size:11.5px;color:var(--sub);font-weight:400;margin-top:2px;}
+  .table-wrap{overflow-x:auto;}
+  a.ai-btn{
+    display:inline-block;
+    background:var(--accent);color:#fff;
+    font-size:11.5px;font-weight:700;letter-spacing:.04em;
+    padding:5px 12px;border-radius:4px;text-decoration:none;white-space:nowrap;
+  }
+  a.ai-btn:hover{background:#0B23B8;}
+  span.pending{
+    display:inline-block;
+    font-size:11.5px;color:#9a9aa0;
+    border:1px dashed #CFCEC6;
+    padding:4px 11px;border-radius:4px;white-space:nowrap;
+  }
+  .note{
+    font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;
+    padding:13px 17px;margin:36px 0 0;line-height:1.8;
+  }
+  a{color:var(--accent);text-underline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026</p>
+    <h1>科目・講義一覧　—　AIまとめアーカイブ</h1>
+    <p class="subtitle">AI時代の“つくる”とは？　——　未開の未来へ。哲学・人類学・デザイン・エンジニアリング・社会実装を横断して学ぶプログラム</p>
+    <div class="hero-stats">
+      <div><b>12</b>科目 210時間</div>
+      <div><b>50+</b>名の専門家・実務家</div>
+      <div><b>2026.7</b>—2027.3 開講</div>
+      <div><b>1</b>件のAIまとめ公開中</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<p class="intro">makers Unlearn（mU）2026の科目と講義の一覧です。各科目をクリックすると講義一覧が開き、開催済みの講義には講義動画から生成したまとめレポート（AIまとめ）へのリンクが付きます。アーカイブ追加に合わせて順次更新されます。</p>
+
+<div class="program-note">
+  <b>受講のしくみ</b>：全12科目（オンライン講義8科目＋フィールド講義4科目）から自由に<b>5科目を選択</b>して受講し、各科目の課題提出を完了すると<b>修了認定証</b>が発行されます（Techキャンプは2科目分、AIと社会はⅠ〜Ⅲ合わせて1科目分）。オンライン講義はアーカイブ配信あり（<b>2027年6月末まで視聴可</b>）。受講料はプログラム9万円（税込）／単科1.8万円（税込）〜、U25割・山梨県民割あり。
+  詳細は<a href="https://makers.yamanashi-ken.ac.jp/mu">公式サイト</a>・申込は<a href="https://makers-unlearn.peatix.com/">Peatix</a>へ。
+</div>
+
+<!-- ===================== STEP 1 ===================== -->
+<section class="step">
+  <div class="step-head"><span class="step-no">STEP 1</span><h2>“つくる”の未来を見通す</h2></div>
+  <p class="step-msg">第一線の専門家とともに「未来」と「その背後にあるもの」を学ぶ</p>
+
+  <details class="subject" open>
+    <summary>
+      <span class="s-name"><span class="s-icon">🤖</span>テクノロジーの未来学<span class="tag online">オンライン</span></span>
+      <span class="s-meta">七沢智樹・長谷川愛 ほか｜全8回（16h）｜2026/7/6–8/3 月・木 19:30–21:30</span>
+      <span class="s-badge live">開講中</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">AI等の最先端テクノロジーの動向と本質、未来像をオムニバスで俯瞰。生成AI／地政学（中国）／分散型社会／身体拡張／生命と人工生命を横断し、最終回で自分の「未来の見取り図」を描き直す。</p>
+      <div class="table-wrap">
+      <table class="lect">
+        <tr><th>回</th><th>日程</th><th>タイトル / 講師</th><th>AIまとめ</th></tr>
+        <tr>
+          <td class="no">01</td><td class="date">7/6（月）</td>
+          <td><span class="lt">テクノロジーの未来学概論</span><span class="lect-lecturer">松島倫明（WIRED日本版編集長）× 長谷川愛・七沢智樹・原島大輔</span></td>
+          <td><a class="ai-btn" href="techfutures-01.html">AIまとめを読む</a></td>
+        </tr>
+        <tr>
+          <td class="no">02</td><td class="date">7/9（木）</td>
+          <td><span class="lt">AIの先で問われるもの──エンジニアリング、組織、意思決定の未来学</span><span class="lect-lecturer">梶谷健人（POSTS代表）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">03</td><td class="date">7/13（月）</td>
+          <td><span class="lt">“未来”は中国でつくられるのか──国家と技術、その未来</span><span class="lect-lecturer">高口康太（ジャーナリスト・千葉大学客員教授）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">04</td><td class="date">7/16（木）</td>
+          <td><span class="lt">分散化の先にあるものは？──ブロックチェーン・ワールドコンピュータが築くレジリエンスな社会</span><span class="lect-lecturer">守慎哉（imi共同創業者）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">05</td><td class="date">7/20（月）</td>
+          <td><span class="lt">身体はどこまで拡張できるのか──メタバース・BMI・新しい現実</span><span class="lect-lecturer">藤井直敬（デジタルハリウッド大学学長）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">06</td><td class="date">7/23（木）</td>
+          <td><span class="lt">人は生命をどこまでつくり変えられるのか──クローン技術の最先端から考える未来</span><span class="lect-lecturer">若山照彦（山梨大学発生工学研究センター長）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">07</td><td class="date">7/30（木）</td>
+          <td><span class="lt">生きているとはどういうことか──人工生命から考える未来世界</span><span class="lect-lecturer">池上高志（東京大学大学院特任教授）</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+        <tr>
+          <td class="no">08</td><td class="date">8/3（月）</td>
+          <td><span class="lt">総論──テクノロジーの未来と課題</span><span class="lect-lecturer">長谷川愛・七沢智樹・原島大輔</span></td>
+          <td><span class="pending">開催後に公開</span></td>
+        </tr>
+      </table>
+      </div>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">⚖️</span>AIと社会Ⅰ・Ⅱ・Ⅲ<span class="tag online">オンライン</span></span>
+      <span class="s-meta">七沢智樹 ほか｜1dayレクチャー×3（Ⅰ〜Ⅲ合わせて1科目分）｜Ⅰ：日程調整中／Ⅱ：2026年10月頃／Ⅲ：2027年1月頃</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc"><b>Ⅰ｜概論</b>：AIが社会にもたらす影響を、思想的背景・現場・法規制の面から学びケース検討で深める（登壇者例：佐倉統／大柴行人／岡田弘太郎／柳平大樹／原島大輔／長谷川愛）。<b>Ⅱ｜AIエージェント</b>：AIエージェントとともに生きる未来を考える。<b>Ⅲ｜AI倫理</b>：AIの倫理的論点を横断的に扱う。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ===================== STEP 2 ===================== -->
+<section class="step">
+  <div class="step-head"><span class="step-no">STEP 2</span><h2>“つくる”の根源に遡る</h2></div>
+  <p class="step-msg">技術の哲学・歴史・人類学から根源にさかのぼり、未来を複数化する可能性を掴む</p>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🧭</span>技術哲学<span class="tag online">オンライン</span></span>
+      <span class="s-meta">七沢智樹・原島大輔 ほか｜全8回（16h）｜2026/8/17–9/14 月・木 19:30–21:30</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">「技術とは何か／つくるとは何か」を哲学的に探求し、技術倫理・AI倫理の要点に触れる。登壇者例：直江清隆／岡田悠太／村田純一／大家慎也／伊勢康平／染谷昌義。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">📜</span>技術史<span class="tag online">オンライン</span></span>
+      <span class="s-meta">沓名貴彦・相馬皓介・七沢智樹 ほか｜全8回（16h）｜2026/9/17–10/19 月・木 19:30–21:30</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">技術史を「世界の条件が組み替わっていくダイナミクス」として読み直し、現代のテクノロジーの課題に接続する。登壇者例：島田将喜／佐々木由香／小島孝夫／小泉龍人 ほか。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🔥</span>原初技術実践<span class="tag field">フィールド</span></span>
+      <span class="s-meta">相馬皓介（週末縄文人）ほか｜山梨県の研修場・1泊2日（16h）｜2026/10/10–10/12</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">火起こし・鍛冶・土器づくり等を自分の身体で再演し、「つくる」の意味を掴み直すフィールド講義。</p>
+      <p class="s-desc">フィールド講義のため、AIまとめの提供有無は開催後に案内されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🗿</span>技術の人類学<span class="tag online">オンライン</span></span>
+      <span class="s-meta">原島大輔 ほか｜全8回（16h）｜2026/10/22–11/16 月・木 19:30–21:30</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">技術を「道具」ではなく文化・身体・共同体・政治経済と結びつく営みとして捉え直し、問いの立て方を獲得する。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🌳</span>森で考える（技術の人類学実践）<span class="tag field">フィールド</span></span>
+      <span class="s-meta">原島大輔・七沢智樹｜山梨県の研修場・1泊2日（16h）｜2026/11/14–11/15</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">都市を離れ、森の中で火を囲み寝泊まりしながら思索を深めるフィールド講義。</p>
+      <p class="s-desc">フィールド講義のため、AIまとめの提供有無は開催後に案内されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🏕️</span>Techキャンプ<span class="tag field">フィールド</span></span>
+      <span class="s-meta">七沢智樹・相馬皓介 ほか｜西表島・3泊4日＋事前レクチャー（28h／2科目分）｜2027/3/6–3/9</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">西表島のジャングルで最低限の生活を行い、道具を作りながら滞在するフィールド講義。現代文明の意味を問い直す。※修了認定上は2科目分に相当。</p>
+      <p class="s-desc">フィールド講義のため、AIまとめの提供有無は開催後に案内されます。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ===================== STEP 3 ===================== -->
+<section class="step">
+  <div class="step-head"><span class="step-no">STEP 3</span><h2>“つくる”を再定義する</h2></div>
+  <p class="step-msg">見えていなかった未来の可能性に気づき、「何を・誰のために・どう」つくるかを描き直す</p>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🎛️</span>デザイン論概論<span class="tag online">オンライン</span></span>
+      <span class="s-meta">長谷川愛 ほか｜全8回（16h）｜2026/11/30–12/23 月・水 19:30–21:30</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">「デザイン」を成果物中心からほどき直し、世界・関係・未来を編集する営みとして捉え直す。登壇者例：水野大二郎／長谷川敦士／森田敦郎／久保田晃弘／水内智英／田中みゆき／比嘉夏子。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🌿</span>自然共生のデザイン実践<span class="tag field">フィールド</span></span>
+      <span class="s-meta">南部隆一 ほか｜山梨県の研修場・1泊2日（16h）｜2026/9/12–9/13</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">人間中心から生態系中心へ前提を組み替え、フィールドワーク込みで提案を実装計画へつなぐ。登壇者例：上平崇仁／比嘉夏子／奥田宥聡 ほか。</p>
+      <p class="s-desc">フィールド講義のため、AIまとめの提供有無は開催後に案内されます。</p>
+    </div>
+  </details>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🛠️</span>AI時代のものづくり概論（テクニカルディレクション理論）<span class="tag online">オンライン</span></span>
+      <span class="s-meta">山添崇 ほか｜全9コマ・土曜3日間集中（18h）｜2026/12/5・12/12・12/19 10:00–17:15</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">AI時代の「つくる」を主体／方法／倫理の3軸で捉え直し、思想から実装まで7つの視点を横断する。登壇者例：原研哉／深津貴之／米倉豪志／森岡東洋志／荻野靖洋／福井直人。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+</section>
+
+<!-- ===================== STEP 4 ===================== -->
+<section class="step">
+  <div class="step-head"><span class="step-no">STEP 4</span><h2>「未開の未来」を構想し、実践する</h2></div>
+  <p class="step-msg">新たに発見された未来をプロトタイプし、制度・暮らし・事業・コミュニティへ実装する</p>
+
+  <details class="subject">
+    <summary>
+      <span class="s-name"><span class="s-icon">🏛️</span>社会実装<span class="tag online">オンライン</span></span>
+      <span class="s-meta">林篤志（社会彫刻家）ほか｜全8回（16h）｜2027/1/11–2/4 月・木 19:30–21:30</span>
+      <span class="s-badge soon">開講前</span>
+    </summary>
+    <div class="s-body">
+      <p class="s-desc">「つくりたい」を起点に、新しい社会OSを現実にインストールする手法・ガバナンス・経済圏の構築方法を学ぶ。登壇者例：増村江利子／丑田俊輔／高瀬俊明／イセオサム／高橋大就。</p>
+      <p class="s-desc">講義一覧・AIまとめは開催後に追加されます。</p>
+    </div>
+  </details>
+</section>
+
+<div class="note">
+  AIまとめは、講義アーカイブ動画の自動文字起こしから生成したまとめレポートです（スクリーンショット・タイムスタンプ付き）。本ページは非公式のアーカイブ補助ページであり、科目・日程・講師などの正式情報は<a href="https://makers.yamanashi-ken.ac.jp/mu">makers Unlearn公式サイト</a>をご確認ください。日程・講師は変更される場合があります。最終更新：2026年7月8日。
+</div>
+
+</main>
+</body>
+</html>
