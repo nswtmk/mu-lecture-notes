@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import os
 import subprocess
@@ -178,6 +179,58 @@ async def crf_setup(interaction: discord.Interaction):
     )
 
 
+# ---------------------------------------------------------------------------
+# 投稿キュー(outbox): outbox/*.md を指定チャンネルに投稿する
+# リモート(Claude Code)からGitHub経由でDiscordに投稿を届けるための仕組み。
+# ファイル形式:
+#   channel: チャンネル名
+#   category: カテゴリ名(チャンネルがない場合の作成先。省略可)
+#   topic: チャンネルトピック(省略可)
+#   ---
+#   本文(Markdown)
+# ---------------------------------------------------------------------------
+
+OUTBOX_DIR = BASE_DIR / "outbox"
+OUTBOX_STATE = BASE_DIR / ".outbox_posted.json"
+
+
+async def process_outbox(guild: discord.Guild):
+    if not OUTBOX_DIR.exists():
+        return
+    posted = json.loads(OUTBOX_STATE.read_text()) if OUTBOX_STATE.exists() else []
+    for path in sorted(OUTBOX_DIR.glob("*.md")):
+        if path.name in posted:
+            continue
+        raw = path.read_text(encoding="utf-8")
+        headers, _, body = raw.partition("\n---\n")
+        meta = {}
+        for line in headers.splitlines():
+            if ":" in line:
+                k, v = line.split(":", 1)
+                meta[k.strip()] = v.strip()
+        ch_name = meta.get("channel")
+        if not ch_name or not body.strip():
+            log.warning("outbox %s: channel指定または本文がありません", path.name)
+            continue
+        channel = discord.utils.get(guild.text_channels, name=ch_name)
+        if channel is None and meta.get("category"):
+            category = discord.utils.get(guild.categories, name=meta["category"])
+            if category is None:
+                category = await guild.create_category(meta["category"])
+            channel = await guild.create_text_channel(ch_name, category=category)
+            log.info("outbox: チャンネル #%s を作成しました", ch_name)
+        if channel is None:
+            log.warning("outbox %s: チャンネル #%s が見つかりません", path.name, ch_name)
+            continue
+        if meta.get("topic"):
+            await channel.edit(topic=meta["topic"][:1024])
+        for chunk in _split_message(body.strip()):
+            await channel.send(chunk)
+        posted.append(path.name)
+        OUTBOX_STATE.write_text(json.dumps(posted, ensure_ascii=False, indent=1))
+        log.info("outbox: %s を #%s に投稿しました", path.name, ch_name)
+
+
 _auto_update_started = False
 
 
@@ -210,6 +263,12 @@ async def on_ready():
             log.info("Auto setup: %s", guild.name)
             created = await run_setup(guild)
             log.info("Auto setup done for %s (created: %s)", guild.name, created or "none")
+    # 投稿キューの処理(未投稿の outbox/*.md を投稿)
+    for guild in bot.guilds:
+        try:
+            await process_outbox(guild)
+        except Exception:
+            log.exception("outbox processing failed for %s", guild.name)
     # 自動アップデート(CRF_AUTO_UPDATE=0 で無効化)
     if not _auto_update_started and os.environ.get("CRF_AUTO_UPDATE") != "0":
         _auto_update_started = True
