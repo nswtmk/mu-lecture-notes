@@ -124,9 +124,10 @@ async def run_setup(guild: discord.Guild) -> list[str]:
             else:
                 await channel.edit(category=category, topic=topic, overwrites=overwrites)
 
-    # ルールを掲示(チャンネルが空のときだけ。再実行での重複投稿を防ぐ)
+    # ルールを掲示(古い投稿はすべて削除し、rules.md の最新内容で貼り直す)
     rules_ch = discord.utils.get(guild.text_channels, name="rules")
-    if rules_ch and not [m async for m in rules_ch.history(limit=1)]:
+    if rules_ch:
+        await rules_ch.purge(limit=None, reason="ルールを最新版に更新")
         # Discordの1メッセージ上限(2000字)に合わせて分割投稿
         for chunk in _split_message(RULES):
             await rules_ch.send(chunk)
