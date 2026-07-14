@@ -3,12 +3,12 @@
 入場審査は Discord 公式の「参加申請(Server Member Applications)」で行う前提。
 (サーバー設定 → 安全設定 → 「参加には申請が必要」+ カスタム質問で紹介者・プロジェクトを質問)
 
+サーバーに入れた人=承認済みの人なので、チャンネルはすべて通常の公開チャンネル。
+(お知らせ系のみ書き込みを管理者に制限)
+
 機能:
-  1. /crf-setup      : サーバー構造(ロール・カテゴリ・チャンネル・ルール掲示)を自動構築。
-                       既存メンバー全員に Member ロールを付与
-  2. 自動ロール付与   : 参加申請を通過してサーバーに入った人に Member ロールを自動付与
-  3. /admit          : ロール付与に失敗した場合などの手動付与
-  4. Q&A             : ボットにメンションすると、ナレッジベースをもとに財団について回答(Claude API 使用)
+  1. /crf-setup : サーバー構造(カテゴリ・チャンネル・ルール掲示)を自動構築
+  2. Q&A        : ボットにメンションすると、ナレッジベースをもとに財団について回答(Claude API 使用)
 
 必要な環境変数:
   DISCORD_BOT_TOKEN  : Discord ボットのトークン(必須)
@@ -32,32 +32,30 @@ BASE_DIR = Path(__file__).parent
 KNOWLEDGE = (BASE_DIR / "knowledge" / "crf.md").read_text(encoding="utf-8")
 RULES = (BASE_DIR / "rules.md").read_text(encoding="utf-8")
 
-MEMBER_ROLE = "Member"
-
 # サーバー構造の定義。/crf-setup がこの通りに構築する。
 # (カテゴリ名, [(チャンネル名, トピック, 種別), ...])
-# 種別: "open"=@everyone可視 / "member"=Memberのみ / "readonly"=Memberは閲覧のみ
+# 種別: "open"=誰でも閲覧・投稿可 / "readonly"=誰でも閲覧可・投稿は管理者のみ
 SERVER_STRUCTURE = [
     ("INFO", [
-        ("welcome", "ようこそCRFへ! まずは #rules をどうぞ", "open"),
-        ("rules", "このサーバーのルール", "open_readonly"),
+        ("welcome", "ようこそCRFへ! まずは #rules をどうぞ", "readonly"),
+        ("rules", "このサーバーのルール", "readonly"),
         ("announcements", "お知らせ", "readonly"),
-        ("events", "イベント・研究会の情報", "member"),
+        ("events", "イベント・研究会の情報", "open"),
     ]),
     ("COMMUNITY", [
-        ("introductions", "自己紹介 / Introduce yourself", "member"),
-        ("general", "一般・雑談", "member"),
-        ("random", "何でも好きなことを投稿できるチャンネル", "member"),
-        ("research-info", "リサーチ関係の情報共有", "member"),
+        ("introductions", "自己紹介 / Introduce yourself", "open"),
+        ("general", "一般・雑談", "open"),
+        ("random", "何でも好きなことを投稿できるチャンネル", "open"),
+        ("research-info", "リサーチ関係の情報共有", "open"),
     ]),
     ("PROJECTS", [
-        ("technology", "テクノロジー・プロジェクト", "member"),
-        ("satoyama", "里山プロジェクト", "member"),
-        ("buddhism", "仏教プロジェクト", "member"),
-        ("forest", "フォレスト(森)プロジェクト — これから注力していく領域", "member"),
+        ("technology", "テクノロジー・プロジェクト", "open"),
+        ("satoyama", "里山プロジェクト", "open"),
+        ("buddhism", "仏教プロジェクト", "open"),
+        ("forest", "フォレスト(森)プロジェクト — これから注力していく領域", "open"),
     ]),
     ("CONFERENCE", [
-        ("conference", "カンファレンス関係", "member"),
+        ("conference", "カンファレンス関係", "open"),
     ]),
     ("OFFICE", [
         ("office", "事務関係。財務情報・定款・理事の情報などを公開", "readonly"),
@@ -93,48 +91,26 @@ class CRFBot(commands.Bot):
 bot = CRFBot()
 
 
-def _channel_overwrites(guild: discord.Guild, kind: str, member_role: discord.Role):
+def _channel_overwrites(guild: discord.Guild, kind: str):
     everyone = guild.default_role
     bot_member = guild.me
-    if kind == "open":
-        # 未入場者も見える(welcome)。書き込みは不可、ボタン操作のみ。
-        return {
-            everyone: discord.PermissionOverwrite(view_channel=True, send_messages=False),
-            member_role: discord.PermissionOverwrite(view_channel=True, send_messages=False),
-            bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
-        }
-    if kind == "open_readonly":
-        # 未入場者も読める(rules)。
-        return {
-            everyone: discord.PermissionOverwrite(view_channel=True, send_messages=False),
-            bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
-        }
     if kind == "readonly":
-        # Member は閲覧のみ(announcements / office)。投稿は管理者とボット。
+        # 誰でも閲覧可。投稿は管理者とボットのみ(welcome / rules / announcements / office)
         return {
-            everyone: discord.PermissionOverwrite(view_channel=False),
-            member_role: discord.PermissionOverwrite(view_channel=True, send_messages=False),
+            everyone: discord.PermissionOverwrite(view_channel=True, send_messages=False),
             bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
         }
-    # "member": Member のみ閲覧・投稿可
+    # "open": 通常の公開チャンネル(鍵なし)
     return {
-        everyone: discord.PermissionOverwrite(view_channel=False),
-        member_role: discord.PermissionOverwrite(view_channel=True, send_messages=True),
-        bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
+        everyone: discord.PermissionOverwrite(view_channel=True, send_messages=True),
     }
 
 
-@bot.tree.command(name="crf-setup", description="CRFサーバーの構造(ロール・チャンネル・ルール)を構築します(管理者のみ)")
+@bot.tree.command(name="crf-setup", description="CRFサーバーの構造(チャンネル・ルール)を構築します(管理者のみ)")
 @app_commands.checks.has_permissions(administrator=True)
 async def crf_setup(interaction: discord.Interaction):
     guild = interaction.guild
     await interaction.response.defer(ephemeral=True, thinking=True)
-
-    member_role = discord.utils.get(guild.roles, name=MEMBER_ROLE)
-    if member_role is None:
-        member_role = await guild.create_role(
-            name=MEMBER_ROLE, colour=discord.Colour.teal(), reason="CRF setup"
-        )
 
     created = []
     for category_name, channels in SERVER_STRUCTURE:
@@ -143,7 +119,7 @@ async def crf_setup(interaction: discord.Interaction):
             category = await guild.create_category(category_name)
         for ch_name, topic, kind in channels:
             channel = discord.utils.get(guild.text_channels, name=ch_name)
-            overwrites = _channel_overwrites(guild, kind, member_role)
+            overwrites = _channel_overwrites(guild, kind)
             if channel is None:
                 channel = await guild.create_text_channel(
                     ch_name, category=category, topic=topic, overwrites=overwrites
@@ -179,43 +155,19 @@ async def crf_setup(interaction: discord.Interaction):
         )
         await welcome_ch.send(embed=embed)
 
-    # 既存メンバー全員に Member ロールを付与(参加申請を通ってきた人たちなので)
-    granted = 0
-    async for m in guild.fetch_members(limit=None):
-        if not m.bot and member_role not in m.roles:
-            await m.add_roles(member_role, reason="CRF setup: 既存メンバーへの一括付与")
-            granted += 1
+    # 旧方式の Member ロールが残っていれば削除(全チャンネル公開化に伴い不要)
+    old_role = discord.utils.get(guild.roles, name="Member")
+    if old_role:
+        try:
+            await old_role.delete(reason="全チャンネル公開化に伴い不要")
+        except discord.Forbidden:
+            log.warning("Memberロールを削除できません。ボットのロールをMemberより上にしてください。")
 
     await interaction.followup.send(
-        f"セットアップ完了 ✅ 新規作成チャンネル: {', '.join(created) if created else 'なし(既存を更新)'} / "
-        f"Memberロールを {granted} 人に付与",
+        f"セットアップ完了 ✅ 新規作成チャンネル: "
+        f"{', '.join(created) if created else 'なし(既存を更新)'}",
         ephemeral=True,
     )
-
-
-@bot.event
-async def on_member_join(member: discord.Member):
-    """参加申請を通過してサーバーに入った人に Member ロールを自動付与する。"""
-    if member.bot:
-        return
-    role = discord.utils.get(member.guild.roles, name=MEMBER_ROLE)
-    if role:
-        try:
-            await member.add_roles(role, reason="参加申請の通過に伴う自動付与")
-        except discord.Forbidden:
-            log.warning("Memberロールを付与できません。ボットのロールをMemberより上にしてください。")
-
-
-@bot.tree.command(name="admit", description="Memberロールを手動で付与します(自動付与に失敗した場合など・管理者のみ)")
-@app_commands.checks.has_permissions(administrator=True)
-@app_commands.describe(user="入場させるメンバー")
-async def admit(interaction: discord.Interaction, user: discord.Member):
-    role = discord.utils.get(interaction.guild.roles, name=MEMBER_ROLE)
-    if role is None:
-        await interaction.response.send_message("先に /crf-setup を実行してください。", ephemeral=True)
-        return
-    await user.add_roles(role, reason=f"/admit by {interaction.user}")
-    await interaction.response.send_message(f"{user.mention} を入場させました。", ephemeral=True)
 
 
 # ---------------------------------------------------------------------------
