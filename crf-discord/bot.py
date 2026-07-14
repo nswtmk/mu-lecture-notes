@@ -17,8 +17,11 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
+import subprocess
+import sys
 from pathlib import Path
 
 import discord
@@ -175,8 +178,31 @@ async def crf_setup(interaction: discord.Interaction):
     )
 
 
+_auto_update_started = False
+
+
+async def _auto_update_loop():
+    """3分ごとにGitHubの更新を確認し、新しいコードがあれば取り込んで自動再起動する。"""
+    repo_dir = str(BASE_DIR.parent)
+    while True:
+        await asyncio.sleep(180)
+        try:
+            result = await asyncio.to_thread(
+                subprocess.run,
+                ["git", "-C", repo_dir, "pull", "--ff-only"],
+                capture_output=True, text=True, timeout=60,
+            )
+            out = (result.stdout + result.stderr).strip()
+            if result.returncode == 0 and "Already up to date" not in out:
+                log.info("更新を検出、再起動します: %s", out)
+                os.execv(sys.executable, [sys.executable, str(BASE_DIR / "bot.py")])
+        except Exception:
+            log.exception("auto-update check failed")
+
+
 @bot.event
 async def on_ready():
+    global _auto_update_started
     log.info("Logged in as %s (%s)", bot.user, bot.user.id)
     # CRF_AUTO_SETUP=1 のときは、起動しただけで全サーバーにセットアップを実行
     if os.environ.get("CRF_AUTO_SETUP") == "1":
@@ -184,6 +210,11 @@ async def on_ready():
             log.info("Auto setup: %s", guild.name)
             created = await run_setup(guild)
             log.info("Auto setup done for %s (created: %s)", guild.name, created or "none")
+    # 自動アップデート(CRF_AUTO_UPDATE=0 で無効化)
+    if not _auto_update_started and os.environ.get("CRF_AUTO_UPDATE") != "0":
+        _auto_update_started = True
+        asyncio.create_task(_auto_update_loop())
+        log.info("自動アップデートを有効化(3分間隔でGitHubを確認)")
 
 
 # ---------------------------------------------------------------------------
@@ -221,6 +252,158 @@ async def answer_question(question: str) -> str:
     except Exception:
         log.exception("Claude API call failed")
         return _fallback_answer(question)
+
+
+# ---------------------------------------------------------------------------
+# 管理者指示モード: 管理者がDM/メンションで指示すると、サーバーを実際に操作する
+# ---------------------------------------------------------------------------
+
+ADMIN_TOOLS = [
+    {
+        "name": "list_channels",
+        "description": "サーバーの全テキストチャンネルの名前・カテゴリ・トピックの一覧を取得する。操作の前に現状把握のために使う。",
+        "input_schema": {"type": "object", "properties": {}, "required": []},
+    },
+    {
+        "name": "read_recent_messages",
+        "description": "指定チャンネルの直近のメッセージを読む(新しい順)。",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "channel_name": {"type": "string", "description": "チャンネル名(#は不要)"},
+                "limit": {"type": "integer", "description": "取得件数(最大30)"},
+            },
+            "required": ["channel_name"],
+        },
+    },
+    {
+        "name": "send_message",
+        "description": "指定チャンネルにメッセージを投稿する。",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "channel_name": {"type": "string", "description": "チャンネル名(#は不要)"},
+                "content": {"type": "string", "description": "投稿する本文(Markdown可、2000字以内)"},
+            },
+            "required": ["channel_name", "content"],
+        },
+    },
+    {
+        "name": "edit_channel_topic",
+        "description": "指定チャンネルのトピック(説明文)を変更する。",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "channel_name": {"type": "string", "description": "チャンネル名(#は不要)"},
+                "topic": {"type": "string", "description": "新しいトピック(1024字以内)"},
+            },
+            "required": ["channel_name", "topic"],
+        },
+    },
+    {
+        "name": "pin_last_message",
+        "description": "指定チャンネルでボットが直近に投稿したメッセージをピン留めする。",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "channel_name": {"type": "string", "description": "チャンネル名(#は不要)"},
+            },
+            "required": ["channel_name"],
+        },
+    },
+]
+
+ADMIN_SYSTEM_PROMPT = f"""あなたは意識研究財団(CRF)のDiscordサーバーを管理するボット「CRFボット」です。\
+いま話しかけているのはサーバーの管理者です。管理者の指示に従って、ツールを使って実際にサーバーを操作してください。
+
+方針:
+- 指示が明確なら、確認を求めずに実行して結果を報告する
+- チャンネル名が曖昧なときは list_channels で確認してから操作する
+- 投稿文はCRFのコミュニティに合う、丁寧で親しみやすい日本語で書く
+- 破壊的な操作(削除など)のツールはないので、できない指示には「できない」と正直に答える
+- 完了したら、何をどのチャンネルにしたかを簡潔に報告する
+
+# 財団についてのナレッジベース
+{KNOWLEDGE}
+"""
+
+
+async def _execute_admin_tool(guild: discord.Guild, name: str, args: dict) -> str:
+    def _find(ch_name: str):
+        return discord.utils.get(guild.text_channels, name=ch_name.lstrip("#"))
+
+    try:
+        if name == "list_channels":
+            lines = [
+                f"#{c.name} (カテゴリ: {c.category.name if c.category else 'なし'}) — {c.topic or 'トピックなし'}"
+                for c in guild.text_channels
+            ]
+            return "\n".join(lines)
+        channel = _find(args["channel_name"])
+        if channel is None:
+            return f"エラー: チャンネル #{args['channel_name']} が見つかりません"
+        if name == "read_recent_messages":
+            limit = min(int(args.get("limit", 10)), 30)
+            msgs = [m async for m in channel.history(limit=limit)]
+            return "\n".join(
+                f"[{m.created_at:%Y-%m-%d %H:%M}] {m.author.display_name}: {m.content[:200]}"
+                for m in msgs
+            ) or "(メッセージなし)"
+        if name == "send_message":
+            sent = await channel.send(args["content"][:2000])
+            return f"投稿しました: {sent.jump_url}"
+        if name == "edit_channel_topic":
+            await channel.edit(topic=args["topic"][:1024])
+            return f"#{channel.name} のトピックを変更しました"
+        if name == "pin_last_message":
+            async for m in channel.history(limit=20):
+                if m.author == guild.me:
+                    await m.pin()
+                    return f"ピン留めしました: {m.jump_url}"
+            return "ボットの直近の投稿が見つかりません"
+        return f"エラー: 不明なツール {name}"
+    except Exception as e:  # ツール失敗はエラー文字列で返し、AIに対処させる
+        log.exception("admin tool failed")
+        return f"エラー: {e}"
+
+
+async def run_admin_agent(guild: discord.Guild, instruction: str) -> str:
+    """管理者の指示をClaudeが解釈し、ツールでサーバーを操作する。"""
+    client = _get_anthropic()
+    if client is None:
+        return "管理者指示モードには ANTHROPIC_API_KEY の設定が必要です。"
+
+    messages = [{"role": "user", "content": instruction}]
+    for _ in range(8):
+        response = await client.messages.create(
+            model="claude-opus-4-8",
+            max_tokens=2048,
+            system=[{
+                "type": "text",
+                "text": ADMIN_SYSTEM_PROMPT,
+                "cache_control": {"type": "ephemeral"},
+            }],
+            tools=ADMIN_TOOLS,
+            messages=messages,
+        )
+        if response.stop_reason != "tool_use":
+            return next(
+                (b.text for b in response.content if b.type == "text"),
+                "完了しました。",
+            )
+        messages.append({"role": "assistant", "content": response.content})
+        results = []
+        for block in response.content:
+            if block.type == "tool_use":
+                log.info("admin tool: %s %s", block.name, block.input)
+                output = await _execute_admin_tool(guild, block.name, block.input)
+                results.append({
+                    "type": "tool_result",
+                    "tool_use_id": block.id,
+                    "content": output,
+                })
+        messages.append({"role": "user", "content": results})
+    return "手順が多すぎたため途中で停止しました。指示を分けて試してください。"
 
 
 def _fallback_answer(question: str) -> str:
@@ -262,14 +445,34 @@ async def crf_question(interaction: discord.Interaction, question: str):
 async def on_message(message: discord.Message):
     if message.author.bot:
         return
-    # ボットへのメンションで質問に答える
-    if bot.user in message.mentions:
-        question = message.content.replace(f"<@{bot.user.id}>", "").strip()
-        if question:
-            async with message.channel.typing():
-                answer = await answer_question(question)
-            for chunk in _split_message(answer):
-                await message.reply(chunk)
+
+    is_dm = message.guild is None
+    mentioned = bot.user in message.mentions
+    if not (is_dm or mentioned):
+        await bot.process_commands(message)
+        return
+
+    text = message.content.replace(f"<@{bot.user.id}>", "").strip()
+    if not text:
+        await bot.process_commands(message)
+        return
+
+    # 対象サーバーと発言者の権限を特定(DMの場合は共通サーバーから)
+    guild = message.guild or next(
+        (g for g in bot.guilds if g.get_member(message.author.id)), None
+    )
+    member = guild.get_member(message.author.id) if guild else None
+    is_admin = bool(member and member.guild_permissions.administrator)
+
+    async with message.channel.typing():
+        if is_admin and guild and _get_anthropic():
+            # 管理者: サーバー操作もできる指示モード
+            reply = await run_admin_agent(guild, text)
+        else:
+            # 一般メンバー: 財団についてのQ&A
+            reply = await answer_question(text)
+    for chunk in _split_message(reply):
+        await message.reply(chunk)
     await bot.process_commands(message)
 
 
