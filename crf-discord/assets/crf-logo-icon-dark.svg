@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B8CFF"/>
+      <stop offset="100%" stop-color="#3ED6B5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Discordサーバーアイコン用(円形に切り抜かれる前提・ダーク背景) -->
+  <rect width="512" height="512" fill="#171B2B"/>
+  <g fill="none" stroke="url(#g)" stroke-linecap="round">
+    <circle cx="256" cy="256" r="24" fill="url(#g)" stroke="none"/>
+    <path d="M 322 182 A 99 99 0 1 0 322 330" stroke-width="28"/>
+    <path d="M 368 136 A 164 164 0 1 0 368 376" stroke-width="24" opacity="0.65"/>
+    <path d="M 407 97  A 219 219 0 1 0 407 415" stroke-width="20" opacity="0.35"/>
+  </g>
+</svg>

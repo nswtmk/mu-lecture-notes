@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5B6EE8"/>
+      <stop offset="100%" stop-color="#2BB89B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 意識の波紋: 中心の点(観察する意識)から広がる3つの輪。開口部がCの形を描く -->
+  <g fill="none" stroke="url(#g)" stroke-linecap="round">
+    <circle cx="256" cy="256" r="26" fill="url(#g)" stroke="none"/>
+    <path d="M 328 176 A 108 108 0 1 0 328 336" stroke-width="30"/>
+    <path d="M 380 124 A 182 182 0 1 0 380 388" stroke-width="26" opacity="0.62"/>
+    <path d="M 425 79  A 246 246 0 1 0 425 433" stroke-width="22" opacity="0.32"/>
+  </g>
+</svg>
