@@ -106,12 +106,8 @@ def _channel_overwrites(guild: discord.Guild, kind: str):
     }
 
 
-@bot.tree.command(name="crf-setup", description="CRFサーバーの構造(チャンネル・ルール)を構築します(管理者のみ)")
-@app_commands.checks.has_permissions(administrator=True)
-async def crf_setup(interaction: discord.Interaction):
-    guild = interaction.guild
-    await interaction.response.defer(ephemeral=True, thinking=True)
-
+async def run_setup(guild: discord.Guild) -> list[str]:
+    """サーバー構造を構築する。何度実行しても安全(冪等)。"""
     created = []
     for category_name, channels in SERVER_STRUCTURE:
         category = discord.utils.get(guild.categories, name=category_name)
@@ -163,11 +159,30 @@ async def crf_setup(interaction: discord.Interaction):
         except discord.Forbidden:
             log.warning("Memberロールを削除できません。ボットのロールをMemberより上にしてください。")
 
+    return created
+
+
+@bot.tree.command(name="crf-setup", description="CRFサーバーの構造(チャンネル・ルール)を構築します(管理者のみ)")
+@app_commands.checks.has_permissions(administrator=True)
+async def crf_setup(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True, thinking=True)
+    created = await run_setup(interaction.guild)
     await interaction.followup.send(
         f"セットアップ完了 ✅ 新規作成チャンネル: "
         f"{', '.join(created) if created else 'なし(既存を更新)'}",
         ephemeral=True,
     )
+
+
+@bot.event
+async def on_ready():
+    log.info("Logged in as %s (%s)", bot.user, bot.user.id)
+    # CRF_AUTO_SETUP=1 のときは、起動しただけで全サーバーにセットアップを実行
+    if os.environ.get("CRF_AUTO_SETUP") == "1":
+        for guild in bot.guilds:
+            log.info("Auto setup: %s", guild.name)
+            created = await run_setup(guild)
+            log.info("Auto setup done for %s (created: %s)", guild.name, created or "none")
 
 
 # ---------------------------------------------------------------------------
