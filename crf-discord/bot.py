@@ -57,6 +57,7 @@ SERVER_STRUCTURE = [
     ]),
     ("OFFICE", [
         ("office", "事務関係。財務情報・定款・理事の情報などを公開", "readonly"),
+        ("applications", "入場申請の審査(運営専用)", "staff"),
     ]),
 ]
 
@@ -95,32 +96,102 @@ class OnboardingModal(discord.ui.Modal, title="CRF 入場アンケート"):
 
     async def on_submit(self, interaction: discord.Interaction):
         guild = interaction.guild
-        role = discord.utils.get(guild.roles, name=MEMBER_ROLE)
-        if role is None:
+        apps_ch = discord.utils.get(guild.text_channels, name="applications")
+        if apps_ch is None:
             await interaction.response.send_message(
                 "セットアップが完了していません。管理者に連絡してください。", ephemeral=True
             )
             return
 
-        await interaction.user.add_roles(role, reason="入場アンケートに回答")
+        # 申請を運営チャンネルに送り、承認待ちにする(即入場はさせない)
+        embed = discord.Embed(
+            title="🕐 入場申請(承認待ち)",
+            color=discord.Color.orange(),
+        )
+        embed.add_field(name="申請者", value=interaction.user.mention, inline=False)
+        embed.add_field(name="紹介者", value=str(self.referrer), inline=True)
+        embed.add_field(name="関わるプロジェクト", value=str(self.project), inline=True)
+        if self.intro.value:
+            embed.add_field(name="自己紹介", value=self.intro.value, inline=False)
+        embed.set_footer(text=f"applicant_id:{interaction.user.id}")
+        await apps_ch.send(embed=embed, view=ApprovalView())
+
         await interaction.response.send_message(
-            "ようこそ CRF へ! 🎉 すべてのチャンネルが見えるようになりました。"
-            "まずは #introductions で自己紹介をどうぞ。",
+            "ご回答ありがとうございます!📨\n"
+            "運営が内容を確認し、承認されると入場できます。少々お待ちください。"
+            "承認されるとDMでお知らせします。",
             ephemeral=True,
         )
 
-        intro_ch = discord.utils.get(guild.text_channels, name="introductions")
-        if intro_ch:
-            embed = discord.Embed(
-                title="新しいメンバーが参加しました",
-                color=discord.Color.green(),
+
+class ApprovalView(discord.ui.View):
+    """#applications に届く申請の承認/却下ボタン(永続)。"""
+
+    def __init__(self):
+        super().__init__(timeout=None)
+
+    @staticmethod
+    def _applicant_id(interaction: discord.Interaction) -> int | None:
+        embed = interaction.message.embeds[0] if interaction.message.embeds else None
+        if embed and embed.footer.text and embed.footer.text.startswith("applicant_id:"):
+            return int(embed.footer.text.split(":", 1)[1])
+        return None
+
+    @discord.ui.button(label="承認", style=discord.ButtonStyle.success, emoji="✅",
+                       custom_id="crf:approve")
+    async def approve(self, interaction: discord.Interaction, _button: discord.ui.Button):
+        if not interaction.user.guild_permissions.administrator:
+            await interaction.response.send_message("承認は管理者のみ行えます。", ephemeral=True)
+            return
+        applicant_id = self._applicant_id(interaction)
+        member = interaction.guild.get_member(applicant_id) if applicant_id else None
+        if member is None:
+            await interaction.response.send_message(
+                "申請者が見つかりません(すでに退出した可能性があります)。", ephemeral=True
             )
-            embed.add_field(name="メンバー", value=interaction.user.mention, inline=False)
-            embed.add_field(name="紹介者", value=str(self.referrer), inline=True)
-            embed.add_field(name="関わるプロジェクト", value=str(self.project), inline=True)
-            if self.intro.value:
-                embed.add_field(name="自己紹介", value=self.intro.value, inline=False)
-            await intro_ch.send(embed=embed)
+            return
+
+        role = discord.utils.get(interaction.guild.roles, name=MEMBER_ROLE)
+        await member.add_roles(role, reason=f"入場申請を {interaction.user} が承認")
+
+        # 申請メッセージを「承認済み」に更新し、ボタンを無効化
+        embed = interaction.message.embeds[0]
+        embed.title = "✅ 入場申請(承認済み)"
+        embed.colour = discord.Color.green()
+        embed.add_field(name="対応", value=f"{interaction.user.mention} が承認", inline=False)
+        await interaction.response.edit_message(embed=embed, view=None)
+
+        # 本人にDMで通知
+        try:
+            await member.send(
+                f"**{interaction.guild.name}** への入場が承認されました!🎉 "
+                "すべてのチャンネルが見えるようになりました。"
+                "まずは #introductions で自己紹介をどうぞ。"
+            )
+        except discord.Forbidden:
+            pass  # DMを閉じている場合は通知なしでOK
+
+        # 自己紹介チャンネルに掲示
+        intro_ch = discord.utils.get(interaction.guild.text_channels, name="introductions")
+        if intro_ch:
+            intro = discord.Embed(title="新しいメンバーが参加しました", color=discord.Color.green())
+            intro.add_field(name="メンバー", value=member.mention, inline=False)
+            for f in interaction.message.embeds[0].fields:
+                if f.name in ("紹介者", "関わるプロジェクト", "自己紹介"):
+                    intro.add_field(name=f.name, value=f.value, inline=f.name != "自己紹介")
+            await intro_ch.send(embed=intro)
+
+    @discord.ui.button(label="却下", style=discord.ButtonStyle.danger, emoji="🚫",
+                       custom_id="crf:reject")
+    async def reject(self, interaction: discord.Interaction, _button: discord.ui.Button):
+        if not interaction.user.guild_permissions.administrator:
+            await interaction.response.send_message("却下は管理者のみ行えます。", ephemeral=True)
+            return
+        embed = interaction.message.embeds[0]
+        embed.title = "🚫 入場申請(却下)"
+        embed.colour = discord.Color.red()
+        embed.add_field(name="対応", value=f"{interaction.user.mention} が却下", inline=False)
+        await interaction.response.edit_message(embed=embed, view=None)
 
 
 class WelcomeView(discord.ui.View):
@@ -130,7 +201,7 @@ class WelcomeView(discord.ui.View):
         super().__init__(timeout=None)
 
     @discord.ui.button(
-        label="アンケートに回答して入場する",
+        label="アンケートに回答して入場を申請する",
         style=discord.ButtonStyle.primary,
         emoji="📝",
         custom_id="crf:onboarding",
@@ -155,7 +226,8 @@ class CRFBot(commands.Bot):
         super().__init__(command_prefix="!", intents=intents)
 
     async def setup_hook(self):
-        self.add_view(WelcomeView())  # 永続ビューの再登録
+        self.add_view(WelcomeView())    # 永続ビューの再登録
+        self.add_view(ApprovalView())   # 承認/却下ボタンも再起動後に有効化
         await self.tree.sync()
 
 
@@ -176,6 +248,13 @@ def _channel_overwrites(guild: discord.Guild, kind: str, member_role: discord.Ro
         # 未入場者も読める(rules)。
         return {
             everyone: discord.PermissionOverwrite(view_channel=True, send_messages=False),
+            bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
+        }
+    if kind == "staff":
+        # 運営専用(applications)。管理者は権限で見える。一般メンバーには非表示。
+        return {
+            everyone: discord.PermissionOverwrite(view_channel=False),
+            member_role: discord.PermissionOverwrite(view_channel=False),
             bot_member: discord.PermissionOverwrite(view_channel=True, send_messages=True),
         }
     if kind == "readonly":
@@ -236,9 +315,9 @@ async def crf_setup(interaction: discord.Interaction):
             description=(
                 "このサーバーは意識研究財団の関係者がどなたでも参加できるサーバーです。\n\n"
                 "下のボタンから **紹介者** と **関わるプロジェクト** についての"
-                "アンケートに回答すると入場できます。\n\n"
-                "フォームでの入場が難しい場合は、管理者が `/admit` コマンドで"
-                "直接入場を承認することもできます。"
+                "アンケートにご回答ください。\n\n"
+                "運営が内容を確認し、**承認されると入場**できます"
+                "(承認されるとDMでお知らせします)。"
             ),
             color=discord.Color.blurple(),
         )
