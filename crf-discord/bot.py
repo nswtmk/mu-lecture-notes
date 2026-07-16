@@ -251,6 +251,11 @@ async def process_outbox(guild: discord.Guild):
         if channel is None:
             log.warning("outbox %s: チャンネル #%s が見つかりません", path.name, ch_name)
             continue
+        if meta.get("replace") == "bot":
+            # ボット自身の過去の投稿を削除してから貼り直す(訂正用)
+            async for m in channel.history(limit=100):
+                if m.author == guild.me:
+                    await m.delete()
         if meta.get("topic"):
             await channel.edit(topic=meta["topic"][:1024])
         for chunk in _split_message(body.strip()):
