@@ -2,3 +2,4 @@ __pycache__/
 .env
 .venv/
 .outbox_posted.json
+.rules_hash

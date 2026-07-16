@@ -132,13 +132,19 @@ async def run_setup(guild: discord.Guild) -> list[str]:
             else:
                 await channel.edit(category=category, topic=topic, overwrites=overwrites)
 
-    # ルールを掲示(古い投稿はすべて削除し、rules.md の最新内容で貼り直す)
+    # ルールを掲示(rules.md の内容が前回から変わったときだけ、貼り直す)
     rules_ch = discord.utils.get(guild.text_channels, name="rules")
     if rules_ch:
-        await rules_ch.purge(limit=None, reason="ルールを最新版に更新")
-        # Discordの1メッセージ上限(2000字)に合わせて分割投稿
-        for chunk in _split_message(RULES):
-            await rules_ch.send(chunk)
+        import hashlib
+
+        rules_hash = hashlib.sha256(RULES.encode()).hexdigest()
+        hash_file = BASE_DIR / ".rules_hash"
+        if not hash_file.exists() or hash_file.read_text() != rules_hash:
+            await rules_ch.purge(limit=None, reason="ルールを最新版に更新")
+            # Discordの1メッセージ上限(2000字)に合わせて分割投稿
+            for chunk in _split_message(RULES):
+                await rules_ch.send(chunk)
+            hash_file.write_text(rules_hash)
 
     # 旧方式の運営用チャンネルが残っていれば削除
     old_apps = discord.utils.get(guild.text_channels, name="applications")
