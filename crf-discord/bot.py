@@ -53,10 +53,14 @@ SERVER_STRUCTURE = [
         ("research-info", "リサーチ関係の情報共有", "open"),
     ]),
     ("PROJECTS", [
-        ("technology", "テクノロジー・プロジェクト", "open"),
-        ("satoyama", "里山プロジェクト", "open"),
-        ("buddhism", "仏教プロジェクト", "open"),
-        ("forest", "フォレスト(森)プロジェクト — これから注力していく領域", "open"),
+        ("origins", "意識の根源プロジェクト", "open"),
+        ("jomon", "縄文意識(意識-考古学)プロジェクト", "open"),
+        ("satoyama", "意識里山プロジェクト", "open"),
+        ("buddhism", "意識仏教プロジェクト", "open"),
+        ("technology", "意識とテクノロジー・プロジェクト", "open"),
+        ("hard-problem", "ハードプロブレム・プロジェクト", "open"),
+        ("forest", "森(広域北杜の森)プロジェクト — 実験フィールド", "open"),
+        ("kenji", "宮沢賢治読書会 — 毎月開催・『春と修羅』を読み進めています", "open"),
     ]),
     ("CONFERENCE", [
         ("conference", "カンファレンス関係", "open"),
