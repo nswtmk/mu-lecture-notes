@@ -53,14 +53,13 @@ SERVER_STRUCTURE = [
         ("research-info", "リサーチ関係の情報共有", "open"),
     ]),
     ("PROJECTS", [
-        ("origins", "意識の根源プロジェクト", "open"),
-        ("jomon", "縄文意識(意識-考古学)プロジェクト", "open"),
-        ("satoyama", "意識里山プロジェクト", "open"),
+        ("origins-planning", "意識の根源プロジェクト(構想中)", "open"),
+        ("jomon-planning", "実験意識考古学(縄文意識)プロジェクト(構想中)", "open"),
+        ("satoyama", "意識里山プロジェクト — 里山・宮沢賢治読書会・ベルクソン読書会", "open"),
         ("buddhism", "意識仏教プロジェクト", "open"),
         ("technology", "意識とテクノロジー・プロジェクト", "open"),
-        ("hard-problem", "ハードプロブレム・プロジェクト", "open"),
+        ("hard-problem-planning", "ハードプロブレム・プロジェクト(構想中)", "open"),
         ("forest", "森(広域北杜の森)プロジェクト — 実験フィールド", "open"),
-        ("kenji", "宮沢賢治読書会 — 毎月開催・『春と修羅』を読み進めています", "open"),
     ]),
     ("CONFERENCE", [
         ("conference", "カンファレンス関係", "open"),
@@ -69,6 +68,13 @@ SERVER_STRUCTURE = [
         ("office", "事務関係。財務情報・定款・理事の情報などを公開", "readonly"),
     ]),
 ]
+
+# チャンネル名の変更(旧名→新名)。既存チャンネルは削除せず名前を変える
+CHANNEL_RENAMES = {
+    "origins": "origins-planning",
+    "jomon": "jomon-planning",
+    "hard-problem": "hard-problem-planning",
+}
 
 QA_SYSTEM_PROMPT = f"""あなたは意識研究財団(Consciousness Research Foundation / CRF)の \
 Discordサーバーの案内ボット「CRFボット」です。以下のナレッジベースの内容に基づいて、\
@@ -116,6 +122,13 @@ def _channel_overwrites(guild: discord.Guild, kind: str):
 
 async def run_setup(guild: discord.Guild) -> list[str]:
     """サーバー構造を構築する。何度実行しても安全(冪等)。"""
+    # チャンネル名の変更(履歴を保持したままリネーム)
+    for old_name, new_name in CHANNEL_RENAMES.items():
+        old_ch = discord.utils.get(guild.text_channels, name=old_name)
+        if old_ch and discord.utils.get(guild.text_channels, name=new_name) is None:
+            await old_ch.edit(name=new_name)
+            log.info("チャンネル #%s を #%s に改名しました", old_name, new_name)
+
     created = []
     for category_name, channels in SERVER_STRUCTURE:
         category = discord.utils.get(guild.categories, name=category_name)
@@ -150,6 +163,11 @@ async def run_setup(guild: discord.Guild) -> list[str]:
     old_apps = discord.utils.get(guild.text_channels, name="applications")
     if old_apps:
         await old_apps.delete(reason="Discord公式の参加申請に移行したため")
+
+    # kenji チャンネルは意識里山プロジェクト(#satoyama)に集約したため削除
+    old_kenji = discord.utils.get(guild.text_channels, name="kenji")
+    if old_kenji:
+        await old_kenji.delete(reason="読書会を #satoyama に集約したため")
 
     # 歓迎メッセージを掲示(チャンネルが空のときだけ)
     welcome_ch = discord.utils.get(guild.text_channels, name="welcome")
