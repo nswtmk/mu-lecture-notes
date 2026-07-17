@@ -115,3 +115,8 @@ crf-discord/
 ├── requirements.txt   依存パッケージ
 └── .env.example       環境変数のテンプレート
 ```
+
+## 運用TODO
+
+- [ ] **Gmailの差出人エイリアス設定**: nswtmk@gmail.com に info@technel.world を「別のアドレスから送信」として追加し、差出人ドロップダウンで切り替えられるようにする(現状は別ログインが必要)。手順: Gmail設定 → アカウントとインポート → 「他のメールアドレスを追加」→ info@technel.world のSMTP情報で認証。役員向け一斉メールはinfo@technel.worldから送る運用のため
+- [ ] 週次サマリーの自動化(ボットのログ書き出し+定時ルーチン+PDF+メール下書き)。発行曜日・時刻/宛先の最終確認待ち
