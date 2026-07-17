@@ -58,7 +58,7 @@ SERVER_STRUCTURE = [
         ("satoyama", "意識と里山(責任者: 信原幸弘) — 里山・宮沢賢治読書会・ベルクソン読書会", "open"),
         ("origins-planning", "意識の根源探求(責任者: 七沢智樹)(計画中)", "open"),
         ("hard-problem-planning", "意識のハードプロブレム(責任者: 渡邉正峰)(計画中)", "open"),
-        ("jomon-planning", "実験意識考古学(責任者: 田村眞一)(計画中)", "open"),
+        ("jomon-planning", "実験意識考古学(責任者: 未定)(計画中)", "open"),
         ("natural-computation-planning", "自然計算AI(責任者: 未定)(計画中)", "open"),
         ("forest", "森(広域北杜の森)プロジェクト — 実験フィールド", "open"),
     ]),
