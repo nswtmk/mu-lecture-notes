@@ -67,6 +67,7 @@ SERVER_STRUCTURE = [
     ]),
     ("OFFICE", [
         ("office", "事務関係。財務情報・定款・理事の情報などを公開", "readonly"),
+        ("meeting-notes", "ミーティング議事録(Notionへのリンク集約)", "readonly"),
         ("website", "財団Webサイトの検討・リニューアル", "open"),
     ]),
 ]
