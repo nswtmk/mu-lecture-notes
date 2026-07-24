@@ -30,3 +30,88 @@
 
 ## 配信の運用方針（[[project-mu-archive-site]] にも記載）
 未来学は当面VimeoとGoogleサイト両方で配信。移行後はGoogle非対応の法人（コンセント/県庁）のみVimeoを残す。切替は別途指示待ち。
+
+---
+
+# 第6回（若山照彦・クローン技術）— 2026-07-23講義
+
+## 完了済み
+- カット済み動画: `/Users/nanasawatomoki/Claude code/テクノロジーの未来学６_カット済み.mp4`（2:08:13・約588MB。冒頭18:41までカット、末尾の内輪連絡カット。ブレイクアウト無し）
+- AIまとめ: `techfutures-06.html` 生成・push済み → https://nswtmk.github.io/mu-lecture-notes/techfutures-06.html
+- index.html: 第6回リンク追加＋「6件」に更新・push済み
+- 匿名化チェック: 実施済み（drive.google/zoom.us/forms.gle/氏名 すべて検出なし）
+
+## 残タスク
+- Vimeoアップ＋メタデータ（第4回と同じ手順。タイトル案: `テクノロジーの未来学6.生命はどこまでつくり出せるのか──クローン技術の最先端から考える未来`、講師：若山照彦（山梨大学発生工学研究センター 教授・センター長）、プライバシー=プライベート、URL4つを手動ハイパーリンク化）
+- スライドDriveリンク（chat.txtより）: https://drive.google.com/file/d/17vp2IDQvoNrU_QVpJWdSYnJxrbKruWm1/view?usp=sharing
+- Driveアップ＋Googleサイト追加
+- ★第5回のVimeo/Drive/Googleサイトも未完（上記参照）
+
+## 重要な発見（アップロード自動化）
+osascriptのアクセシビリティ権限が**有効になった**（`tell application "System Events" to return count of windows of (first process whose frontmost is true)` が成功）。ネイティブのファイル選択ダイアログを ⌘⇧G で自動操作できる見込み。
+ただし **Bashのpbcopyはクリップボードに届かない**（サンドボックス分離）ため、日本語パスの貼り付けは不可。対策として**ASCII名のシンボリックリンク**を使う:
+- 第5回: `/Users/nanasawatomoki/mirai5_upload.mp4`（作成済み）
+- 第6回も同様に作ること: `ln -sf "/Users/nanasawatomoki/Claude code/テクノロジーの未来学６_カット済み.mp4" /Users/nanasawatomoki/mirai6_upload.mp4`
+手順: Vimeo/Driveのアップロードボタン押下 → osascriptで Brave をactivate → ⌘⇧G → ASCIIパスをkeystroke入力 → Enter → Enter。QuickTimeのダイアログが開いていると干渉するので注意。
+
+## ユーザーからの未回答の質問
+第1〜5回（＋6回）のAIまとめが Fable5 / Opus4.8 どちらで作成されたか、セッションの /model 切替履歴を基に回答すること。第5回途中で claude-fable-5 に切替、第6回はFable5で作成。
+
+---
+
+# 2026-07-24 追記：Vimeo／Googleサイト 完了状況
+
+## Vimeoの置き場所（重要）
+未来学1〜5は **nswtmk側アカウント「Technel 七沢智樹」→ マイライブラリ → フォルダ「mU 2026 テクノロジーの未来学」**（folder/29808559）に入っている。
+チームライブラリ（技哲入門講義19本）とは別なので注意。
+- 第4回 https://vimeo.com/manage/videos/1210712219
+- 第5回 https://vimeo.com/manage/videos/1211584447 ← 2026-07-24 メタデータ設定完了
+- 第6回 https://vimeo.com/manage/videos/1212498181 ← **別アカウント「Technel 七沢智樹（YPU）」チームに存在**。統一するなら要移動。
+
+## Vimeo概要フォーマット（第4回と統一）
+```
+N.タイトル
+
+M/D（曜）19:30–21:30
+
+講師：氏名（所属）
+
+紹介文1〜2文
+
+スライド
+<Drive URL>
+
+AIまとめ
+<github.io URL>
+
+感想フォーム https://forms.gle/agt8Xmt8jRSTV2dw9 質問フォーム https://forms.gle/aymu4tZksEdVs6bE9
+```
+URL4つは毎回**手動でハイパーリンク化**（Vimeo仕様）。
+- 単独行のURL → triple_click で選択 → リンクボタン
+- 行内のURL → Home→Right×(ラベル文字数) → shift+Right×35、または End→shift+Left×35
+- 選択が正しいか `window.getSelection().toString()` で必ず確認してからリンクボタンを押す
+
+## Googleサイト（未公開のまま）
+編集URL: https://sites.google.com/d/1wQSzKRPXTsT-nbgRARxIDKmvpGtSYjLy/p/1XF2Y8L8UV2UP42FR-fQzwpHjC0jQ6Mzg/edit
+- 第5回：既に完成済み（動画・ボタン・リンク）。スライドURLが未リンクだったので2026-07-24にリンク化。
+- 第6回：2026-07-24に動画埋め込み＋AIサマリーボタン＋リンクブロックを追加。**公開はしていない**。
+
+### Googleサイト操作の落とし穴（次回のため）
+1. **Driveピッカーが開かない**（picker iframeが0x0のまま）。代わりに右パネル「埋め込む」→URLタブに
+   `https://drive.google.com/file/d/<ID>/preview` を入れると同じiframeが入る。
+2. 埋め込み直後はサイズが小さいので、右中央ハンドルを x=1057 まで、下中央ハンドルを下へドラッグ。
+   **iframeのoffsetWidth/Heightで検証**すると確実（他の回は 1154x約640）。
+3. **ブロックの「移動」ドラッグは効かない**（リサイズドラッグは効く）。そのためボタンとテキストを
+   横並びにできず、第6回だけボタンの下にリンクブロックが来るレイアウトになっている。
+4. **日本語のtypeがURL直後だと落ちる**（自動リンク化のDOM書き換えに食われる）。
+   URL＋スペースを打った後に2秒待ってから日本語を打つ。長文を一気にtypeするのも不可。
+
+## Driveの動画（すべて nswtmk@gmail.com 所有・フォルダ 1oCkUk-xVwRZB0DyoZwmcg1VbE-P4NngO）
+- 第5回 1LmOfuCSCLXzPB1elrIYY2Zoeng8q6Zk-
+- 第6回 1INmygo41qCVHIQpWzeKGM1EYQ1m-hAGj
+※共有設定は全回オーナーのみ。サイト公開時に受講生がDrive動画を見られるか要確認。
+
+## 残タスク
+- Googleサイトの公開（指示待ち）
+- 第6回Vimeoを nsw 側フォルダへ統一するか判断
+- 第1〜5回のAIまとめが Fable5 / Opus4.8 どちらだったかの回答（第5回途中でFable5に切替、第6回はFable5）
