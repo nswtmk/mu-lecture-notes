@@ -118,5 +118,5 @@ crf-discord/
 
 ## 運用TODO
 
-- [ ] **Gmailの差出人エイリアス設定**: nswtmk@gmail.com に info@technel.world を「別のアドレスから送信」として追加し、差出人ドロップダウンで切り替えられるようにする(現状は別ログインが必要)。手順: Gmail設定 → アカウントとインポート → 「他のメールアドレスを追加」→ info@technel.world のSMTP情報で認証。役員向け一斉メールはinfo@technel.worldから送る運用のため
+- [ ] **Gmailの差出人エイリアス設定**(対応中・方針確定): Gmailコネクタは nswtmk@gmail.com のまま維持し、nswtmk@gmail.com に info@technel.world を「別のアドレスから送信」として追加して、差出人ドロップダウンで切り替える運用にする。手順: ①info@側で2段階認証+アプリパスワード発行(myaccount.google.com/apppasswords) ②nswtmk@のGmail設定 → アカウントとインポート → 「他のメールアドレスを追加」→ info@technel.world ③SMTP: smtp.gmail.com / 587 / ユーザー名 info@technel.world / アプリパスワード ④info@に届く確認メールのリンクをクリック。役員向け一斉メール(週次活動報告含む)はinfo@technel.worldから送る運用のため。ボットの下書き作成はnswtmk@側に行い、送信時にFromをinfo@へ切り替える
 - [ ] 週次サマリーの自動化。運用フロー確定: ①ボットが週次でDiscordログを書き出し ②AIがサマリーPDFを生成 ③**まず七沢さんにプッシュ通知で確認を求める** ④承認後に役員へメール送付(宛先: 役員一斉、送信元: info@technel.world)。発行曜日・時刻は未確定
