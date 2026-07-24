@@ -120,4 +120,4 @@ crf-discord/
 
 - [x] **Gmailの差出人エイリアス設定**(2026-07-24 設定完了): Gmailコネクタは nswtmk@gmail.com のまま維持し、nswtmk@gmail.com に info@technel.world を「別のアドレスから送信」として追加して、差出人ドロップダウンで切り替える運用にする。手順: ①info@側で2段階認証+アプリパスワード発行(myaccount.google.com/apppasswords) ②nswtmk@のGmail設定 → アカウントとインポート → 「他のメールアドレスを追加」→ info@technel.world ③SMTP: smtp.gmail.com / 587 / ユーザー名 info@technel.world / アプリパスワード ④info@に届く確認メールのリンクをクリック。役員向け一斉メール(週次活動報告含む)はinfo@technel.worldから送る運用のため。ボットの下書き作成はnswtmk@側に行い、送信時にFromをinfo@へ切り替える
 - [ ] **info@technel.world の受信転送設定**: エイリアスは送信専用のため、info@宛ての受信(役員メールへの返信など)をnswtmk@でも見られるよう、info@側で転送設定する。手順: info@のGmail設定 → メール転送とPOP/IMAP → 転送先に nswtmk@gmail.com を追加 → nswtmk@に届く確認リンクをクリック → 「受信メールを転送」+「Gmailのメールを受信トレイに残す」を選択して保存
-- [ ] 週次サマリーの自動化。運用フロー確定: ①ボットが週次でDiscordログを書き出し ②AIがサマリーPDFを生成 ③**まず七沢さんにプッシュ通知で確認を求める** ④承認後に役員へメール送付(宛先: 役員一斉、送信元: info@technel.world)。発行曜日・時刻は未確定
+- [ ] 週次サマリーの自動化。運用フロー確定: ①ボットが週次でDiscordログを書き出し ②AIがサマリーを生成(公開HTML: nswtmk/crf リポジトリの discord-report-YYYYMMDD.html としてGitHub Pagesで公開。第1号: discord-report-20260724.html) ③**まず七沢さんにプッシュ通知で確認を求める** ④承認後に役員へメール送付(宛先: 役員一斉、送信元: info@technel.world のエイリアス)。発行曜日・時刻は未確定
