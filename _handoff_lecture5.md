@@ -157,8 +157,8 @@ Agentツールに `model: "fable"` を指定しても、条件によって claud
 ## Fableで作りたい場合の進め方（次回）
 **新規セッションを小さいコンテキストで立ち上げ、`/model claude-fable-5` にしてから**、下記の素材だけを使って書かせる。素材は作成済み：
 
-scratchpad: `/private/tmp/claude-501/-Users-nanasawatomoki-Claude-code/9f5aa8bb-0e4b-4133-a0b4-3450163acfdd/scratchpad/`
-※ /private/tmp はセッション用なので、残す場合は先に別の場所へコピーすること
+素材の保存先: **`/Users/nanasawatomoki/Claude code/mu_lecture6_work/`**（コピー済み）
+※ このリポジトリは公開GitHub Pagesなので、文字起こし全文やブリーフは**絶対にリポジトリ内へ置かないこと**（質疑に受講生の発言が含まれるため）。上記は意図的にリポジトリ外に置いている。
 
 - `f6_brief.md`（49KB）… 講義全体の編集ブリーフ。セクション構成・引用・タイムスタンプ・数字を時系列で整理済み
 - `f6_brief_A.md` / `_B.md` / `_C.md` / `_tail.md`（各5〜9KB）… 上記をFableに渡せるサイズへ4分割したもの
