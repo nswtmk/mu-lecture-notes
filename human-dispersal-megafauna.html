@@ -1,0 +1,475 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人類の拡散と大型動物の絶滅 ― 世界地図で見る「同時性」</title>
+<style>
+  :root{
+    --paper:#F1EADC;
+    --paper-2:#E8DFCC;
+    --card:#FBF6EC;
+    --ink:#262019;
+    --sub:#6E6454;
+    --hair:#DCCFB4;
+    --ocean:#24343B;
+    --ocean-2:#1B282E;
+    --land:#C7B692;
+    --land-line:#A99A72;
+    --africa:#E3C07C;
+    --amber:#E0912E;
+    --amber-deep:#B36C1C;
+    --oxblood:#B23A2E;
+    --oxblood-deep:#8A281E;
+    --survive:#5C7A4A;
+    --shadow:rgba(40,30,15,.16);
+  }
+  :root[data-theme="dark"]{
+    --paper:#15110B;
+    --paper-2:#1E180F;
+    --card:#211A11;
+    --ink:#EFE6D4;
+    --sub:#AB9E86;
+    --hair:#352A1A;
+    --land:#6F6244;
+    --land-line:#8C7B53;
+    --africa:#A98A4E;
+    --amber:#EAA23D;
+    --amber-deep:#C87E24;
+    --oxblood:#D24B3B;
+    --oxblood-deep:#A6362A;
+    --survive:#7D9A66;
+    --shadow:rgba(0,0,0,.5);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#15110B;
+      --paper-2:#1E180F;
+      --card:#211A11;
+      --ink:#EFE6D4;
+      --sub:#AB9E86;
+      --hair:#352A1A;
+      --land:#6F6244;
+      --land-line:#8C7B53;
+      --africa:#A98A4E;
+      --amber:#EAA23D;
+      --amber-deep:#C87E24;
+      --oxblood:#D24B3B;
+      --oxblood-deep:#A6362A;
+      --survive:#7D9A66;
+      --shadow:rgba(0,0,0,.5);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic","Noto Sans JP",-apple-system,sans-serif;
+    font-size:16px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px 90px;}
+
+  /* ---- hero ---- */
+  .hero{padding:64px 0 30px;border-bottom:1px solid var(--hair);}
+  .eyebrow{
+    font-size:11.5px;letter-spacing:.32em;font-weight:700;color:var(--amber-deep);
+    margin:0 0 20px;text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:clamp(28px,5.4vw,46px);font-weight:800;line-height:1.32;letter-spacing:.01em;
+    margin:0 0 18px;text-wrap:balance;
+  }
+  .hero h1 .hl{color:var(--oxblood);}
+  .lede{font-size:clamp(15px,1.7vw,17px);color:var(--sub);max-width:60ch;margin:0;line-height:1.95;}
+  .paperref{
+    margin:22px 0 0;font-size:12.5px;color:var(--sub);line-height:1.7;
+    padding-left:14px;border-left:3px solid var(--amber);
+  }
+  .paperref b{color:var(--ink);font-weight:700;}
+
+  /* ---- section scaffolding ---- */
+  section{margin-top:56px;}
+  .sec-no{font-size:11px;letter-spacing:.24em;font-weight:700;color:var(--amber-deep);display:block;margin-bottom:7px;}
+  h2{font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:.02em;margin:0 0 6px;text-wrap:balance;}
+  .sub{font-size:14px;color:var(--sub);margin:0 0 22px;max-width:62ch;line-height:1.85;}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 16px;font-size:12.5px;color:var(--sub);}
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .swatch{width:15px;height:15px;border-radius:4px;flex:none;}
+  .sw-amber{background:var(--amber);}
+  .sw-ox{background:var(--oxblood);}
+  .sw-surv{background:var(--survive);}
+  .sw-arrow{width:22px;height:0;border-top:3px solid var(--amber);border-radius:2px;position:relative;}
+  .sw-arrow::after{content:"";position:absolute;right:-2px;top:-4px;border:4px solid transparent;border-left-color:var(--amber);}
+
+  /* ---- map ---- */
+  .map-scroll{overflow-x:auto;border-radius:12px;box-shadow:0 2px 18px var(--shadow);border:1px solid var(--hair);}
+  .map-inner{position:relative;min-width:720px;aspect-ratio:1000/560;background:linear-gradient(160deg,var(--ocean) 0%,var(--ocean-2) 100%);}
+  .map-svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+
+  .mk{
+    position:absolute;transform:translate(-50%,-50%);
+    font-size:11px;line-height:1.15;font-weight:700;white-space:nowrap;
+    padding:3px 8px;border-radius:999px;z-index:3;pointer-events:none;
+    box-shadow:0 1px 5px rgba(0,0,0,.28);letter-spacing:.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .mk small{font-weight:600;font-size:9.5px;opacity:.85;letter-spacing:.04em;}
+  .mk .yr{font-size:12.5px;}
+  .mk.arrival{background:var(--amber);color:#23180a;}
+  .mk.ext{background:var(--oxblood);color:#fff;}
+  .mk.surv{background:var(--survive);color:#fff;white-space:normal;max-width:150px;text-align:center;font-size:10.5px;}
+  .mk.name{background:transparent;box-shadow:none;color:#efe7d3;font-size:12.5px;font-weight:800;letter-spacing:.14em;opacity:.72;}
+  .mk.name.dark-land{color:#3a2f18;}
+  .mk.tiny{font-size:10px;padding:2px 6px;}
+
+  .replay{
+    margin:14px 0 0;display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:var(--paper);border:none;border-radius:999px;
+    font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+    padding:8px 16px;cursor:pointer;
+  }
+  .replay:hover{opacity:.88;}
+  .replay:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  /* animation (enhancement only; static without JS / reduced-motion) */
+  body.anim .flow{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.1s ease forwards;animation-delay:var(--d,0s);}
+  body.anim .burst{opacity:0;transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,1.3,.5,1) forwards;animation-delay:var(--d,0s);}
+  body.anim .mk{opacity:0;animation:fade .5s ease forwards;animation-delay:var(--d,0s);}
+  body.anim .mk.name{animation-delay:0s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes pop{0%{opacity:0;transform:scale(.2);}100%{opacity:1;transform:scale(1);}}
+  @keyframes fade{to{opacity:1;}}
+  @media (prefers-reduced-motion:reduce){
+    body.anim .flow,body.anim .burst,body.anim .mk{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important;}
+    .replay{display:none;}
+  }
+
+  /* ---- timeline (panel B) ---- */
+  .tl{margin-top:8px;}
+  .tl-scroll{overflow-x:auto;}
+  .tl-inner{min-width:640px;}
+  .tl-axis{position:relative;height:26px;margin:0 0 4px 118px;border-bottom:1px solid var(--hair);}
+  .tl-tick{position:absolute;top:0;transform:translateX(-50%);font-size:10.5px;color:var(--sub);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .tl-tick::after{content:"";position:absolute;left:50%;top:16px;width:1px;height:9px;background:var(--hair);}
+  .tl-row{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:0;padding:9px 0;border-bottom:1px solid var(--hair);}
+  .tl-row:last-child{border-bottom:none;}
+  .tl-name{font-size:13px;font-weight:700;padding-right:12px;}
+  .tl-name small{display:block;font-size:10.5px;font-weight:600;color:var(--sub);letter-spacing:.02em;}
+  .tl-track{position:relative;height:34px;}
+  .tl-bar{position:absolute;top:50%;height:6px;transform:translateY(-50%);border-radius:3px;
+    background:linear-gradient(90deg,var(--amber),var(--oxblood));opacity:.55;}
+  .tl-bar.long{background:linear-gradient(90deg,var(--amber),var(--amber));opacity:.32;}
+  .tl-bar.africa{background:linear-gradient(90deg,rgba(92,122,74,0) 0%,var(--survive) 88%);opacity:.5;left:0;}
+  .tl-dot{position:absolute;top:50%;width:15px;height:15px;border-radius:50%;transform:translate(-50%,-50%);
+    border:2.5px solid var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.25);z-index:2;}
+  .tl-dot.arr{background:var(--amber);}
+  .tl-dot.ex{background:var(--oxblood);}
+  .tl-dot.now{background:var(--survive);width:13px;height:13px;}
+  .tl-lab{position:absolute;top:50%;transform:translate(-50%,-165%);font-size:10px;font-weight:700;
+    color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;z-index:3;}
+  .tl-lab.ex{color:var(--oxblood-deep);transform:translate(-50%,58%);}
+  .tl-gap{position:absolute;top:50%;transform:translate(-50%,55%);font-size:9.5px;color:var(--sub);white-space:nowrap;}
+  .tl-note{font-size:12px;color:var(--sub);margin:14px 0 0;line-height:1.8;}
+
+  /* ---- loss bars (panel C) ---- */
+  .loss{margin-top:6px;display:flex;flex-direction:column;gap:12px;}
+  .loss-row{display:grid;grid-template-columns:132px 1fr;align-items:center;gap:14px;}
+  .loss-name{font-size:13.5px;font-weight:700;text-align:right;}
+  .loss-name small{display:block;font-size:10.5px;font-weight:600;color:var(--sub);}
+  .loss-track{position:relative;background:var(--paper-2);border-radius:6px;height:30px;overflow:hidden;border:1px solid var(--hair);}
+  .loss-fill{height:100%;border-radius:6px 0 0 6px;display:flex;align-items:center;justify-content:flex-end;
+    padding-right:10px;color:#fff;font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums;
+    min-width:44px;}
+  .loss-fill.s1{background:var(--survive);}
+  .loss-fill.s2{background:#8f8a3e;}
+  .loss-fill.s3{background:var(--amber-deep);}
+  .loss-fill.s4{background:var(--oxblood);}
+  .loss-fill.s5{background:var(--oxblood-deep);}
+  .loss-cap{font-size:12.5px;color:var(--sub);margin:16px 0 0;line-height:1.85;}
+  .loss-cap b{color:var(--ink);}
+
+  /* ---- africa callout ---- */
+  .callout{
+    margin-top:26px;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--survive);
+    border-radius:8px;padding:20px 22px;
+  }
+  .callout h3{margin:0 0 6px;font-size:16px;font-weight:800;color:var(--survive);}
+  .callout p{margin:0;font-size:13.5px;color:var(--sub);line-height:1.9;}
+
+  /* ---- sources ---- */
+  .sources{margin-top:56px;border-top:1px solid var(--hair);padding-top:22px;}
+  .sources h2{font-size:16px;margin-bottom:12px;}
+  .sources ol{margin:0;padding-left:20px;font-size:12.5px;color:var(--sub);line-height:1.8;}
+  .sources li{margin-bottom:8px;}
+  .sources a{color:var(--amber-deep);text-underline-offset:3px;}
+  .caveat{margin-top:18px;font-size:12px;color:var(--sub);background:var(--paper-2);border-radius:6px;padding:14px 16px;line-height:1.85;}
+  a:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Out of Africa × 第四紀の大量絶滅</p>
+    <h1>人類がたどり着いた大陸では、<br>まもなく<span class="hl">大型動物が消えた</span>。</h1>
+    <p class="lede">
+      ホモ・サピエンスがアフリカを出て世界へ広がった時期と、マンモスやオオナマケモノのような大型動物（メガファウナ）が絶滅した時期は、大陸ごとにバラバラの「絶対年代」にもかかわらず、どこでも <b>人類の到達 → その直後に絶滅</b> という同じ順番でそろっていた。この地図は、その一致を一枚で示すものです。
+    </p>
+    <p class="paperref">
+      もとになった代表的研究：<b>Sandom, Faurby, Sandel &amp; Svenning (2014)</b>「Global late Quaternary megafauna extinctions linked to humans, not climate change」<i>Proc. R. Soc. B</i>。世界の大型動物絶滅は気候変動よりも人類の分布拡大とよく一致する、と結論づけた。
+    </p>
+  </header>
+
+  <!-- ============ PANEL A : MAP ============ -->
+  <section>
+    <span class="sec-no">01 ── 世界地図</span>
+    <h2>アフリカから広がる人類、追うように起こる絶滅</h2>
+    <p class="sub">アンバーの矢印＝人類の拡散ルートと到達年代。赤いバースト＝大型動物の絶滅。アフリカだけは大量絶滅が起きず、今も多くの大型動物が生き残っています。</p>
+
+    <div class="legend">
+      <span><i class="sw-arrow"></i>人類の拡散・到達</span>
+      <span><i class="swatch sw-ox"></i>大型動物の絶滅</span>
+      <span><i class="swatch sw-surv"></i>アフリカ＝生存</span>
+    </div>
+
+    <div class="map-scroll">
+      <div class="map-inner" id="mapInner">
+        <svg class="map-svg" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid meet" aria-label="人類の拡散と大型動物の絶滅を示す世界地図">
+          <defs>
+            <marker id="ah" markerWidth="7" markerHeight="7" refX="5" refY="3.2" orient="auto">
+              <path d="M0,0 L6,3.2 L0,6.4 Z" fill="var(--amber)"/>
+            </marker>
+            <radialGradient id="afglow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="var(--africa)"/>
+              <stop offset="100%" stop-color="var(--land)"/>
+            </radialGradient>
+          </defs>
+
+          <!-- ===== land masses ===== -->
+          <g fill="var(--land)" stroke="var(--land-line)" stroke-width="1.4" stroke-linejoin="round">
+            <path d="M42,79 L153,68 L236,59 L306,68 L333,126 L292,169 L275,198 L250,186 L231,212 L269,244 L208,212 L181,183 L156,154 L139,126 L69,102 Z"/>
+            <path d="M286,238 L333,241 L403,290 L394,328 L367,365 L306,426 L297,400 L278,313 L275,270 Z"/>
+            <path d="M389,39 L444,68 L417,97 L375,62 Z"/>
+            <path d="M486,110 L494,112 L492,124 L484,120 Z"/>
+            <path d="M475,147 L500,131 L542,74 L667,62 L917,62 L1000,79 L944,111 L839,154 L833,206 L800,241 L778,261 L722,232 L717,247 L700,220 L694,212 L665,224 L631,241 L620,233 L594,186 L578,160 L561,154 L533,143 Z"/>
+            <path d="M878,160 L888,168 L892,180 L884,178 L874,168 Z"/>
+            <path d="M760,262 L800,272 L822,281 L800,279 L770,270 Z"/>
+            <path d="M885,278 L918,282 L905,293 L872,288 Z"/>
+            <path d="M864,305 L897,302 L925,348 L908,380 L883,371 L819,368 L814,334 L839,319 Z"/>
+            <path d="M636,305 L639,322 L628,342 L622,328 Z"/>
+            <path d="M978,372 L988,388 L982,398 L974,386 Z"/>
+            <path d="M964,406 L975,418 L969,432 L959,420 Z"/>
+          </g>
+          <!-- Africa highlighted -->
+          <path d="M472,169 L528,163 L589,180 L642,238 L611,282 L603,342 L561,368 L536,336 L525,270 L508,253 L456,235 L453,212 Z"
+                fill="url(#afglow)" stroke="var(--africa)" stroke-width="1.8" stroke-linejoin="round"/>
+
+          <!-- ===== migration flows (amber) ===== -->
+          <g fill="none" stroke="var(--amber)" stroke-width="3.4" stroke-linecap="round" marker-end="url(#ah)">
+            <path class="flow" style="--len:190;--d:.15s" d="M600,205 Q548,175 516,146"/>
+            <path class="flow" style="--len:300;--d:.35s" d="M612,208 Q745,158 848,158"/>
+            <path class="flow" style="--len:330;--d:.05s" d="M616,232 Q760,300 856,326"/>
+            <path class="flow" style="--len:900;--d:1.05s" d="M936,104 Q560,20 156,120" stroke-dasharray="2 9"/>
+            <path class="flow" style="--len:230;--d:1.35s" d="M212,214 Q250,262 300,304"/>
+            <path class="flow" style="--len:120;--d:1.75s" d="M590,306 Q616,318 632,320"/>
+            <path class="flow" style="--len:150;--d:2.0s" d="M905,352 Q948,368 972,392"/>
+          </g>
+
+          <!-- ===== extinction bursts (oxblood) ===== -->
+          <g fill="var(--oxblood)">
+            <g class="burst" style="--d:.55s"><circle cx="858" cy="348" r="7"/><path d="M858,332 L861,344 L858,348 L855,344 Z M858,364 L861,352 L858,348 L855,352 Z M842,348 L854,351 L858,348 L854,345 Z M874,348 L862,351 L858,348 L862,345 Z" /></g>
+            <g class="burst" style="--d:1.55s"><circle cx="770" cy="120" r="7"/></g>
+            <g class="burst" style="--d:1.85s"><circle cx="206" cy="158" r="7"/></g>
+            <g class="burst" style="--d:2.1s"><circle cx="352" cy="342" r="7"/></g>
+            <g class="burst" style="--d:2.35s"><circle cx="656" cy="330" r="6"/></g>
+            <g class="burst" style="--d:2.55s"><circle cx="984" cy="410" r="6"/></g>
+          </g>
+          <!-- Africa survivor ring -->
+          <circle class="burst" style="--d:2.7s" cx="548" cy="300" r="10" fill="none" stroke="var(--survive)" stroke-width="3"/>
+        </svg>
+
+        <!-- continent name labels -->
+        <div class="mk name" style="left:20%;top:27%">北アメリカ</div>
+        <div class="mk name" style="left:33.5%;top:58%">南アメリカ</div>
+        <div class="mk name dark-land" style="left:53%;top:44%">アフリカ</div>
+        <div class="mk name dark-land" style="left:65%;top:26%">ユーラシア</div>
+        <div class="mk name" style="left:85.5%;top:60%">オーストラリア</div>
+
+        <!-- arrival pills (amber) -->
+        <div class="mk arrival" style="left:50%;top:23%"><small>ヨーロッパ到達</small> <span class="yr">4.5万年前</span></div>
+        <div class="mk arrival" style="left:85%;top:27%"><small>アジア到達</small> <span class="yr">5–6万年前</span></div>
+        <div class="mk arrival" style="left:85%;top:53%"><small>豪州到達</small> <span class="yr">6.5–5万年前</span></div>
+        <div class="mk arrival" style="left:15.5%;top:19%"><small>北米到達</small> <span class="yr">1.6万年前</span></div>
+        <div class="mk arrival" style="left:29%;top:51%"><small>南米到達</small> <span class="yr">1.45万年前</span></div>
+        <div class="mk arrival tiny" style="left:64.5%;top:66.5%"><small>マダガスカル</small> 1500年前</div>
+        <div class="mk arrival tiny" style="left:92%;top:73%"><small>NZ到達</small> 700年前</div>
+
+        <!-- extinction pills (oxblood) -->
+        <div class="mk ext" style="left:78%;top:16%"><small>ユーラシア絶滅</small> 1.4–1万年前</div>
+        <div class="mk ext" style="left:21%;top:31.5%"><small>北米絶滅</small> 1.3–1.1万年前</div>
+        <div class="mk ext" style="left:35.5%;top:66.5%"><small>南米絶滅</small> 1.2–1万年前</div>
+        <div class="mk ext" style="left:85.8%;top:68.5%"><small>豪州絶滅</small> 4.5万年前</div>
+        <div class="mk ext tiny" style="left:65%;top:61%"><small>絶滅</small> 1000–500年前</div>
+        <div class="mk ext tiny" style="left:91%;top:78.5%"><small>絶滅</small> 600年前</div>
+
+        <!-- africa survivor -->
+        <div class="mk surv" style="left:53%;top:56%">大量絶滅なし。今も生存</div>
+      </div>
+    </div>
+    <button class="replay" id="replayBtn" type="button">▶ 拡散の順番を再生</button>
+  </section>
+
+  <!-- ============ PANEL B : TIMELINE ============ -->
+  <section>
+    <span class="sec-no">02 ── 同時性のタイムライン</span>
+    <h2>絶対年代はバラバラ。でも「到達→絶滅」の順番はどこでも同じ</h2>
+    <p class="sub">横軸は「現在からさかのぼった年数（対数）」。左ほど昔、右ほど最近。各行で <b style="color:var(--amber-deep)">●到達</b> のすぐ後に <b style="color:var(--oxblood-deep)">●絶滅</b> が続きます。オーストラリアは約4.5万年前、ニュージーランドは約600年前 ── 時代は10万倍ちがっても、パターンは変わりません。</p>
+
+    <div class="tl">
+      <div class="tl-scroll">
+        <div class="tl-inner">
+          <div class="tl-axis">
+            <span class="tl-tick" style="left:0%">10万年前</span>
+            <span class="tl-tick" style="left:10%">5万年前</span>
+            <span class="tl-tick" style="left:33.3%">1万年前</span>
+            <span class="tl-tick" style="left:66.7%">1000年前</span>
+            <span class="tl-tick" style="left:100%">現在</span>
+          </div>
+
+          <!-- Australia -->
+          <div class="tl-row">
+            <div class="tl-name">オーストラリア<small>ディプロトドン</small></div>
+            <div class="tl-track">
+              <div class="tl-bar" style="left:6.2%;width:5.4%"></div>
+              <div class="tl-dot arr" style="left:6.2%"></div><div class="tl-lab" style="left:6.2%">到達 6.5万</div>
+              <div class="tl-dot ex" style="left:11.6%"></div><div class="tl-lab ex" style="left:11.6%">絶滅 4.5万</div>
+            </div>
+          </div>
+          <!-- Eurasia -->
+          <div class="tl-row">
+            <div class="tl-name">ユーラシア<small>マンモス・ケサイ</small></div>
+            <div class="tl-track">
+              <div class="tl-bar long" style="left:10%;width:21%"></div>
+              <div class="tl-dot arr" style="left:10%"></div><div class="tl-lab" style="left:10%">到達 5万</div>
+              <div class="tl-dot ex" style="left:31%"></div><div class="tl-lab ex" style="left:31%">絶滅 1.2万</div>
+              <div class="tl-gap" style="left:20%">長い共存 → 一部のみ絶滅</div>
+            </div>
+          </div>
+          <!-- North America -->
+          <div class="tl-row">
+            <div class="tl-name">北アメリカ<small>マンモス・地上ナマケモノ</small></div>
+            <div class="tl-track">
+              <div class="tl-bar" style="left:26.5%;width:5.4%"></div>
+              <div class="tl-dot arr" style="left:26.5%"></div><div class="tl-lab" style="left:26.5%">到達 1.6万</div>
+              <div class="tl-dot ex" style="left:31.9%"></div><div class="tl-lab ex" style="left:31.9%">絶滅 1.2万</div>
+            </div>
+          </div>
+          <!-- South America -->
+          <div class="tl-row">
+            <div class="tl-name">南アメリカ<small>メガテリウム</small></div>
+            <div class="tl-track">
+              <div class="tl-bar" style="left:28%;width:4%"></div>
+              <div class="tl-dot arr" style="left:28%"></div><div class="tl-lab" style="left:28%">到達 1.45万</div>
+              <div class="tl-dot ex" style="left:32%"></div><div class="tl-lab ex" style="left:32%">絶滅 1.1万</div>
+            </div>
+          </div>
+          <!-- Madagascar -->
+          <div class="tl-row">
+            <div class="tl-name">マダガスカル<small>エピオルニス（象鳥）</small></div>
+            <div class="tl-track">
+              <div class="tl-bar" style="left:56.6%;width:10.1%"></div>
+              <div class="tl-dot arr" style="left:56.6%"></div><div class="tl-lab" style="left:56.6%">到達 2000</div>
+              <div class="tl-dot ex" style="left:66.7%"></div><div class="tl-lab ex" style="left:66.7%">絶滅 1000</div>
+            </div>
+          </div>
+          <!-- New Zealand -->
+          <div class="tl-row">
+            <div class="tl-name">ニュージーランド<small>モア</small></div>
+            <div class="tl-track">
+              <div class="tl-bar" style="left:70.8%;width:5.9%"></div>
+              <div class="tl-dot arr" style="left:70.8%"></div><div class="tl-lab" style="left:70.8%">到達 700</div>
+              <div class="tl-dot ex" style="left:76.7%"></div><div class="tl-lab ex" style="left:76.7%">絶滅 600</div>
+            </div>
+          </div>
+          <!-- Africa -->
+          <div class="tl-row">
+            <div class="tl-name" style="color:var(--survive)">アフリカ<small>ゾウ・サイ・キリン</small></div>
+            <div class="tl-track">
+              <div class="tl-bar africa" style="width:100%"></div>
+              <div class="tl-dot now" style="left:99%"></div>
+              <div class="tl-lab" style="left:60%;color:var(--survive)">人類の故郷 ── 最も長く共存し、今も生存 ▶</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="tl-note">※ 年代は研究により幅があるため概数（年前）。ユーラシアとアフリカは人類と長く共存したため、絶滅は段階的で、失われた大型動物も相対的に少なかった。</p>
+  </section>
+
+  <!-- ============ PANEL C : LOSS ============ -->
+  <section>
+    <span class="sec-no">03 ── 共存の長さと絶滅の大きさ</span>
+    <h2>人類と長く暮らした大陸ほど、大型動物は生き残った</h2>
+    <p class="sub">大型哺乳類の「属」のうち絶滅した割合（概数）。人類が新参の捕食者として突然現れた大陸ほど被害が大きく、人類と何万年も共存したアフリカでは最小でした。</p>
+
+    <div class="loss">
+      <div class="loss-row">
+        <div class="loss-name" style="color:var(--survive)">アフリカ<small>ずっと共存</small></div>
+        <div class="loss-track"><div class="loss-fill s1" style="width:21%">約21%</div></div>
+      </div>
+      <div class="loss-row">
+        <div class="loss-name">ユーラシア<small>数万年 共存</small></div>
+        <div class="loss-track"><div class="loss-fill s2" style="width:35%">約35%</div></div>
+      </div>
+      <div class="loss-row">
+        <div class="loss-name">北アメリカ<small>到達後まもなく</small></div>
+        <div class="loss-track"><div class="loss-fill s3" style="width:72%">約72%</div></div>
+      </div>
+      <div class="loss-row">
+        <div class="loss-name">南アメリカ<small>到達後まもなく</small></div>
+        <div class="loss-track"><div class="loss-fill s4" style="width:83%">約83%</div></div>
+      </div>
+      <div class="loss-row">
+        <div class="loss-name">オーストラリア<small>到達後まもなく</small></div>
+        <div class="loss-track"><div class="loss-fill s5" style="width:88%">約88%</div></div>
+      </div>
+    </div>
+    <p class="loss-cap"><b>読み方：</b>アフリカとユーラシアの大型動物は、人類（とその祖先）とともに長い時間をかけて進化したため、人間を警戒するよう適応できた。一方、南北アメリカやオーストラリアの動物は、狩りの技術をもつ人類に「初めて」出会い、逃げ方を知らないまま数千年で姿を消した。（割合は属レベルの概数：Barnosky et al., 2004 ほか）</p>
+
+    <div class="callout">
+      <h3>なぜアフリカだけ生き残ったのか</h3>
+      <p>アフリカは人類の誕生の地。ゾウ・サイ・カバ・キリン・ライオンといった大型動物は、200万年以上にわたって人類やその祖先と一緒に暮らし、少しずつ人間という捕食者に適応してきた。だからこそ、他の大陸のような突然の大量絶滅を免れ、今日まで多くの大型動物が生き残っている ── これが「絶滅の犯人は気候より人類」とする研究の、最も強い状況証拠のひとつです。</p>
+    </div>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="sources">
+    <h2>出典・参考文献</h2>
+    <ol>
+      <li>Sandom, C., Faurby, S., Sandel, B. &amp; Svenning, J-C. (2014). <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2013.3254">Global late Quaternary megafauna extinctions linked to humans, not climate change.</a> <i>Proceedings of the Royal Society B</i>, 281.</li>
+      <li>Barnosky, A. D., Koch, P. L., Feranec, R. S., Wing, S. L. &amp; Shabel, A. B. (2004). Assessing the Causes of Late Pleistocene Extinctions on the Continents. <i>Science</i>, 306. ── 大陸別の絶滅割合の出典。</li>
+      <li>Our World in Data — <a href="https://ourworldindata.org/quaternary-megafauna-extinction">Did humans cause the Quaternary megafauna extinction?</a>（大陸別の人類到達・絶滅年代の整理）</li>
+      <li>Saltré, F. et al. (2016). Climate change not to blame for late Quaternary megafauna extinctions in Australia. <i>Nature Communications</i>. ── 豪州の年代（到達後約数千年で絶滅）。</li>
+    </ol>
+    <p class="caveat">
+      注：各大陸の「到達」「絶滅」年代は研究・手法（放射性炭素年代・遺跡・化石の最終出現年代など）により幅があり、本図は代表的な概数を用いています。絶滅の原因については気候変動の寄与を重視する研究もありますが、複数の大規模研究は「人類の到達タイミングとの一致」を最も一貫した説明としています。教育・講義用に作成した概念図です。
+    </p>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var body=document.body, btn=document.getElementById('replayBtn');
+    function play(){
+      body.classList.remove('anim');
+      // force reflow so the animation restarts
+      void document.getElementById('mapInner').offsetWidth;
+      body.classList.add('anim');
+    }
+    // enhancement only: content is fully visible without this
+    play();
+    if(btn){ btn.addEventListener('click', play); }
+  })();
+</script>
