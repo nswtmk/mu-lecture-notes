@@ -63,6 +63,15 @@
   .check{margin:20px 0;padding:0;list-style:none;}
   .check li{position:relative;padding:0 0 0 34px;margin:16px 0;}
   .check li::before{content:"☐";position:absolute;left:2px;top:0;color:var(--accent);font-size:17px;}
+  .cdlist{margin:26px 0;border:1px solid var(--hairline);border-radius:4px;overflow:hidden;background:#fff;}
+  .cdrow{display:grid;grid-template-columns:44px 1fr;border-top:1px solid var(--hairline);}
+  .cdrow:first-child{border-top:none;}
+  .cdrow .no{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;background:#FAFAF7;border-right:1px solid var(--hairline);}
+  .cdrow .pairtext{padding:9px 16px 10px;}
+  .cdrow .ja{font-size:15px;font-weight:600;line-height:1.7;}
+  .cdrow .ja .c{color:var(--sub);font-weight:400;}
+  .cdrow .en{display:block;font-size:11.5px;color:var(--sub);letter-spacing:.02em;line-height:1.6;margin-top:1px;}
+  .cite{font-size:12.5px;color:var(--sub);margin:10px 0 0;line-height:1.7;}
   .backlink{margin-top:80px;font-size:14px;}
 </style>
 </head>
@@ -82,6 +91,31 @@
 </div>
 
 <main>
+
+<h2><span class="h2-en">C/D LIST</span>C/Dリスト 全19行</h2>
+<p>まず、この資料の中心にあるリストを掲げます。<strong>C</strong>＝いま私たちがデザイン・教育・思考の対象としている現実の記述、<strong>D</strong>＝新しい考え方と実践方法の提案。Cが悪でDが善、ではありません。<strong>19行すべてを使う必要はなく、いま自分が引っかかっている1行を選んで使うための道具</strong>として書かれています。</p>
+<div class="cdlist">
+  <div class="cdrow"><div class="no">01</div><div class="pairtext"><div class="ja"><span class="c">いま、ここ</span> ／ ここでもなく、いまでもない</div><span class="en">Here, Now / Not Here, Not Now</span></div></div>
+  <div class="cdrow"><div class="no">02</div><div class="pairtext"><div class="ja"><span class="c">教義</span> ／ 懐疑</div><span class="en">Dogma / Doubt</span></div></div>
+  <div class="cdrow"><div class="no">03</div><div class="pairtext"><div class="ja"><span class="c">ニューノーマル</span> ／ ポストノーマル</div><span class="en">New Normals / Post Normal</span></div></div>
+  <div class="cdrow"><div class="no">04</div><div class="pairtext"><div class="ja"><span class="c">外挿</span> ／ 並列</div><span class="en">Extrapolation / Parallelism</span></div></div>
+  <div class="cdrow"><div class="no">05</div><div class="pairtext"><div class="ja"><span class="c">既知の未知</span> ／ 未知の未知</div><span class="en">Known Unknowns / Unknown Unknowns</span></div></div>
+  <div class="cdrow"><div class="no">06</div><div class="pairtext"><div class="ja"><span class="c">科学フィクション</span> ／ 哲学フィクション</div><span class="en">Science Fiction / Philosophy Fiction</span></div></div>
+  <div class="cdrow"><div class="no">07</div><div class="pairtext"><div class="ja"><span class="c">現実世界</span> ／ より大きな現実</div><span class="en">Real World / A Larger Reality</span></div></div>
+  <div class="cdrow"><div class="no">08</div><div class="pairtext"><div class="ja"><span class="c">プロトタイプ</span> ／ モデル</div><span class="en">Prototype / Model</span></div></div>
+  <div class="cdrow"><div class="no">09</div><div class="pairtext"><div class="ja"><span class="c">人間中心</span> ／ 人間以上</div><span class="en">Anthropocentric / More than Human</span></div></div>
+  <div class="cdrow"><div class="no">10</div><div class="pairtext"><div class="ja"><span class="c">ニュートン力学</span> ／ 量子力学</div><span class="en">Newtonian Mechanics / Quantum Mechanics</span></div></div>
+  <div class="cdrow"><div class="no">11</div><div class="pairtext"><div class="ja"><span class="c">「もしも〇〇なら」</span> ／ 「〜かのように」</div><span class="en">What if / As if</span></div></div>
+  <div class="cdrow"><div class="no">12</div><div class="pairtext"><div class="ja"><span class="c">別の未来</span> ／ 思弁的存在論</div><span class="en">Alternative Futures / Speculative Ontologies</span></div></div>
+  <div class="cdrow"><div class="no">13</div><div class="pairtext"><div class="ja"><span class="c">多元世界のためのデザイン</span> ／ 多元世界的デザイン</div><span class="en">Design for the Pluriverse / Pluriversal Design</span></div></div>
+  <div class="cdrow"><div class="no">14</div><div class="pairtext"><div class="ja"><span class="c">ユートピア／ディストピア</span> ／ ヘテロトピア</div><span class="en">Utopia / Dystopia / Heterotopia</span></div></div>
+  <div class="cdrow"><div class="no">15</div><div class="pairtext"><div class="ja"><span class="c">AかBか</span> ／ AもBも</div><span class="en">Either / Or / And / Both</span></div></div>
+  <div class="cdrow"><div class="no">16</div><div class="pairtext"><div class="ja"><span class="c">処方箋</span> ／ プロンプト</div><span class="en">Prescription / Prompt</span></div></div>
+  <div class="cdrow"><div class="no">17</div><div class="pairtext"><div class="ja"><span class="c">デザイン理論</span> ／ 理論的デザイン</div><span class="en">Design Theory / Theoretical Design</span></div></div>
+  <div class="cdrow"><div class="no">18</div><div class="pairtext"><div class="ja"><span class="c">技術的理性</span> ／ 宇宙技芸</div><span class="en">Technological Reason / Cosmotechnics</span></div></div>
+  <div class="cdrow"><div class="no">19</div><div class="pairtext"><div class="ja"><span class="c">可能対象</span> ／ 不可能対象</div><span class="en">Possible Objects / Impossible Objects</span></div></div>
+</div>
+<p class="cite">出典：アンソニー・ダン&amp;フィオナ・レイビー『ここでもなく、いまでもない』第9章「C/Dリスト──結論に代えて」pp.298–299（千葉敏生 訳／久保田晃弘 監修, BNN, 2026）。各行の解説と補助線は講義スライドおよび書籍をご覧ください。</p>
 
 <h2><span class="h2-en">ABOUT</span>この資料について</h2>
 <p class="lede">最終課題のステップ3「描く（Not Here）」では、あなたの「つくる」が続いた先の未来像を、<strong>現在からの予測ではなく、ここでもなく今でもない場所から</strong>描くことを求めています。これは第8回講義で扱った、ダン&amp;レイビーの新しい枠組み「C/Dリスト」の考え方そのものです。この資料は、講義スライド（A/B全22行＋C/D全19行を1行1ページで解説したもの）のエッセンスを、課題用に絞り直したものです。</p>
@@ -111,7 +145,7 @@
 <p>その結論として、本の最終章に置かれたのが<strong>C/Dリスト（全19行）</strong>です。Cは「いま私たちがデザイン・教育・思考の対象としている現実の記述」、Dは「本書で探究してきた新しい考え方と実践方法の提案」。ここでもCが悪でDが善、ではありません。</p>
 
 <h2><span class="h2-en">C/D</span>課題で効く行──講義で注目されたものを中心に</h2>
-<p>19行の全文は書籍（と受講生向けに共有している講義スライド）に譲り、ここでは最終課題のステップ3に直接効く行を、講義での解説とともに紹介します。</p>
+<p>冒頭に掲げた19行のうち、最終課題のステップ3に直接効く行を、講義での解説とともに紹介します。各行の詳しい解説と補助線（思想的な出どころ）は講義スライドにあります。</p>
 
 <h3>いま、ここ ／ ここでもなく、いまでもない<span class="rownum">01</span></h3>
 <p>リスト全体の親概念であり、書名そのもの。デザインは通常〈いま・ここ〉の制約を与件として働きますが、その制約をいったん外し、<strong>別の現実に立って日用品を設計する</strong>。逃避ではなく、習慣化した見方を外すための場です。SF作家ル=グウィンの「より大きな現実（A Larger Reality）」──想像や不可能まで含めた現実こそがリアルだ、という態度──がその源流にあります。</p>
@@ -163,14 +197,15 @@
 
 <h2><span class="h2-en">REFERENCES</span>文献・リンク</h2>
 <ul>
-  <li>アンソニー・ダン&amp;フィオナ・レイビー『ここでもなく、いまでもない──スペキュラティヴな思考、不可能性、そしてデザインの想像力について』千葉敏生 訳／久保田晃弘 監修（BNN, 2026）──C/Dリスト全19行は第9章。原著 <em>Not Here, Not Now</em>（The MIT Press, 2025）。</li>
+  <li>アンソニー・ダン&amp;フィオナ・レイビー『ここでもなく、いまでもない──スペキュラティヴな思考、不可能性、そしてデザインの想像力について』千葉敏生 訳／久保田晃弘 監修（BNN, 2026）──C/Dリスト全19行は第9章 pp.298–299。19行それぞれの意味は本書全体を通して展開されています。原著 <em>Not Here, Not Now</em>（The MIT Press, 2025）。</li>
   <li>アンソニー・ダン&amp;フィオナ・レイビー『スペキュラティヴ・デザイン──問題解決から、問題提起へ。』千葉敏生 訳／久保田晃弘 監修（BNN, 2015）──A/Bリスト全22行の原典。原著 <em>Speculative Everything</em>（The MIT Press, 2013）。</li>
   <li>長谷川愛『20XX年の革命家になるには──スペキュラティヴ・デザインの授業』（BNN）──講師によるスペキュラティヴ・デザイン入門。</li>
   <li>講義スライド「A/B・C/D──スペキュラティヴ・デザインの二つのリストを読み直す」──A/B全22行＋C/D全19行を1行1ページで解説。受講生向け案内のリンクからご覧ください。</li>
+  <li><a href="techfutures-kadai.html">最終課題「わたしの『つくる』から始める未来」</a>──この資料が支える課題本体。</li>
   <li><a href="techfutures-08.html">第8回まとめレポート</a>──講義全体の記録。長谷川パートは「2. A/BからC/Dへ」。</li>
 </ul>
 
-<div class="note">本資料は第8回講義のまとめレポートと講義スライドをもとに、最終課題用に再構成したものです。A/B・C/D両リストの全文は著作物のため掲載していません。ぜひ書籍と講義スライドにあたってください。</div>
+<div class="note">本資料は第8回講義のまとめレポートと講義スライドをもとに、最終課題用に再構成したものです。C/Dリストの19行は出典を明記して引用しました。各行の解説・補助線、およびA/Bリスト全22行は講義スライドと書籍をご覧ください。</div>
 
 <p class="backlink"><a href="index.html">← 科目・講義一覧に戻る</a></p>
 
