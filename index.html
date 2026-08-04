@@ -115,6 +115,18 @@
     font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;
     padding:13px 17px;margin:36px 0 0;line-height:1.8;
   }
+  .kadai{
+    margin:18px 0 2px;border:1px solid var(--accent);border-radius:5px;
+    background:#fff;padding:16px 18px 17px;
+  }
+  .kadai .k-label{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:10.5px;font-weight:700;letter-spacing:.16em;
+    padding:3px 9px;border-radius:3px;margin-bottom:9px;
+  }
+  .kadai .k-title{font-size:15.5px;font-weight:700;display:block;margin-bottom:3px;}
+  .kadai .k-desc{font-size:13px;color:var(--sub);line-height:1.8;margin:0 0 12px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
   a{color:var(--accent);text-underline-offset:3px;}
 </style>
 </head>
@@ -136,7 +148,7 @@
 
 <main>
 
-<p class="intro">makers Unlearn（mU）2026の科目と講義の一覧です。各科目をクリックすると講義一覧が開き、開催済みの講義には講義動画から生成したまとめレポート（AIまとめ）へのリンクが付きます。アーカイブ追加に合わせて順次更新されます。</p>
+<p class="intro">makers Unlearn（mU）2026の科目と講義の一覧です。各科目をクリックすると講義一覧が開き、開催済みの講義には講義動画から生成したまとめレポート（AIまとめ）へのリンクが付きます。全回が終了した科目には、最終課題と参考資料も掲載しています。アーカイブ追加に合わせて順次更新されます。</p>
 
 <div class="program-note">
   <b>受講のしくみ</b>：全12科目（オンライン講義8科目＋フィールド講義4科目）から自由に<b>5科目を選択</b>して受講し、各科目の課題提出を完了すると<b>修了認定証</b>が発行されます（Techキャンプは2科目分、AIと社会はⅠ〜Ⅲ合わせて1科目分）。オンライン講義はアーカイブ配信あり（<b>2027年6月末まで視聴可</b>）。受講料はプログラム9万円（税込）／単科1.8万円（税込）〜、U25割・山梨県民割あり。
@@ -200,6 +212,15 @@
           <td><a class="ai-btn" href="techfutures-08.html">AIまとめを読む</a></td>
         </tr>
       </table>
+      </div>
+      <div class="kadai">
+        <span class="k-label">最終課題</span>
+        <span class="k-title">わたしの「つくる」から始める未来</span>
+        <p class="k-desc">遡る（Not Now）→ 向け直す → 描く（Not Here）の3ステップ。形式自由・提出期限なし・再提出可（表彰対象は2027年3月末までの提出分）。</p>
+        <div class="k-links">
+          <a class="ai-btn" href="techfutures-kadai.html">最終課題を見る</a>
+          <a class="ai-btn" href="techfutures-kadai-cd.html">参考資料：A/BからC/Dへ</a>
+        </div>
       </div>
     </div>
   </details>
