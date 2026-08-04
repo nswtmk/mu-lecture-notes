@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>最終課題 参考資料｜A/BからC/Dへ──スペキュラティヴ・デザインを「描く」に使う</title>
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --ink:#17171A;
+    --sub:#5B5B63;
+    --accent:#1130E8;
+    --hairline:#DEDCD3;
+    --black:#0D0D0F;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:72px 24px 60px;}
+  .hero-inner{max-width:720px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 26px;font-weight:600;}
+  .hero h1{font-size:clamp(24px,4.2vw,33px);font-weight:700;letter-spacing:.02em;line-height:1.55;margin:0 0 10px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 36px;}
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 28px;border-top:1px solid #2e2e34;padding-top:22px;font-size:13px;}
+  .meta dt{color:#84848e;font-size:11px;letter-spacing:.14em;margin-bottom:2px;}
+  .meta dd{margin:0;color:#f0f0f4;font-weight:600;}
+  main{max-width:720px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:22px;font-weight:700;letter-spacing:.04em;margin:84px 0 8px;padding-top:26px;border-top:3px solid var(--ink);text-wrap:balance;}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:10px;}
+  h3{font-size:17px;font-weight:700;margin:52px 0 4px;letter-spacing:.02em;}
+  h3 .rownum{font-weight:600;font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.06em;margin-left:10px;}
+  p{margin:14px 0;}
+  .lede{font-size:16.5px;}
+  strong{font-weight:700;}
+  blockquote{margin:34px 0;padding:4px 0 4px 26px;border-left:3px solid var(--accent);font-size:16.5px;font-weight:600;line-height:2.0;}
+  blockquote .attr{display:block;font-size:12.5px;font-weight:400;color:var(--sub);margin-top:8px;}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;}
+  a:hover{text-decoration-thickness:2px;}
+  ul{padding-left:1.4em;margin:14px 0;}
+  li{margin:7px 0;}
+  li::marker{color:var(--accent);}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0;line-height:1.8;}
+  .stages{margin:26px 0;border:1px solid var(--hairline);border-radius:4px;overflow:hidden;}
+  .stage{display:grid;grid-template-columns:64px 1fr;border-top:1px solid var(--hairline);}
+  .stage:first-child{border-top:none;}
+  .stage .tag{display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font-weight:700;font-size:15px;letter-spacing:.05em;}
+  .stage.cd .tag{background:var(--accent);}
+  .stage .body{padding:14px 18px;}
+  .stage .body b{display:block;font-size:15.5px;margin-bottom:2px;}
+  .stage .body span{font-size:13.5px;color:var(--sub);line-height:1.8;display:block;}
+  .steps{margin:20px 0;padding:0;list-style:none;counter-reset:sm;}
+  .steps li{counter-increment:sm;position:relative;padding:0 0 0 46px;margin:22px 0;}
+  .steps li::before{content:counter(sm,decimal-leading-zero);position:absolute;left:0;top:4px;font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .steps b{display:block;font-size:15.5px;margin-bottom:2px;}
+  .steps span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .check{margin:20px 0;padding:0;list-style:none;}
+  .check li{position:relative;padding:0 0 0 34px;margin:16px 0;}
+  .check li::before{content:"☐";position:absolute;left:2px;top:0;color:var(--accent);font-size:17px;}
+  .backlink{margin-top:80px;font-size:14px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">makers Unlearn 2026 ｜ 最終課題 参考資料</p>
+    <h1>A/BからC/Dへ<br>──スペキュラティヴ・デザインを「描く（Not Here）」に使う</h1>
+    <p class="subtitle">最終課題ステップ3のための、第8回講義（長谷川愛パート）復習資料</p>
+    <dl class="meta">
+      <div><dt>科目</dt><dd>テクノロジーの未来学</dd></div>
+      <div><dt>用途</dt><dd>最終課題 ステップ3「描く」</dd></div>
+      <div><dt>参照</dt><dd>第8回講義・講義スライド</dd></div>
+    </dl>
+  </div>
+</div>
+
+<main>
+
+<h2><span class="h2-en">ABOUT</span>この資料について</h2>
+<p class="lede">最終課題のステップ3「描く（Not Here）」では、あなたの「つくる」が続いた先の未来像を、<strong>現在からの予測ではなく、ここでもなく今でもない場所から</strong>描くことを求めています。これは第8回講義で扱った、ダン&amp;レイビーの新しい枠組み「C/Dリスト」の考え方そのものです。この資料は、講義スライド（A/B全22行＋C/D全19行を1行1ページで解説したもの）のエッセンスを、課題用に絞り直したものです。</p>
+<ol class="steps">
+  <li><b>遡る（Not Now）</b><span>自分が「つくって」いるものは何か。名づけを変えると、いつまで遡れるか。どの本能が働いているか。</span></li>
+  <li><b>向け直す（リフレーミング）</b><span>その本能を、創造を止める側から可能にする側へ、群れから惑星のスケールへ。As ifの型で。</span></li>
+  <li><b>描く（Not Here）</b><span>その「つくる」が続いた先の未来像をひとつ。予測ではなくスペキュラティヴに。<strong>← この資料はここで使う</strong></span></li>
+</ol>
+
+<h2><span class="h2-en">A → B → C/D</span>三段のずれ──デザインが疑う対象は、解 → 問い → 現実 と降りてきた</h2>
+<p>まず全体の見取り図から。スペキュラティヴ・デザインの20年は、デザインが「何を疑うか」が二段階ずれてきた歴史として読めます。</p>
+<div class="stages">
+  <div class="stage"><div class="tag">A</div><div class="body"><b>解を問う──肯定的なデザイン</b><span>与えられた課題を、うまく解く。市場・産業・実装のための最適化。20世紀のデザインの標準形。疑うのは「解法」だけで、課題そのものは疑わない。</span></div></div>
+  <div class="stage"><div class="tag">B</div><div class="body"><b>問いを問う──批評的／スペキュラティヴなデザイン</b><span>課題の立て方そのものを、モノを使って揺さぶる。2013年『スペキュラティヴ・デザイン』で定式化された立場。議論が起きることがゴール。</span></div></div>
+  <div class="stage cd"><div class="tag">C/D</div><div class="body"><b>現実そのものを問う──存在論のデザイン</b><span>未来を描く前に〈いま・ここ〉の前提を疑う。可能／不可能、現実／非現実の境界そのものを素材にする。2025年『Not Here, Not Now』の立場。</span></div></div>
+</div>
+<p>大事な注意がひとつ。<strong>後の段階が前を否定するわけではありません。</strong>ダン&amp;レイビー自身、BはAの置き換えではなく「もう一つの次元」だと繰り返しています。三段は積み上がるものであって、C/Dの段に立ったからといってAの仕事が不要になるわけではない。むしろ、<strong>自分がいまどの段で考えているかを自覚できること</strong>のほうが効きます。課題のステップ3で求めているのは、いつもの仕事（AやB）を一度離れて、C/Dの段に立ってみることです。</p>
+
+<h2><span class="h2-en">WHY</span>なぜ「未来」から降りるのか</h2>
+<p>A/Bリスト（2009年に書かれ、『スペキュラティヴ・エヴリシング』2013の冒頭に置かれた22行）から12年。著者たちが新著『ここでもなく、いまでもない』で「未来」という枠組みそのものを手放した理由は、講義スライドでは4つに整理されています。</p>
+<ol class="steps">
+  <li><b>出発点が壊れている</b><span>効率化・最適化・大量生産といった当たり前の前提のうえで未来思考を回すと、想像できる範囲そのものが先に狭められてしまう。第1回で扱った「脱未来化（defuturing）」の論点。フューチャーズコーン（現在から広がる可能性の円錐）は、壊れた現在を起点にしている限り、壊れた未来しか描けない。</span></li>
+  <li><b>未来形は逃げ道になる</b><span>遠い未来に設定するほど「まだ来ていない話」として処理され、批評的な距離が生まれない。未来は〈ここでなく、いまでない〉場所を枠づけるひとつの方法にすぎない。</span></li>
+  <li><b>改善は在り方を温存する</b><span>サステナビリティ関連の多くの提案は、害を減らしながら現在の生き方を続けるためのもの。物質は作り直されても、世界における在り方には手が届いていない。</span></li>
+  <li><b>だから存在論の層へ</b><span>行動・思考の層 → 世界観の層 → その下の存在論の層。何が存在してよく、何が存在しえないか。デザインが滅多に訪れないその層を素材にする。</span></li>
+</ol>
+<p>その結論として、本の最終章に置かれたのが<strong>C/Dリスト（全19行）</strong>です。Cは「いま私たちがデザイン・教育・思考の対象としている現実の記述」、Dは「本書で探究してきた新しい考え方と実践方法の提案」。ここでもCが悪でDが善、ではありません。</p>
+
+<h2><span class="h2-en">C/D</span>課題で効く行──講義で注目されたものを中心に</h2>
+<p>19行の全文は書籍（と受講生向けに共有している講義スライド）に譲り、ここでは最終課題のステップ3に直接効く行を、講義での解説とともに紹介します。</p>
+
+<h3>いま、ここ ／ ここでもなく、いまでもない<span class="rownum">01</span></h3>
+<p>リスト全体の親概念であり、書名そのもの。デザインは通常〈いま・ここ〉の制約を与件として働きますが、その制約をいったん外し、<strong>別の現実に立って日用品を設計する</strong>。逃避ではなく、習慣化した見方を外すための場です。SF作家ル=グウィンの「より大きな現実（A Larger Reality）」──想像や不可能まで含めた現実こそがリアルだ、という態度──がその源流にあります。</p>
+
+<h3>外挿 ／ 並列<span class="rownum">04</span></h3>
+<p>外挿は、いまあるデータや傾向を延長して先を描く方法。未来研究の標準装備ですが、出発点が壊れていれば伸ばした線も壊れています。並列は<strong>時間の先ではなく、同時にありうる別の現実を横に置く</strong>こと。「10年後の私の業界」ではなく「いま同時にありうる、もうひとつの現在」として描くと、「まだ先の話」という逃げ道が塞がります。</p>
+
+<h3>What if ／ As if<span class="rownum">11</span></h3>
+<p>講師陣が最も反応した行。「もしも◯◯なら（What if）」は前提をひとつ変えて何が起きるかを問う構文で、まだ<strong>願っている段階</strong>。「〜かのように（As if）」は真偽を保留したまま、<strong>あたかもその世界に住んでいるかのように振る舞い、その振る舞いのなかで認識のほうを変えていく</strong>。仮定の話から、態度の話へ。長谷川さんはLARP（ライブ・アクション・ロールプレイング）をAs ifのツールとして挙げ、七沢はジャングルでの実践をこれに重ねました。課題のステップ2「As ifの型」も、この行が下敷きです。</p>
+
+<h3>科学フィクション ／ 哲学フィクション<span class="rownum">06</span></h3>
+<p>技術の飛躍から物語を立てる（科学）のではなく、<strong>概念そのものを物語の素材にする</strong>（哲学）。あなたの未来像も「技術予測として正しいか」ではなく「世界の捉え方を変えるか」で考えてください。技術は一切変えず、社会のルールや存在の取り決めだけを動かす思考実験のほうが、たいてい強い違和感をつくれます。</p>
+
+<h3>人間中心 ／ 人間以上<span class="rownum">09</span></h3>
+<p>人間中心設計はデザインの標準教義でしたが、動物・植物・微生物・機械・生態系までを設計の当事者に含める視点。第8回の「群れから惑星へ」「惑星的想像力」と直結します。あなたの未来像に、人間以外は誰がいますか。</p>
+
+<h3>別の未来 ／ 思弁的存在論<span class="rownum">12</span></h3>
+<p>別の未来を描く作業は、結局のところ時間軸上の分岐にとどまります。思弁的存在論はその手前、<strong>「何が存在してよいか」という取り決めのほう</strong>を扱う。原島さんの補足がそのまま使えます──「何が存在して何が存在しないかという境界線そのものを、違うところに引き直せる」。</p>
+
+<h3>ユートピア／ディストピア ／ ヘテロトピア<span class="rownum">14</span></h3>
+<p>ユートピアもディストピアも「ここではない場所」として遠くに置かれるので、安全に消費できてしまう。ヘテロトピア（フーコー）は違います。墓地、庭園、美術館、船──<strong>現実のなかに実在しながら、外の秩序を映し返し、反転させる場所</strong>。デザインが実際に作れるのは、おそらくこちらです。あなたの未来像を「遠くの理想郷」ではなく「現実の中に作れる、別の秩序の場所」として描けないか試してみてください。</p>
+
+<h3>処方箋 ／ プロンプト<span class="rownum">16</span></h3>
+<p>処方箋は診断と治療をセットで渡す。プロンプトは<strong>受け手に続きを書かせる</strong>。あなたの提出物も、完成した答えである必要はありません。読んだ人が考え始めてしまう「最初の一手」として置けているなら、それで成立しています。</p>
+
+<h3>技術的理性 ／ 宇宙技芸<span class="rownum">18</span></h3>
+<p>技術に普遍的な合理性がひとつあるのではなく、技術は各文化の宇宙論と道徳に埋め込まれた複数形である（宇宙技芸＝ユク・ホイ）。ここは<strong>技術哲学（8月17日開講）</strong>で本格的に掘り下げます。</p>
+
+<h3>可能対象 ／ 不可能対象<span class="rownum">19</span></h3>
+<p>最終行。ペンローズの三角形のように、描けるのに存在しえないもの。<strong>作ることで「なぜこれは不可能なのか」が前景化し、問いは自動的に存在論へ向かう</strong>。長谷川さんはここを「テキストからさらに立体化して、生活の中につながっていく途中の具体性こそが、デザインでやることの面白さであり難しさ」と締めくくりました。</p>
+
+<h2><span class="h2-en">HOW TO USE</span>ステップ3で使うための実践ルールとセルフチェック</h2>
+
+<h3>実践ルール──前提は「ひとつだけ」差し替える</h3>
+<p>講義スライドのワークにあった重要なルールです。C/Dの19行からひとつ選び、あなたの「つくる」の前提を<strong>ひとつだけ</strong>差し替えて、その世界を描く。<strong>ふたつ以上動かさないこと。</strong>ふたつ以上動かすと、読む人はどこが変わった世界なのか読めなくなり、ただの絵空事に見えます。差し替えはひとつでいい──そのかわり、その世界の日常の手触り（誰が、どんな場所で、どんな顔でそれをしているか）まで具体的に書く。具体性を上げるほど、問いは強くなります。</p>
+
+<h3>セルフチェック</h3>
+<p>未来像を書き終えたら（あるいは書き出せずに困ったら）、次の5つを自分に問いかけてみてください。</p>
+<ul class="check">
+  <li><strong>外挿になっていないか。</strong>いまのニュースや業界トレンドの延長線なら、それは予測であってスペキュレーションではない。出発点の「壊れた現在」ごと疑えているか。時間の先ではなく「横に並ぶもうひとつの現在」として描き直せないか。</li>
+  <li><strong>What ifで止まっていないか。</strong>「もし◯◯だったら面白い」という願望の記述か、それとも「その世界に住んでいる人」として書けているか。一人称で、その世界の日常の手触りが書けるか試す。</li>
+  <li><strong>人間（それも自分の群れ）だけの未来になっていないか。</strong>他の生き物、他の地域、未来の世代はその絵のどこにいるか。</li>
+  <li><strong>存在の境界線をどこに引いたか。</strong>その未来で「あたりまえに存在するもの」に、いまは存在しないと思われているものが入っているか。</li>
+  <li><strong>「不可能」と決めているのは何か。</strong>技術か、制度か、本能か。その不可能性は、ステップ1〜2で掘り下げた本能とつながっていないか。</li>
+</ul>
+
+<h3>書き出しの型（例）</h3>
+<blockquote>ここでもなく、いまでもないその場所では、わたしの「つくる」は──であるかのように営まれている。<span class="attr">As ifの型による書き出しの一例。この型に従う必要はありません。</span></blockquote>
+
+<h2><span class="h2-en">REFERENCES</span>文献・リンク</h2>
+<ul>
+  <li>アンソニー・ダン&amp;フィオナ・レイビー『ここでもなく、いまでもない──スペキュラティヴな思考、不可能性、そしてデザインの想像力について』千葉敏生 訳／久保田晃弘 監修（BNN, 2026）──C/Dリスト全19行は第9章。原著 <em>Not Here, Not Now</em>（The MIT Press, 2025）。</li>
+  <li>アンソニー・ダン&amp;フィオナ・レイビー『スペキュラティヴ・デザイン──問題解決から、問題提起へ。』千葉敏生 訳／久保田晃弘 監修（BNN, 2015）──A/Bリスト全22行の原典。原著 <em>Speculative Everything</em>（The MIT Press, 2013）。</li>
+  <li>長谷川愛『20XX年の革命家になるには──スペキュラティヴ・デザインの授業』（BNN）──講師によるスペキュラティヴ・デザイン入門。</li>
+  <li>講義スライド「A/B・C/D──スペキュラティヴ・デザインの二つのリストを読み直す」──A/B全22行＋C/D全19行を1行1ページで解説。受講生向け案内のリンクからご覧ください。</li>
+  <li><a href="techfutures-08.html">第8回まとめレポート</a>──講義全体の記録。長谷川パートは「2. A/BからC/Dへ」。</li>
+</ul>
+
+<div class="note">本資料は第8回講義のまとめレポートと講義スライドをもとに、最終課題用に再構成したものです。A/B・C/D両リストの全文は著作物のため掲載していません。ぜひ書籍と講義スライドにあたってください。</div>
+
+<p class="backlink"><a href="index.html">← 科目・講義一覧に戻る</a></p>
+
+</main>
+</body>
+</html>
