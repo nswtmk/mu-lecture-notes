@@ -58,6 +58,20 @@
   .fmt li{position:relative;padding:0 0 0 30px;margin:14px 0;}
   .fmt li::before{content:"▸";position:absolute;left:4px;top:0;color:var(--accent);font-size:13px;}
   .fmt b{display:block;font-size:15.5px;}
+  .submit-box{
+    border:1px solid var(--accent);background:#fff;border-radius:5px;
+    padding:24px 26px 25px;margin:28px 0;
+  }
+  .submit-box b{display:block;font-size:16.5px;margin-bottom:4px;}
+  .submit-box p{font-size:14px;color:var(--sub);line-height:1.85;margin:0 0 16px;}
+  a.form-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    font-size:14.5px;font-weight:700;letter-spacing:.02em;
+    padding:12px 24px;border-radius:5px;
+  }
+  a.form-btn:hover{background:#0B23B8;}
+  a.form-btn .arw{font-size:13px;}
   .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:15px;padding:13px 30px;border-radius:3px;text-decoration:none;margin:8px 0;}
   .cta:hover{background:#0d26bb;}
   .backlink{margin-top:80px;font-size:14px;}
@@ -126,7 +140,11 @@
 <h2><span class="h2-en">SUBMISSION</span>提出について</h2>
 <p><strong>提出期限は設けていません。</strong>ただし表彰の対象となるのは、2027年3月末までにご提出いただいたものです。</p>
 <p><strong>一度出して、あとで考えが深まったら再提出できます。</strong>むしろ推奨します。まず思考がホットなうちに軽く出し、技術哲学・技術史・技術の人類学・デザイン論と進むなかで深まったら、書き直して出し直す——そういう使い方をしてください。</p>
-<p class="hint" style="border-top:none;padding-top:0;">提出方法は、受講生向けのご案内（メール・Discord）に記載したフォームからお願いします。</p>
+<div class="submit-box">
+  <b>提出はこちらのフォームから</b>
+  <p>お名前と提出ファイルをアップロードするだけです。Word・PDF・スライド・動画・画像など形式は問いません（5ファイルまで、1ファイル100MB以内が目安）。アップロードにはGoogleアカウントへのログインが必要です。再提出も同じフォームからどうぞ。</p>
+  <a class="form-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJfFh2bg93lHNRZGR-Zu9wZu2Kb7gNX59Bf5YIkCnNRr5whQ/viewform" target="_blank" rel="noopener">最終課題を提出する<span class="arw">↗</span></a>
+</div>
 
 <h2><span class="h2-en">POINTS</span>取り組むときの視点</h2>
 <p>評価というより、書き終えたあとに自分で確かめるためのものとして挙げておきます。</p>
