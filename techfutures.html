@@ -58,23 +58,12 @@
   .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
   .backlink{margin-top:70px;font-size:14px;}
 
-  .video-frame{
-    position:relative;width:100%;padding-top:56.25%;
-    background:#0D0D0F;border-radius:4px;overflow:hidden;margin:4px 0 12px;
-  }
-  .video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
   .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
-  a.sub-btn{
-    display:inline-block;border:1px solid var(--hairline);background:#fff;color:var(--sub);
-    font-size:12px;font-weight:600;letter-spacing:.03em;padding:6px 15px;border-radius:4px;text-decoration:none;
-  }
-  a.sub-btn:hover{border-color:var(--accent);color:var(--accent);}
   .access{
     border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;
     padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;
   }
   .access b{display:block;font-size:14.5px;margin-bottom:3px;}
-
   .forms-box{
     border:1px solid var(--hairline);background:#fff;border-radius:5px;
     padding:20px 24px 21px;margin:22px 0 0;
@@ -82,15 +71,37 @@
   .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
   .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
   .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
-  .slide-label{
-    display:block;font-size:12px;font-weight:700;letter-spacing:.06em;
-    color:var(--sub);margin:16px 0 5px;
+
+  /* クリックで別ウィンドウを開くカード */
+  .open-card{
+    display:flex;align-items:center;gap:16px;
+    text-decoration:none;border-radius:5px;
+    padding:16px 20px;margin:6px 0 10px;
+    transition:transform .08s ease;
   }
-  .slide-frame{
-    position:relative;width:100%;padding-top:61%;
-    background:#EFEEE8;border:1px solid var(--hairline);border-radius:4px;overflow:hidden;margin:0 0 12px;
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{
+    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;line-height:1;
   }
-  .slide-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;}
+  .card-video .t2{color:#b6b6c0;}
+  .card-video .arrow{color:#fff;}
+
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);}
+  .card-slide .t2{color:var(--sub);}
+  .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -111,8 +122,8 @@
 
 <main>
 
-<p class="intro">全8回の講義アーカイブ動画と、各回のまとめレポート（AIまとめ）をまとめた視聴ページです。この画面でそのまま動画を再生できます。要点とキーワードを添えているので、科目全体を俯瞰したうえで気になる回に進めます。</p>
-<div class="access"><b>視聴にはアクセス権が必要です</b>受講生限定の配信です。動画が再生されない場合は、受講にお使いのGoogleアカウントでブラウザにログインしているかご確認ください。ログイン済みでも再生できない場合は、mU事務局（info@technel.world）までお問い合わせください。</div>
+<p class="intro">全8回の講義アーカイブ動画と、各回のまとめレポート（AIまとめ）をまとめた視聴ページです。動画とスライドはカードをクリックすると別ウィンドウで開きます。要点とキーワードを添えているので、科目全体を俯瞰したうえで気になる回に進めます。</p>
+<div class="access"><b>視聴にはアクセス権が必要です</b>受講生限定の配信です。動画・スライドのカードをクリックすると、Googleドライブが別ウィンドウで開きます。「アクセス権が必要です」と表示される場合は、受講にお使いのGoogleアカウントでログインしているかご確認ください。ログイン済みでも開けない場合は、mU事務局（info@technel.world）までお問い合わせください。</div>
 
 <div class="forms-box">
   <b>感想と質問をお寄せください</b>
@@ -129,116 +140,137 @@
   <div class="lec-head"><span class="lec-no">01</span><span class="lec-date">2026年7月6日（月）</span></div>
   <p class="lec-title">テクノロジーの未来学概論──FUTURES LITERACY〜未来を想像／創造するリテラシー</p>
   <p class="lec-lecturer">松島倫明（山梨県立大学客員教授／『WIRED』日本版 編集長）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1OhoOMiIq5_SRT1v6ufBb_qHfUf8r5mrR/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第1回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1OhoOMiIq5_SRT1v6ufBb_qHfUf8r5mrR/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第1回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">「なぜ僕らは22世紀を想像できないのか」というギブスンの問いから出発。私たちが思い描く未来は、20世紀の西側諸国がつくった「誰かの未来」の再生ではないか。単数形の未来をいったん終わらせる<strong>脱未来化</strong>と、多元的な未来を立ち上げる<strong>再未来化</strong>の2部構成で、科目全体の枠組みが提示された。</p>
-  <span class="slide-label">講義スライド（松島倫明）</span>
-  <div class="slide-frame">
-    <iframe src="https://drive.google.com/file/d/1Uh2VIDb4LPupGvfyl3D6CkIL_WZ75IwL/preview" allowfullscreen loading="lazy" title="講義スライド（松島倫明）"></iframe>
-  </div>
+  <a class="open-card card-slide" href="https://drive.google.com/file/d/1Uh2VIDb4LPupGvfyl3D6CkIL_WZ75IwL/view" target="_blank" rel="noopener">
+    <span class="ic">▤</span>
+    <span class="tx"><span class="t1">講義スライド（松島倫明）</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <div class="kw"><span>脱未来化／再未来化</span><span>複数形の未来</span><span>鉄の馬</span><span>7つの軸・14のキーワード</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-01.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1OhoOMiIq5_SRT1v6ufBb_qHfUf8r5mrR/view">動画を別ウィンドウで開く</a><a class="sub-btn" href="https://drive.google.com/file/d/1Uh2VIDb4LPupGvfyl3D6CkIL_WZ75IwL/view">スライドを別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-01.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">02</span><span class="lec-date">2026年7月9日（木）</span></div>
   <p class="lec-title">AIの進化の先に問われるもの──プロダクト、組織、意思決定の未来学</p>
   <p class="lec-lecturer">梶谷健人（POSTS 代表取締役）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1H6_AC_Gjek5_6MPf47FlSDBOF8IMV9ZA/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第2回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1H6_AC_Gjek5_6MPf47FlSDBOF8IMV9ZA/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第2回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">AIの性能は約7ヶ月ごとに2倍、コストは年に約10分の1。この複利がチャットAIからエージェントAIへの転換を起こし、一人ユニコーン、to AI市場、職種の壁の消失という<strong>ゲームのルールの変更</strong>が進行している。講義は「スキルの希少性から気質の希少性へ」を経て、99.8%の人が持ち歩ける生き方の哲学＝第3の道はあるのか、という実存の問いに至る。</p>
-  <span class="slide-label">講義スライド（梶谷健人）</span>
-  <div class="slide-frame">
-    <iframe src="https://drive.google.com/file/d/1JdOP_IwXifNURmTa-yeHCCY9cjjANvjQ/preview" allowfullscreen loading="lazy" title="講義スライド（梶谷健人）"></iframe>
-  </div>
+  <a class="open-card card-slide" href="https://drive.google.com/file/d/1JdOP_IwXifNURmTa-yeHCCY9cjjANvjQ/view" target="_blank" rel="noopener">
+    <span class="ic">▤</span>
+    <span class="tx"><span class="t1">講義スライド（梶谷健人）</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <div class="kw"><span>エージェントAI</span><span>ビルダー</span><span>入口と出口</span><span>気質の希少性</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-02.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1H6_AC_Gjek5_6MPf47FlSDBOF8IMV9ZA/view">動画を別ウィンドウで開く</a><a class="sub-btn" href="https://drive.google.com/file/d/1JdOP_IwXifNURmTa-yeHCCY9cjjANvjQ/view">スライドを別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-02.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">03</span><span class="lec-date">2026年7月13日（月）</span></div>
   <p class="lec-title">“未来”は中国でつくられるのか──国家と技術、その未来</p>
   <p class="lec-lecturer">高口康太（ジャーナリスト・翻訳家／千葉大学客員教授）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/12jVHkNlI8O2VAisHMZI3ynWLVs0Jr8C9/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第3回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/12jVHkNlI8O2VAisHMZI3ynWLVs0Jr8C9/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第3回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">「中華未来主義」も「デジタル・レーニン主義」も、西洋の欲望がつくった観念上の中国だった。中核テーゼは<strong>「未来を構想しない中国」</strong>——シンギュラリティを語らず足元で稼ぎ、勝ち筋が見えなくても殺到し（ジュガール）、失敗の屍を苗床に次が育つ（腐海のイノベーション）。未来は構想されるのではなく、生成される。</p>
-  <span class="slide-label">講義スライド（高口康太）</span>
-  <div class="slide-frame">
-    <iframe src="https://drive.google.com/file/d/128Qk_z8ilEJ-rHbsIWGDGdcq8mNF4yWX/preview" allowfullscreen loading="lazy" title="講義スライド（高口康太）"></iframe>
-  </div>
+  <a class="open-card card-slide" href="https://drive.google.com/file/d/128Qk_z8ilEJ-rHbsIWGDGdcq8mNF4yWX/view" target="_blank" rel="noopener">
+    <span class="ic">▤</span>
+    <span class="tx"><span class="t1">講義スライド（高口康太）</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <div class="kw"><span>未来を構想しない</span><span>ジュガール</span><span>腐海のイノベーション</span><span>ゆるさ</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-03.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/12jVHkNlI8O2VAisHMZI3ynWLVs0Jr8C9/view">動画を別ウィンドウで開く</a><a class="sub-btn" href="https://drive.google.com/file/d/128Qk_z8ilEJ-rHbsIWGDGdcq8mNF4yWX/view">スライドを別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-03.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">04</span><span class="lec-date">2026年7月16日（木）</span></div>
   <p class="lec-title">分散化の先にあるものは？──ブロックチェーンが築くレジリエンスな社会</p>
   <p class="lec-lecturer">守慎哉（imi共同創業者＆アーティスト）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1MpgjZpRi_NCeMjTGRvqR17zn4YSNbs6r/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第4回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1MpgjZpRi_NCeMjTGRvqR17zn4YSNbs6r/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第4回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">「怪しい」「金儲け」という連想をアンラーンし、ブロックチェーンを<strong>レジリエンスな社会のためのインフラ</strong>として捉え直す。平時には役に立つと感じにくいが、真価はブラックスワンの時にこそ発揮される、永遠に動き続ける恒久インフラ。サイファーパンクからd/acc、Pluralityへと続く思想の系譜と、デジタル・オフグリッドの実践まで。</p>
   <div class="kw"><span>止まらないこと</span><span>デジタル公共財</span><span>Plurality</span><span>デジタル・オフグリッド</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-04.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1MpgjZpRi_NCeMjTGRvqR17zn4YSNbs6r/view">動画を別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-04.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">05</span><span class="lec-date">2026年7月20日（月）</span></div>
   <p class="lec-title">身体はどこまで拡張できるのか──メタバース・BMI・新しい現実</p>
   <p class="lec-lecturer">藤井直敬（デジタルハリウッド大学 学長／神経科学者）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1LmOfuCSCLXzPB1elrIYY2Zoeng8q6Zk-/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第5回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1LmOfuCSCLXzPB1elrIYY2Zoeng8q6Zk-/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第5回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">鍵を握るのは最新の技術ではなく、それを受け止める「変わらない脳」の仕組みのほうだ。脳は未来の予測マシンであり、<strong>全員が異なる現実を生きている</strong>。自由意志は存在しないとしても、現実を疑い、編集し続けるループそのものが主体を立ち上げる——「主体性の再獲得」という結論は、科目全体の問いに直結した。</p>
-  <span class="slide-label">講義スライド（藤井直敬）</span>
-  <div class="slide-frame">
-    <iframe src="https://drive.google.com/file/d/16haqwslthzNURB6xtKqKUJTga6GTYr97/preview" allowfullscreen loading="lazy" title="講義スライド（藤井直敬）"></iframe>
-  </div>
+  <a class="open-card card-slide" href="https://drive.google.com/file/d/16haqwslthzNURB6xtKqKUJTga6GTYr97/view" target="_blank" rel="noopener">
+    <span class="ic">▤</span>
+    <span class="tx"><span class="t1">講義スライド（藤井直敬）</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <div class="kw"><span>予測モデル</span><span>代替現実（SR）</span><span>ブレーキを外す</span><span>意志と責任</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-05.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1LmOfuCSCLXzPB1elrIYY2Zoeng8q6Zk-/view">動画を別ウィンドウで開く</a><a class="sub-btn" href="https://drive.google.com/file/d/16haqwslthzNURB6xtKqKUJTga6GTYr97/view">スライドを別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-05.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">06</span><span class="lec-date">2026年7月23日（木）</span></div>
   <p class="lec-title">生命はどこまでつくり出せるのか──クローン技術の最先端から考える未来</p>
   <p class="lec-lecturer">若山照彦（山梨大学発生工学研究センター 教授・センター長）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1INmygo41qCVHIQpWzeKGM1EYQ1m-hAGj/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第6回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1INmygo41qCVHIQpWzeKGM1EYQ1m-hAGj/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第6回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">副題は「人類は1000年後も繁栄しているのだろうか」。クローン技術と宇宙生殖を掛け合わせ、人類が銀河系へ広がる千年後を本気で扱う。20年・58世代の再クローニング実験は、<strong>有性生殖で遺伝子の50%を切り捨てることこそが不可欠だった</strong>という、自らの過去の論文を否定する結論に到達する。</p>
-  <span class="slide-label">講義スライド（若山照彦）</span>
-  <div class="slide-frame">
-    <iframe src="https://drive.google.com/file/d/17vp2IDQvoNrU_QVpJWdSYnJxrbKruWm1/preview" allowfullscreen loading="lazy" title="講義スライド（若山照彦）"></iframe>
-  </div>
+  <a class="open-card card-slide" href="https://drive.google.com/file/d/17vp2IDQvoNrU_QVpJWdSYnJxrbKruWm1/view" target="_blank" rel="noopener">
+    <span class="ic">▤</span>
+    <span class="tx"><span class="t1">講義スライド（若山照彦）</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <div class="kw"><span>遺伝資源</span><span>1000年後</span><span>時間スケールの反転</span><span>失敗を論文にする</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-06.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1INmygo41qCVHIQpWzeKGM1EYQ1m-hAGj/view">動画を別ウィンドウで開く</a><a class="sub-btn" href="https://drive.google.com/file/d/17vp2IDQvoNrU_QVpJWdSYnJxrbKruWm1/view">スライドを別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-06.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">07</span><span class="lec-date">2026年7月30日（木）</span></div>
   <p class="lec-title">AI and ALIFE──人工生命から考える未来世界</p>
   <p class="lec-lecturer">池上高志（東京大学特任教授／AISAC教授・センター長）</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1Dkfw2k2yVrNYRX2g-BC1MALIsvDeIRWR/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第7回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1Dkfw2k2yVrNYRX2g-BC1MALIsvDeIRWR/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第7回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">人間が頭で描いたストーリーやモデルからではなく、<strong>データそのものが駆動して世界が立ち上がる</strong>方向への転回＝マッシブ・データフロー。科学の自動化、単細胞生物における「集団が先で、個性は後から出てくる」原理を経て、欲望はどこから来るか、なぜノイズが創造性の源なのかまで。</p>
   <div class="kw"><span>マッシブ・データフロー</span><span>欲望</span><span>ノイズ</span><span>生物を見て作ると生物以下</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-07.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1Dkfw2k2yVrNYRX2g-BC1MALIsvDeIRWR/view">動画を別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-07.html">AIまとめを読む</a></div>
 </div>
 
 <div class="lec">
   <div class="lec-head"><span class="lec-no">08</span><span class="lec-date">2026年8月3日（月）</span></div>
   <p class="lec-title">総論──テクノロジーの未来と課題を再考する</p>
   <p class="lec-lecturer">七沢智樹／長谷川愛／原島大輔</p>
-  <div class="video-frame">
-    <iframe src="https://drive.google.com/file/d/1gBE83AM82JmBchbQvvAyTVyLi3myHWMV/preview" allow="autoplay; fullscreen" allowfullscreen loading="lazy" title="第8回 講義アーカイブ動画"></iframe>
-  </div>
+  <a class="open-card card-video" href="https://drive.google.com/file/d/1gBE83AM82JmBchbQvvAyTVyLi3myHWMV/view" target="_blank" rel="noopener">
+    <span class="ic">▶</span>
+    <span class="tx"><span class="t1">第8回 講義アーカイブ動画を見る</span><span class="t2">クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）</span></span>
+    <span class="arrow">↗</span>
+  </a>
   <p class="lec-gist">レクチャーではなく、受講生自身が「未来を、自分の言葉で描き直す」ための総論＋ワーク。長谷川がスペキュラティヴ・デザインのC/Dリストを、七沢が3つの本能（順応主義・宗教性・部族主義）と深い層を提示し、原島がその枠組みに<strong>真っ向から反論</strong>して惑星的想像力を対置する。答えを一つにまとめず、「分からないものを考え続ける」ことを次の科目群へ引き継いで幕を閉じた。</p>
   <div class="kw"><span>C/Dリスト</span><span>3つの本能</span><span>惑星的想像力</span><span>As if</span></div>
-  <div class="lec-links"><a class="ai-btn" href="techfutures-08.html">AIまとめを読む</a><a class="sub-btn" href="https://drive.google.com/file/d/1gBE83AM82JmBchbQvvAyTVyLi3myHWMV/view">動画を別ウィンドウで開く</a></div>
+  <div class="lec-links"><a class="ai-btn" href="techfutures-08.html">AIまとめを読む</a></div>
 </div>
 
 <h2><span class="h2-en">THROUGHLINES</span>全8回を貫いた線</h2>
