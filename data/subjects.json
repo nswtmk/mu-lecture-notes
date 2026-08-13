@@ -1,0 +1,563 @@
+{
+ "site": {
+  "title": "makers Unlearn 2026",
+  "tagline": "AI時代の“つくる”とは？　——　未開の未来へ。",
+  "forms": {
+   "kansou": "https://forms.gle/agt8Xmt8jRSTV2dw9",
+   "shitsumon": "https://forms.gle/aymu4tZksEdVs6bE9"
+  },
+  "contact": "info@technel.world",
+  "official": "https://makers.yamanashi-ken.ac.jp/mu",
+  "peatix": "https://makers-unlearn.peatix.com/",
+  "viewUntil": "2027年6月末"
+ },
+ "steps": [
+  {
+   "no": 1,
+   "title": "未来を見通す",
+   "msg": "第一線で活躍する専門家とともに「未来」と「その背後にあるもの」を学び、“つくる”の未来を見通す"
+  },
+  {
+   "no": 2,
+   "title": "根源へ遡る",
+   "msg": "技術の哲学・歴史・人類学を学び、根源にさかのぼることで、未来を複数化する可能性を掴む"
+  },
+  {
+   "no": 3,
+   "title": "つくるを再定義",
+   "msg": "つくることの意味を問い直し、自分の手で世界に応答する方法を見つける"
+  },
+  {
+   "no": 4,
+   "title": "社会実装",
+   "msg": "構想を社会に接続し、実際に動くものとして立ち上げる"
+  }
+ ],
+ "subjects": [
+  {
+   "lectures": [
+    {
+     "no": 1,
+     "date": "2026年7月6日（月）",
+     "title": "テクノロジーの未来学概論──FUTURES LITERACY〜未来を想像／創造するリテラシー",
+     "lecturer": "松島倫明（山梨県立大学客員教授／『WIRED』日本版 編集長）",
+     "video": "1OhoOMiIq5_SRT1v6ufBb_qHfUf8r5mrR",
+     "slides": [
+      {
+       "id": "1Uh2VIDb4LPupGvfyl3D6CkIL_WZ75IwL",
+       "label": "講義スライド（松島倫明）"
+      }
+     ],
+     "summary": "techfutures-01.html",
+     "gist": "「なぜ僕らは22世紀を想像できないのか」というギブスンの問いから出発。私たちが思い描く未来は、20世紀の西側諸国がつくった「誰かの未来」の再生ではないか。単数形の未来をいったん終わらせる<strong>脱未来化</strong>と、多元的な未来を立ち上げる<strong>再未来化</strong>の2部構成で、科目全体の枠組みが提示された。",
+     "keywords": [
+      "脱未来化／再未来化",
+      "複数形の未来",
+      "鉄の馬",
+      "7つの軸・14のキーワード"
+     ]
+    },
+    {
+     "no": 2,
+     "date": "2026年7月9日（木）",
+     "title": "AIの進化の先に問われるもの──プロダクト、組織、意思決定の未来学",
+     "lecturer": "梶谷健人（POSTS 代表取締役）",
+     "video": "1H6_AC_Gjek5_6MPf47FlSDBOF8IMV9ZA",
+     "slides": [
+      {
+       "id": "1JdOP_IwXifNURmTa-yeHCCY9cjjANvjQ",
+       "label": "講義スライド（梶谷健人）"
+      }
+     ],
+     "summary": "techfutures-02.html",
+     "gist": "AIの性能は約7ヶ月ごとに2倍、コストは年に約10分の1。この複利がチャットAIからエージェントAIへの転換を起こし、一人ユニコーン、to AI市場、職種の壁の消失という<strong>ゲームのルールの変更</strong>が進行している。講義は「スキルの希少性から気質の希少性へ」を経て、99.8%の人が持ち歩ける生き方の哲学＝第3の道はあるのか、という実存の問いに至る。",
+     "keywords": [
+      "エージェントAI",
+      "ビルダー",
+      "入口と出口",
+      "気質の希少性"
+     ]
+    },
+    {
+     "no": 3,
+     "date": "2026年7月13日（月）",
+     "title": "“未来”は中国でつくられるのか──国家と技術、その未来",
+     "lecturer": "高口康太（ジャーナリスト・翻訳家／千葉大学客員教授）",
+     "video": "12jVHkNlI8O2VAisHMZI3ynWLVs0Jr8C9",
+     "slides": [
+      {
+       "id": "128Qk_z8ilEJ-rHbsIWGDGdcq8mNF4yWX",
+       "label": "講義スライド（高口康太）"
+      }
+     ],
+     "summary": "techfutures-03.html",
+     "gist": "「中華未来主義」も「デジタル・レーニン主義」も、西洋の欲望がつくった観念上の中国だった。中核テーゼは<strong>「未来を構想しない中国」</strong>——シンギュラリティを語らず足元で稼ぎ、勝ち筋が見えなくても殺到し（ジュガール）、失敗の屍を苗床に次が育つ（腐海のイノベーション）。未来は構想されるのではなく、生成される。",
+     "keywords": [
+      "未来を構想しない",
+      "ジュガール",
+      "腐海のイノベーション",
+      "ゆるさ"
+     ]
+    },
+    {
+     "no": 4,
+     "date": "2026年7月16日（木）",
+     "title": "分散化の先にあるものは？──ブロックチェーンが築くレジリエンスな社会",
+     "lecturer": "守慎哉（imi共同創業者＆アーティスト）",
+     "video": "1MpgjZpRi_NCeMjTGRvqR17zn4YSNbs6r",
+     "slides": [
+      {
+       "id": "1uhpjSyHhwQeoeWvsMg2SrmTkUazO0Z2q",
+       "label": "講義スライド（守慎哉）"
+      }
+     ],
+     "summary": "techfutures-04.html",
+     "gist": "「怪しい」「金儲け」という連想をアンラーンし、ブロックチェーンを<strong>レジリエンスな社会のためのインフラ</strong>として捉え直す。平時には役に立つと感じにくいが、真価はブラックスワンの時にこそ発揮される、永遠に動き続ける恒久インフラ。サイファーパンクからd/acc、Pluralityへと続く思想の系譜と、デジタル・オフグリッドの実践まで。",
+     "keywords": [
+      "止まらないこと",
+      "デジタル公共財",
+      "Plurality",
+      "デジタル・オフグリッド"
+     ]
+    },
+    {
+     "no": 5,
+     "date": "2026年7月20日（月）",
+     "title": "身体はどこまで拡張できるのか──メタバース・BMI・新しい現実",
+     "lecturer": "藤井直敬（デジタルハリウッド大学 学長／神経科学者）",
+     "video": "1LmOfuCSCLXzPB1elrIYY2Zoeng8q6Zk-",
+     "slides": [
+      {
+       "id": "16haqwslthzNURB6xtKqKUJTga6GTYr97",
+       "label": "講義スライド（藤井直敬）"
+      }
+     ],
+     "summary": "techfutures-05.html",
+     "gist": "鍵を握るのは最新の技術ではなく、それを受け止める「変わらない脳」の仕組みのほうだ。脳は未来の予測マシンであり、<strong>全員が異なる現実を生きている</strong>。自由意志は存在しないとしても、現実を疑い、編集し続けるループそのものが主体を立ち上げる——「主体性の再獲得」という結論は、科目全体の問いに直結した。",
+     "keywords": [
+      "予測モデル",
+      "代替現実（SR）",
+      "ブレーキを外す",
+      "意志と責任"
+     ]
+    },
+    {
+     "no": 6,
+     "date": "2026年7月23日（木）",
+     "title": "生命はどこまでつくり出せるのか──クローン技術の最先端から考える未来",
+     "lecturer": "若山照彦（山梨大学発生工学研究センター 教授・センター長）",
+     "video": "1INmygo41qCVHIQpWzeKGM1EYQ1m-hAGj",
+     "slides": [
+      {
+       "id": "17vp2IDQvoNrU_QVpJWdSYnJxrbKruWm1",
+       "label": "講義スライド（若山照彦）"
+      }
+     ],
+     "summary": "techfutures-06.html",
+     "gist": "副題は「人類は1000年後も繁栄しているのだろうか」。クローン技術と宇宙生殖を掛け合わせ、人類が銀河系へ広がる千年後を本気で扱う。20年・58世代の再クローニング実験は、<strong>有性生殖で遺伝子の50%を切り捨てることこそが不可欠だった</strong>という、自らの過去の論文を否定する結論に到達する。",
+     "keywords": [
+      "遺伝資源",
+      "1000年後",
+      "時間スケールの反転",
+      "失敗を論文にする"
+     ]
+    },
+    {
+     "no": 7,
+     "date": "2026年7月30日（木）",
+     "title": "AI and ALIFE──人工生命から考える未来世界",
+     "lecturer": "池上高志（東京大学特任教授／AISAC教授・センター長）",
+     "video": "1Dkfw2k2yVrNYRX2g-BC1MALIsvDeIRWR",
+     "slides": [
+      {
+       "id": "1TYj4ij51chpKLS6LZUxx7DZpP7xII_4h",
+       "label": "講義スライド（池上高志）"
+      }
+     ],
+     "summary": "techfutures-07.html",
+     "gist": "人間が頭で描いたストーリーやモデルからではなく、<strong>データそのものが駆動して世界が立ち上がる</strong>方向への転回＝マッシブ・データフロー。科学の自動化、単細胞生物における「集団が先で、個性は後から出てくる」原理を経て、欲望はどこから来るか、なぜノイズが創造性の源なのかまで。",
+     "keywords": [
+      "マッシブ・データフロー",
+      "欲望",
+      "ノイズ",
+      "生物を見て作ると生物以下"
+     ]
+    },
+    {
+     "no": 8,
+     "date": "2026年8月3日（月）",
+     "title": "総論──テクノロジーの未来と課題を再考する",
+     "lecturer": "七沢智樹／長谷川愛／原島大輔",
+     "video": "1gBE83AM82JmBchbQvvAyTVyLi3myHWMV",
+     "slides": [
+      {
+       "id": "1_nxWdrsshw7l1C9cRP2xPBTOqnGeCroi",
+       "label": "講義スライド（総論）"
+      }
+     ],
+     "summary": "techfutures-08.html",
+     "gist": "レクチャーではなく、受講生自身が「未来を、自分の言葉で描き直す」ための総論＋ワーク。長谷川がスペキュラティヴ・デザインのC/Dリストを、七沢が3つの本能（順応主義・宗教性・部族主義）と深い層を提示し、原島がその枠組みに<strong>真っ向から反論</strong>して惑星的想像力を対置する。答えを一つにまとめず、「分からないものを考え続ける」ことを次の科目群へ引き継いで幕を閉じた。",
+     "keywords": [
+      "C/Dリスト",
+      "3つの本能",
+      "惑星的想像力",
+      "As if"
+     ]
+    }
+   ],
+   "slug": "techfutures",
+   "icon": "🤖",
+   "name": "テクノロジーの未来学",
+   "step": 1,
+   "mode": "online",
+   "lecturers": "松島倫明／梶谷健人／高口康太／守慎哉／藤井直敬／若山照彦／池上高志／七沢智樹／長谷川愛／原島大輔",
+   "schedule": "2026年7月6日（月）〜8月3日（月）月・木 19:30–21:30",
+   "status": "archived",
+   "count": "全8回・16時間",
+   "period": "2026.7.6—8.3",
+   "desc": "その未来は誰が描いた未来なのか。AI時代の最先端テクノロジーとその未来を専門家とともに俯瞰し、「未来」がどのようにつくられ／刷り込まれ／更新されるかを読み解く全8回。",
+   "peatix": "https://mu2026-1-2.peatix.com/",
+   "assignment": {
+    "title": "わたしの「つくる」から始める未来",
+    "desc": "遡る（Not Now）→ 向け直す → 描く（Not Here）の3ステップ。形式自由・再提出可。提出は2027年3月末まで（修了認定証の対象）。",
+    "page": "techfutures-kadai.html",
+    "material": {
+     "label": "参考資料：A/BからC/Dへ",
+     "url": "techfutures-kadai-cd.html"
+    },
+    "form": "https://docs.google.com/forms/d/e/1FAIpQLSeJfFh2bg93lHNRZGR-Zu9wZu2Kb7gNX59Bf5YIkCnNRr5whQ/viewform"
+   },
+   "throughlines": [
+    {
+     "b": "7回の成果は「前提の剥落」だった",
+     "s": "中国・ブロックチェーン・クローン・AI——それぞれの回で視点の転換が起き、同じ構造（鉄の馬・予測モデル・生物以下）が3度現れた。頭で構想したものからは、構想した以上のものは出てこない。"
+    },
+    {
+     "b": "出発点を変える——Not Here, Not Now",
+     "s": "スペキュラティヴ・デザインは「壊れた現在」から未来を外挿することをやめ、ここでもなく今でもない場所から可能性を考える段階に入った。What if（もしも）から As if（かのように）へ、仮定の話から態度の話へ。"
+    },
+    {
+     "b": "本能は敵ではなく両刃",
+     "s": "順応・宗教・部族は創造を飼いならすと同時に、継承・ビジョン・共同の条件でもある。そしてその下には「つくる」が生まれた深い層（生存の本能）がある。引き算し、遡り、使いこなす。"
+    },
+    {
+     "b": "統計の人類ではなく、生きている一人一人",
+     "s": "一人一人の中に宇宙全体が入っている。その全員が生きていることを丸ごと想像する惑星的想像力にこそ、テクノロジーの未知のポテンシャルがあるかもしれない。"
+    },
+    {
+     "b": "新しい知性（仮）",
+     "s": "本能に頭で抗うのではなく、つくることを通じて世界からの応答を受け取り、そのつど予測モデルを書き換えつづける力。深い層に降りて一周するから、5,000年の反復を組み替えられる。"
+    },
+    {
+     "b": "分からないものを、考え続ける",
+     "s": "最終回は答えではなく、まとまらない3つの視点の重なりで閉じた。続きは最終課題と、技術哲学・技術の人類学・技術史・デザイン論へ。"
+    }
+   ]
+  },
+  {
+   "lectures": [
+    {
+     "no": 1,
+     "date": "2026年7月25日（土）",
+     "title": "AIと社会：今問われるべきテーマ",
+     "lecturer": "茂木健一郎（ソニーCSL シニアリサーチャー／脳科学者）／佐倉統（実践女子大学教授／東京大学名誉教授）",
+     "video": "10QUZmI8FBJybAbG3BAOdeFnZWuuHR1gK",
+     "slides": [],
+     "summary": "aishakai1-01.html",
+     "gist": "AIのスペックや機能の比較だけでは見えてこない「いま問われるべきAIの社会的テーマ」を、脳科学と科学技術社会論の視点から問い直す。",
+     "keywords": [
+      "AIと社会",
+      "脳科学",
+      "科学技術社会論"
+     ]
+    },
+    {
+     "no": 2,
+     "date": "2026年7月25日（土）",
+     "title": "シリコンバレーのAI事情──アライメントは可能か",
+     "lecturer": "大柴行人（起業家）／柳澤田実（関西学院大学神学部准教授）",
+     "video": "1OVLAAqay4LhA0YSb1q9SfTrV9k46c0Zd",
+     "slides": [
+      {
+       "id": "19yCev32y6aU65p3Yzh-6xkEK1ckEea04",
+       "label": "講義スライド①"
+      },
+      {
+       "id": "13y9ywEFFAaD_BHXw8_r9sOzZDe_TUreK",
+       "label": "講義スライド②"
+      }
+     ],
+     "summary": "aishakai1-02.html",
+     "gist": "シリコンバレーの現場から見たAIの現在地と、AIアライメントという課題を、宗教・倫理の視点も交えて検討する。",
+     "keywords": [
+      "アライメント",
+      "シリコンバレー",
+      "宗教と倫理"
+     ]
+    },
+    {
+     "no": 3,
+     "date": "2026年7月25日（土）",
+     "title": "AIと法──制度・リスク設計の最前線",
+     "lecturer": "柳平大樹（スマートガバナンスリサーチャー／法学修士）／七沢智樹・原島大輔・長谷川愛",
+     "video": "1N8BHH3KSRQkYL7xxW_ftSvErxJJblt_b",
+     "slides": [
+      {
+       "id": "1XPHsuRGqieycr78wgjP-XrSXMvVU_ao5",
+       "label": "講義スライド（柳平大樹）"
+      }
+     ],
+     "summary": "aishakai1-03.html",
+     "gist": "AIの法人格・責任・リスク設計をめぐる各国の最前線を法学の視点から整理する。オハイオ「AIは人にあらず」法案、認知の権利など。",
+     "keywords": [
+      "AIと法",
+      "法人格",
+      "リスク設計",
+      "認知の権利"
+     ]
+    },
+    {
+     "no": 4,
+     "date": "2026年7月25日（土）",
+     "title": "ディスカッション──AIが提示する未来を相対化する",
+     "lecturer": "七沢智樹・原島大輔・長谷川愛",
+     "video": "1Qt6OJtl3wlUQ1tjioDZcGS1O-cgOUnBv",
+     "slides": [],
+     "summary": "aishakai1-04.html",
+     "gist": "第1〜3講を踏まえ、AIをどう使い、どんな違和感を抱くか。AIと責任、表現の均質化などを受講者とともに相対化する全体討論。",
+     "keywords": [
+      "相対化",
+      "AIと責任",
+      "表現の均質化"
+     ]
+    }
+   ],
+   "slug": "aishakai1",
+   "icon": "⚖️",
+   "name": "AIと社会Ⅰ",
+   "step": 1,
+   "mode": "online",
+   "lecturers": "茂木健一郎／佐倉統／大柴行人／柳澤田実／柳平大樹／七沢智樹／原島大輔／長谷川愛",
+   "schedule": "2026年7月25日（土）10:00–17:30",
+   "status": "archived",
+   "count": "1day集中・全4講",
+   "period": "2026.7.25",
+   "desc": "AIのスペックや機能の比較だけでは見えてこない「いま問われるべきAIの社会的テーマ」を学ぶ1day集中レクチャーシリーズ。Ⅰでは、AIの社会的問題の“背後”に迫る。",
+   "peatix": "https://mu2026-2.peatix.com/",
+   "assignment": null,
+   "throughlines": [],
+   "extraSummary": {
+    "label": "1day全体のまとめレポート",
+    "url": "aishakai1-00.html"
+   }
+  },
+  {
+   "lectures": [],
+   "slug": "techhistory",
+   "icon": "📜",
+   "name": "技術史",
+   "step": 1,
+   "mode": "online",
+   "lecturers": "七沢智樹／相馬皓介 ほか",
+   "schedule": "2026年9月24日（木）〜10月19日（月）月・木 19:30–21:30",
+   "status": "upcoming",
+   "count": "全8回・16時間",
+   "period": "2026.9.24—10.19",
+   "desc": "700万年にわたる技術の歴史を、「石器からAIへ」という直線的な進歩の物語としてではなく、人間の身体、暮らし、社会、自然との関係を何度も組み替えてきた複雑で多様な営みとして捉え直す。人類学、考古学、民俗学、素材科学、哲学などを横断。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "techphilosophy",
+   "icon": "🧭",
+   "name": "技術哲学",
+   "step": 2,
+   "mode": "online",
+   "lecturers": "七沢智樹 ほか",
+   "schedule": "2026年8月17日（月）〜9月14日（月）月・木 19:30–21:30",
+   "status": "upcoming",
+   "count": "全8回・16時間",
+   "period": "2026.8.17—9.14",
+   "desc": "「つくるとは何か」「技術とは何か」を哲学的に掘り下げる。テクノロジーの未来学で広がった問いを、ボトムから固めていく科目。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "anthropology",
+   "icon": "🗿",
+   "name": "技術の人類学",
+   "step": 2,
+   "mode": "online",
+   "lecturers": "原島大輔 ほか",
+   "schedule": "2026年10月26日（月）〜11月19日（木）月・木 19:30–21:30",
+   "status": "upcoming",
+   "count": "全8回・16時間",
+   "period": "2026.10.26—11.19",
+   "desc": "技術を人間の営みの中に置き直し、人類学の視点から「つくる」を捉え直す。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "designtheory",
+   "icon": "🎛️",
+   "name": "デザイン論概論",
+   "step": 3,
+   "mode": "online",
+   "lecturers": "長谷川愛／七沢智樹 ほか",
+   "schedule": "2026年11月30日（月）〜12月23日（水）月・木（最終回のみ水曜）19:30–21:30",
+   "status": "upcoming",
+   "count": "全8回・16時間",
+   "period": "2026.11.30—12.23",
+   "desc": "スペキュラティヴ・デザインを軸に、デザインが何を問い、何をつくりうるのかを学ぶ。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "aishakai2",
+   "icon": "🤖",
+   "name": "AIと社会Ⅱ",
+   "step": 3,
+   "mode": "online",
+   "lecturers": "七沢智樹 ほか",
+   "schedule": "2026年11月頃の土曜日を予定",
+   "status": "upcoming",
+   "count": "1dayレクチャー",
+   "period": "2026.11 予定",
+   "desc": "AIと社会シリーズの第2弾。※AIと社会Ⅰ〜Ⅲ合わせて1科目分。",
+   "peatix": "https://mu2026-2.peatix.com/",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "making",
+   "icon": "🛠️",
+   "name": "AI時代のものづくり概論",
+   "step": 3,
+   "mode": "online",
+   "lecturers": "山添崇 ほか",
+   "schedule": "2026年12月5日（土）・12日（土）・19日（土）各日10:00–17:15",
+   "status": "upcoming",
+   "count": "土曜3日間集中",
+   "period": "2026.12.5—12.19",
+   "desc": "AI時代における「ものづくり」の全体像を、実践者とともに概観する。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "implementation",
+   "icon": "🏛️",
+   "name": "社会実装",
+   "step": 4,
+   "mode": "online",
+   "lecturers": "林篤志 ほか",
+   "schedule": "2027年1月11日（月）〜2月4日（木）月・木 19:30–21:30",
+   "status": "upcoming",
+   "count": "全8回・16時間",
+   "period": "2027.1.11—2.4",
+   "desc": "構想を社会に接続し、実際に動くものとして立ち上げるための科目。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "aishakai3",
+   "icon": "⚖️",
+   "name": "AIと社会Ⅲ",
+   "step": 4,
+   "mode": "online",
+   "lecturers": "七沢智樹 ほか",
+   "schedule": "2027年1月の土曜日を予定",
+   "status": "upcoming",
+   "count": "1dayセミナー",
+   "period": "2027.1 予定",
+   "desc": "AIと社会シリーズの最終回。※AIと社会Ⅰ〜Ⅲ合わせて1科目分。",
+   "peatix": "https://mu2026-2.peatix.com/",
+   "assignment": null,
+   "throughlines": []
+  },
+  {
+   "lectures": [],
+   "slug": "field-shizen",
+   "icon": "🌿",
+   "name": "自然共生のデザイン実践",
+   "step": 3,
+   "mode": "field",
+   "lecturers": "南部隆一 ほか",
+   "schedule": "2026年9月12日（土）〜9月13日（日）",
+   "status": "upcoming",
+   "count": "1泊2日・16時間",
+   "period": "2026.9.12—9.13",
+   "desc": "自然と共生するデザインを、現地での実践を通して体得する。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": [],
+   "place": "山梨県の研修場"
+  },
+  {
+   "lectures": [],
+   "slug": "field-genshi",
+   "icon": "🔥",
+   "name": "原初技術実践",
+   "step": 2,
+   "mode": "field",
+   "lecturers": "相馬皓介（週末縄文人）",
+   "schedule": "2026年10月10日（土）〜10月11日（日）",
+   "status": "upcoming",
+   "count": "1泊2日・16時間",
+   "period": "2026.10.10—10.11",
+   "desc": "火起こしから道具づくりまで、原初の技術を自分の手で再現する。技術史・技術哲学と対になる実践編。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": [],
+   "place": "山梨県の研修場"
+  },
+  {
+   "lectures": [],
+   "slug": "field-mori",
+   "icon": "🌳",
+   "name": "森で考える",
+   "step": 2,
+   "mode": "field",
+   "lecturers": "原島大輔 ほか",
+   "schedule": "2026年11月14日（土）〜11月15日（日）",
+   "status": "upcoming",
+   "count": "1泊2日・16時間",
+   "period": "2026.11.14—11.15",
+   "desc": "森という場に身を置いて考える。技術の人類学と対になるフィールド講義。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": [],
+   "place": "山梨県の研修場"
+  },
+  {
+   "lectures": [],
+   "slug": "field-techcamp",
+   "icon": "🏕️",
+   "name": "Techキャンプ（西表島）",
+   "step": 2,
+   "mode": "field",
+   "lecturers": "七沢智樹 ほか",
+   "schedule": "2027年3月6日（土）〜3月9日（火）",
+   "status": "upcoming",
+   "count": "3泊4日（2科目分）",
+   "period": "2027.3.6—3.9",
+   "desc": "西表島でのフィールドワーク。プログラムの集大成となる3泊4日。2科目分としてカウントされる。",
+   "peatix": "",
+   "assignment": null,
+   "throughlines": [],
+   "place": "沖縄県・西表島"
+  }
+ ]
+}
