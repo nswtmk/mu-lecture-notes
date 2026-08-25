@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>やさいカウント — 野菜の数・重さ推定</title>
+<style>
+  :root {
+    --bg: #f6f5f0;
+    --card: #ffffff;
+    --ink: #2d3436;
+    --sub: #7a7f85;
+    --accent: #2e7d4f;
+    --accent-soft: #e3f0e8;
+    --warn: #b3541e;
+    --line: #e4e2da;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  header {
+    background: var(--accent);
+    color: #fff;
+    padding: 18px 20px 14px;
+  }
+  header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: .02em; }
+  header p { font-size: .78rem; opacity: .85; margin-top: 2px; }
+  main { max-width: 720px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .card h2 { font-size: .95rem; margin-bottom: 10px; color: var(--accent); }
+  label.field { display: block; font-size: .8rem; color: var(--sub); margin-bottom: 4px; }
+  input[type="password"], input[type="text"], select, input[type="number"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: .9rem;
+    background: #fff;
+    color: var(--ink);
+  }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .row > div { flex: 1 1 180px; }
+  .hint { font-size: .74rem; color: var(--sub); margin-top: 6px; }
+  .hint a { color: var(--accent); }
+
+  .drop {
+    border: 2px dashed var(--line);
+    border-radius: var(--radius);
+    padding: 26px 16px;
+    text-align: center;
+    color: var(--sub);
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .drop.dragover { border-color: var(--accent); background: var(--accent-soft); }
+  .drop strong { color: var(--accent); }
+  #preview { margin-top: 12px; display: none; }
+  #preview img { max-width: 100%; border-radius: 10px; border: 1px solid var(--line); }
+
+  button.primary {
+    width: 100%;
+    padding: 13px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button.primary:disabled { background: #b9c4bd; cursor: not-allowed; }
+  button.ghost {
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: .8rem;
+    color: var(--sub);
+    cursor: pointer;
+  }
+  button.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  #status { font-size: .85rem; color: var(--sub); text-align: center; min-height: 1.4em; }
+  #status.error { color: var(--warn); }
+  .spinner {
+    display: inline-block; width: 14px; height: 14px;
+    border: 2px solid var(--accent-soft); border-top-color: var(--accent);
+    border-radius: 50%; animation: spin .8s linear infinite;
+    vertical-align: -2px; margin-right: 6px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { font-size: .72rem; color: var(--sub); font-weight: 600; white-space: nowrap; }
+  td input { width: 100%; min-width: 46px; padding: 5px 6px; border: 1px solid transparent; border-radius: 6px; font-size: .85rem; background: transparent; }
+  td input:hover, td input:focus { border-color: var(--line); background: #fff; outline: none; }
+  td.num input { text-align: right; }
+  .conf { font-size: .7rem; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+  .conf.high { background: var(--accent-soft); color: var(--accent); }
+  .conf.mid  { background: #fdf3e3; color: #9a7218; }
+  .conf.low  { background: #fbe9e2; color: var(--warn); }
+  .totals { margin-top: 10px; font-size: .9rem; display: flex; gap: 18px; justify-content: flex-end; }
+  .totals b { color: var(--accent); }
+  #resultNote { font-size: .78rem; color: var(--sub); margin-top: 10px; white-space: pre-wrap; }
+  .table-wrap { overflow-x: auto; }
+
+  .hist-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 4px; border-bottom: 1px solid var(--line); font-size: .84rem; gap: 8px;
+  }
+  .hist-item:last-child { border-bottom: none; }
+  .hist-item .meta { color: var(--sub); font-size: .74rem; }
+  .actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  details summary { cursor: pointer; font-size: .85rem; color: var(--sub); }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🥬 やさいカウント</h1>
+  <p>写真から品目・数・重さをAIで推定(プロトタイプ)</p>
+</header>
+
+<main>
+  <!-- 設定 -->
+  <section class="card">
+    <details id="settingsBox" open>
+      <summary>⚙️ 設定(APIキー・モデル)</summary>
+      <div style="margin-top:12px; display:grid; gap:10px;">
+        <div>
+          <label class="field" for="apiKey">Anthropic APIキー</label>
+          <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off">
+          <p class="hint">キーはこの端末のブラウザ(localStorage)にのみ保存され、Anthropic API以外には送信されません。キーは <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a> で発行できます。</p>
+        </div>
+        <div class="row">
+          <div>
+            <label class="field" for="model">モデル</label>
+            <select id="model">
+              <option value="claude-sonnet-5">Sonnet 5(推奨・バランス)</option>
+              <option value="claude-opus-5">Opus 5(高精度)</option>
+              <option value="claude-haiku-4-5-20251001">Haiku 4.5(高速・低コスト)</option>
+            </select>
+          </div>
+          <div>
+            <label class="field" for="refObject">写り込ませた基準物(サイズ推定用)</label>
+            <select id="refObject">
+              <option value="">なし(概算になります)</option>
+              <option value="500円玉(直径26.5mm)">500円玉</option>
+              <option value="名刺(91×55mm)">名刺</option>
+              <option value="A4用紙(297×210mm)">A4用紙</option>
+              <option value="1Lペットボトル(高さ約31cm)">1Lペットボトル</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 撮影・アップロード -->
+  <section class="card">
+    <h2>1. 写真を選ぶ</h2>
+    <div class="drop" id="drop">
+      📷 タップして撮影 / 写真を選択<br>
+      <span style="font-size:.75rem">またはここにドラッグ&ドロップ</span><br>
+      <span style="font-size:.72rem;">コツ:<strong>野菜が重ならないように</strong>広げて、真上から撮ると精度が上がります</span>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" class="hidden">
+    <div id="preview"><img id="previewImg" alt="選択した写真"></div>
+  </section>
+
+  <!-- 実行 -->
+  <section class="card">
+    <h2>2. 解析する</h2>
+    <button class="primary" id="analyzeBtn" disabled>写真を解析</button>
+    <p id="status"></p>
+  </section>
+
+  <!-- 結果 -->
+  <section class="card hidden" id="resultCard">
+    <h2>3. 結果(タップで修正できます)</h2>
+    <div class="table-wrap">
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>品目</th><th>品種・色</th><th>個数</th><th>平均重量(g)</th><th>合計(kg)</th><th>信頼度</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="totals">
+      <span>合計 <b id="totalCount">0</b> 個</span>
+      <span>推定 <b id="totalWeight">0</b> kg</span>
+    </div>
+    <p id="resultNote"></p>
+    <div class="actions">
+      <button class="ghost" id="saveBtn">📒 記録に保存</button>
+      <button class="ghost" id="csvBtn">⬇️ CSVダウンロード</button>
+    </div>
+  </section>
+
+  <!-- 履歴 -->
+  <section class="card">
+    <h2>📒 収穫記録</h2>
+    <div id="history"><p class="hint">まだ記録がありません。</p></div>
+    <div class="actions">
+      <button class="ghost" id="histCsvBtn">⬇️ 全記録をCSV</button>
+      <button class="ghost" id="histClearBtn">🗑 全削除</button>
+    </div>
+  </section>
+</main>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const LS_KEY_API = "vv_api_key";
+const LS_KEY_HIST = "vv_history";
+
+let imageBase64 = null;   // resized JPEG, base64 (no data: prefix)
+let currentResult = null; // parsed result of last analysis
+
+// ---------- settings ----------
+$("apiKey").value = localStorage.getItem(LS_KEY_API) || "";
+$("apiKey").addEventListener("change", () => {
+  localStorage.setItem(LS_KEY_API, $("apiKey").value.trim());
+});
+if ($("apiKey").value) $("settingsBox").open = false;
+
+// ---------- image selection ----------
+const drop = $("drop");
+drop.addEventListener("click", () => $("fileInput").click());
+drop.addEventListener("dragover", (e) => { e.preventDefault(); drop.classList.add("dragover"); });
+drop.addEventListener("dragleave", () => drop.classList.remove("dragover"));
+drop.addEventListener("drop", (e) => {
+  e.preventDefault(); drop.classList.remove("dragover");
+  if (e.dataTransfer.files[0]) loadImage(e.dataTransfer.files[0]);
+});
+$("fileInput").addEventListener("change", (e) => {
+  if (e.target.files[0]) loadImage(e.target.files[0]);
+});
+
+function loadImage(file) {
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      // API向けに長辺1568px以内へ縮小(コスト・速度・精度のバランス)
+      const MAX = 1568;
+      let { width: w, height: h } = img;
+      if (Math.max(w, h) > MAX) {
+        const s = MAX / Math.max(w, h);
+        w = Math.round(w * s); h = Math.round(h * s);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.88);
+      imageBase64 = dataUrl.split(",")[1];
+      $("previewImg").src = dataUrl;
+      $("preview").style.display = "block";
+      $("analyzeBtn").disabled = false;
+      setStatus("");
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ---------- analysis ----------
+function setStatus(msg, isError = false, spinning = false) {
+  $("status").className = isError ? "error" : "";
+  $("status").innerHTML = (spinning ? '<span class="spinner"></span>' : "") + msg;
+}
+
+function buildPrompt() {
+  const ref = $("refObject").value;
+  return `この写真に写っている野菜・果物を解析してください。
+
+タスク:
+1. 品目ごと(品種や色が違うものは別行)に分類する
+2. 見えている個数を数える。積み重なって下が見えない場合は、山の形から総数も推定する
+3. 1個あたりの平均重量(g)と合計重量を推定する
+${ref ? `4. 写真には基準物として「${ref}」が写っています。これを実寸の基準にしてサイズ・重量の精度を上げてください` : "4. 基準物は写っていないため、床材・什器など一般的な物のサイズを手がかりに概算してください"}
+
+以下のJSONのみを出力してください(コードブロックや説明文は不要):
+{
+  "items": [
+    {
+      "label": "品目名(例: カボチャ)",
+      "variety": "品種・色の説明(例: 濃緑・えびす系)",
+      "count_visible": 見えている個数(整数),
+      "count_estimated": 隠れた分を含む推定総数(整数、隠れがなければcount_visibleと同じ),
+      "avg_weight_g": 1個あたり推定重量g(数値),
+      "confidence": "high" | "medium" | "low",
+      "note": "判断根拠やサイズ感を一言"
+    }
+  ],
+  "overall_note": "全体の注意点(オクルージョンの有無、基準物の有無による誤差など)"
+}`;
+}
+
+async function analyze() {
+  const apiKey = $("apiKey").value.trim();
+  if (!apiKey) { setStatus("APIキーを設定してください(上の⚙️設定から)", true); $("settingsBox").open = true; return; }
+  if (!imageBase64) { setStatus("先に写真を選択してください", true); return; }
+
+  $("analyzeBtn").disabled = true;
+  setStatus("解析中…(10〜30秒ほどかかります)", false, true);
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: $("model").value,
+        max_tokens: 2000,
+        messages: [{
+          role: "user",
+          content: [
+            { type: "image", source: { type: "base64", media_type: "image/jpeg", data: imageBase64 } },
+            { type: "text", text: buildPrompt() }
+          ]
+        }]
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      const msg = err?.error?.message || `HTTP ${res.status}`;
+      throw new Error(msg);
+    }
+
+    const data = await res.json();
+    const text = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n");
+    currentResult = parseResult(text);
+    renderResult(currentResult);
+    setStatus("解析が完了しました。数値はタップで修正できます。");
+  } catch (e) {
+    setStatus("エラー: " + e.message, true);
+  } finally {
+    $("analyzeBtn").disabled = false;
+  }
+}
+$("analyzeBtn").addEventListener("click", analyze);
+
+function parseResult(text) {
+  // モデルがコードフェンスや前置きを付けても拾えるように、最初の { から最後の } までを抜き出す
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start === -1 || end === -1) throw new Error("結果のJSONを読み取れませんでした");
+  const obj = JSON.parse(text.slice(start, end + 1));
+  if (!Array.isArray(obj.items)) throw new Error("結果の形式が想定と異なります");
+  return obj;
+}
+
+// ---------- result table ----------
+function renderResult(result) {
+  const tbody = $("resultTable").querySelector("tbody");
+  tbody.innerHTML = "";
+  result.items.forEach((item, i) => {
+    const tr = document.createElement("tr");
+    const confClass = item.confidence === "high" ? "high" : item.confidence === "low" ? "low" : "mid";
+    const confLabel = item.confidence === "high" ? "高" : item.confidence === "low" ? "低" : "中";
+    tr.innerHTML = `
+      <td><input data-i="${i}" data-k="label" value=""></td>
+      <td><input data-i="${i}" data-k="variety" value=""></td>
+      <td class="num"><input data-i="${i}" data-k="count_estimated" type="number" min="0" value=""></td>
+      <td class="num"><input data-i="${i}" data-k="avg_weight_g" type="number" min="0" value=""></td>
+      <td class="num" id="rowTotal${i}"></td>
+      <td><span class="conf ${confClass}" title="${escapeHtml(item.note || "")}">${confLabel}</span></td>`;
+    tbody.appendChild(tr);
+    tr.querySelector('[data-k="label"]').value = item.label || "";
+    tr.querySelector('[data-k="variety"]').value = item.variety || "";
+    tr.querySelector('[data-k="count_estimated"]').value = item.count_estimated ?? item.count_visible ?? 0;
+    tr.querySelector('[data-k="avg_weight_g"]').value = Math.round(item.avg_weight_g || 0);
+  });
+  tbody.querySelectorAll("input").forEach(inp => {
+    inp.addEventListener("input", () => {
+      const item = currentResult.items[+inp.dataset.i];
+      const k = inp.dataset.k;
+      item[k] = (inp.type === "number") ? (parseFloat(inp.value) || 0) : inp.value;
+      updateTotals();
+    });
+  });
+  $("resultNote").textContent = result.overall_note || "";
+  $("resultCard").classList.remove("hidden");
+  updateTotals();
+  $("resultCard").scrollIntoView({ behavior: "smooth" });
+}
+
+function updateTotals() {
+  let count = 0, weight = 0;
+  currentResult.items.forEach((item, i) => {
+    const n = item.count_estimated ?? item.count_visible ?? 0;
+    const rowKg = n * (item.avg_weight_g || 0) / 1000;
+    count += n; weight += rowKg;
+    const cell = $("rowTotal" + i);
+    if (cell) cell.textContent = rowKg.toFixed(2);
+  });
+  $("totalCount").textContent = count;
+  $("totalWeight").textContent = weight.toFixed(2);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
+
+// ---------- history ----------
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY_HIST)) || []; } catch { return []; }
+}
+function setHistory(h) { localStorage.setItem(LS_KEY_HIST, JSON.stringify(h)); }
+
+$("saveBtn").addEventListener("click", () => {
+  if (!currentResult) return;
+  const h = getHistory();
+  h.unshift({ date: new Date().toISOString(), items: currentResult.items, note: currentResult.overall_note || "" });
+  setHistory(h);
+  renderHistory();
+  setStatus("記録に保存しました。");
+});
+
+function renderHistory() {
+  const h = getHistory();
+  const box = $("history");
+  if (!h.length) { box.innerHTML = '<p class="hint">まだ記録がありません。</p>'; return; }
+  box.innerHTML = "";
+  h.forEach((rec, idx) => {
+    const count = rec.items.reduce((s, it) => s + (it.count_estimated ?? it.count_visible ?? 0), 0);
+    const kg = rec.items.reduce((s, it) => s + (it.count_estimated ?? it.count_visible ?? 0) * (it.avg_weight_g || 0) / 1000, 0);
+    const labels = [...new Set(rec.items.map(it => it.label))].join("・");
+    const d = new Date(rec.date);
+    const div = document.createElement("div");
+    div.className = "hist-item";
+    div.innerHTML = `
+      <div>
+        <div>${escapeHtml(labels)} — ${count}個 / 約${kg.toFixed(1)}kg</div>
+        <div class="meta">${d.toLocaleDateString("ja-JP")} ${d.toLocaleTimeString("ja-JP", {hour:"2-digit",minute:"2-digit"})}</div>
+      </div>
+      <button class="ghost" data-del="${idx}">削除</button>`;
+    box.appendChild(div);
+  });
+  box.querySelectorAll("[data-del]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const h2 = getHistory();
+      h2.splice(+btn.dataset.del, 1);
+      setHistory(h2);
+      renderHistory();
+    });
+  });
+}
+renderHistory();
+
+$("histClearBtn").addEventListener("click", () => {
+  if (confirm("収穫記録をすべて削除しますか?")) { setHistory([]); renderHistory(); }
+});
+
+// ---------- CSV ----------
+function toCsv(rows) {
+  return rows.map(r => r.map(v => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\r\n");
+}
+function downloadCsv(filename, rows) {
+  const bom = "﻿"; // Excelでの文字化け防止
+  const blob = new Blob([bom + toCsv(rows)], { type: "text/csv" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+$("csvBtn").addEventListener("click", () => {
+  if (!currentResult) return;
+  const rows = [["品目", "品種・色", "個数", "平均重量(g)", "合計(kg)", "信頼度", "メモ"]];
+  currentResult.items.forEach(it => {
+    const n = it.count_estimated ?? it.count_visible ?? 0;
+    rows.push([it.label, it.variety, n, Math.round(it.avg_weight_g || 0), (n * (it.avg_weight_g || 0) / 1000).toFixed(2), it.confidence, it.note]);
+  });
+  downloadCsv("yasai_" + new Date().toISOString().slice(0, 10) + ".csv", rows);
+});
+
+$("histCsvBtn").addEventListener("click", () => {
+  const h = getHistory();
+  if (!h.length) return;
+  const rows = [["日時", "品目", "品種・色", "個数", "平均重量(g)", "合計(kg)"]];
+  h.forEach(rec => {
+    rec.items.forEach(it => {
+      const n = it.count_estimated ?? it.count_visible ?? 0;
+      rows.push([new Date(rec.date).toLocaleString("ja-JP"), it.label, it.variety, n, Math.round(it.avg_weight_g || 0), (n * (it.avg_weight_g || 0) / 1000).toFixed(2)]);
+    });
+  });
+  downloadCsv("yasai_kiroku.csv", rows);
+});
+</script>
+</body>
+</html>
