@@ -428,7 +428,11 @@
       "desc": "「つくるとは何か」「技術とは何か」を哲学的に掘り下げる。テクノロジーの未来学で広がった問いを、ボトムから固めていく科目。",
       "peatix": "",
       "assignment": null,
-      "throughlines": []
+      "throughlines": [],
+      "extraSummary": {
+        "label": "【受講生特典】七沢智樹 特別講義「技術哲学入門」──PLANETS SCHOOL 教養講座（2026年8月25日）より",
+        "url": "techphilosophy-planets.html"
+      }
     },
     {
       "lectures": [],
