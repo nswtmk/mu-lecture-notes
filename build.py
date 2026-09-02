@@ -181,8 +181,13 @@ def lecture_block(s, L):
         o.append('  <p class="lec-gist">%s</p>' % L["gist"])
     if L.get("keywords"):
         o.append('  <div class="kw">%s</div>' % "".join("<span>%s</span>" % E(k) for k in L["keywords"]))
-    if L.get("summary"):
-        o.append('  <div class="lec-links"><a class="ai-btn" href="%s">AIまとめを読む</a></div>' % L["summary"])
+    if L.get("summary") or L.get("voices"):
+        links=[]
+        if L.get("summary"):
+            links.append('<a class="ai-btn" href="%s">AIまとめを読む</a>' % L["summary"])
+        if L.get("voices"):
+            links.append('<a class="ai-btn" href="%s">受講生の感想を読む</a>' % L["voices"])
+        o.append('  <div class="lec-links">%s</div>' % "".join(links))
     o.append('</div>\n')
     return "\n".join(o)
 

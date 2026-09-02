@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第7回 受講生の感想｜テクノロジーの未来学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第7回「AI and ALIFE──人工生命から考える未来世界」<br>受講生の感想</h1>
+    <p class="subtitle">テクノロジーの未来学｜2026年7月30日（木）｜講師：池上高志</p>
+    <div class="hstats"><div><b>9</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">「生物を見て生物を作っても、生物以下のものにしかならない」──この一言に多くの受講生がハッとさせられた回でした。ノイズ・揺らぎ・欲望と創発、LLMと生命の相転移など、人工生命の視点から「つくる」ことの根源を考え直す感想が寄せられています。</p>
+  <ul class="theme-list">
+<li><b>「頭で考えない」「観念で作ると生物以下」への衝撃と納得</b></li>
+<li><b>ノイズ・揺らぎ・欲望が生む創発性と生命らしさ</b></li>
+<li><b>LLMは生命に近づくのか──相転移・創発への考察</b></li>
+<li><b>つくることで初めて立ち上がる世界の〈感触〉</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>LLMがなぜ今の状態に成長したのか誰も理解できていないという事実が少し理解できたような気がする。自分が考えた範疇でつくっても、それっぽいものにしか到達しない世界で、LLMは世界に開かれよくわからないものも含む多次元な存在と自然と触れ合い急激に成長する。その双発性にこそ生命の根源が垣間見れるのではないかということだと理解しました。</li>
+<li>●LLMについての考察 現状のLLMでは意識や内発性を発生させれるとは思わない。「ただのif文が超複雑になっただけ。」と考えていたが、「LLMと人との協業で、新しいものが出来る。」との指摘を受けて、「相転移」がキーだと理解し、新たな視点を獲得できた。 極論すると、人間もif文が超複雑になっただけとも言えるので、この議論は意味がない。 意味があるのは、振る舞いが閾値を超えて、複雑系の相転移としてそこに何らかの変化が起こっていること。だと感じた。 そして、LLM自体は大したことない。それを使い、どう社会が変化するかが大事。  ●生き物の定義について考察 生き物とは何かについて、個人的には、生存のための行動を行い。オートポイエーティックシステムとして、自己を複製する目的が与えられていること。のような感じで考えていた。しかし、生き物の定義を狭める必要はない。「生存という目的が与えられていなくてもよい」し、その方がより広く考えられる利点があると感じた。  ●方法論についての学び ・生物を見て生物を作ると失敗する。別のものを作っていたら、結果として生物が出来る。 ・生物ってこういうものだねではなく、データに語らせる。storyからDataへ。しかし、必ずしも、データを集めれば法則が出るわけではない。 ・つくること。観測すること。行動、具体的なものでやる。 ・Massiveなデータ処理のためのアルゴリズムが生物を生むヒントになる ・「Massiveなデータから法則性が出てくる」という考えは理解できた。 ・別の可能性を探す姿勢は大事。 ・カオスから生み出されるものという視点 ・ノイズが大事。他者が必要 ・リアルワールドの特徴は、情報の次元が一番大きいこと。だから、いちばんおもしろい。  ●つくるとは つくることで、世界像が更新される。新しい世界像が開示される。つくることそれ自体が世界と対話すること。と考える。</li>
+<li>大変興味深い議論だった．今まで頭が先行して手を動かす経験が少なかったので池上先生の「頭で考えない．生物を見て生物を作っても生物以下のものにしかならない，生物と無関係に作ったら生物を超えられるのではないか？」，七沢先生の「つくることによって得られる世界の〈感触〉を意識しながら考える」というご発言にハッとさせられたものがあった．作ったときに初めて立ち上がってくる〈感触〉があってそれは頭の中だけで構想している段階では掴みきれないものだと思った．小林茂先生の〈未完了相〉にかなり近い話であると感じた．  ただ，講義を聴きながら一つ引っかかったことがある．「生物を見て生物をつくると生物以下のものにしかならない，生物と無関係につくったら生物を超えられるだろう」とは言っても，何かものをつくるときには多かれ少なかれ目的意識があるものではないか，という疑問だ．考えていくと，その「無関係なもの」をつくるきっかけ自体が，実はノイズ的な何かから生まれることもあるのかもしれないと思い至った．それもわからないままだが，結局その疑問も含めて手を動かしながら考えていこうということだと思った．<br>（その他）最後の30分ちょっとの議論がとてもおもしろかったです．七沢先生との議論が長めの方が，あまり馴染みのない領域でも入り込みやすいことに気づきました．</li>
+<li>「大学に入ると物理が数学になり、数学が哲学になる」と聞かされたことを思い出します。 池上さんが眺めてきた数々の数理モデルについて、それぞれの意味するところは正確に掴みきれませんでしたが、「生命という(物理)現象」の源泉を追い求めるあくなき「欲望」を感じました。茂木健一郎さんとは直観的な部分で可能性を見出している箇所が異なるように推察されますが、同じく「ノイズ」に着目している様子が印象的です。ノイズには「要／不要」という主観的解釈が含まれるわけで、お二人ともそれらはノイズと呼ぶべきものではない、現在のモデルではそもそも用意するデータセットが不足しているのだということを仰っしゃりたいものと解釈しました。 LLMとの対話がもはや人間と区別しづらい局面に至りつつある今、池上さんの仰る「人工生命」がどんな存在なのか、気になります。言い淀んでいるようにも感じられましたが、現人類を置き換えるような存在でないとA-Lifeとは呼べない、それ未満のものは単に「生命っぽい模型」でしかないと考えていらっしゃるのでは、、、とも。<br>（その他）七沢さんが事前にご提供くださった池上先生のインタビュー記事で、人工生命のイメージとして「想像できないものであることを想定しなくては」「(作り出したものが我々の手から)逃げ出したら成功」というようなことを仰っていたのを読みました。また本日は「以前は自己複製をキーに考えていたけれど今はそれ自身の欲望をキーに」などと仰っていたように聞こえました。それゆえ「人間を駆逐するような存在でなくてはA-Lifeと言えない」ということにもなりそうです。人類補完計画、なんて引用もありましたし、本日の先生の姿もメガネが真っ白に光っていてゲンドウ感が、、、(笑)。 「生命と稀」についての解釈は忘れません。七沢さんの「自然のメッセージをはっきり理解するためにLLMが活用できるのでは」というお話も印象的でした。第二回梶谷さんの時の、進化の早いAI技術に対して「さほど早めることが難しい農業の時間軸」という対比に思い至った話題の接続点の一つだったようにも(今は)思えています。</li>
+<li>生命を人工的に考えたことがなく、とても斬新でした。また生成AIができるまでの歴史を知ることができ、新しい視野を広げることができました。<br>（その他）文系のため、構造的な内容理解は難しいですが、人間のとらえ方や自然観・宇宙観は大変興味深い内容でした。</li>
+<li>今回の講義で印象に残ったのは、生命についてデータを集めるほど、一つの法則に収束するのではなく、個体差や履歴、相互作用の多様性が見えてくるという点である。テトラヒメナの例でも、同じ集団の中から異なる役割や個性が生まれることが示されていた。生命の固有性は、身体や位置、運動などの物理的制約と、他者との関係から生じるのではないかと感じた。  また、「自分の手で作ること」と「世界を形作ること」のつながりについて考えた。私は、その間を媒介するのはマクルーハン的な意味でのメディアではないかと思う。メディアは、人間の知覚や身体、時間、行為を拡張し、世界との関係そのものを変える。  自然生命や宇宙に目を向けることも、既存の社会や市場の尺度を離れ、まだ見えていない可能性を知覚するためのメディアを作ることなのかもしれない。作るとは、世界に働きかけ、その予期しない応答を受けながら、世界の見え方や関係を組み替えることではないか。<br>（その他）難しく、すべてを理解できたわけではありませんが、これまでにない視点に触れ、大きなカルチャーショックを受けました。また別の講座でお話をうかがえる機会を楽しみにしています。</li>
+<li>生命というものを観念的に思い描いて生命を生み出そうとしてもそれを超えられないというお話に非常に賛同した。我々はあまりにも観念的に、つまり頭でっかちになっていやしないか、というのが最近の私の問いでもある。学問的知識（エピステーメー）だけで、物事を予測しその通りになることを願っていやしないだろうか。しかし、そうした態度の限界は今回の講義で示された通りだと思う。我々はその身体で世界に働きかけて初めて何事かを考えるべきだと思う。そういう、働きかけによる知性（テクネー的な）にもっと現代は焦点を当てるべきなのではないかと考えている。 また、身体というのも一つのテーマではあると思うが、アンドロイドやロボットのように、人間と同じ形をした容器としての「身体」についてはもう少し考えを深めていきたいと感じている。確かに身体は大事だが、アバターやメタバースなどで、情報ループさえしっかり整備すれば脳は簡単にハックされるわけで、そこにはもはや身体は関係ない。身体が脳と密接に関わっていると言われるが、このような身体に無関係な事態も起きるわけである。 しかし、人間を人間たらしめている「感情・欲求・欲望」といったものは、やはり身体があるから存在しているのではないかとも考えている。摩擦なしの綺麗に整備されたLLMでどこまでも大量にデータを集めてもこれらはやはり生まれないのではないかという思いはある。やはり、摩擦あるところへの身体的応答が鍵なのだろうか。今後の池上先生の研究が待ち遠しく思われるが、私自身もこの問いと真剣に向き合っていくつもりだ。<br>（その他）最後に自然をテーマとしたお話をされていたことについて。 私は好んで東京近郊から東北の田舎に引っ越しました。確かに、都会も自然を大切にしているように感じるのですが、どこかその「大切にする」というのがpreservationとしての「大切にする」感じがします。田舎の方は、まあ確かに過剰な伐採などもありますが、conservationとして自然を捉えている気がします。里山なんかも、人が手を加えることでその形態になったわけです。一方東京などは、元々は自然豊かな場所であったとは思いますが、それでも現在は田舎と比べると自然が少なく、緑を増やそうという意識が働いているのは結局のところは過剰伐採して建物を多く建てた反省的側面があるのではないかと思います。無いからこそ愛でるというpreservationとしての側面を強く感じます。観葉植物のように自然を捉えている気がするのです。 しかし、田舎は剥き出しの自然が多く、それゆえにpreservationだけでは生活は立ち行かないのです。常に自然は観葉植物的なものだけでなく、人間生活とのせめぎ合いであり、利活用の場でもあるのです。今でも多く、自然の中に祠がたくさんみられます。自然への畏敬や働きかけがリアルに行われる田舎では、自然というものが人間生活とのせめぎ合いにより共存していることを象徴しています。 田舎がconservationとして自然を捉えているわけですが、都会のpreservationの側面からしばしば糾弾されることとして「動植物の駆除」が挙げられます。クマなんかは最近特にそうです。田舎に住んでいたらpreservationのように悠長なことを言っていられません。田舎にとって自然は、綺麗な形に仕上がった完成形のような観葉植物・鑑賞動物では無いのです。こちらが積極的に働きかけないと、一瞬で飲み込まれます。 しかし、昨今は過剰伐採・過剰埋め立てがあるのも事実で、田舎にもやはり課題は残ります。現代建築には、あるがままの自然はふさわしく無いのでしょう。砂利を敷き、コンクリートで固め、自然はpreservationとしての観葉植物になっているところも多くなってきました。それが「おしゃれ」であり「つう」であるかのように。さて、このようなコンクリート固め・観葉植物的自然というものに、どれほど自然への手触り（摩擦）が残されているのかはもう少し考えていかなければならないことだと感じています。</li>
+<li>「欲望」「ノイズ」「揺らぎ」「生き物を作ろうとするとそれ以下」といったワードがあったが、すべて生命らしさ、クリエイティビティに通底することとだと実感し、納得した。  自分から湧き上がる欲望やこだわりととともに、社会との相互作用による当初は予見していなかった回り道（ノイズ、揺らぎ）をし、最短経路でなく狙いすぎず欲望のまま（最短経路＝生物を作ろうとする）に、身体性を持ってつくることが、これからの未来をつくるのではないかと感じた。  「生き物を作ろうとするとそれ以下」は、予測された未来に縛られているといったこれまでの議論にもつながると思い納得した。  コスト度外視でチャレンジできるか（欲望がある、ノイズや揺らぎを受け入れられる）が、AIにはできない、世界と接続して少しずつでも世界と変えていくことにつながっていくのではないかと考えた。<br>（その他）講義後の質問タイムや、池上先生と七沢さんの本音を交えつつの深掘りが根源的なつくること、もっというと生きることにつながっていく感じでして、楽しく拝聴しました。</li>
+<li>・生命は、人間の描いたストーリーではなく、マッシブ・データ・フローによる観測が可能になってきた。人間の主観性や思い込みの限界に警戒すべき例だと感じるが、一方で、人間の主観的な想いこそ自分と人間の意味を与えてくれるからこそ、どのようにバランスをとるか非常に難しい。  ・AIも生命も、最初から個性や役割を持っているのではなく、他者との相互作用の中で創発的に発見・発揮されることがとても面白い。さらに、AIはデカルト的にすでに持っている言語モデルの中での相互作用である一方で、人間はスピノザ的に好き嫌いの経験を積み重ねる中で得られた欲望が両者の大きな違いとなる。  ・池上先生からの学びをつくることに応用するのであれば、孤独につくるのではなく、他者との相互作用の中で、自分の思い込みと欲望を発見することが大切だと思った。</li>
+  </ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techfutures.html">← テクノロジーの未来学 トップに戻る</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第4回 受講生の感想｜テクノロジーの未来学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第4回「分散化の先にあるものは？──ブロックチェーンが築くレジリエンスな社会」<br>受講生の感想</h1>
+    <p class="subtitle">テクノロジーの未来学｜2026年7月16日（木）｜講師：守慎哉</p>
+    <div class="hstats"><div><b>13</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">「投機の道具」というブロックチェーンのイメージが、「止まらない公共インフラ」「レジリエンスの基盤」へと塗り替えられた回でした。技術の背後にある思想に触れて印象が大きく変わったという声とともに、地域・都市・製造業など自分の現場での適用可能性を考える感想が寄せられています。</p>
+  <ul class="theme-list">
+<li><b>投機イメージから「公共財・インフラ」への認識の転換</b></li>
+<li><b>技術の背後にある思想（分散・自律・レジリエンス）への共感</b></li>
+<li><b>地域社会・都市・日本の製造業など、自分の文脈への引きつけ</b></li>
+<li><b>専門用語の難しさと、具体的ユースケースをもっと知りたいという声</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>今日の内容は、ブロックチェーンの最大の特徴は、分散化によるレジリエンス。そして公共インフラとしてのブロックチェーン。という内容だと思いました。 とても本質的な概念の説明と、分散化の思想でした。 正直、私はブロックチェーンに資本の再分配手段としての希望を持っていて、その話も出るのだろうと思っていました。が、違いました。そしてその自分の認識は少し古いのだと理解しました。 講義を聞いた今の認識は、以下です。  トークンエコノミーは、ブロックチェーンを利用することで、これまで制度上扱いにくかった価値、とりわけ貨幣資本以外の貢献・信頼・知識・関係性などを記録し、承認・権利・報酬へと結びつける可能性を持つ。 ただし、トークンは価値そのものではなく、何を価値とみなすかという特定の評価を表現したものである。誰が価値を定義し、何を記録し、誰にどのような権利や報酬を与えるかによって、それは再分配装置にもなれば、搾取装置、監視装置、投機装置にもなりうる したがって、トークンエコノミーの本質的な利点は、公平な社会を自動的に実現することではなく、価値の承認・所有・分配・統治のルールを、従来より柔軟かつ検証可能な形で設計できることにある。  再分配の可能性はある。貨幣資本とは別の可能性はある。 しかし、結局は設計次第で富の集中も招く。 本質的なのは、分散。 ただ・・・ブロックチェーンも万能ではないと思います。 プロトコル脆弱性から、ハードフォークの可能性、名目上の分散と実質上の中央集権 ということは、結局は「中央が信頼できなくなる事態」に強いということですね。 だから、国を信頼するのか、個を信頼するのかの思想の問題に回帰する。</li>
+<li>mUブロックチェーンの講義を聞いた感想提出用  最初のお話でサナエトークンなど、仮想通貨全体のイメージを問われるところから始まったので、web3のお話であるかと思いましたが、この講義はタイトル通りブロックチェーン技術にフォーカスしたお話しであったと、改めて講義の内容を振り振り返り認識しました。  その上で、web3自体の全体像が、ブロックチェーン技術の活用による派生であるという事をunlearn させていただきました。  日本の最新の状況では、先日、 7月13日、 14日のWebX2026に参加して、その中で明確になったことがありますが、官民一体となって、国の政策としても、金商法改正を起点として、ブロックチェーンのスマートコントラクトの技術を活用して、伝統金融がついにRWAの導入に乗り出す体制が整った事を確認しました。  具体的には債券や国債などのトークン化による管理コストの削減、AIエージェントがトークン化された証券を高速で売買されるためのシステム設計の実装。これをSBIホールディングスが主体となって、様々な企業と連携して本格参入していきく構え。これはコインポストで全て記事化されているので確認できます。  これまで多くのトライアンドエラーが行われ、成熟してきたタイミングを待って、国としては国内市場の保護と、SBIホールディングスは、その主導権を握るという構造が見られました。  そしてここで重要なことですが、 AIの活用がかなり高度に行われていて、そのカンファレンスで発信された一次情報はコインポストの記事として生成AIにより40分後にはAIにより最適に整形され記事した一次情報がAIの回答として循環する構造が見事に構造化されており、ソフトバンクのAI活用と構造化の凄さに、個人としては今後どの様に立ち向かう事が出来るかという脅威を感じました。   ブロックチェーンの設計思想から考えて、伝統金融がブロックチェーンの技術を使ってスマートコントラクトを実装して、 AIがトークン化されたアセットを高速で扱うという流れは、世界的な今の潮流である事は間違いないと思うので、自己が大切にする思想の元に、何を作るかという順序でブロックチェーンの技術開発に取り組んでおられる姿勢は、本当に素晴らしいと感じました。  AIによって作る事がどんどん簡単になっていく中で、今後、更に重要になってくるのは思想であると感じています。  講義の内容はとても面白く、ブロックチェーンについての知識を本当にアンラーンするものとなり、本当に勉強になりました。  最後に、七沢さんが感想や解説などを行ってくださるので、さらに学びが深くなる構成になっていると感じました。  僕が思うことは、AIのここからの進化を考慮すると、ブロックチェーンも自己増殖とかスライム的な自律進化みたいな話になってくると、どこで如何にして止めるかという議論が重要な段階になってくるのでは無いかと思いました。  なぜなら、ソフトバンクと伝統金融がなぜスマートコントラクトとアセットのトークン化を取り入れるかという根底には、AIが動かす上でトークン化され暗号化されたブロックチェーンにあるRWAの方が、AIが扱い易く取引コストが掛からないという理由があり、それが世界中でRWAが導入されていく潮流の主因だからです。  その潮流で、それらを問題視して考えると、今考えるべきは、如何に止めるかという議論だと思いました。しかしそれ自体は突然止まったら困る訳ですが、故のブロックチェーン技術の実装であるという訳で。  WebXでもIVSでも、ネットワーキングによる組み合わせで何かを作ろうという方向が強く、MITでも「0 to 1」はイノベーション全体の1/0だという話を聞いたことがあります。  iPhoneもまさに既存の技術の組み合わせから生まれたイノベーションだと思いますが、「0 to 1」か、組み合わせであるかどうかは問題ではなく、どの様な思想の元に設計され、どの様に活用されているかが重要では無いかと思いました。これに関しては最近特に日頃考えている事です。  そういった上でも、イーサリアムの設計思想は素晴らしく、その設計思想やオードリー・タンのPluralityを参照して、その思想を照らし合わせて、様々な概念の中で、ポップアップ・ビレッジ・シティが生まれている姿は、まさに理想的であると思えました。  TRUMPコインやサナエトークンなどのミームコインは、まさに仮想通貨の闇の部分だと思うのですが、その上で現在の世界全体の動向を見ると、日本が金融商品取引法で規制をかけて市場を保護して、トークンの発行者自体も取り締まりを厳しくして簡単にトークンが発行できない制度改革を行って行く流れは、自国の市場を守る必要があるという点で、世界全体で実際に見られる方向だと思うので、その中でクソプロジェクトとクソコインが消えて行き、ETHの様な健全なプロジェクトが残っていくのではないかと思います。  そもそも、ブロックチェーンの初期は、チェーンごとに設計思想が明確にあって、それに賛同する人が集まり、その中でチェーンを検証して開発に寄与して、それでトークン価格が上がってという理想的な形だったと思うのですが、それが投機的に誰でもトークンの発行できるようになり、乱立することによって、今の仮想通貨全体の世界観にシフトしてしまったと思います。  僕は今回、イーサリアムの設計思想と、それを実践されている森さんのお話を聞いて、そこが本当に自分自身にとってアンラーンであり、その事を改めて振り返ることができました。  その上でテクノロジーの再カテゴライズ化というのはとても素晴らしい事であると思いますし、僕自身もカテゴライズすることの問題を様々な場面で問題意識を持っていますので、その事に対して実践的に取り組まれている事は、本当に素晴らしい活動だと思いました。  ブロックチェーンは今後も社会的共通資本であるべきだと思うし、僕が最初に述べた世界全体の潮流は、無視できない事であると思うし、ETHネットワークの研究は今後ますます重要になって来ると思いました。  そして、何の思想においてそれを作るのか、という事を実践されている方の姿から学ぶ事が出来るmUの重要性と素晴らしさを再認識させていただきました。 ありがとうございました。</li>
+<li>初めて目にする言葉が多く、それぞれを理解するのに必死で全体像が見えにくかったが、「Ethereum的な価値観をフィジカル空間へ拡張」のスライドでようやく腹落ちできた。 田舎である八ヶ岳山麓清里に住む立場としては、地域のレジリエンスを高めることが喫緊の課題だと感じている。人口減少、行政サービスの手が回らなくなると、山岳地帯であるこのエリアは早々に見放される気がしてならない。 人間が生き残るためには、電気はいらないようにも感じているが、フィジカルもデジタルもオフグリッドな手段は体験して仕組みを理解しておくと引き出しが増える。ただ、田舎で私一人がこの知恵を得たとしても地域としては弱い。さらに自分事として落とし込んで、仲間たちに伝えられるようにしたい。終了後のクロストークで「デジタルで自給自足するための技術がブロックチェーンである。」との言葉が一番刺さった。<br>（その他）講義終了後の雑談が本質をついているようでとても面白かった。</li>
+<li>今回の講義では、ブロックチェーンを投機の手段ではなく、災害や政治的混乱の中でも機能し続ける公共インフラとして捉える視点が印象に残った。一方、横浜の中央都市部で暮らしていると、オフグリッド型の小規模共同体をそのまま未来像として受け取ることには距離を感じる。都市生活は、電力、物流、通信、医療、行政など高度に集中したシステムへの依存によって成立しているからである。  そのため、重要なのは集中型社会か分散型社会かを選ぶことではなく、何を集中させ、何を分散させるのかを区別することではないかと感じた。さらに、ネットワークが技術的に分散されても、開発者、資本保有者、専門知識を持つ参加者に権力が集中する可能性は残る。ブロックチェーンによって本当に分散されるのは、処理やデータだけなのか、それとも所有、意思決定、責任まで含むのか。<br>（その他）今回の授業が概念も難しいし、そこに紐づく権力みたいな話も難しく、繰り返し拝見します。</li>
+<li>・ブロックチェーンは縁遠い存在だったが、その可能性と水面下の思想からとても刺激を受けた。 ・非競争性・非排他性の公共性を帯びながら、永続するインフラになりえる可能性を秘めている。自分はサービス、プロダクト、事業、組織づくりにかかってきたが、改めて何のためにつくるのか、つくりたいのか、答えはないが、揺さぶられた。 ・インフラはどんなイデオロギーで使うのか、という視点も学びになった。テクノクラシー、企業的リバタリアン、デジタル民主主義など複数のイデオロギーの中で、どれに与するのか。自分はデジタル民主主義に親近感を感じているが、それはなぜなのか、引き続き探究していきたい。</li>
+<li>まさに講義前のブロックチェーンに対するイメージが、怪しい、金儲けの道具といったイメージであった。 しかし、その根底にある思想を知ることで、分散化することで、自立し安定した生活を得るための一つの手段・考え方であることがわかり、ポジティブな印象に変わった。  不安定な危機感のある国や地域の方が広まっているとの講義でのコメントの通り、日本ではあまり広がりや本質的な理解が進んでいないと感じた。そのことが、何か事態が起こった際に、知るもの・知らざるものの新たな分断を生むのではないかと感じた。  どのように本質的な理解を広めたら良いかの視点でいうと、脱政府的な動きでもあるため政府が広めるといった動きも想定しにくく、まさに本講義のような分散的な取り組みで広げていく形となるのではないかと思った。  まずは、私自身、ブロックチェーンに触れてみる実践から考えてみたいと思った。</li>
+<li>今回の講義は専門用語が多く、正直なところ、すべてを理解することはできませんでした。一方で、ブロックチェーンはあらゆる場面で社会を変える万能な技術ではなく、特定の状況において価値を発揮するものだという理解は、自分が以前から持っていた感覚とも近いものでした。  私は、一つの技術によって社会全体が一気に変わると期待することには、少し危険性があると考えています。技術への期待が大きくなりすぎると、導入すること自体が目的となり、本来解決すべき課題が見えなくなる可能性があるからです。そのため、まず社会にどのような課題があり、その解決に本当にブロックチェーンが必要なのかを考えることが重要だと思います。  一方で、カンボジアなどでは、省庁が管理主体となる「許可型ブロックチェーン」の導入事例があると聞き、なぜ通常の中央管理型システムではなく、この仕組みが選ばれているのかが気になりました。関係機関の間での情報共有や記録の信頼性など、許可型ブロックチェーンだからこそ得られる効果があるのか、具体的な事例を通じてさらに知りたいと思いました。  私自身、以前ブロックチェーンを扱う会社に関わった経験があります。しかし、そのときは「ブロックチェーン」という言葉が先行し、何を解決するための技術なのかが十分に理解されていないような印象を持ちました。  重要なのは、最初からブロックチェーンありきで考えることではありません。「誰が、どのようなことで困っているのか」「既存の仕組みではなぜ解決できないのか」「この技術を使うことで何が改善されるのか」を、より具体的に示すことが必要だと思います。  今回、技術の再定義や他の技術との関係については、十分に理解できない部分も残りました。それでも、技術の名称や新しさだけに引っ張られず、具体的な課題と効果を起点に考えることが、どのような技術を扱う場合にも重要だと感じました。</li>
+<li>ブロックチェーンは投機の道具ではなく、有事に即座に復旧できるレジリエンスな社会の基盤であると理解できたし、目から鱗でした。インフラが安定した日本社会への普及にはハードルを感じた一方、日本の製造業に親和性があるなと感じました。競争領域と呼ばれる職人のノウハウや製造データを、あえてサプライヤーと共有し公共財として扱うことができるのはないかと。一般的な社会インフラとしてではなく、フィジカルな人材不足に直面している有事の製造業で、競争領域の公共財化によるサプライチェーン構築への適用に可能性があると思います。</li>
+<li>ブロックチェーンの本質は「止まらないこと」であり、ブラックスワンを想定した「止まらない・復旧する」ためのもの、という考え方に触れるところから、この回は始まった。  「公共財・インフラとしてのアプローチ」という表現は当初腑に落ちなかったが、金融に絡む部分だけがクローズアップされがちなだけで、それは技術の一面に過ぎないと知り、腑に落ちた気がした。  また、技術の背後には思想があり、それはどのような最新技術であっても変わらない、見過ごしがちな背景であると気づかされた。  「デジタル・オフグリッド」という実践を通して、フィジカルなオフグリッドとの比較により、インフラであることの理解が進んだように思う。  一方で、ブラックスワンに備え、「平時から動き続ける代替インフラを育てておく」という考え方は、「自由への夢」をうたいながらも、絶望感がにじむ気がした。<br>（その他）（普及の条件として）「GoogleやYouTube並みに軽くラフなUI/UXが必要。」という点に関して、その使いやすさの実現を、誰がどのように担うのかという点が気になった。ブロックチェーンの普及の実像について、このような問いが浮かんだ。</li>
+<li>ブロックチェーンに関してはいわゆる仮想通貨的なユースケース以外の技術的価値（改竄不可能な分散型台帳）については理解していたつもりではあったものの、それを暗号通貨や金融取引以外の使い方で同普及させていくのだろう、というのが長年の疑問であった。本講義では守さんのお話を通じて思想的背景や社会実験レベルでのユースケースに触れることができたが、少なくとも既存の情報システムの発展を支えてきた経済的合理性の観点ではやはり普及に至る道筋がみえない、というのが最終的な印象であり、それを補強する思想基盤の構築が必要＝既存価値のunlearnの機会と捉えて深掘りしてみたいと考えている。  一方で、スマートコントラクトのの現時点での普及状況を考えた時思想と実装の間をどう埋めるのかという点も大きな課題であるように思えた。デジタルオフグリッドについてはアプリケーションレイヤーをオフグリッドに持ち込めてもそれを支えるハードウェア基盤までローカル生産することは現状叶わないし、そうなる未来も見えてこない。公共事業として取り組むことができる技術的オルタナティブとして存在するための現実的なラインをどう検討していくかというのも、この先のブロックチェーンのあり方を考える上で重要なポイントなのではないかと思った。  ということも踏まえてKuu villageや既存のブロックチェーンシステム開発を深掘りし始めたら止まらなくなってきてしまったので、今回の感想としては一旦この辺で提出しておいて、動画を見返しながらunlearnとlearnを進めたいと思います。ありがとうございました。</li>
+<li>テクノロジーにおいて、私はどちらかというと悲観主義的な方であった。というのも、テクノロジーの加速主義をe/accの負の側面でずっと捉えていたからだ。テクノロジーが人々を総駆り立てし、発展成長へと巻き込んでいく。マルクスではないが、こうした総駆り立て状態は人間の疎外なのではないか、このまま未来に突き進んで良いのかと考えていた。しかし、今回の講義でブロックチェーンを手掛かりにd/accとしての側面を知り、再考を促された。今までは素朴にテクノロジーの進歩を単線的な方向として規定してしまっていたと反省した。 d/accとしてのテクノロジー、すなわち分散的で民主的なテクノロジーは、対中央集権的であり、まるで中空構造のようでもある。また、参加する者によって自動的に作り上げられていくオートポイエーシスのようでもある。この形式が、最後にお話があったように、有事の時に力を発揮するのだと思う。日本は確かに平和ボケしているが、私のように震災の多い東北に住んでいる者からすると、ブロックチェーンをはじめとするd/accとしてのテクノロジーで、来る大震災にも負けない技術を作れるのではないか、そのようにも考えられた。中央の機能がストップした時、我々はあまりにも脆弱である。東北はまだ東北内での連帯と共助の精神が世界から注目されるほどには残っている。しかし、同じ日本でも東京などはどうだろう。東京近郊にも住んでいた私の肌感覚にはなるが、東北よりは連帯と共助の精神が薄い。そんな大都市東京には本社が集中し、ある意味そこに強く依存している。では、東京を直下型地震が襲ったらどうなるだろう。そのとき私たちを救ってくれる１つの頼みはブロックチェーンをはじめとするd/accとしてのテクノロジーなのではあるまいか。中央の機能が麻痺しても無関係に発展生成する中空的でオートポイエーシスなテクノロジーが、有事の際に効力を発揮する事実は、戦争こそ無いが自然災害の多い日本にこそ必要不可欠な技術ではないだろうか。<br>（その他）今まで「ブロックチェーン」という言葉すら知らずに生きてきましたが、第3回、第4回の講義で立て続けに出てきて、ここまで話題になっているのかと驚きました。また一つ世界が広がった感覚です。まさにUnlearnでした。 ブロックチェーンについては、これは無いと信じたいことですが、使用者の過半数が反逆を起こしたと仮定するとどうなるのだろうと思ったりもしました。過半数が作為的にブロックチェーンを操作したとしたら耐えられるのだろうかと、素朴に思いました。 また、d/accの位置付けからさらに新たな可能性へとシフトしていこうとしているとのことで、いかに自分がそちらの分野に疎かったか痛感させられました。まずは、今回新たに得た知見を慌てず考察することで深めていきたいと思います。</li>
+<li>レジリエンスを高めるとか、多様性を担保しておくということそれ自体は、様々な文脈で語られていてその重要性が認識されつつあると思うので総論は理解できるが、そこに向けてなぜブロックチェーンが重要で、具体的にどんな場面・状況でどのような働きをするのか、がいまいちピンと来なかった。技術の背景の思想の話も示唆深い話ではあるが、具体的な技術実装や活用の場面で、その思想の違いがどのように出てくるのか、ブロックチェーンにどうつながってくるのかがピンと来なかった。 私の理解力の問題かもしれないが、そもそも何がテーマなのか、伝えたいことなのか、があまり分からなかった。</li>
+<li>インフラは誰が担うのかという点について、現在は主に国や自治体などの行政が担っています。昔は共につくっていたはずの公共財も、いつの間にか行政に任せきりになり、お客様になってしまっていると感じます。行政の負担が大きくなっている今、単に行政の仕事を住民に押し戻すことでも、特定の巨大資本に依存・コントロールされることでもないあり方を模索する時期に来ています。一人ひとりが対等に構築に関わり、活用する人たち同士で担保し合うというブロックチェーンの思想は、行政が担ってきたインフラをどう分散していくかという問いに対してのヒントになると感じました。現在の行政はクライアント・サーバー方式ですが、どこかが倒れても走り続けられるピア・ツー・ピアの仕組みが、すべてではないにしても、選択肢として可能性があるのではないでしょうか。 過去にある町で総合計画づくりをご一緒した際、非常に熱い思いを持った町長とプロジェクトを進めていました。しかし、これも町長という中央が核となるクライアント・サーバー方式だったため、選挙による交代によってサーバーがダウンしたような状態に陥り、町政が停滞してしまいました。一方で、地域おこし協力隊として参画したメンバーが起業したり、個々の取り組み自体が残っていたりもします。ただ、これを単なる人の熱量や善意による自律で終わらせては、再び世代交代や人間関係の摩擦で瓦解してしまいます。初期はクライアント・サーバー方式で推進しつつも、人の意識や文化を育てる体制づくりと同時に、人が変わってもシステムとして自律駆動し続けるインセンティブ設計やルールのプロトコル化まで踏み込まなければ、持続可能な移行は達成できないのだと実感しました。 また、既存の行政システムを時間をかけて移行させるアプローチと、講義で紹介された「空」のようにゼロから新しくつくる（フォークする）アプローチの違いも非常に示唆的でした。町全体で一元的にピアを目指そうとすると、それ自体が新たな全体主義的なシステム設計に陥りがちです。それに対して、まずは小さな集落単位などで新しいプロトコルを立ち上げ、自律的なモデルとして走らせてしまうアプローチは、多元的な未来を実装する上で極めて有効な選択肢だなと感じました。特にいま、行政のリソースや統治力が弱まりつつある地域においては、既存の画一的な制度のほころびにフォークが立ち現れるための余白が生まれつつあるのではないでしょうか。 Plurality（複数性）やPolis、WTF is... などのテクノロジーの活用についても考えさせられました。これは単なる人数の多寡や距離の問題ではなく、「何を決める場なのか」という対象の性質に応じて意思決定の設計を変える必要があります。何より、合意形成のゴールを「全員が同じ考えに変容して一つに溶け合うこと（単一の合意）」に置くのではなく、考えが違ったまま、分かれたままでも共存・協調できるプロトコルをどう設計するか。完全に一つにまとまることへの信仰を疑い、多様な主体の複数性を保ったまま共に生きるための仕組みづくりに向き合っていきたいと感じました。<br>（その他）ブロックチェーンやNFTという言葉自体は耳にしたことがあったものの、言葉の響きから具体的な中身がイメージしづらく、どこか遠い世界の話のようにぼんやりと捉えていました。 ですが今回お話を伺い、ソーシャルデザインに携わる一人として学ぶべきテーマであり、得られる視点も多いと感じました。 一番の気付きは、これが単なるテクノロジーの話なのではなく、思想の話であったという点です。私自身、その本質を十分に理解できていませんでした。今回その思想的な根底をしっかり聞かせていただいたことで、技術的なブロックチェーンの仕組みはいったん脇に置いたとしても、これからのものづくりにおいて、どのような設計思想に基づいてつくるのかを深く見つめ直す、とても貴重な機会になりました。 今回は特に、感想と考察をまとめるのが難しかったです（笑）。</li>
+  </ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techfutures.html">← テクノロジーの未来学 トップに戻る</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第6回 受講生の感想｜テクノロジーの未来学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第6回「生命はどこまでつくり出せるのか──クローン技術の最先端から考える未来」<br>受講生の感想</h1>
+    <p class="subtitle">テクノロジーの未来学｜2026年7月23日（木）｜講師：若山照彦</p>
+    <div class="hstats"><div><b>9</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">1000年後・宇宙という時空間スケールで研究に臨む姿勢と、その熱量への圧倒が感想の通奏低音になった回でした。遺伝資源を100%残すという思想への共感と違和感の両方が率直に語られ、「生命を保存するとは何を保存することなのか」という問いを受講生それぞれが引き受けています。</p>
+  <ul class="theme-list">
+<li><b>研究の熱量と、1000年後・宇宙という時空間スケールへの驚嘆</b></li>
+<li><b>遺伝資源100%保存への共感と、人間中心主義への違和感の両論</b></li>
+<li><b>「生命の保存とは何か」──情報・物質・環境の関係への考察</b></li>
+<li><b>科学技術と倫理・人文社会系の協働の必要性への指摘</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>正直、話を聞いていて、これは何の話なのだろう？その目的は？種の保存？と戸惑いました。 しかし、理解したのは、 「宇宙で生きること」さらに「宇宙で繁栄すること」を現実的にどう実現するかを考える。特に、遺伝子資源から考えると。そのファーストステップは若山先生のアプローチになる。 「宇宙で生きること」さらに「宇宙で繁栄すること」を現実的にどう実現するかを考える。特に、電脳的アプローチだとイーロンマスク的にBMIになる。 そして、サイボーグになる。スーパーヒューマン的軸もある。 これは・・・ポイントは、自分が信じる未来を本気で実現するための現実的アプローチを、実際に行動をしていること。さて、それが私にあるだろうか？出来るだろうか？と問われている気がしました。</li>
+<li>「遺伝子の50％が失われること」について質問した受講生です。 まずは、いくつか紹介いただいた先生の御研究成果が、かつて新聞・テレビ報道で見て素晴らしい研究をされていると尊敬していた者です。この研究が人類の新たな環境に対しても適合できる身体能力を拡張してくれ、食料・環境問題の解決の一助となることを期待しています。  さて、私の質問に対するご回答で、100%の遺伝子保存については、将来予見できない事態にも対応できるような優れた遺伝子が、万一失われて地上から消失してしまうことを危惧されていることは理解しました。ただ、質問した通り、有性生殖が生物種として環境に適合して反映できたという、ダーウィン以来の自然淘汰の生物の生存戦略からすると、少し人工の手を加えすぎかと気になります。最後のQ\&amp;Aで、再クローンG58？のマウスからはクローンはできないが、有性生殖させると子孫が繋がっていくというお話がありました。その事例からも50%捨てるというのは価値があるのかなと思います。つまり有利な遺伝子を捨てる恐れというより、不利な遺伝子を廃棄して生存確率を上げていくという意味で。  質問で訴えたかったのは、私が倫理的な問題があると考えた点です。それは、データベースとして遺伝子サンプルを残すことは良いのですが、それを未来社会の人々がどのように有用な宝として抽出して復活させるかです。未来のその時に、何が良い結果をもたらす遺伝子なのか厳密に特定できるようになるのでしょうか？予測できない不利益をもたらす可能性を孕む遺伝子をキチンと予見できるのでしょうか？新たな環境に適応できる生物種を投入すると、それまでの生物が駆逐されて生物多様性が維持できないことになりかねないのでは。丁度、繁殖力の強い外来種生物が国内種を駆逐し絶滅に追い込んでいるように。  また、科学技術で問題解決しようとすると、失敗した時の責任を社会は追及してきます。事例としては、災害対策に良かれと思って設置した設備が役立たず逆に災害拡大に寄与してしまう場合。また、自動運転車を設計した場合、人間の運転なら咄嗟のことで不可抗力として運転者を強く批判されない事故も、自動運転プログラム製作者に対しては完璧な運転操作を要求して、咄嗟の判断は無理だから仕方ないよねと許してくれるはずはありません。つまり、社会は人間が判断した結果の行為に対しては寛容ではなく責任者を追及し人災と問題視する、一方で大自然の振る舞いや人間の本来の有限な能力に対しては受容し、寛容な態度を取ります。これは私の技術者としての社会体験からそう言えると思います。  先生の御研究に水を差すのではなく、科学技術の研究開発に同時並行的に倫理問題の研究開発と社会の理解が必要である（通常先端科学技術に人文社会系研究はついてこれていません）こと、および両者間協働での学際的研究をする必要性を、私のコメントとしてお伝えしたかっただけです。</li>
+<li>クローン技術は基本的に興味がない。人類の遺伝子を残すことに意味を感じないからだ。しかし、何に意味を見出すかは人によって異なり、若山先生の場合はそれが遺伝子複製に対する純粋な興味と情熱、ロマン、あるいは遠い未来のことを考えられるという徹底的な利他性に根ざしていると考えた。</li>
+<li>今回の講義を聞いて、「生命を保存する」とは、そもそも何を保存することなのかが気になった。フリーズドライされた精子は、それ自体が生命活動を続けていなくても、DNAが保たれ、卵子や適切な技術・環境と組み合わされることで、再び発生のプロセスを始めることができる。 そう考えると、生命の保存とは、生命そのものを変化しない状態で残すことではなく、未来において再び生命が生成されうる可能性を残すことなのかも。 一方で、DNAだけを保存すれば生命を保存したことになるわけでもなく、DNAを読み出す細胞や卵子、発生を可能にする環境、それらが時間の中で相互作用する過程が必要。生命はDNAという情報の中に完結しているのではなく、情報・物質・環境の関係の中で成立しているように思う。だとすれば、何を保存すべきかも、それだけでは決められないのでは？ 未来に卵子や生殖技術が存在するなら、精子のDNAを残すことで発生を再開できるかもしれない。しかし、それらが存在しなければ、より多くの条件を一緒に残す必要がある。つまり生命の保存は、現在側で何を残すかだけでなく、未来側に何が存在し、それとどう接続できるかによって成立するのではないかと思った。 このことから、保存とは単に過去のものを変化しないように固定することではなく、断絶したあとにも、未来の環境との間に再び関係を結び、プロセスを始められる可能性を残すことなのではないかと思った。<br>（その他）なんとなくボイジャーのゴールデンレコードを思い出した。地球の音や音楽を宇宙へ送り出すことと、遺伝資源を未来のために保存することはまったく違うが、どちらも、その結果を自分たちが確認できる可能性はほとんどないのに、何かを未来へ渡そうとしている。 これは単に「人類を存続させたい」ということだけではなく、自分たちが存在する時間の外側とも、何らかの形でつながろうとする行為なのかもしれないと思った。 自分がそこにいなくても、その先に何かが続いてほしいと思う感覚はどこから来るのだろうか。今回の講義では生命を未来へ残すための技術について多く語られていたが、それを聞くうちに、技術的にどこまで保存できるのか以上に、なぜ私たちはそこまで遠い未来に何かを残したいと思うのか、ということも気になった。</li>
+<li>・クローン技術については素人のため、難しい講義内容だったが、同時に興味深い点も多かった。 ・若山先生が、地球以外の環境だったり、1000年後の世界だったり、とてつもない時空間のスケールで研究に臨まれていることに刺激を受けた。 ・和牛の低廉化、不妊治療、ペットや絶滅動物の再生など、クローン技術の価値が想像以上に多様で驚いた。 ・クローン技術によって、遺伝資源を制御・管理できることで、不確実な未来環境に備えられることに驚いた。だから、若山先生は「1000年後の人類繁栄」というタイトルをつけたと理解した。ビジネスの世界では現在または中長期（長くても30年-50年）で商品・サービス・事業づくりを考えることが多いが、個体ではなく、種の繁栄を射程に入れた考え方がとても新鮮だった。 ・スターウォーズの世界を再現したという先生の想いについては、資本主義の拡張・搾取構造を助長する可能性を感じ、価値評価を留保したいと思った。ただ、人類がとりうる選択肢が増えるメリットは感じられた。 ・生命がクローンで再現されるようになったとき、死生観はどう変容するのだろうか。再現できる命はもっと軽く扱われるようになるのか。 ・クローン技術はなぜ倫理問題と言えるのだろうか？価値をゼロベースから問い直す倫理的な問いであれば、なぜ政府の罰則が許されるのだろうか？講義の本題から外れるが、ここはもう少し深掘りしたい。</li>
+<li>これまでのテーマとは大きく異なり、「短期間での爆発的な進化」にある分野ではないという背景もあってか、比較的想像しやすく経緯も把握しやすく、その背後に敷衍する意味についてじっくりと思い馳せることができました。 若山さんが突き動かされている衝動や使命感から、「今自分にしかできないことを全力でなさないのは、怠惰ではなく不実だ」と言っているようにさえ思えました。 講義を拝聴した直後にはその利他性と誠実さに圧倒されましたが、後になって振り返ると、専門外のことに対する無頓着さ(あるいは他の専門者に対する信頼)に似た態度が気になってきます。これほどまでに自分の専門にのめり込む優秀な人物が(世界中にもっと)いるのだとすると、その周辺(倫理や法律など?)にも同程度のスピード感をもった人材が必要であるのではないかという危機感にも似た印象を抱きます。 ともあれ、1000年単位の時間を秒単位で刻みながら、月の地底を思考の中心にはっきりと掲げるという、時間的空間的スケールの4次元的尺度の広さには瞠目させられると同時に否応なく刺激を受けます。 冒頭の「クローンから宇宙まで」という案内からは「多趣味さ」の形容であろうと予想しておりましたが、さにあらず極めて厳密に論理的に地続きであったことに、自身の世界観の狭小さを思い知らされます。 自身の中にもそのような数桁の範囲での4次元的な尺度をしっかりと打ち立てたいです。<br>（その他）愛さんがなさった「卵のフリーズドライの研究は進まないのか」についての質問に対する若松さんの回答が、卵と精の数の違いによる実験効率という現実性のみに注意を払ったものであったように思え、そのような肉体の違いをもつ者の間に生じる感情への共感的な要素の少なさに少し寂しさを感じました。</li>
+<li>若山先生の研究にかける熱量に圧倒された。クローン技術を起点に、再生医療、絶滅動物の復活・絶滅危惧種の救済、遺伝資源の保存・輸送・輸送先での生殖の実施、と言った幾重にも重なる長期の地道な研究を続けるその継続力や熱量は、どこから生まれてくるのか。  その熱量に尊敬を抱く一方で、その根本となる、未来のために遺伝資源を100%残す、といった考え方には、共感しきれない部分もあった。 未来の人類の繁栄のために、少しでも遺伝資源というバトンを多くでも渡したい、といった思いは、自分の子どもたちといった身近な相手を想像した場合のウェットな感情に限っては、共感した。 しかし、そうでない場合は、私たち人間は、地球だけで考えた場合でも、他の生命や環境を脅かす存在であり、もしかすると淘汰される存在ではないかと感じており、遠い未来として、必ずしも繁栄すべき存在ではないのかもと思い、その部分で共感に欠けた。 再クローンのお話の際に、通常の交配では、遺伝情報は、50%しか伝わらないが、そのおかげで異常な変異が伝わらず正常化される、とのお話もあり、50%が伝わっていく中で、人間が増減を繰り返しながら残り続けるのか、淘汰されるのか、または別の存在に変異していくのか、その流れにある程度身を任せるのも自然で、ロマンがあるように感じました。 （さらに、一方で、若山先生のような考え方や研究を行う方が現れるのも、人類のある種の性や運命であり、それもある意味人類全体として自然とも言えるかもしれませんが、、、）<br>（その他）若山先生の、遺伝資源を100%残す、といった人生のポリシーのようなものに行き着いた、若山先生の原体験みたいなものがあったかどうか、それはどのようなものだったか、とても熱量のある方なので、気になりました。</li>
+<li>今回の講義では、クローン技術や遺伝資源の保存によって、1000年後の人類や生物の存続を支える未来が提示された。しかし私は、その未来像が強く人間中心的であることに違和感を覚えた。 生命は本来、誕生、変異、交配、死、絶滅を含む過程のなかで存続してきた。それに対して遺伝資源の保存は、何を未来へ残すべきかを人間が選び、生命の存続を管理しようとする試みでもある。もちろん、人間によって失われた生物多様性を保全する責任はある。しかし、その責任がそのまま、あらゆる生命を技術的に保存する正当性を意味するとは限らない。 特に、人類の存続や宇宙への拡張が望ましい未来として語られるとき、人間は自然の一部ではなく、自然を選別し管理する主体として置かれているように感じる。未来の生命を守るという行為は、自然への配慮なのか。それとも、人間が生命の行方を決定できるという人間中心主義の延長なのだろうか。<br>（その他）真空技術メーカー勤務なのでフリーズドライ技術がこのような応用として使われていて感慨深かったです。</li>
+<li>クローン技術というと、なんとなく「規制されるもの」「技術の到達点を示すだけのもの」くらいにしか考えていなかったが、その認識はあまりにも素朴で不十分なものであったと思わされた。 遺伝資源は能う限り全て残しておくことは確かに重要である。現在では不必要なものが数年後、数百年後、はたまた数千年後には価値が反転しているかもしれない。本論とは逸れるかもしれないが、つい先日、青森県の三内丸山遺跡を訪れたときに感じたことと似ている。縄文土器は、当時の人々には一つの道具（それも重要なのだが）として扱われていたものが、何千年の時を経て非常に大きな文化的価値を持っている。歴史性というものがあり、そこには「失われずに残っていた」という点で大きな価値がある。今回の講義の中でも出てきたマンモスをはじめ、受け継がれなかった50％の遺伝資源もまた、失われなければその先の未来で価値を発揮する、そういう価値と似ているのかもしれない。そのサンプルが何らかの危害を加えるものでない限り、この先の未来の人類が参照できるサンプルが多いに越したことはない。 それにしてもクローンについて考えると、生と死の捉え直しを迫られる。例えばクローンによるマウスは、元のマウスと言えるのか。いやもちろん、クローン生成の過程での異常発生などを考えると違う個体だとも言える。しかし、完璧に複製されたとしたら。さらにそれが人間だとしたら（倫理面は一度ここでは置いておくとして）。クローン人間は世界をどう捉えるのか、元の個体は死んだが、今生きている個体は確かに生きているという点についてはどのように捉えるのか、さまざまな憶測が頭をよぎる。しかし少なくとも、単純な生と死という二項対立概念がここにおいて脱構築されるのは確かだ。我々は技術によって、死を乗り越えるのだろうか。まだまだ考え続けていきたい。<br>（その他）「世界初」が息をするようにニュースでたくさん取り上げられており、研究力の高さにただただ驚くばかりでした。同時に、何年も何十年もかけて到達した一つの到達点でもあり、その裏での血の滲むような努力に畏敬の念を覚えました。 アイルランドのジャガイモ飢饉の話は、どことなくこれまでの講義で出てきた「ブロックチェーン」と相通ずるところがあるように思えました。有事の際に、クローン技術も力を発揮することはよく覚えておかなければならないと感じました。クローン技術＝倫理的に危険という素朴な発想ではなく、クローン技術＝安定した社会を実現する技術という発想が私の中で芽生えました。</li>
+  </ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techfutures.html">← テクノロジーの未来学 トップに戻る</a></p>
+</main>
+</body>
+</html>

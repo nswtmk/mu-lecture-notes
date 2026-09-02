@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第5回 受講生の感想｜テクノロジーの未来学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第5回「身体はどこまで拡張できるのか──メタバース・BMI・新しい現実」<br>受講生の感想</h1>
+    <p class="subtitle">テクノロジーの未来学｜2026年7月20日（月）｜講師：藤井直敬</p>
+    <div class="hstats"><div><b>16</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">脳の予測モデルと主観的現実の話から、「意志と責任を持って、あなたの色で世界を満たす」という問いかけへ──受講生一人ひとりが自分の生き方に引きつけて受け止めた回でした。他人からかけられた「ブレーキ」「呪い」を外すというメッセージに、解放や希望を見出した感想が目立ちます。</p>
+  <ul class="theme-list">
+<li><b>「現実は主観の積層である」という視点への深い共感</b></li>
+<li><b>「意志と責任」「あなたの色で世界を満たす」への強い反響</b></li>
+<li><b>AI＝認知的身体の拡張、言語＝現実拡張技術という捉え方</b></li>
+<li><b>瞑想・ヨガ・仏教など、自身の実践と重ねた考察</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>脳の予測モデルを更新し続ける。未知なる道を「身（身体性）」と「知（知性）」でつくること。そのためには、暮らしをローテクにしてみたり、旧石器時代から変わらない「はだし」で野山を駆け回ったり、原始を体感しながら、先端テクノロジーとのハイブリッドで生きることだろう。 　ブレーキを外す。まさに自分の施術もそうである。痛みで身体の動きにブレーキをかけているクライアントさんが、クライアントさん自らブレーキを外すための手伝いをしている。「あなたは大丈夫！」と手技を通して伝えているのだ。そこには強い意志と覚悟がいる。私にとっては「意志と覚悟」と表現する方がしっくりきた。 　はだしも旧石器時代から変わっていない。でも靴を履いてそこに適応してしまった。靴を履いている人類を疑え。</li>
+<li>過去に知っていた内容だったので、復習となりました。<br>（その他）多くの専門家によって構成されている現代社会において、誰もがそういった人の意見に縋り付くように見受けられる。市井には独自で学んでいる層がいて、その人たちは自分の存在価値がわかっていないと思う。大企業や先端技術を独占してきたレイヤーからITが知識を民主化したいまは、ふつうの人々にもっと目を向け、掬い上げる必要があると思う。どんな些細な生活の知恵さえも。ぼくは自分の運用するスペースでそういったことをするつもりだ。民衆に気付きを！</li>
+<li>予測の範囲で納めようとしている人に囲まれ、「それってどうよ」と思う気持ちを抑えている自分が嫌だなと感じていたが、今日の講義でスッキリしました</li>
+<li>大変勉強になりました。 冒頭の主観的世界のお考えは、共感する事がとても多く、大変驚きました。  意思と責任を持つ事が大事であるという事が一番心に響きました。  異なる世界を生きているというのはまさに共感する部分で、この世界は誰にとっても自己の意識の中にしか存在しない。しかし世界は自身を映す鏡であり、自己は縁起に寄ってのみ成り立ち、世界無くして自己を知る術はない。そう考えています。  僕は主体について自分自身の考えがありますが、主体が入る器を身体とは別に考えており、変化する主体が入る器を鼎と定義しました。現代の漢字の定義を疑い、その意味を甲骨文字まで遡り、自分が考える意味を当てはめた結果、5つの文字がひとつの場面にぴったりと当てはまりました。それが鼎です。その考え自体は、自身の経験の中から導き出されています。  能動的推論については、恐怖と好奇心が鍵ではないかと感じています。食後にハムスターが走るのと同じで、恒常性の維持は停滞と滅亡につながる事を遺伝的に知って居るのかも知れない、と。  現在、自身の脳の構造を模倣してアーキテクチャの設計を行い、更に調和的主観主義の哲学体系を実装したAIエージェントを、自身の拡張脳として開発しております。AIは鼎であると実感しています！  ちょうど昨日、その考えを論文としてまとめたところでした。あまりに近い目線だったので、参考までに置かせて頂きます。  【概念-README】 https://github.com/QuantumSync2012/harmony-subjectivism/blob/main/README.md</li>
+<li>講義を通じて、自身の意思決定が脳の無意識な予測モデルの事後承認に過ぎなかったことに気づかされ、これまで無自覚に生きてきたことへの危機感を抱きました。 だからこそ、自覚的な意志を持つことが重要なのだと理解しました。社会全体を変えるような大きなことは言えなくとも、これからは家族や職場の仲間たちの幸せで自分の世界を満たすために、予測に留まらない、意志と責任を伴う行動を身近なところから実践していきたいと思います。</li>
+<li>●学んだこと ・テクノロジーは身体拡張を通じて人間のあり方そのものを変容させる。 ・既存のSF世界や「与えられた現実」「未来像」を無批判に受け入れるのではなく、常に疑う姿勢を持つこと。テクノロジーの本質的な意味と、その中でも「変わらないもの」に注力する必要がある。 ・どの現実を生きるかは自分で決めるものであり、世界を作っているのは自分自身である。 ・客観的な現実は存在せず、絶対的な自由意志も存在しない。「自己と環境とが反応し合う編集のループ」そのものが、結果として「意思」と呼ばれるものになる。  ●個人的な考え ・意識的な行動から無意識への移行は、デバイスの習得に等しい。これをITに例えるなら、ソフトウェア的なリアルタイム制御（意識）から、「FPGAから固定回路（ASIC等）への移行」（無意識）と言える。 ・この移行は処理の「外部委託（ライブラリ化）」であり、In-Outの紐づけと閾値の訓練に帰結する。 これは、脳の容量（処理能力）を広げる効率的な手段だが、極論すれば「自己と外部との境界」が曖昧になるという危うさも孕んでいる。 ・自己保存のために、環境から能動的に意味を汲み取るプロセスが重要。 ・では「好き」という感情はどこから来るのか。それは単なる反応ではなく、自己の実存を満たしているかを確認するための「知覚センサー」として機能しているかも。 ・外部から現実をハックしようとするInput（偏ったデータによる洗脳など）を避け、自分の現実に必要なInputだけを取り込むコントロールが大事。 これを実現するための具体的な防衛策として、「日本独自のデータセット」や、自身でRLHF（強化学習）評価を行う「MyLLM」「MyAIフィルター」も考えられる。 ・今回の講義は、個人的には客観的というより希望的な解釈が入っていると感じたが、客観的な「論理の破綻」は実は問題ではない。最も重要なのは「個人がいかに納得するか」であり、その納得のプロセスこそが「意思」なるかもしれない。</li>
+<li>今回の講義は、大変有意義なものでした。特に印象に残ったのは、変化の速い技術や一時的な潮流を追いかけるだけではなく、まず人間の中にある「変わらないもの」を理解することが大切だという点です。  なかでも「AIは筋肉のようなもの」という表現は、私の日々の生活や仕事を考えるうえで、非常に貴重な助言になりました。AIは大きな力を持っていますが、それ自体が進む方向や目的を決めるわけではありません。どこへ向かうのかを決めるのは人間であり、AIはその意志を実行するための「筋肉」として捉えることができます。  講義では、人間が自分の行動と、そこから返ってくる反応を受け取りながら、脳内の予測モデルを更新していくフィードバックループが重要だと説明されていました。AIはそのループをつくる主体ではなく、人間が決めた方向へ動き、その意志を社会の中で実行していくための力です。だからこそ、AIの能力以上に、それをどこへ向けるのかという人間の意志が重要になるのだと思います。</li>
+<li>講義の後、私が続けてきたヨガの修行について考えた。身体の限界を超えるアーサナや痛みに耐えることは、身体の予測モデルを書き換える実践とも考えられる。しかし、それが「苦しいほど修行になる」「難しいポーズほど価値がある」という別の予測モデルを強化しているだけだとしたら、本当に予測モデルを超えたとは言えないのではないか。  私自身は、能力や身体性を高める方向よりも、瞑想を通して、自分がどのような予測モデルで世界や身体を見ているのかを観察する方向に関心がある。  予測モデルを超えるとは、より高度な能力を獲得することなのか。それとも、自分を縛る予測モデルそのものを観察し、手放していくことなのか。そして私は、何で世界を満たしたいのだろうかということを引き続き考えていきたい。<br>（その他）未来学の講義の中で1番楽しみにしていた講義で興味深かったです。</li>
+<li>『他人からかけられたブレーキを外し、意志と責任を持って「あなたの色で世界を満たす」——それが主体性の再獲得である。』というところに、希望を見いだせた。主体性を持つということは、すなわち意志と責任を持って現実を塗り替えようとすること。それは、疑うことから始まる。疑い続けてよいのだと、肯定されたように感じた回であった。<br>（その他）「生まれてから縛られてきた『呪い』=他人からかけられたブレーキは全部外してよい。そこに残るのが純粋なクリエイティビティ」というところに深く勇気づけられた。責任は伴うが、ブレーキを放置するしか選択肢がないわけではない。小さなことのようで、非常に大きな気づきを得られた。</li>
+<li>テクノロジーでより身体が拡張されていく中で、その現実や未来をどう定義し、変えていくか。  その前提となる予測モデルについて、自分の過去の経験から、納得がいくことが多数あった。 ・自分のイメージできている以上の未来は来ない（例えば、サッカーのフリーキックは、自分がイメージし切れていない軌道には絶対に蹴れない。５年後こうなっているだろうなーに、５年後自然と近づくが、一方でそれ以上の予想外に良い未来は起きない）  では、その予測から、どのように抜け出すか。 私自身、七沢さんと同様に、予測された瞬間につまらないと感じ、先が見えた瞬間に興味がなくなる特性である。過去の自分は、その度に、仕事面では、転職や移転により、環境を変えることで、意図的に予測から外れようとしていたのではないか。  環境の変化は大変なことでもあるが、常に現実を疑い、無意識を顕在化させ、それを更新し続けることでしか、未来を良くすることはできないことを再認識した。 過去からの無意識の積層に、環境の変化による強制力も借りつつ、意思や責任をもって向き合い続けることが重要か。 （一方で、予測の中でずっと継続して生きていける人はそれはそれで幸せだが、そうではない生き方を知っている自分は、もう戻れない、、、）<br>（その他）講義で取り扱ったような視覚と触覚のループの例以外に、身体的なフィードバックのない思考方法自体についても、意識的に取り組むことで、それが無意識に発動されるようになっていることに気づいた。私の場合は、コンサル時代の上司の思考方法が、次の次まで考えた上で目の前の戦略を提案する、であり、それが今では無意識に発動していることに気づいた。このような無意識を顕在化する方法として、このように言語化することが必要であると感じた。言語化により、無意識から意識レイヤーに移すことで、思考方法もアップデートできると感じた。  メタバースやAIのプロンプト入力等の新しいテクノロジーも、無意識に近いレイヤーに組み込まれそうなイメージが湧いた。例えば、身体的なフィードバックが少ない、PCのキーボード入力でさえ、無意識的なレイヤーに組み込まれており、同様なことが新しいテクノロジーでも起きると感じた。  講義の終盤にあった「意思」と「責任」について。自分は、意思や責任のある人と出会うと、いつも面白いと感じているのかもしれない。</li>
+<li>• 主観的な現実は人の身体、具体的には意識と無意識の相互作用でつくられている。他人は変えられない、人は変わらない、とよく言われるが、脳の可塑性によるクセで想像以上に変わっていけるとも思った。 • 能動的推論と現実科学について。人は無意識による予測と世界のズレを観測している。両者にズレがある場合、世界に合わせて予測を修正するか、行動を通して世界を予測に合わせようとする。現実科学では、与えられた予測・目標に止まろうとする傾向に抗い、自らの意志で新たな目標を再編集する。無意識の予測から逸脱することで、人は主体的な自由を発揮する。 • 主観的な世界がバラバラな人間は言葉や虚構を通して、同じ世界を共に眺めることができる。仕事上、対話やファシリテーションで相互理解を促進することが多いが、本人も意識できない無意識な予測モデルに対して、言葉による対話アプローチは限界があると感じた。絵、身体、写真など言葉以外の表現、拙速なすり合わせではなく、相互変容にじっくり時間をかけること、ズレが起きたままコラボレーションできることなどの可能性を考えたい。 • 編集する意志について。意志は後付けになりがち。意志を発揮しても、それは無意識な予測モデルに沿った錯覚になってしまう。どこまでが予測モデルで、どこまでが事後の編集意識に該当するか、その見極めは非常に困難だが、未経験の新しいことや目標への挑戦は強制的に予測モデルから逃れ、主体的に編集する機会になると思った。</li>
+<li>7/20の藤井先生の講義について。 本講義では人間の外ではなく脳という内部に切り込んでいくという意味でこれまでの回とは違った方向性の議論となり大変興味深かった。現実とは主観体験の積層であるという見解については日頃自分で考えていることに重なる部分も多いと感じた。  特に脳の可塑性の話からAIを認知的身体の拡張と位置付け、言語を現実拡張技術として捉えるという方向性が非常に面白かった。そこから少し思考を膨らませてみると、AIは脳のインターフェースに言語というプロトコルで直接働きかける初めての非人間存在なのかもしれないということに思い至る。VRは視覚や聴覚のプロトコルをハックするが、AIはVerbal communicationをハックする。これまでこのプロトコルは相手が人間であることが保証されていて私たちの脳もその前提で動作してきたけどLLMによってその前提が変わってしまった。結果、人間同士でのコミュニケーション以上に脳の持っている脆弱性や特性のようなものが直接露出する時代になっているように思う。  言い換えれば、チャットボットを通じてAIに接している人間はインターネット上の信頼しきれない相手と通信を開いているようなもので良くも悪くも脳に近いインターフェースが剥き出しの状態のままコミュニケーションを重ねていることになる。元々人間同士であってもこのインターフェースは相手を騙したり精神に影響を及ぼすような影響力を行使していたわけだが、LLMが相手となって物量、賢さともに通常の人間を上回る相手と通信をするようになって未知の領域へと踏み出している。  藤井先生はこの点ポジティブにこの現実の拡張と捉え世界に満たしていくことが重要であると鼓舞されており本講義としては勇気づけられるものであったと思う。一方で剥き出しの脆弱性に対する防御も準備する必要性があり、国家・社会レベルでは「AIと社会」の柳平先生が扱われているような法制度の整備、個のレベルでは攻殻機動隊の攻性防壁のような仕組みを真剣に築いていかなければならないと思った。</li>
+<li>「定義する現実」について、私が現在考察している「応答」に近いものを感じた。講義でもあったように、現実は私たちの内にしかない。その現実に対して働きかけ書き換えようとする行為が私の中での「応答」であるが、今回の講義で、より思考の輪郭が鮮明になった。 現実を書き換えようとする行為は創造的でもあるが、同時にひどくエネルギーを要するものでもある。というのも、私の内にある現実は一種の摩擦を持っているからである。だからほとんどの人はその摩擦を避けるために、何も考えない（予測しない）ようにするか、現実との接触を避けるようになるのではないだろうか。その方がエネルギーも消費しないし、生きやすく感じるのかもしれない。 しかし、エネルギーを要してでも既存の現実に働きかけたいという欲求が私にはあり、最近では意志の力とは関係なくそうしている自分がいる。おそらく全てが予測可能な世界への不毛感と主体性の喪失が嫌なのかもしれない。講義でも、現実を書き換えることが主体を生むとあったように、当の書き換え行為自体が主体なのだろう。この定義に従えば、現実への働きかけをしない者は主体が無いということになる。つまり、物理的な身体はあれど主体が無いということに他ならない。こういう状態の人間が大多数であることも頷ける。 目下私は、教育に携わるものとして国語教育に主体創造のヒントを見出している。今までの教育は既存のルールへの順応として機能していた。また、正解の選択肢を選べれば高偏差値の学歴を手に入れられるものでもあった。しかし、国語の問いそのものを作り替え、文字通り彼らの言葉で書かせることで、現実を書き換える訓練をできるのではないかと考えている。この「国語の問いの作り替え」が現在の課題ではあるが。 9割の人は現実を書き換えようとしない旨が講義でもあったが、その一つに教育が大きく関わっていることは否めない。なんなら教育によって「考えない」ようにさせられていると言っても過言ではないのだ。それがどこまで良い悪いの価値を持つのかには慎重にならなくてはならないだろうが、私はこの割合が少しでも変わると世界は面白くなると思う。<br>（その他）かつて 『未来は決まっており、自分の意思など存在しない。心理学的決定論』（光文社）を読んだ時に衝撃とともに軽い絶望にも襲われました。自分の中ではぬぐいきれない「ああ、意志だと思っているものは全て決定されているんだよな…」という諦念のようなものがありました。ですが、今回の講義の中でその先へと立ち上がる力をもらえた気がします。確かに意志は事前に決まっているかもしれないですが、現実を定義していく行為は、現実を変え、私や私の周りを変えていきます（だからこそ責任も伴いますが）。その関係性の網の目は、思わぬ方向に広がりをみせ、私に常に驚きを提示してくれるのではないかと思いました。だからこそ、未来は決定しているかどうかよりも、私が現実に働きかけ私も現実から働きかけられ、その相互作用を反復的に行なっていくことに未来は驚きを伴って立ち現れるという、そのことの方が重要なのではないかと考えるようになりました。</li>
+<li>身体の拡張は、フィジカルな不確定性の中に深く踏み込んでいくために使う方法のひとつだと思ってます。一方で、不確定性を回避するための拡張は、身体体験の豊かさを損なうものだとも思っている（例えば、ルールを正解なものだと思い込むこととか、失敗してもリセットできるTVゲームとか）<br>（その他）現実を疑うことは、もともと自分の価値観のひとつだと思っていました。一方で、「現実を疑い編集し続けるループ」「編集する」という表現は、講義を聞くまでは使ったことがなかったので、これから生きるうえでの気づきになりました</li>
+<li>脳科学という観点からテクノロジー、意思、AIなどを語るとこういう風に言える、捉えることができる、ということは改めて一定の示唆にはなった。何となくは理解できるけど、脳科学をしっかり理解して身体感覚として理解することが重要なのだと感じたし、それこそ自分の言葉・意思として咀嚼したり定義することが大事だと思った。仏教の唯識思想にも近い話と思った。仏教の理論体系を構築してきた人は、思考や苦行等を通して、現代の科学にも通ずるものを導出したのはすごいと思った。</li>
+<li>メタバースやVRの普及が、肉体的な制約や社会的な属性によって不自由を抱えていたマイノリティの人々を解放し、自由な現実（空間）をひらくという可能性そのものには、大きな希望を感じています。しかし、藤井先生から投げかけられた「世界をあなたは何で満たすのか」という問いに立ち返ったとき、現在のバーチャル空間のあり方には歪みが存在しているとも感じられます。  現在一般的なバーチャル空間を見渡すと、無防備な言葉や刺激的なノイズが先行し、空間が荒涼とした状態に陥りがちです。これは、生身の身体が持っていた表情の揺らぎや声のトーンといった非言語情報が削ぎ落とされ、文字情報だけに還元されたこと、そして、誰かの利益になるような行動を無意識に操作されていることで、コミュニケーションの暴力性が剥き出しになっているからだ、と捉えることもできます。  生身の関係性における配慮は、「相手を傷つければ自分にも痛みが跳ね返る」という身体的な重力や社会的制裁のリスクと不可分でした。どれほどバーチャルの表現力が豊かになったとしても、ログアウトによって現実の責任や痛みを容易に免責できる構造のままでは、危うさがあります。情報量の多寡そのものが、自動的に他者への敬意をもたらすわけではありません。  藤井先生は、バーチャルを現実と地続きのレイヤーとして溶け込ませること、そして他者の視点を得ることで「人の数だけ現実がある」という多義的な寛容さを育む可能性を語られています。したがって「他者を都合のいい消費対象として扱えてしまうプロトコルになっていないか」という、インターフェイスと関係性の設計論として問われるべきだと考えます。  私たちは多元的な未来に向かっているし、多元的な現実に生きています。そうした前提に立ったとき、「世界を何で満たすのか」という問いは、「情報が都合よく加工・拡張され、自分自身の認知でさえもハックされうる世界の中で、自分はどのような知覚を選び取り、他者との関係性にどう責任を引き受けていくのか」という問いとして、これからも向き合い続けていきたいです。<br>（その他）草むしりをしながら講義を聴いていたのですが、土の匂いや草を引っこ抜く手の感触、謎の虫たちとの遭遇（素手でやってたので）といった、生々しい物理的な身体の感覚のただ中にいながら、「現実とは脳の都合で作られた解釈に過ぎない」「身体はいくらでも外部へ拡張できる」という話が耳から流れ込んでくる体験は、どこか不思議な面白さがありました（良かった）。 五感で聴いたからこそ、「脳が作り出す現実」と「いま目の前にある肉体のリアリティ」のコントラストが際立ち、テクノロジーがもたらす新しい身体感や現実のあり方について深く引き込まれる講義でした。藤井先生の声も素敵でした。 モニター見ながら真面目に聞くよりも、草むしりみたいなフィジカルな体験との相性がいいのかもしれないと思いはじめました。</li>
+  </ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techfutures.html">← テクノロジーの未来学 トップに戻る</a></p>
+</main>
+</body>
+</html>

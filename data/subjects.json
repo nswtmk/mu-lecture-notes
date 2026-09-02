@@ -55,7 +55,8 @@
             "複数形の未来",
             "鉄の馬",
             "7つの軸・14のキーワード"
-          ]
+          ],
+          "voices": "techfutures-01-voices.html"
         },
         {
           "no": 2,
@@ -76,7 +77,8 @@
             "ビルダー",
             "入口と出口",
             "気質の希少性"
-          ]
+          ],
+          "voices": "techfutures-02-voices.html"
         },
         {
           "no": 3,
@@ -97,7 +99,8 @@
             "ジュガール",
             "腐海のイノベーション",
             "ゆるさ"
-          ]
+          ],
+          "voices": "techfutures-03-voices.html"
         },
         {
           "no": 4,
@@ -118,7 +121,8 @@
             "デジタル公共財",
             "Plurality",
             "デジタル・オフグリッド"
-          ]
+          ],
+          "voices": "techfutures-04-voices.html"
         },
         {
           "no": 5,
@@ -139,7 +143,8 @@
             "代替現実（SR）",
             "ブレーキを外す",
             "意志と責任"
-          ]
+          ],
+          "voices": "techfutures-05-voices.html"
         },
         {
           "no": 6,
@@ -160,7 +165,8 @@
             "1000年後",
             "時間スケールの反転",
             "失敗を論文にする"
-          ]
+          ],
+          "voices": "techfutures-06-voices.html"
         },
         {
           "no": 7,
@@ -181,7 +187,8 @@
             "欲望",
             "ノイズ",
             "生物を見て作ると生物以下"
-          ]
+          ],
+          "voices": "techfutures-07-voices.html"
         },
         {
           "no": 8,

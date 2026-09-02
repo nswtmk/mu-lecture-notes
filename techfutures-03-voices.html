@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第3回 受講生の感想｜テクノロジーの未来学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第3回「&quot;未来&quot;は中国でつくられるのか──国家と技術、その未来」<br>受講生の感想</h1>
+    <p class="subtitle">テクノロジーの未来学｜2026年7月13日（月）｜講師：高口康太</p>
+    <div class="hstats"><div><b>18</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">「中国のイメージが目からウロコだった」という声が並んだ回でした。強権と「ゆるさ」の同居、ジュガール（あり合わせの帳尻合わせ）、未来を構想せずまず殺到してみる精神──通説やオリエンタリズムを相対化し、自分たちのものづくりや組織の話として引きつけた感想が多く寄せられています。</p>
+  <ul class="theme-list">
+<li><b>固定化していた中国像の転換──「ゆるさ」と「刹那」が生むイノベーション</b></li>
+<li><b>ジュガール／「低解像度のリバイアサン」など独自の概念への反応</b></li>
+<li><b>西洋的な見方・オリエンタリズムの無自覚な内面化への気づき</b></li>
+<li><b>「まずやってみる」精神を自分の仕事・組織にどう活かすか</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>お隣の大国・中国について聞いたり読んだりしたことはあれど、一側面でしかなかったことを痛感する講義でした。また学びが億会ったけれども、次の世代が台頭してくる中で、今日の学びをそのまま適応することも近い将来できなくなるだろうと予感しています。まだまだエリート層は全体としてはごく僅かだろうし、時間がかかるとは思うのですが実際に見て体験したいとワクワクする内容でした。  国民性とひとくくりにできないけれど、勝ち馬に乗ろうとする早い動き・失敗を失敗で終わらせないしぶとい（狡猾な）帳尻合わせ・残った資源を最大限利活用する姿勢などは、家族・親族を大事にする現在的な時間感覚があるからなのかもしれない。また最後に長谷川藍さんが質問されていた、人口規模や多民族国家ならではの統率と逸脱のバランスが崩れた先にどのような未来がまっているのか。彼らはどこの国家を指標とするのか、あるいはしないのかなど興味がつきません。<br>（その他）大きな国家ゆえさらに別のエリア視点で見ると異なる中国観がでてくるのかなと刺激される内容でした</li>
+<li>国家主義（強権）と個人主義（ゆるさ）とのバランスで成り立っていると考えていましたが、そこに接点がなくても大国たらしめる中国という国家の魅力に気づきました（時代の流れにたまたま乗っただけかもという話もありながら） その中で「ゆるさ」って日本のモノづくりにも必要だと感じたとともに、ジュガール力（帳尻合わせ力）が未開の未来を進むのに必須能力だと確信しました</li>
+<li>今回もっとも考えさせられたのは、中国のイノベーションを支えてきた「緩さ」が、権利として保障された自由ではなく、支配システムが社会の末端まで見切れない不完全さから生じていた、という点です。 これは「低解像度のリバイアサン」と呼べるのではないかと思いました。国家は強大な力を持っていますが、日常の商売や地方の細かな試行錯誤までは把握できず、人々はその画素と画素の間で動くことができる。一方、香港やLGBTなど、政治的に重要だと判断された領域には急に焦点が合い、強権的な介入が起きる。したがって、これは自由というより、国家の視線がまだ届いていないことによる、いつでも取り消され得る「行為可能性」なのだと思います。 この構造を考えると、AIの発展には逆説があります。AIは国家の管理能力と社会を見る解像度を高め、これまで見逃されていた行動を識別・記録・警告できるようにする。中国のイノベーションを生んだ技術が、その成立条件だった「緩さ」を消してしまう可能性があります。 未来を構想せず、足元の試行錯誤から未来が生成されるという中国のあり方は非常に興味深いものでした。同時に、その生成を可能にしてきた抜け穴がAIによって閉じられたとき、中国のイノベーションがどう変わるのかが気になりました。<br>（その他）「殺到」「ジュガール」「腐海のイノベーション」という説明には強く惹かれましたが、同時に、その下にある大量の屍が気になりました。EVメーカーが500社生まれ、400社が1台も生産せず消えたとして、そこで働いていた人、給与や貯蓄を失った人、売掛金を回収できなかった取引先、補助金を負担した社会、放置された設備や環境負荷は、その後どうなったのでしょうか。 技術者や部品、製造ノウハウが別企業へ移り、失敗が次の産業の肥料になる経路は確かにあると思います。しかし、すべての屍が肥料になるわけではありません。産業全体を遠くから見れば、屍の上に花が咲いたように見えても、個人の人生まで再利用されるわけではない。人口と企業数が多いからこそ、大量の失敗を並列試行として処理し、その損失を見えにくくできる面もあるのではないかと思いました。 「帳尻が合う」という言葉にも同じ疑問があります。帳尻は自然に合うのではなく、帳簿上のマイナスが別の誰かへ移されます。最後の残差を国家、企業、投資家、労働者、家族の誰が引き受けるのかまで見なければ、帳尻合わせの生命力だけを評価できません。 また、中国の現象を説明するために、あえてインド由来の「ジュガール」という言葉を持ってきた点も気になりました。中国の人々自身が一般的に使う言葉というより、高口さんが外部から与えた分析概念なのだと理解しました。「帳尻合わせ」や「間に合わせ」と呼べば危うさが見える現象が、「ジュガール・イノベーション」と呼ばれることで、創造性や生命力を持った方法論として美化されていないか。この点も、さらに考えてみたいです。</li>
+<li>●個人レベルでは生存第一の思想 　今日の説明を聞いて、個々の施策は失敗したとしても「中国としては成長すること」が第一の姿勢と感じた。そうすると当然、国民一人一人は自分の力で自分を守る必要がある。だからこそ、自衛意識や目先の実利はとても大事。戦場感覚というか、厳しさが前提なら…まずは生き延びること。だから思想なんてクソくらえ。 　関連して、劉慈欣のSF「三体」は「生存は文明の第一欲求である」を公理に据えた黒暗森林理論が出てくる。「まず生き延びること」を宇宙論にまで昇華したものと考えると、中国の個人レベルの思想は消えたのではなく、生存を第一公理とする形で存在しているのではないか。  ●中国で思想とビジネスが乖離しているのは、思想を国家が管理しているから。 対象の違い：日米は「シンギュラリティ」という遠い特異点に惹かれ、中国は目の前で動くAIに惹かれる。 時間の違い：米国の長期主義は100年単位（火星移民）、中国は3〜5年。 構造の違い：欧米では思想・ビジョン・ビジネスが一体化しているが、中国では思想と技術・ビジネスが乖離している 　しかし、中国には「中華民族の偉大な復興」という2049年（建国100年）のビジョンがある。 　上記から、この違いは「スパンの長さ」ではなく、「長期ビジョンを誰が保有しているか」かもしれない。米国では長期ビジョンをマスク、アルトマンといった起業家個人と資本が持ち、中国では国家が独占している。だから個人と企業に残されるのは短期KPIだけになる。</li>
+<li>今回の講義を通じて、未来への移行とは、古いシステムを完全に終わらせてから新しいシステムへ移ることではなく、相反する仕組みが併存しながら進むものなのかもしれないと感じた。  未来への移行は、現在の矛盾を解消した後に始まるのだろうか。それとも、矛盾するシステムを抱えたまま、新しい未来を生成していく過程そのものなのだろうか。<br>（その他）具体例や比喩が多く、話としては興味深かったです。一方で、「未来は中国でつくられるのか」というテーマに対して、何が中心的な主張で、何がそれを補足するエピソードなのかが少し曖昧に感じました。</li>
+<li>前2回と比べて、圧倒的に面白くて中身のある講義だった。中国のジュガールの姿勢は大いに学びにしつつ、一方では人類全体視点での長期的な方向性だったり大事にすべきこと（例：人権遵守や戦争回避、環境問題解決など）は、やはり中国含めてみんな考えて合意すべきことであった、そしてそこへ到達する手段は、ある意味あまり考えすぎず、最初から決め過ぎず、ジュガール的にやっていけばよいのでは、と思った。</li>
+<li>長谷川さんからの質問に含まれていた戦後日本の発展との比較も含め、時代の変化とその時期の国家構成や国体、国民性などのマッチングによって現状がある、という相対的な歴史観を獲得することができました。 一般に語られる言説に偏見が含まれうること、私自身西欧圏の価値観が無自覚に内面化されていること、フィールドワークによってしか感じられない実感を垣間見ることができたことにより、より注意深く世界を眺める姿勢を意識できるようになったと感じています。 とはいえ近年の中国の発展がたまたまであるとか、近い将来に価値観の更新ができないことで凋落するであろうなどという矮小化で認識を終息させてもならない、という自戒も必要です。 議論の中で、中国人には遠くの人々に起きている抑圧に対して、強い義憤を感じる習慣はあまりない、などのトピックが印象的でした。自分と家族、親戚やその友人という近い範囲での結束は強いが、一定程度遠い人々への共感性は下がるという感性モデルで、トランプ支持者へのあるインタビュー映像を思い出しました。 「俺はLGBTの連中を差別なんかしていない。ゲイの友人だっている。ただ自分の子どもたちにおかしな教育をして惑わせるのは反対だ」という内容です。 ごく近い身内には結束共感するものの他者には無関心でいられるという習慣と、「殺到ジュガール腐海」による発展が足並みを揃えたものであるように思え、近年の社会の分断も「情報化社会の発展によるもの」というばかりではなく、「そのような無関心さがあった方が発展しやすかった」という、主客逆転の可能性を考えてしまいました。卵か鶏か程度なのかも知れませんが、考えてみたいです。 一方でそれでも14億の人口が一国で維持されており、それらを背景として発展がもたらされているのだとすると、一定程度の無関心が「ゆるやかな幸せ」の秘訣なのか、目指すべき『未来』なのか、、、。いや、やはりそれはユートピア的ディストピア、マトリックス社会なのだ、と思いたい。 「未来は中国で作られるのか」という命題には、中央集権国家の方がAIデータ収集が効率的なのではないかとか、国家主導で自由主義経済社会に対してチートの戦略を仕掛けられ得るのではないか、などという背景を含んでいるものと推測していました。 今回の講義を経て、実際には中国もかならずしもハンドリングしきれているわけではなく、結局のところAI進展などによる民衆(というかオレ)の漠然とした不安をもとにした偏見であり、「曇りなき眼」の必要性を再認識した次第です。<br>（その他）とはいえ14億の国家を概観するのは並大抵ではないですよね。「オレだけが知っている」「行ってみないと分からない(行ってみたヤツにしかわからない)」などの言説も冷静に受け止めたいです。受講生に複数の外国人の方がいらっしゃることも、とても良い議論の空間ですね。</li>
+<li>今回の講義を伺っていて面白いと思ったのは、米国と中国は外交上は関税や貿易制限のような形で様々牽制しあっているにも関わらず、技術の開発・普及、特にハードウェア関連産業では相互に強い協力関係にあると感じたことだった。お話いただいたEVやスマートフォンの事例のようにビジョンを示す米国と製造技術を担う中国が結果的に両輪となって世界に普及させているという捉え方は、現代の技術のあり方をより大きな枠組みで読み解く視点として非常に興味深かった。  一方で、ソフトウェアの領域から見ると少し違った景色が見えるようにも思える。インターネットを介したサービスを提供する会社で仕事をしてきた私から見ると中国というのは「グレートファイヤーウォールの向こう側の国」である。通信が制限され、Webサービスが国家によって管理された統制の強い国家。基盤的な技術のレイヤーでは多くのことを共有しアカデミックやOSSのレベルでの交流はあるけれど、実際のサービスとしてはあくまで体制による介入を許容するサービスのみが生き残れる世界。米国が中心となったインターネットとは相互につながっているものの、壁で区切られた独自の世界がそこには存在している。  そしてまた、近年ではAI領域における両国の立ち位置も面白いなと思う。この領域では米国企業はクローズドモデルの開発に終始し米政府も輸出制限を適用するなど非常に管理的な態度をとっている。一方で中国企業はオープンウェイトモデルの開発を軸にしながら、米国からのGPU提供制限も乗り越えてフロンティアモデルに漸近する性能を実現できている状況にある。どちらかというと中国の方がオープンな立ち位置にあって、ローカルLLMなど特定領域ではより支持を集める状況ができつつある。中国側が米国のフロンティアモデルを蒸留している疑惑などもあり関係性としては敵対的であるように見えるが、今後フィジカルAIの発展が進むとまた違った関係性が立ち上がってくるのかもしれない。  このようにレイヤーをずらしながら両国の関係を眺めていくとそれらの差異が複層的に見えてきて、多元的な技術の見方が意識できるような気がした。また、各レイヤーにおける2国以外の国の立ち位置やハードウェア・ソフトウェアといった捉え方のさらに外の視線も持ちながら今後の講義で視野を広げていければと考えている。</li>
+<li>・中国のつくられたイメージをまんまと信じていたので、目からウロコで非常に面白かった。FPS的に物事をとらえる、はデザインのアプローチでいうところの虫の目、にも似たイメージ。意識したい。 ・まさに動画視聴をした日に、自社組織についての議論で、組織の目標管理をどうするか、という議論があった。ゆるさ、の結果、ジュガール（あり合わせで帳尻を合わせる知恵）が連続で行われ、結果現代に最適化されたという話が非常に面白かった。 ・組織を管理するためのKPIやKGIという概念は非常に重要なものだと思いつつ、その究極には自己愛による短期的成果を是とするマクロリーダーシップによる弊害がある、というヘンリー・ミンツバーグの指摘を思い出した。 ・属人性や相互作用による、想定できない変化や掛け合わせを受容しするにはどうすればよいか。最近興味を持っているバフチンの対話思想のような、人は単一では存在できず常に対話相手が必要である、といった存在の仕方に対する価値観の転換が必要なのかもしれない。</li>
+<li>中国に対するイメージが知らぬ間に固定されていることに気づきました。 「ゆるさ」「刹那」といったことからイノベーションが起きていることは納得ができた。日々イノベーションは中心部ではなく周縁部から、と感じており、その要素として「ゆるさ」「刹那」はあると感じた。 その中で、A Iが発展し、正確さ、確実性が担保されることは、「ゆるさ」を阻害する要素でもあり、予想外の特異点としてのイノベーションや発想が出にくくなるような気がした。</li>
+<li>講義を聴きながら引っかかったのは，「中国は本当にこのやり方(思想なき帳尻合わせ)のままでいいのか」という問いだった．ユク・ホイの議論を最初は「中国はもっと独自の技術思想を持つべきだ」という提言として受け取っており，私自身もそうであるべきだと信じていたが，高口さんの整理を聞いてその考えを相対化した．その提言自体が「中国/東洋には西洋と違う調和的な技術思想があるはずだ」という，欲望でありうる，という指摘だ．だとすると，私が漠然と感じていた「思想がないのは物足りない」という感覚自体，無意識のうちに西洋的な尺度を当てはめていただけかもしれない．ただ，それだけでなく，この欲望は人々の故郷喪失からも生まれているのではないかと考える．例えば，どの国に属しているとも感じることができない個人にとって，「故郷なるもの」を追求しようとし，他の地域にはない故郷の良さを理想化した形で希求してしまうのではないかと思う．<br>（その他）スライドが少し見づらかった．</li>
+<li>・全体を通した学びは、複雑なことを単純なモノサシや対比構造にあてはめ、わかったつもりにならないこと。      ・いま見えている中国像は西洋のオリエンタリズムが投影されている可能性があるとともに、ユク・ホイなどの思想家の話も一側面であり、実態を網羅しているわけではない。中国政府も未来構想を発信しているが、実態はジュガールを重ね、未来を実験しながら、構想を後付けしている。 ・ジュガール的未来実験のアプローチの成功要因として、チャンスにいち早く「殺到」し、「ジュガール」による実験と学習を重ね、無数の失敗・成功事例の学びが蓄積された「腐海」の3つを備えたシステムが重要と理解した。 ・不確実な時代を生きる個人と組織の教訓として、「ジュガール」は注目・実践され始めているものの、迅速な介入(殺到)と学習の暗黙知と形式知の学習エコシステム(腐海)がボトルネックになっているのではないか。</li>
+<li>これまで私は、中国に対してどこか「発展途上の国」というイメージを持っていました。日本とは価値観が相いれず、何を基準に物事を判断しているのか分かりにくい国、という印象もありました。  しかし今回の講義を聞き、中国は一つの完成形を描いてから動くのではなく、個人や企業がまず試し、うまくいったものを素早く改善しながら広げていく社会なのだと感じました。この「まずやってみる」という姿勢で捉えると、中国の急速な技術発展や意思決定の背景も少し理解できるようになりました。  一方で、日本がそのまま中国のような社会を目指すべきだとは思いません。急激な変化を求めれば、日本が育ててきた産業を衰退させたり、長い時間をかけて形成された文化を無理に崩したりする可能性があります。日本がこれからどのような国になっていくのかは、単純に中国の成功例を取り入れるだけでは答えが出ない問題だと思います。  ただ、個人としては「何でもまずやってみる」という姿勢は大切にしたいと感じました。変化を避けるのではなく、まず試し、失敗から学び、改善する。そのスピードに自分自身もついていく必要があります。  中国のような社会になることへの賛否だけで終わらせず、もし日本が中国に近いスピードや価値観を持つ国へ変化していったとき、自分はどう向き合い、何を守り、何を変えていくのかまで考えていきたいと思いました。</li>
+<li>中国の状況を知ることができたのは、たいへんよかった。<br>（その他）七沢さんが島根県出身だったのですね。1998年に青春１８切符で行ったのが懐かしいです。</li>
+<li>西洋の対比として、東洋がディストピア的に語られることに、身近な観光消費でも同じような傾向が見られるな、と感じました。 シャガールについて、中国内で長い歴史のある儒教、道家などの性悪説•性善説がバックボーンして顕在的ではないにしても、活きている証拠なのではないかと思っています。 だからこそ、これまでの、今実際におきている、良いことも悪いこともおきるものとして、今の技術発展でなんとかできないのだろうか、誰も悪さを起こさせない仕組みを地に足をつけて考えられている証拠だと思います。きっとインターネットセキュリティで提唱されるゼロトラストも、性悪説としてスコープすればより正確に日本も取り入れられるのではないでしょうか。 最後に帳尻をあわせること、物事のコンテキストをストーリーとして仕立てるのは歴史の本来の姿のような感覚があります。最初から正確な結末を描いて進むことはたやすくなく、同じ中華圏にルーツをもつ、ドミニク•チェンさんのぬか床理論にも通じるような、みんなでどんな醸成をするかだな、と感じました。<br>（その他）高口さんのお話、とても聞きやすかったです。改めて中国が世間から思われているイメージが、現実的なものから超越している部分もあること、中国のトレンドに追従する•模倣することに対する強みは、奪うことというよりも自分達にも同じことができるんじゃない？という可能性へのライトな感覚を認識することができました。中国の生きる強さを感じてなんだか励まされました。</li>
+<li>本講義を通して、以下の三点の気づきを得た。  第一に、中国は「遅れた国」であると同時に「進んだ国」でもあるという二面性について、自身の認識が標準的なものであったことを確認できた。  第二に、「一党独裁で長期国家戦略を持つ中国」という俗なイメージに反し、実際の中国は「未来を構想しない」という事実である。シンギュラリティを語らず「とりあえず今AIで稼ぐ」足元目線、勝ち筋が見えなくても殺到し走りながら帳尻を合わせる「ジュガール」、失敗の屍を苗床に次が育つ「腐海のイノベーション」——こうした考え方を知り、驚きを覚えつつも、様々な事象と照らし合わせると齟齬なく組み合わさる感覚があり、不思議と納得させられた。  第三に、「未来を構想しない中国」という言葉が持つ実質的な中身を、本講義を通して具体的に考えることができた点である。<br>（その他）「ゆるさ」が、技術の発展的な展開を生む一因であるという考え方は非常に新鮮に響いたが、そのような「余地」があったからこそ、現在の中国の姿があるのではないか。同時に、AIの発展がその「ゆるさ」自体を消し去っていく可能性があるという指摘にも、大きな示唆を感じた。</li>
+<li>中国の「殺到してジュガール、そして腐海へ」というサイクルは、まさに中国の側面を見事に表していると思う。また、中国の強さもそこにあると思う。 確かに、ジュガールする中でうまくいかずに腐海化することがあるものの、それでもなお殺到する力を持っているため、何かしらを生み出す確率も上がるはずである。観念的にやる前からああでもないこうでもないと考えるより先に「まずはやってみる」という精神性なのだろう。ともすると、その「たとえ腐海になったとしても構わない、殺到しよう」という精神は、講義の中でもあった「ゆるさ」に起因しているのではないだろうか。末端まで行き届かない管理が生んだ「ゆるさ」が、ある意味そうした挑戦的な思想を生んでいる側面もあるのかもしれない。 また、「哲学的思想に背を向ける中国」とあったように、ユク・ホイも起業家に読まれないのは驚いたが、反面、哲学的思想に影響を受けすぎると、殺到する前に思慮が働き動きに制限がかかるはずではないかと考えると、「殺到してジュガール」は哲学的思想に背を向けているからこそできる技でもあるのかもしれない。良くも悪くも現実への働きかけが速いのが中国の特徴なのかとも考えた。 その殺到してジュガールするという原動力、総駆り立て精神が、観念の領域ではないのは自明で、故に「未来は構想されるのではなく、生成される」といえる。私はここには学ぶところが大きかった。つい観念的に「構想」してしまうのだが、そこに「未来」が立ち現れるのかというと基本は難しいと言わざるを得ない。なぜなら「未来」は根本的に他者であり、絶対的な「他性」を有しているからである。私の観念により構想できてしまう事柄は他我ではあれど他者ではない。それゆえに「未来」ではないのだ。だからこそ、まず現実に働きかけてみないと未来は立ち現れないのではないか。そこで起こる不測の事態こそが「未来」であり、新たな可能性なのかもしれない（たとえその結果が腐海であっても）。<br>（その他）「イーロン・マスクへのコバンザメ戦略」は言い得て妙だと思いました。殺到するにも、それなりの拠り所はあるのかもしれません。私は中国については知識面でも素人ですが、それ故に講義が刺激的で、中国の側面を垣間見ることができました。中国の短期主義もそうですが、何においても「まあ、まずはやってみようよ」という感じなのかなとも思いました。100年先のことなどどうなるかもわからないのだから、せいぜい向こう3年くらいをみて動けば良いのではないかという発想は、行動のハードルを下げそうだなどと感じました。 また、中国の「ゆるさ」概念は、私にとって逆転の発想で面白い見方でした。中国に抱くイメージは「なんだかんだ管理社会」というものでしたが、確かに言われてみれば末端の方までガチガチに管理できているのかというと、そんなこともないはずです。むしろそれ故に生まれる「ゆるさ」に未来を生成する力があるのかもしれません。</li>
+<li>多元的な未来を創造していくときのやり方自体が、多元的な方法であって然るべき（あっても良いはず）なのに、一つのアプローチだけで多元的な未来を考えようとしていた自分の思考に気づかされました。 その多元的な未来を考え直してみると、一つのやり方でいくつもの方向性が考えられるというよりも、むしろ「たどり着く過程（道程）自体が多元的である」中でこそ、未来の可能性が広がっていくのだと感じています。スペキュラティブデザインのpppp図（現在があって未来の可能性が広がっている図）を改めて眺めてみると、あの図自体が「一本の道のりから複数の未来を想定させる」という、ある種切り取られた思考法に基づいているようにも感じられました。 中国における未来構築やテクノロジーのあり方についても深い示唆がありました。中国が持つ人口規模が大きいためにすべてを把握しきれない『緩さ』は、今後のAIの浸透によって管理され、失われていく側面は確かにあるのだと思います。しかし一方で、AIなどのテクノロジーにアクセスできる人とできない人の間に格差が生まれたとき、逆にその格差が交換価値となり、監視の届かない自由なマーケット（しかもそれはリアルなものづくりが可能）が生まれてくる可能性もあります。そう考えると、中国にはまだまだそうした余白が残されているようにも感じます。 中国のような動き方、考え方が日本にどう適用できるかについては、場所（差し迫った緊張感のあるなし）によりけりだと感じています。ゆっくりとしか変化できない地域がある一方で、人口減少が進み、差し迫った状況に直面している自治体もあります。そうした「本当に切羽詰まっている」地域については、中国のやり方を見習いながら実践し、事例をつくっていくアプローチが重要になっていくのではないでしょうか。<br>（その他）中国への見方はもちろん、テクノロジーやAI自体に対する自分の見方が非常に偏ったものになっていたんだなと改めて感じました。中国がどう未来を構築しているかという点や、未来を作っていくときの考える方法の幅についても思考を深める非常に良いきっかけとなりました。 少し間が空いてしまい、第1回・第2回の講義を思い出しながらの参加となってしまった点は反省しています（だいぶ忘れている・・・・）。ただ、講義の内容自体は非常に分かりやすく、とても面白かったです。 どちらかというと、私自身のキャリアは帳尻合わせというか行き当たりばったりというか、「こっちの方かな」とぼんやりと考えながら、なんとか色々なところで拾ってもらって成り立っている部分があります。そうした背景もあるため、「目の前にあるものでいい方向に組み立てながら未来をつくっていく」というやり方自体には非常に共感できましたし、自分自身の考え方や生き方とも強く通ずるところがあると感じました。 私自身、現在は社会課題を取り扱うNPO法人でデザイナーをしていますが、取り組んでいる規模は小さく、インパクトも限られているのが現状です。だからこそ、逆にこの中国的なやり方を見習いながら、社会的なインパクトをどう実装していくかを考えていく必要があると感じています。そして、そうやって思考を重ねながらも、「自分の手元でモノをつくり続けること」は最後まで手放してはいけないし、自分自身としても手放したくないのだと改めて思いました。 最後に余談ですが、私の実家は岐阜で、実家の隣は中国の方が複数人で住んでいる縫製工場でした。隣の工場に住み込んで働かれていたようで、賑やかに働きながら暮らしている印象があります。その田舎町での印象と、15年ほど前に仕事で行かせてもらった深圳での中国のイメージとの差を思い出しました。あの時も「進んでいる中国」というイメージに塗り替わったんですが、今回のお話の中で、より中国のイメージが更新されました。日本から近い割には意外と行く機会がない中国ですが、今回の学びを通して、またぜひ行ってみたいと思います。</li>
+  </ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techfutures.html">← テクノロジーの未来学 トップに戻る</a></p>
+</main>
+</body>
+</html>
