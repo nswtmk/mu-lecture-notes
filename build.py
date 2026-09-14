@@ -176,7 +176,8 @@ def lecture_block(s, L):
         o.append('  ' + open_card("video", DRIVE % L["video"],
                                   "第%d%s 講義アーカイブ動画を見る" % (L["no"], unit), NOTE_OPEN))
     for sl in L.get("slides", []):
-        o.append('  ' + open_card("slide", DRIVE % sl["id"], sl["label"], NOTE_OPEN))
+        href = sl["url"] if "url" in sl else DRIVE % sl["id"]
+        o.append('  ' + open_card("slide", href, sl["label"], NOTE_OPEN))
     if L.get("gist"):
         o.append('  <p class="lec-gist">%s</p>' % L["gist"])
     if L.get("keywords"):
