@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>技術哲学 最終回｜私たちは、いかに「生きる」ということをつくることができるのか</title>
+<meta name="description" content="makers Unlearn 2026 技術哲学 第8回（最終回）講義スライド。7回の縦糸、第1回の問いへの応答、フィールドで学ぶ惑星的普遍技術、そして最終課題へ。">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #0ca568;
+    --mint: #1de394;
+    --shu: #c0392b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #eceae2;
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* ---------- stage ---------- */
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+  .stage { position: absolute; left: 50%; top: 50%; transform-origin: 50% 50%;
+    position: relative;
+    width: 1280px; height: 720px;
+    flex: none;
+    background: var(--paper);
+    transform-origin: center center;
+    box-shadow: 0 18px 60px rgba(20,20,15,.12);
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    padding: 74px 96px 92px;
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden;
+    transition: opacity .38s ease;
+  }
+  .slide.is-active { opacity: 1; visibility: visible; }
+
+  /* ---------- common type ---------- */
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; text-transform: uppercase; }
+  .slide h2 { font-size: 42px; font-weight: 700; line-height: 1.5; letter-spacing: .02em; margin-top: 18px; }
+  .slide h2 .thin { font-weight: 400; color: var(--ink-soft); }
+  .lead { font-size: 19px; line-height: 2.1; color: var(--ink-soft); margin-top: 18px; max-width: 900px; }
+  .body { margin-top: 46px; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+  ul.pts { list-style: none; }
+  ul.pts > li {
+    position: relative;
+    font-size: 24px; line-height: 1.95; letter-spacing: .01em;
+    padding-left: 34px; margin-bottom: 24px; max-width: 1010px;
+  }
+  ul.pts > li::before {
+    content: ""; position: absolute; left: 2px; top: 20px;
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1.6px solid var(--mint);
+  }
+  ul.pts > li.em::before { background: var(--moss); border-color: var(--moss); }
+  ul.pts > li.em { font-weight: 700; }
+  ul.pts > li small { display: block; font-size: 16px; color: var(--ink-soft); line-height: 1.9; margin-top: 6px; font-weight: 400; }
+  ul.pts.tight > li { margin-bottom: 16px; font-size: 22px; }
+  ul.pts.compact > li { margin-bottom: 12px; font-size: 20px; line-height: 1.75; }
+  ul.pts.compact > li::before { top: 17px; }
+  ul.pts.compact > li small { font-size: 14.5px; line-height: 1.8; margin-top: 3px; }
+  ul.pts.compact.six > li { margin-bottom: 8px; font-size: 18.5px; line-height: 1.7; }
+  ul.pts.compact.six > li::before { top: 15px; width: 8px; height: 8px; }
+  ul.pts > li.shu-li::before { background: var(--shu); border-color: var(--shu); }
+  ul.pts.compact.six > li small { font-size: 13.5px; line-height: 1.7; margin-top: 2px; }
+
+  .note {
+    margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
+    font-size: 15px; line-height: 1.95; color: var(--ink-soft); max-width: 960px;
+  }
+  .arrow { color: var(--moss); font-weight: 700; }
+  .term { border-bottom: 1.6px solid var(--mint); padding-bottom: 1px; }
+  .en { font-size: .62em; letter-spacing: .06em; color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- title slide ---------- */
+  .slide.title { justify-content: center; align-items: flex-end; text-align: right; padding-right: 110px; }
+  .slide.title h1 { font-size: 78px; font-weight: 700; line-height: 1.42; letter-spacing: .04em; }
+  .slide.title .sub { font-size: 22px; color: var(--ink-soft); margin-top: 30px; letter-spacing: .06em; line-height: 2; }
+  .slide.title .meta { font-size: 14px; letter-spacing: .2em; color: var(--ink-soft); margin-top: 46px; line-height: 2.2; }
+  .rings { position: absolute; left: -160px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; pointer-events: none; }
+  .rings circle { fill: none; stroke: var(--mint); stroke-width: 1.6; }
+  .rings .r1 { stroke-dasharray: 4 7; animation: spin 90s linear infinite; transform-origin: 280px 280px; }
+  .rings .r2 { stroke-dasharray: 5 9; animation: spin 150s linear infinite reverse; transform-origin: 280px 280px; }
+  .rings .r3 { stroke-dasharray: 3 6; animation: spin 220s linear infinite; transform-origin: 280px 280px; }
+  .rings .core { fill: var(--mint); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .rings circle { animation: none !important; } .slide { transition: none; } }
+
+  /* ---------- part divider ---------- */
+  .slide.part { background: var(--ink); color: var(--paper); justify-content: center; }
+  .slide.part .kicker { color: var(--mint); }
+  .slide.part .pnum { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: .02em; margin: 22px 0 18px; }
+  .slide.part h2 { font-size: 52px; margin-top: 0; }
+  .slide.part .lead { color: #9a9a8e; font-size: 18px; }
+  .slide.part.appendix { background: #2b2b26; }
+  .slide.part.appendix .pnum { font-size: 76px; color: #6d6d63; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; border-top: 1px solid var(--line); }
+  .agenda li { display: grid; grid-template-columns: 92px 1fr; gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .agenda .n { font-size: 30px; font-weight: 700; color: var(--moss); }
+  .agenda h3 { font-size: 30px; font-weight: 700; letter-spacing: .02em; }
+  .agenda p { font-size: 16px; color: var(--ink-soft); margin-top: 8px; line-height: 1.9; }
+  .agenda .act { display: inline-block; font-size: 12px; letter-spacing: .12em; font-weight: 600;
+                 color: var(--moss); border: 1.3px solid var(--moss); border-radius: 999px;
+                 padding: 3px 13px; margin-left: 16px; vertical-align: 4px; }
+
+  /* ---------- column grids ---------- */
+  .cols { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+  .col { background: var(--paper); padding: 30px 30px 34px; }
+  .col .h { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .col h3 { font-size: 25px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+  .col h3:only-child, .col .h + h3:last-child { margin-bottom: 0; }
+  .col p { font-size: 16.5px; line-height: 2; color: var(--ink-soft); }
+  .col p + p { margin-top: 12px; }
+  .col.mid { background: #f3f2ea; border-left: 1.6px dashed var(--mint); border-right: 1.6px dashed var(--mint); }
+  .col.mid h3 { color: var(--ink); }
+  .col.reason { padding: 20px 26px 22px; }
+  .col.reason .h { margin-bottom: 8px; }
+  .col.reason h3 { font-size: 23px; margin-bottom: 6px; }
+  .col.reason p { font-size: 15px; }
+  .cols.tight3 .col { padding: 22px 24px 24px; }
+  .cols.tight3 .col h3 { font-size: 22px; margin-bottom: 10px; }
+  .cols.tight3 .col p { font-size: 15px; line-height: 1.9; }
+  .cols.tight3 .col p + p { margin-top: 10px; }
+  .cols.tight3 .col .tagline { margin-top: 14px; font-size: 12px; }
+  .cols.tight3 .col p.but { color: var(--ink); font-weight: 700; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .cols.tight2 .col.reason { padding: 16px 22px 18px; }
+  .cols.tight2 .col h3 { font-size: 21px; margin-bottom: 8px; }
+  .cols.tight2 .col p { font-size: 15px; line-height: 1.85; }
+  .cols.tight2 .col p + p { margin-top: 9px; }
+  .col .tagline { display: inline-block; font-size: 12.5px; letter-spacing: .1em; border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 15px; margin-top: 18px; line-height: 1.6; }
+
+  /* ---------- turn: 取り消される前提 → 立て直す前提 ---------- */
+  .turn { display: grid; grid-template-columns: 318px 86px 1fr; align-items: stretch; }
+  .was { display: flex; flex-direction: column; justify-content: center; }
+  .was .h { font-size: 12.5px; letter-spacing: .24em; color: var(--ink-soft); font-weight: 600; margin-bottom: 26px; }
+  .was ul { list-style: none; }
+  .was li {
+    font-size: 20px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 22px;
+    text-decoration: line-through;
+    text-decoration-color: var(--shu);
+    text-decoration-thickness: 2px;
+  }
+  .was .was-note { font-size: 14.5px; line-height: 1.9; color: var(--shu); margin-top: 12px; }
+  .turn-arrow { position: relative; display: flex; align-items: center; justify-content: center; }
+  .turn-arrow.arrow-row { margin: 12px 0; flex: none; }
+  .turn-arrow.arrow-row::before { display: none; }
+  .turn-arrow.arrow-row span { padding: 0; font-size: 28px; }
+  .turn-arrow::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+    border-left: 1.4px dashed var(--line);
+  }
+  .turn-arrow span {
+    position: relative; background: var(--paper);
+    padding: 14px 0; font-size: 34px; line-height: 1; color: var(--moss);
+  }
+
+  /* ---------- two-axis ---------- */
+  .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .axis.shu { border-top-color: var(--shu); }
+  .axes.dense { gap: 20px; }
+  .axes.dense .axis { padding: 18px 22px 20px; }
+  .axes.dense .axis .n { margin-bottom: 8px; }
+  .axes.dense .axis h3 { font-size: 22px; margin-bottom: 11px; }
+  .axes.dense .axis li { font-size: 14px; line-height: 1.75; margin-bottom: 5px; padding-left: 16px; }
+  .axes.dense .axis li::before { top: 11px; }
+  .axis { border: 1px solid var(--line); border-top: 3px solid var(--moss); padding: 26px 28px 30px; background: var(--paper); }
+  .axis .n { font-size: 12.5px; letter-spacing: .2em; color: var(--ink-soft); margin-bottom: 12px; }
+  .axis h3 { font-size: 28px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
+  .axis ul { list-style: none; }
+  .axis li { font-size: 15.5px; line-height: 1.9; color: var(--ink-soft); padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .axis li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- statement ---------- */
+  .statement { font-size: 40px; font-weight: 700; line-height: 1.85; letter-spacing: .03em; }
+  .statement small { display: block; max-width: 960px; font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 2.1; margin-top: 26px; letter-spacing: 0; }
+
+  /* ---------- quad: テクノロジーの哲学マップ ---------- */
+  .quad { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); flex: 1; min-height: 0; }
+  .quad::before { content: ""; position: absolute; left: 50%; top: 12px; bottom: 12px; border-left: 1.6px dashed var(--mint); }
+  .quad::after { content: ""; position: absolute; top: 50%; left: 12px; right: 12px; border-top: 1.6px dashed var(--mint); }
+  .q-cell { padding: 24px 30px; }
+  .q-cell h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .q-cell .q-ex { font-size: 11.5px; letter-spacing: .1em; color: var(--moss); font-weight: 600; margin-bottom: 8px; }
+  .q-cell p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); max-width: 400px; }
+  .q-cell.b { display: flex; flex-direction: column; justify-content: flex-end; }
+  .q-label { position: absolute; z-index: 2; background: var(--paper); border: 1.4px solid var(--moss); color: var(--moss); border-radius: 999px; font-size: 12px; letter-spacing: .1em; font-weight: 600; padding: 4px 16px; white-space: nowrap; }
+  .q-label.t { top: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.bt { bottom: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.l { left: 14px; top: 50%; transform: translateY(-50%); }
+  .q-label.r { right: 14px; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- det: 技術決定論の階段図 ---------- */
+  .det { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+  .det-body { margin-top: 18px; }
+  .det-body .det { flex: none; height: 280px; margin-bottom: 8px; }
+  .det-body .det svg { height: 100%; width: auto; max-width: 100%; }
+  .det svg { width: 100%; max-width: 950px; height: auto; }
+  .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+  .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
+  .det .lbl { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  .det .sub2 { font-size: 15px; fill: var(--ink-soft); }
+  .det .br { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 5 7; }
+  .det .fossil { fill: var(--paper); stroke: var(--moss); stroke-width: 2; }
+
+  /* ---------- conv: 二極の合流 ---------- */
+  .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .conv-join { text-align: center; font-size: 26px; line-height: 1; color: var(--moss); margin: 14px 0; }
+  .conv-goal { border: 1.8px solid var(--moss); background: #f4faf6; padding: 18px 26px; text-align: center; font-size: 23px; font-weight: 700; }
+  .conv-goal { margin-bottom: 6px; }
+  .conv-goal .goal-pts { list-style: none; text-align: left; max-width: 800px; margin: 14px auto 0; }
+  .conv-goal .goal-pts li { position: relative; font-size: 15.5px; font-weight: 400; line-height: 1.9; color: var(--ink-soft); padding-left: 20px; margin-bottom: 6px; }
+  .conv-goal .goal-pts li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--moss); }
+  .conv-goal small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink-soft); line-height: 1.9; margin-top: 8px; }
+
+  /* ---------- ship: 船の比喩 ---------- */
+  .ship-lead { font-size: 17px; margin-top: 12px; }
+  .ship-body { margin-top: 24px; }
+  .ship { display: flex; justify-content: center; }
+  .ship svg { width: 100%; max-width: 1000px; height: auto; }
+  .ship .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .ship .hull { fill: var(--ink); }
+  .ship .wave { fill: none; stroke: var(--line); stroke-width: 1.6; }
+  .ship .route { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 6 8; }
+  .ship .beacon { fill: var(--mint); }
+  .ship .isle { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-dasharray: 4 6; }
+  .ship text { font-family: inherit; }
+  .ship .here { font-size: 14px; fill: var(--ink-soft); text-anchor: middle; letter-spacing: .08em; }
+  .ship .dest { font-size: 30px; font-weight: 700; fill: var(--moss); text-anchor: middle; }
+  .ship-cols { margin-top: 14px; }
+  .ship-cols .col { padding: 20px 26px 22px; }
+  .ship-cols .col .h { margin-bottom: 10px; }
+  .ship-cols .col h3 { font-size: 22px; margin-bottom: 8px; }
+  .ship-cols .col p { font-size: 15.5px; line-height: 1.9; }
+
+  /* ---------- then/now: 思考実験から現実へ ---------- */
+  .tn { border: 1px solid var(--line); }
+  .tn-row { display: grid; grid-template-columns: 1fr 46px 1.25fr; align-items: stretch; border-top: 1px solid var(--line); }
+  .tn-row:first-child { border-top: none; }
+  .tn-head { background: #f3f2ea; }
+  .tn-head .tn-c { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); font-weight: 600; padding: 11px 24px; }
+  .tn-c { padding: 13px 24px; font-size: 16px; line-height: 1.7; display: flex; align-items: center; }
+  .tn-c.then { color: var(--ink-soft); }
+  .tn-c.now { font-weight: 700; border-left: 1px solid var(--line); }
+  .tn-c.mid { justify-content: center; color: var(--moss); font-size: 17px; padding: 0; }
+
+  /* ---------- day: 一日の媒介 ---------- */
+  .day { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .day-cell { background: var(--paper); padding: 22px 20px 26px; }
+  .day-cell .t { font-size: 12px; letter-spacing: .16em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .day-cell h3 { font-size: 18px; font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
+  .day-cell p { font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+  /* ---------- one: 一撃の事例 ---------- */
+  .one { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+  .one-q { font-size: 34px; font-weight: 700; line-height: 1.8; letter-spacing: .02em; }
+  .one-q .shu { color: var(--shu); }
+  .one-list { list-style: none; border-left: 2px solid var(--shu); padding-left: 26px; }
+  .one-list li { font-size: 16px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 14px; }
+  .one-list li strong { color: var(--ink); }
+
+  /* ---------- drv: テクノロジーを発展させる要因 ---------- */
+  .drv-body { margin-top: 6px; }
+  .drv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 34px; }
+  .drv ol { list-style: none; }
+  .drv li { display: grid; grid-template-columns: 24px 1fr 92px; gap: 8px; align-items: baseline;
+            padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .drv li:last-child { border-bottom: none; }
+  .drv .n { font-size: 11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .drv .f { font-size: 15.5px; line-height: 1.6; }
+  .drv .w { font-size: 12.5px; color: var(--moss); font-weight: 600; text-align: right; line-height: 1.6; }
+  .drv .hd { border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+  .drv .hd .n, .drv .hd .f, .drv .hd .w { font-size: 11.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- tie: 第1部の理由との紐づけ ---------- */
+  .tie { display: inline-block; font-size: 11px; letter-spacing: .1em; font-weight: 600;
+         border: 1.3px solid var(--moss); color: var(--moss); border-radius: 999px;
+         padding: 2px 10px; margin-right: 10px; line-height: 1.6; vertical-align: 2px; }
+  .tie.base { border-color: var(--line); color: var(--ink-soft); }
+  .tie-chip { margin-top: 14px; }
+  .tie-chip .tie { font-size: 12px; padding: 4px 14px; margin-right: 0; }
+  .tie-chip .cap { font-size: 13.5px; color: var(--ink-soft); margin-left: 12px; }
+
+  /* ---------- book: 書籍カード（書影を差し替え可） ---------- */
+  .bookrow { display: grid; grid-template-columns: 210px 1fr; gap: 44px; align-items: center; }
+  .book { position: relative; width: 210px; height: 296px; background: var(--paper);
+          border: 1px solid var(--line); border-left: 7px solid var(--ink);
+          box-shadow: 4px 5px 0 rgba(20,20,15,.06); padding: 26px 20px 20px 22px;
+          display: flex; flex-direction: column; }
+  .book img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .book .bt { font-size: 21px; font-weight: 700; line-height: 1.45; letter-spacing: .02em; }
+  .book .bs { font-size: 11.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 10px; }
+  .book .ba { margin-top: auto; font-size: 12.5px; font-weight: 600; }
+  .book .bp { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); margin-top: 4px; }
+  .book .bmark { position: absolute; right: 14px; top: 0; width: 12px; height: 34px; background: var(--mint); }
+  .book.dark { background: #101013; border: 1px solid #101013; border-left: 7px solid #060608; color: #f2f1ec; }
+  .book.dark .bt { color: #fff; }
+  .book.dark .bs { color: #9adfd2; }
+  .book.dark .ba { color: #e8e7e1; }
+  .book.dark .bp { color: #8a8a82; }
+  .book.dark .bmark { background: #1de3c4; }
+  .book.dark .wave2 { position: absolute; left: 0; right: 0; bottom: 78px; height: 56px; pointer-events: none; }
+  .book.dark .wave2 path { fill: none; stroke: #1de3c4; stroke-width: 2; opacity: .75; }
+  .book.dark .wave2 path + path { opacity: .3; stroke-width: 4; }
+  .prof { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
+  .prof .who { border-top: 3px solid var(--moss); padding-top: 20px; }
+  .prof .who .nm { font-size: 40px; font-weight: 700; letter-spacing: .06em; }
+  .prof .who .kana { font-size: 13px; letter-spacing: .22em; color: var(--ink-soft); margin-top: 8px; }
+  .prof .who .role { font-size: 16px; line-height: 2; color: var(--ink-soft); margin-top: 20px; }
+  .prof .who .role strong { color: var(--ink); }
+  .booklink { display: inline-block; font-size: 12.5px; color: var(--moss); font-weight: 600;
+              border-bottom: 1px solid var(--mint); margin-top: 14px; }
+
+  /* ---------- paths ---------- */
+  .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
+  .path.on { border: 1.8px solid var(--moss); background: #f4faf6; }
+  .path .n { font-size: 12.5px; letter-spacing: .18em; color: var(--ink-soft); margin-bottom: 12px; }
+  .path h3 { font-size: 22px; font-weight: 700; line-height: 1.6; margin-bottom: 12px; }
+  .path h3 small { display: block; font-size: 11.5px; letter-spacing: .14em; color: var(--moss); font-weight: 600; margin-top: 5px; }
+  .path p { font-size: 15px; line-height: 1.95; color: var(--ink-soft); }
+  .path p + p { margin-top: 10px; }
+
+  /* ---------- step4: mU の4STEP ---------- */
+  .step4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .step4 .st { background: var(--paper); padding: 24px 20px 22px; display: flex; flex-direction: column; }
+  .step4 .st.on { background: #f4faf6; box-shadow: inset 0 3px 0 var(--moss); }
+  .axis li.lnk { padding-left: 0; margin-top: 4px; }
+  .axis li.lnk::before { display: none; }
+  .step4 .st .n { font-size: 11.5px; letter-spacing: .18em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .step4 .st h3 { font-size: 21px; font-weight: 700; line-height: 1.55; margin-bottom: 12px; }
+  .step4 .st p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); }
+  .step4 .st .tag { margin-top: auto; padding-top: 16px; font-size: 11.5px; letter-spacing: .08em;
+                    color: var(--moss); font-weight: 600; }
+
+  /* ---------- qed: 論証 ---------- */
+  .qed { border-top: 1px solid var(--line); }
+  .qed-row { display: grid; grid-template-columns: 322px 1fr; gap: 32px; align-items: start;
+             padding: 13px 0 14px; border-bottom: 1px solid var(--line); }
+  .qed-row .p { font-size: 19px; font-weight: 700; line-height: 1.6; }
+  .qed-row .p .n { display: block; font-size: 11px; letter-spacing: .16em; color: var(--moss);
+                   font-weight: 600; margin-bottom: 7px; }
+  .qed-row .p em { display: block; font-style: normal; font-size: 13.5px; font-weight: 600;
+                   color: var(--shu); line-height: 1.75; margin-top: 8px; }
+  .qed-row ul { list-style: none; }
+  .qed-row li { position: relative; font-size: 14.5px; line-height: 1.85; color: var(--ink-soft);
+                padding-left: 18px; margin-bottom: 3px; }
+  .qed-row li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- 出典注記 ---------- */
+  .q-src { display: block; font-size: 12.5px; color: var(--ink-soft); opacity: .8; margin-top: 6px; }
+
+  /* ---------- tmap: 技術哲学の問いの見取り図 ---------- */
+  .tmap { display: grid; grid-template-columns: 620px 1fr; gap: 30px; align-items: center; }
+  .tmap-fig { width: 100%; }
+  .tmap-fig svg { width: 100%; height: auto; display: block; }
+  .tmap .fld { fill: #ecebe2; stroke: var(--ink-soft); stroke-width: 3; }
+  .tmap .cyb { fill: none; stroke: var(--moss); stroke-width: 4; stroke-dasharray: 13 9; }
+  .tmap .hum { fill: var(--paper); stroke: var(--ink); stroke-width: 3.5; }
+  .tmap .box { fill: var(--ink); }
+  .tmap .bt { fill: var(--paper); font-size: 33px; text-anchor: middle; }
+  .tmap .hm { fill: var(--ink); font-size: 38px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb { fill: var(--ink); font-size: 39px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb.g { fill: var(--moss); }
+  .tmap .ws { fill: var(--ink-soft); font-size: 33px; text-anchor: middle; letter-spacing: .08em; }
+  .tmap .ar { fill: none; stroke: var(--ink); stroke-width: 4; }
+  .tmap ol { list-style: none; }
+  .tmap li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: baseline;
+             padding: 5px 0; border-bottom: 1px solid var(--line); }
+  .tmap li:last-child { border-bottom: none; }
+  .tmap li .q { font-size: 15px; font-weight: 700; color: var(--moss); }
+  .tmap li h4 { font-size: 16px; font-weight: 700; line-height: 1.45; }
+  .tmap li p { font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 1px; }
+
+  /* ---------- fut: 過去へさかのぼり、未来へ投影する ---------- */
+  .fut { align-self: center; margin-bottom: 4px; }
+  .fut img { display: block; max-height: 460px; width: auto; margin: 0 auto; border: 1px solid var(--line); }
+  .fut svg { width: 100%; height: auto; display: block; }
+  .fut .tl { stroke: var(--ink); stroke-width: 3; }
+  .fut .cone { stroke: #1f5e46; stroke-width: 2.6; }
+  .fut .tick circle { fill: var(--ink); }
+  .fut .tick line { stroke: var(--ink-soft); stroke-width: 2; stroke-dasharray: 2 7; stroke-linecap: round; }
+  .fut .tick text { font-size: 24px; fill: var(--ink); text-anchor: middle; }
+  .fut .tick.now circle { fill: var(--moss); }
+  .fut .tf { font-size: 25px; fill: var(--ink); text-anchor: middle; }
+  .fut .rg { font-size: 27px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .fut .pf { font-size: 26px; fill: var(--ink-soft); }
+  .fut .lf { fill: none; stroke: var(--ink); stroke-width: 2.4; }
+  .fut .pu { fill: var(--mint); }
+  .fut .eye { animation: futslide 9s ease-in-out infinite alternate; }
+  @keyframes futslide { from { transform: translate(-230px, 55px); } to { transform: translate(230px, -55px); } }
+  @media (prefers-reduced-motion: reduce) { .fut .eye { animation: none !important; } }
+  .step4.mini .st { padding: 11px 14px 12px; }
+  .step4.mini .st .n { font-size: 10.5px; margin-bottom: 8px; }
+  .step4.mini .st h3 { font-size: 17px; margin-bottom: 6px; }
+  .step4.mini .st p { font-size: 12px; line-height: 1.7; }
+
+  /* ---------- ex3: 三つの事例 ---------- */
+  .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .ex { display: flex; flex-direction: column; }
+  .ex h3 { font-size: 19px; font-weight: 700; line-height: 1.45; margin: 13px 0 8px; }
+  .ex p { font-size: 13px; line-height: 1.8; color: var(--ink-soft); }
+  .ex .booklink { margin-top: 10px; align-self: flex-start; }
+  .book.sm { width: 132px; height: 186px; padding: 15px 12px 12px 13px; border-left-width: 5px;
+             box-shadow: 3px 4px 0 rgba(20,20,15,.06); }
+  .book.sm .bt { font-size: 14px; line-height: 1.4; }
+  .book.sm .bs { font-size: 9px; line-height: 1.6; margin-top: 7px; }
+  .book.sm .ba { font-size: 10px; }
+  .book.sm .bp { font-size: 8.5px; margin-top: 3px; }
+  .book.sm .bmark { right: 10px; width: 9px; height: 24px; }
+
+  /* ---------- tmap2: 考え方＋象徴図 ---------- */
+  .tmap2 .tmap { display: block; }
+  .tmap2 { display: grid; grid-template-columns: 1fr 350px; gap: 34px; align-items: center; }
+  .tmap2 ul.pts.compact > li { margin-bottom: 9px; font-size: 19px; line-height: 1.7; }
+  .tmap2 ul.pts.compact > li small { font-size: 13.5px; line-height: 1.7; }
+  .tmap2 .tmap-fig2 svg { width: 100%; height: auto; display: block; }
+  .tmap2 ul.pts.compact > li { max-width: none; }
+
+  .day.d4 { grid-template-columns: repeat(4, 1fr); }
+  .day.sm .day-cell { padding: 15px 17px 17px; }
+  .day.sm .day-cell .t { margin-bottom: 9px; }
+  .day.sm .day-cell h3 { font-size: 16.5px; margin-bottom: 8px; }
+  .day.sm .day-cell p { font-size: 12.5px; line-height: 1.75; }
+  .det-sm { flex: none; }
+  .det-sm svg { height: 205px; width: auto; }
+  /* ---------- chrome ---------- */
+  .foot {
+    position: absolute; left: 96px; right: 96px; bottom: 34px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: .18em; color: var(--ink-soft);
+  }
+  .slide.part .foot { color: rgba(250,249,245,.5); }
+  .bar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--mint); transition: width .38s ease; z-index: 5; }
+
+  .ui { position: fixed; right: 20px; bottom: 18px; display: flex; gap: 8px; z-index: 40; transition: opacity .4s; }
+  .ui.idle { opacity: 0; pointer-events: none; }
+  .ui button {
+    font: inherit; font-size: 12px; letter-spacing: .14em;
+    background: var(--paper); color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 16px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .ui button:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .toc {
+    position: fixed; inset: 0; z-index: 50; background: var(--ink); color: var(--paper);
+    padding: 56px 6vw; overflow-y: auto; display: none;
+  }
+  .toc.open { display: block; }
+  .toc h4 { font-size: 12px; letter-spacing: .3em; color: var(--mint); font-weight: 600; margin-bottom: 26px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 56px; }
+  .toc li { break-inside: avoid; }
+  .toc button {
+    font: inherit; text-align: left; width: 100%;
+    display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+    background: none; border: none; border-bottom: 1px solid #33332c; color: rgba(250,249,245,.72);
+    padding: 11px 0; font-size: 15.5px; cursor: pointer; transition: color .2s;
+  }
+  .toc button:hover, .toc button.here { color: #fff; }
+  .toc button.here .no { color: var(--mint); }
+  .toc .no { font-size: 12px; letter-spacing: .1em; color: #7b7b70; }
+  .toc .pt { font-size: 11px; letter-spacing: .2em; color: var(--mint); display: block; margin-top: 4px; }
+
+  /* ---------- print ---------- */
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { overflow: visible; background: #fff; }
+    .deck { position: static; overflow: visible; }
+    .stage { position: static; width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
+    .slide {
+      position: static; opacity: 1 !important; visibility: visible !important;
+      width: 1280px; height: 720px; page-break-after: always; break-after: page;
+    }
+    .ui, .toc, .bar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <!-- 01 title -->
+  <section class="slide title" data-title="最終回タイトル" data-part="">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">Philosophy of Technology — Final Session</div>
+    <h1 style="font-size:54px; line-height:1.5;">私たちは、いかに<br>「生きる」ということを<br>つくることができるのか</h1>
+    <p class="sub">技術の根源的問題と正面から向き合うために</p>
+    <p class="meta">技術哲学 第8回（最終回）<br>七沢智樹 × 原島大輔<br>makers Unlearn 2026 ／ 2026.09.14</p>
+  </section>
+
+  <!-- 02 agenda -->
+  <section class="slide" data-title="今夜の流れ" data-part="">
+    <div class="kicker">Agenda</div>
+    <h2>今夜の流れ</h2>
+    <div class="body">
+      <ol class="agenda">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>7回の縦糸──旅の地図を描き直す<span class="act">七沢</span></h3>
+            <p>第1回の問いを思い出し、7人の講師が残した概念を4本の縦糸につなぎ直します。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>第1回の問いへの応答<span class="act">原島</span></h3>
+            <p>「哲学の終わり」以後、それでも技術哲学に何ができるのか。7回を経て、あの問いに答えます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>フィールドで学ぶ惑星的普遍技術<span class="act">七沢</span></h3>
+            <p>七沢からのもう一つの応答。教室の外、森とジャングルの「つくる」へ。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <div>
+            <h3>ワークと最終課題<span class="act">全員</span></h3>
+            <p>「技術とは何か」にもう一度答え、ブレイクアウトで語り、最終課題を持ち帰ります。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 recap1 -->
+  <section class="slide" data-title="第1回の振り返り①──原島の問い" data-part="">
+    <div class="kicker">Recap — 8/17</div>
+    <h2>第1回の振り返り①<span class="thin">｜原島の問い</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li class="em">哲学の終わり——それでも技術哲学をやる意味はあるのか<small>ハイデガー：サイバネティクス（情報テクノロジー）の登場によって、哲学＝西洋形而上学は歴史的な役割を果たし終えた。自らの足元を掘り崩す問いから、この講座は始まった。</small></li>
+        <li>鍵は<span class="term">技術多様性</span>（ユク・ホイ）——「自己の条件は他者だった」</li>
+        <li>テクノロジーが加速させたのは普遍《論理》の拡大。忘却されたのは普遍《倫理》<small>西洋文化の源流——ヘレニズムとヘブライズム、論理と愛。倫理は忘れられただけで、失われてはいない。</small></li>
+        <li class="em">着地点は<span class="term">惑星的課題</span><small>人々はテクノロジーによってなし崩し的に惑星文明を形成しているが、精神的にひとつの文明をなしてはいない。そこへ複合危機が押し寄せる。それでも地球共同体をつくるには（ンベンベ）。</small></li>
+      </ul>
+      <div class="note">第1回のディスカッションでは「話が大きすぎて困った」という率直な声もあった。<br><span class="arrow">→</span> 今夜はこの問いを、<strong>一人ひとりの生のスケール</strong>に着地させます。</div>
+    </div>
+  </section>
+
+  <!-- 04 recap2 -->
+  <section class="slide" data-title="第1回の振り返り②──「技術とは何か」" data-part="">
+    <div class="kicker">Recap — 8/17</div>
+    <h2>第1回の振り返り②<span class="thin">｜あなたは「技術とは何か」に何と答えたか</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li>第1回の後半、5つの問いに、それぞれの答えを書き出した<small>技術とは何か。テクノロジーと技術は違うのか。技術を使うのは人間だけか。技術は何が生み出すのか。技術は何を生み出すのか。</small></li>
+        <li class="em">そこで出た補助線——技術は発明されるのではなく、<span class="term">引き出される</span><small>エジソンは関係の網の中で「発明させられて」いた。技術は環境から引き出されるように生まれ、生まれた技術が行動様式・社会・世代を生み出す。</small></li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> 今夜の後半、<strong>同じ問いにもう一度答えてもらいます</strong>。8回分の旅で、あなたの答えがどう変わったか——それがこの講座の測定値です。</div>
+    </div>
+  </section>
+
+  <!-- 05 part1 -->
+  <section class="slide part" data-title="PART 1｜7回の縦糸" data-part="">
+    <div class="kicker">Part One</div>
+    <div class="pnum">1</div>
+    <h2>7回の縦糸<br><span class="thin" style="color:#9a9a8e;">旅の地図を描き直す</span></h2>
+    <p class="lead">7人の講師は、それぞれの技術哲学を語りました。バラバラに見えた7回の講義を、4本の縦糸でつなぎ直します。</p>
+  </section>
+
+  <!-- 06 map -->
+  <section class="slide" data-title="8回の旅の全体地図" data-part="1">
+    <div class="kicker">1 — 01</div>
+    <h2>8回の旅の全体地図</h2>
+    <div class="body">
+      <ul class="pts compact six">
+        <li><strong>第1回｜原島大輔・七沢智樹</strong>──なぜいま技術哲学か<small>哲学の終わり／技術多様性／普遍倫理／惑星的課題／技術は引き出される</small></li>
+        <li><strong>第2回｜直江清隆</strong>──技術哲学とは何か<small>「技術＝科学の応用」の解体／テクニックとテクノロジー／人工物には価値が組み込まれている</small></li>
+        <li><strong>第3回｜岡田悠汰</strong>──ハイデガー<small>テクネー＝隠れなさ（真理）の開示／ポイエーシス／総かり立て体制（ゲシュテル）</small></li>
+        <li><strong>第4回｜村田純一</strong>──技術を形作るもの<small>二重側面説／アクターネットワーク理論／西田「作られたものから作るものへ」</small></li>
+        <li><strong>第5回｜大家慎也</strong>──ポスト現象学<small>技術的媒介／道徳的主体化／設計とは物質を介した倫理の実施</small></li>
+        <li><strong>第6回｜伊勢康平</strong>──宇宙技芸<small>技術の均質化への抵抗／図と地／複層化</small></li>
+        <li><strong>第7回｜染谷昌義</strong>──アフォーダンス<small>環境が差し出す「できる」／道具＝環境の改変／世界のメニュー化／art of living</small></li>
+        <li class="em"><strong>第8回｜今夜</strong>──「生きる」ということをつくる</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 thread1 -->
+  <section class="slide" data-title="縦糸①──作られたものから作るものへ" data-part="1">
+    <div class="kicker">1 — 02</div>
+    <h2>縦糸①<span class="thin">｜作られたものから作るものへ</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>この講座で、<strong>2人の講師が独立に同じ場所へ到達した</strong><small>第4回・村田純一は西田幾多郎から。第7回・染谷昌義はギブソンの生態心理学から。</small></li>
+        <li>作られたものは、次につくるときの<strong>足がかりにも、妨害物にもなる</strong>（第4回）<small>矛盾的自己同一とは、創造性と失敗可能性の不可分性でもある。</small></li>
+        <li>道具とは<span class="term">環境の改変・構造化</span>——改変された環境が、次の行為を生む（第7回）</li>
+        <li class="em">人と技術は、一方通行ではなく<strong>循環</strong>している——これがこの講座の骨格</li>
+      </ul>
+      <div class="note">「技術は引き出される」（第1回）は、この循環の入口の言い方だった。環境から引き出された技術が、次の環境になる。</div>
+    </div>
+  </section>
+
+  <!-- 08 thread2 -->
+  <section class="slide" data-title="縦糸②──かり立てる技術 vs 誘う技術" data-part="1">
+    <div class="kicker">1 — 03</div>
+    <h2>縦糸②<span class="thin">｜かり立てる技術と、誘う技術</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <h3>ゲシュテル<span class="en">　第3回・ハイデガー</span></h3>
+          <p>総かり立て体制。効率化そのものが目的と化し、自然は資源として、人間も「人材」として<strong>用立てられる</strong>。</p>
+          <p>技術が生き方を<strong>先取りし、駆り立てる</strong>。</p>
+        </div>
+        <div class="col">
+          <h3>アフォーダンス<span class="en">　第7回・ギブソン</span></h3>
+          <p>環境が生き物に差し出す「できる」。環境は行為を<strong>誘うが、強制しない</strong>。</p>
+          <p>だから関係は<strong>選び直せる</strong>。</p>
+        </div>
+      </div>
+      <div class="note">蝶番は第5回の<span class="term">技術的媒介と道徳的主体化</span>——技術は知覚と行為を不可避に形作る。しかし人間は被害者ではない。熟慮して技術と関わり、なりたい自分を構想できる。設計とは、物質を介した倫理の実施である。</div>
+    </div>
+  </section>
+
+  <!-- 09 AI question -->
+  <section class="slide" data-title="問い──AIはいま、どちらに向かっているのか" data-part="1">
+    <div class="kicker">1 — 04</div>
+    <h2>問い<span class="thin">｜AIはいま、どちらに向かっているのか</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>自転車の成立史が示した<span class="term">解釈の柔軟性</span>——いまAIはまさにその渦中にある（第4回）<small>何のための機械か、誰のための道具かが、まだ確定していない。</small></li>
+        <li class="em">テクノロジー化した環境は世界を<span class="term">メニュー化</span>する（第7回・リード）<small>経験が「あらかじめ用意された選択肢から選ぶこと」に縮んでいく。AIエージェントの普及はこの傾向を加速させる。</small></li>
+        <li>それでも環境は強制しない——<strong>メニューの外</strong>は、いつでもつくれる</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> AIを「かり立てる技術」にするか「誘う技術」にするかは、いままさに解釈の柔軟性の中で決まりつつある。<strong>私たちはその当事者である。</strong></div>
+    </div>
+  </section>
+
+  <!-- 10 thread3 -->
+  <section class="slide" data-title="縦糸③──均質化への抵抗" data-part="1">
+    <div class="kicker">1 — 05</div>
+    <h2>縦糸③<span class="thin">｜均質化への抵抗——多様性という実践</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>文化の多様性が叫ばれる時代に、<strong>テクノロジーだけが均質化している</strong>（第6回）</li>
+        <li>だから、各文化の宇宙論と結びついた<span class="term">宇宙技芸</span>の再発明が必要になる<small>和魂洋才の失敗——テクノロジーは「図」ではなく「地」として展開した。いまAIで「地」が浮上している。</small></li>
+        <li><span class="term">複層化</span>——コンセプトとモノが界面で互いを作り変えていく（第6回・伊勢の新概念）</li>
+        <li class="em">多様性は「守るもの」ではなく、<strong>一人ひとりが自分の生活からつくり直すもの</strong></li>
+      </ul>
+      <div class="note">第1回の「技術多様性」が、第6回で理論になり、今夜、最終課題であなたの実践になる。</div>
+    </div>
+  </section>
+
+  <!-- 11 part2 -->
+  <section class="slide part" data-title="PART 2｜第1回の問いへの応答" data-part="">
+    <div class="kicker">Part Two</div>
+    <div class="pnum">2</div>
+    <h2>第1回の問いへの応答</h2>
+    <p class="lead">原島さんは第1回で問いを立てたまま、6人の講義を見られていません。まず、講師たちがあの問いにどう応答してきたかを報告します。そのうえで——原島さんの応答を聞きます。</p>
+  </section>
+
+  <!-- 12 responses 2-4 -->
+  <section class="slide" data-title="6人はこう応答した──第2回〜第4回" data-part="2">
+    <div class="kicker">2 — 01</div>
+    <h2>6人はこう応答した<span class="thin">｜第2回〜第4回</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li><strong>直江清隆（第2回）</strong>——「技術とは何か」に概念史で応答<small>「技術＝科学の応用」は19世紀後半の発明にすぎない。ウィナーの低い陸橋、排除ベンチ——人工物には価値が組み込まれている。倫理は説教ではなく<strong>物のかたち</strong>に宿る：普遍倫理の最初の手がかり。</small></li>
+        <li><strong>岡田悠汰（第3回）</strong>——「哲学の終わり」の張本人を再読して応答<small>テクネーとは隠れているものを現れへともたらす知（アレーテイア）。危険の極まるところに救うものも育つ。ハイデガー自身の中に、終わりの先を考える資源があった。</small></li>
+        <li><strong>村田純一（第4回）</strong>——技術決定論にも社会決定論にも与しない応答<small>技術と社会は一つの存在の二側面。そして西田幾多郎「作られたものから作るものへ」——<strong>日本の哲学から</strong>技術を語れることを示した。技術多様性の実演。</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 13 responses 5-7 -->
+  <section class="slide" data-title="6人はこう応答した──第5回〜第7回" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2>6人はこう応答した<span class="thin">｜第5回〜第7回</span></h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li><strong>大家慎也（第5回）</strong>——「大きすぎる問い」を一人の熟慮に折り返す応答<small>技術的媒介：超音波診断が「リスクとしての胎児」を生んだように、技術は知覚と行為を形作る。しかし道徳的主体化ができる——惑星的課題は、日々の技術との関わり方から始められる。</small></li>
+        <li><strong>伊勢康平（第6回）</strong>——技術多様性の問いに正面から応答<small>ユク・ホイの宇宙技芸論の翻訳者本人が、原島が鍵とした概念を本格展開。さらに自前の新概念「複層化」で、多様性を<strong>つくる側の実践</strong>に翻訳した。</small></li>
+        <li><strong>染谷昌義（第7回）</strong>——「技術とは何か」に生態学で応答し、今夜のタイトルを用意した<small>技術とは環境の改変であり、<strong>art of living（生命の技芸）</strong>である。技術の問いは「何をつくるか」ではなく「どう生きるか」の問いだった——最終回はここから始まる。</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14 harashima blank -->
+  <section class="slide" data-title="原島大輔からの応答" data-part="2">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true" style="left:auto; right:-160px;">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">Response</div>
+    <h2>原島大輔からの応答</h2>
+    <p class="lead">哲学の終わり以後、それでも技術哲学に何ができるのか。<br>7回を経て、いま。</p>
+    <div class="body"></div>
+  </section>
+
+  <!-- 15 part3 -->
+  <section class="slide part" data-title="PART 3｜フィールドで学ぶ惑星的普遍技術" data-part="">
+    <div class="kicker">Part Three</div>
+    <div class="pnum">3</div>
+    <h2>七沢からの応答<br><span class="thin" style="color:#9a9a8e;">フィールドで学ぶ惑星的普遍技術</span></h2>
+    <p class="lead">オンラインの8回で、私たちは概念をさかのぼってきました。もう一つのさかのぼり方があります——身体で、です。</p>
+  </section>
+
+  <!-- 16 kiso -->
+  <section class="slide" data-title="技術の基層──技術は環境に応じることで生じる" data-part="3">
+    <div class="kicker">3 — 01</div>
+    <h2>技術の基層<span class="thin">｜技術は、生きとし生けるものが環境に応じることで生じる</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>ジャングルの中では、道具をつくり環境に働きかけているのは<strong>人間だけではない</strong><small>蔓は他者の幹を足場にして光へ届く。鳥は巣を編み、シロアリは空調の効いた塔を建てる。</small></li>
+        <li class="em">技術とは、生きとし生けるものが<span class="term">環境に応じることで生じるはたらき</span>——人間の技術はその長い連続の一つの現れ</li>
+        <li>これは第7回のアフォーダンスと同じ場所——環境に<strong>引き出されて</strong>技術が発揮される<small>そして第1回の「技術は発明されるのではなく、引き出される」に還る。</small></li>
+      </ul>
+      <div class="note">「技術＝人間だけのもの」という前提を外すと、人間中心主義は理屈ではなく<strong>実感として</strong>ほどける。</div>
+    </div>
+  </section>
+
+  <!-- 17 planetary -->
+  <section class="slide" data-title="惑星的普遍技術──もう一つの普遍" data-part="3">
+    <div class="kicker">3 — 02</div>
+    <h2>惑星的普遍技術<span class="thin">｜もう一つの「普遍」</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <h3>テクノロジーの普遍<span class="en">　普遍《論理》</span></h3>
+          <p>一つの規格が惑星を覆う普遍。どこでも同じスマホ、同じクラウド、同じAI。<strong>均質化する普遍</strong>。</p>
+        </div>
+        <div class="col">
+          <h3>基層の技術の普遍<span class="en">　惑星的普遍技術</span></h3>
+          <p>火を焚く。石を打つ。編む。発酵させる。水を運ぶ。住まいを建てる——<strong>どの文化にも、どの時代にも遍在</strong>し、しかも土地ごとに多様に現れる普遍。</p>
+        </div>
+      </div>
+      <div class="note">惑星的課題（第1回）に向き合うために、均質化の普遍だけでなく、<strong>多様なまま共有できるもう一つの普遍</strong>から学び直す。宇宙技芸（第6回）が各文化の再発明なら、惑星的普遍技術は<strong>その共通の基層</strong>である。</div>
+    </div>
+  </section>
+
+  <!-- 18 field -->
+  <section class="slide" data-title="フィールド講義──身体でさかのぼる" data-part="3">
+    <div class="kicker">3 — 03</div>
+    <h2>フィールド講義<span class="thin">｜身体でさかのぼる</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>mUには8つのオンライン講義に加えて、森やジャングルを舞台にした<strong>4つのフィールド講義</strong>がある</li>
+        <li>塩をつくる。吹子で鍛造の火を起こす。道具を手づくりする。ランプの下で調理する<small>アウトドア体験でもサバイバル訓練でもない。フィールドで「つくる」ことを、根源から身体を使って実践的に問い直す。</small></li>
+        <li class="em">概念でさかのぼった8回のあとに、<strong>身体でさかのぼる</strong>——惑星的普遍技術は、教室では学べない</li>
+      </ul>
+      <div class="note"><span class="arrow">→</span> 「未開の未来」へ。作られたものから、作るものへ——今度はあなたの手で。</div>
+    </div>
+  </section>
+
+  <!-- 19 dialogue -->
+  <section class="slide" data-title="対話──メニューの外をつくる" data-part="3">
+    <div class="kicker">3 — 04 ／ Dialogue</div>
+    <h2>対話<span class="thin">｜メニューの外をつくる——AI時代の生きる技芸</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li>七沢 × 原島——それぞれの生活で実践している「環境の改変」「道具の選び直し」の実例から</li>
+        <li class="em">チャットで教えてください——<strong>あなたが最近、メニューから選ばずに「つくった」ことは何ですか？</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 20 part4 -->
+  <section class="slide part" data-title="PART 4｜ワークと最終課題" data-part="">
+    <div class="kicker">Part Four</div>
+    <div class="pnum">4</div>
+    <h2>ワークと最終課題</h2>
+    <p class="lead">ここからは、あなたの番です。</p>
+  </section>
+
+  <!-- 21 rework -->
+  <section class="slide" data-title="再ワーク──「技術とは何か」いまの答え" data-part="4">
+    <div class="kicker">4 — 01 ／ Work（5分）</div>
+    <h2>再ワーク<span class="thin">｜「技術とは何か」——いまのあなたの答え</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>第1回と同じ5つの問いから<strong>1つ選んで</strong>、いまの答えを書いてください<small>技術とは何か／テクノロジーと技術は違うのか／技術を使うのは人間だけか／技術は何が生み出すのか／技術は何を生み出すのか</small></li>
+        <li>第1回の自分の答えを覚えている人は、<strong>何が変わったか</strong>も一言</li>
+        <li class="em">うまく書けなくてよい——<strong>変わったという事実</strong>が、アンラーンの証拠です</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 22 breakout -->
+  <section class="slide" data-title="ブレイクアウト──私の「生きる技芸」" data-part="4">
+    <div class="kicker">4 — 02 ／ Breakout（20分）</div>
+    <h2>ブレイクアウト<span class="thin">｜私の「生きる技芸」</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em">この8回を経て、<strong>明日からどんな“つくる”を始めるか</strong></li>
+        <li>いま書いた「技術とは何か」の答えのシェアから始めてください</li>
+        <li>戻ってきたら、何名かに全体でシェアしてもらいます</li>
+      </ul>
+      <div class="note">アーカイブでご覧の皆さまも、動画を止めて考えてみましょう！</div>
+    </div>
+  </section>
+
+  <!-- 23 final assignment -->
+  <section class="slide" data-title="最終課題──あなた自身の「生きる技芸」を設計する" data-part="4">
+    <div class="kicker">4 — 03 ／ Final Assignment</div>
+    <h2>最終課題<span class="thin">｜あなた自身の「生きる技芸」を設計する</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>生活のなかの<strong>具体的な技術をひとつ選ぶ</strong>——道具でも、仕組みでも、AIでも</li>
+        <li><strong>STEP 1｜分析</strong>：それが、あなたと世界の関係をどう形作っているか<small>講義で出会った概念を<strong>2つ以上</strong>使って記述する。どの回の概念でもよい。</small></li>
+        <li class="em"><strong>STEP 2｜設計</strong>：「生きるということをつくる」ために、その関係をどう作り変えるか<small>使い方を変える、設計し直す、環境を改変する——評論ではなく、あなたの提案を。</small></li>
+      </ul>
+      <div class="note">分量・提出先・締切は、講義後のご案内をご覧ください。</div>
+    </div>
+  </section>
+
+  <!-- 24 concepts -->
+  <section class="slide" data-title="使える概念リスト──8回分の道具箱" data-part="4">
+    <div class="kicker">4 — 04</div>
+    <h2>使える概念リスト<span class="thin">｜8回分の道具箱</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <h3>関係を見る</h3>
+          <p>技術的媒介（第5回）／アフォーダンス（第7回）／二重側面説・アクターネットワーク（第4回）／人工物の政治性（第2回）／技術は引き出される（第1回）</p>
+        </div>
+        <div class="col">
+          <h3>関係を作り変える</h3>
+          <p>道徳的主体化（第5回）／環境の改変としての道具（第7回）／宇宙技芸・複層化（第6回）／ポイエーシス／ゲシュテルへの抵抗（第3回）／作られたものから作るものへ（第4回）</p>
+        </div>
+      </div>
+      <div class="note">組み合わせが独創です。8人の講師が8通りの技術哲学を見せたように、<strong>概念の組み合わせ方そのものが、あなたの技術哲学</strong>になる。</div>
+    </div>
+  </section>
+
+  <!-- 25 encouragement -->
+  <section class="slide part" data-title="あなたの答えが、9本目の講義になる" data-part="4">
+    <div class="kicker">Final Message</div>
+    <h2 style="font-size:44px; line-height:1.7;">この講座で学んだのは、技術の知識ではなく、<br>技術との関係の<span style="color:#1de394;">結び直し方</span>です。</h2>
+    <p class="lead">ハイデガーは技術に「かり立てられる」危険を、ギブソンは環境が「誘うが強制しない」ことを教えてくれました。強制されていないなら、選び直せます。最終課題は、評論ではなく設計です。正解はありません。受講生の数だけ「生きる技芸」がある——<strong style="color:#faf9f5;">あなたの答えが、この講座の9本目の講義になります。</strong></p>
+  </section>
+
+  <!-- 26 closing -->
+  <section class="slide" data-title="謝辞──8回の旅をありがとうございました" data-part="4">
+    <div class="kicker">Thank You</div>
+    <h2>8回の旅を、ありがとうございました</h2>
+    <div class="body">
+      <ul class="pts compact six" style="margin-top:-6px;">
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第1回</strong>　なぜいま技術哲学を学ぶのか<span class="en">　原島大輔・七沢智樹（8/17）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第2回</strong>　技術哲学とは何か——概念史から現代の議論まで<span class="en">　直江清隆（8/20）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第3回</strong>　ハイデガーから「つくる」の意味を問い直す<span class="en">　岡田悠汰（8/24）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第4回</strong>　技術を形作るもの——社会構成主義・ANT／西田幾多郎<span class="en">　村田純一（8/27）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第5回</strong>　人はいかに技術によって形作られるのか——ポスト現象学<span class="en">　大家慎也（8/31）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第6回</strong>　“つくること”の背景にあるもの——宇宙技芸論<span class="en">　伊勢康平（9/3）</span></li>
+        <li style="margin-bottom:6px; font-size:17.5px;"><strong>第7回</strong>　環境はいかに私たちを作るのか——アフォーダンス<span class="en">　染谷昌義（9/7）</span></li>
+        <li class="em" style="margin-bottom:6px; font-size:17.5px;"><strong>第8回</strong>　私たちは、いかに「生きる」ということをつくることができるのか<span class="en">　七沢智樹・原島大輔（9/14）</span></li>
+      </ul>
+      <div class="note" style="padding-top:14px;">アーカイブ・AIまとめは科目ページから。感想フォーム・質問フォームもぜひ——<strong>あなたの「生きる技芸」を聞かせてください。</strong></div>
+    </div>
+  </section>
+
+</div><!-- /stage -->
+<div class="bar" id="bar"></div>
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    '1': 'PART 1 ／ 7回の縦糸──旅の地図を描き直す',
+    '2': 'PART 2 ／ 第1回の問いへの応答',
+    '3': 'PART 3 ／ フィールドで学ぶ惑星的普遍技術',
+    '4': 'PART 4 ／ ワークと最終課題'
+  };
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || '') + '</span><span>' +
+      pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' +
+      s.getAttribute('data-title') +
+      (part ? '<span class="pt">PART ' + part + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  function fit() {
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
+  }
+
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
+  fit();
+  setTimeout(fit, 120);
+  setTimeout(fit, 600);
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
