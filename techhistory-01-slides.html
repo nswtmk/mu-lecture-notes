@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>技術史 第1回｜技術史概論──いかに「技術」によって「世界」は形作られてきたのか？</title>
+<meta name="description" content="makers Unlearn 2026 技術史 第1回（技術史概論）講義スライド。テクノロジー史・変わらないボトム・生命から捉え直す技術の定義。">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #0ca568;
+    --mint: #1de394;
+    --shu: #c0392b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #eceae2;
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* ---------- stage ---------- */
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+  .stage { position: absolute; left: 50%; top: 50%; transform-origin: 50% 50%;
+    position: relative;
+    width: 1280px; height: 720px;
+    flex: none;
+    background: var(--paper);
+    transform-origin: center center;
+    box-shadow: 0 18px 60px rgba(20,20,15,.12);
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    padding: 74px 96px 92px;
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden;
+    transition: opacity .38s ease;
+  }
+  .slide.is-active { opacity: 1; visibility: visible; }
+
+  /* ---------- common type ---------- */
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; text-transform: uppercase; }
+  .slide h2 { font-size: 42px; font-weight: 700; line-height: 1.5; letter-spacing: .02em; margin-top: 18px; }
+  .slide h2 .thin { font-weight: 400; color: var(--ink-soft); }
+  .lead { font-size: 19px; line-height: 2.1; color: var(--ink-soft); margin-top: 18px; max-width: 900px; }
+  .body { margin-top: 46px; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+  ul.pts { list-style: none; }
+  ul.pts > li {
+    position: relative;
+    font-size: 24px; line-height: 1.95; letter-spacing: .01em;
+    padding-left: 34px; margin-bottom: 24px; max-width: 1010px;
+  }
+  ul.pts > li::before {
+    content: ""; position: absolute; left: 2px; top: 20px;
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1.6px solid var(--mint);
+  }
+  ul.pts > li.em::before { background: var(--moss); border-color: var(--moss); }
+  ul.pts > li.em { font-weight: 700; }
+  ul.pts > li small { display: block; font-size: 16px; color: var(--ink-soft); line-height: 1.9; margin-top: 6px; font-weight: 400; }
+  ul.pts.tight > li { margin-bottom: 16px; font-size: 22px; }
+  ul.pts.compact > li { margin-bottom: 12px; font-size: 20px; line-height: 1.75; }
+  ul.pts.compact > li::before { top: 17px; }
+  ul.pts.compact > li small { font-size: 14.5px; line-height: 1.8; margin-top: 3px; }
+  ul.pts.compact.six > li { margin-bottom: 8px; font-size: 18.5px; line-height: 1.7; }
+  ul.pts.compact.six > li::before { top: 15px; width: 8px; height: 8px; }
+  ul.pts > li.shu-li::before { background: var(--shu); border-color: var(--shu); }
+  ul.pts.compact.six > li small { font-size: 13.5px; line-height: 1.7; margin-top: 2px; }
+
+  .note {
+    margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
+    font-size: 15px; line-height: 1.95; color: var(--ink-soft); max-width: 960px;
+  }
+  .arrow { color: var(--moss); font-weight: 700; }
+  .term { border-bottom: 1.6px solid var(--mint); padding-bottom: 1px; }
+  .en { font-size: .62em; letter-spacing: .06em; color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- title slide ---------- */
+  .slide.title { justify-content: center; align-items: flex-end; text-align: right; padding-right: 110px; }
+  .slide.title h1 { font-size: 78px; font-weight: 700; line-height: 1.42; letter-spacing: .04em; }
+  .slide.title .sub { font-size: 22px; color: var(--ink-soft); margin-top: 30px; letter-spacing: .06em; line-height: 2; }
+  .slide.title .meta { font-size: 14px; letter-spacing: .2em; color: var(--ink-soft); margin-top: 46px; line-height: 2.2; }
+  .rings { position: absolute; left: -160px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; pointer-events: none; }
+  .rings circle { fill: none; stroke: var(--mint); stroke-width: 1.6; }
+  .rings .r1 { stroke-dasharray: 4 7; animation: spin 90s linear infinite; transform-origin: 280px 280px; }
+  .rings .r2 { stroke-dasharray: 5 9; animation: spin 150s linear infinite reverse; transform-origin: 280px 280px; }
+  .rings .r3 { stroke-dasharray: 3 6; animation: spin 220s linear infinite; transform-origin: 280px 280px; }
+  .rings .core { fill: var(--mint); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .rings circle { animation: none !important; } .slide { transition: none; } }
+
+  /* ---------- part divider ---------- */
+  .slide.part { background: var(--ink); color: var(--paper); justify-content: center; }
+  .slide.part .kicker { color: var(--mint); }
+  .slide.part .pnum { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: .02em; margin: 22px 0 18px; }
+  .slide.part h2 { font-size: 52px; margin-top: 0; }
+  .slide.part .lead { color: #9a9a8e; font-size: 18px; }
+  .slide.part.appendix { background: #2b2b26; }
+  .slide.part.appendix .pnum { font-size: 76px; color: #6d6d63; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; border-top: 1px solid var(--line); }
+  .agenda li { display: grid; grid-template-columns: 92px 1fr; gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .agenda .n { font-size: 30px; font-weight: 700; color: var(--moss); }
+  .agenda h3 { font-size: 30px; font-weight: 700; letter-spacing: .02em; }
+  .agenda p { font-size: 16px; color: var(--ink-soft); margin-top: 8px; line-height: 1.9; }
+  .agenda .act { display: inline-block; font-size: 12px; letter-spacing: .12em; font-weight: 600;
+                 color: var(--moss); border: 1.3px solid var(--moss); border-radius: 999px;
+                 padding: 3px 13px; margin-left: 16px; vertical-align: 4px; }
+
+  /* ---------- column grids ---------- */
+  .cols { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+  .col { background: var(--paper); padding: 30px 30px 34px; }
+  .col .h { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .col h3 { font-size: 25px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+  .col h3:only-child, .col .h + h3:last-child { margin-bottom: 0; }
+  .col p { font-size: 16.5px; line-height: 2; color: var(--ink-soft); }
+  .col p + p { margin-top: 12px; }
+  .col.mid { background: #f3f2ea; border-left: 1.6px dashed var(--mint); border-right: 1.6px dashed var(--mint); }
+  .col.mid h3 { color: var(--ink); }
+  .col.reason { padding: 20px 26px 22px; }
+  .col.reason .h { margin-bottom: 8px; }
+  .col.reason h3 { font-size: 23px; margin-bottom: 6px; }
+  .col.reason p { font-size: 15px; }
+  .cols.tight3 .col { padding: 22px 24px 24px; }
+  .cols.tight3 .col h3 { font-size: 22px; margin-bottom: 10px; }
+  .cols.tight3 .col p { font-size: 15px; line-height: 1.9; }
+  .cols.tight3 .col p + p { margin-top: 10px; }
+  .cols.tight3 .col .tagline { margin-top: 14px; font-size: 12px; }
+  .cols.tight3 .col p.but { color: var(--ink); font-weight: 700; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .cols.tight2 .col.reason { padding: 16px 22px 18px; }
+  .cols.tight2 .col h3 { font-size: 21px; margin-bottom: 8px; }
+  .cols.tight2 .col p { font-size: 15px; line-height: 1.85; }
+  .cols.tight2 .col p + p { margin-top: 9px; }
+  .col .tagline { display: inline-block; font-size: 12.5px; letter-spacing: .1em; border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 15px; margin-top: 18px; line-height: 1.6; }
+
+  /* ---------- turn: 取り消される前提 → 立て直す前提 ---------- */
+  .turn { display: grid; grid-template-columns: 318px 86px 1fr; align-items: stretch; }
+  .was { display: flex; flex-direction: column; justify-content: center; }
+  .was .h { font-size: 12.5px; letter-spacing: .24em; color: var(--ink-soft); font-weight: 600; margin-bottom: 26px; }
+  .was ul { list-style: none; }
+  .was li {
+    font-size: 20px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 22px;
+    text-decoration: line-through;
+    text-decoration-color: var(--shu);
+    text-decoration-thickness: 2px;
+  }
+  .was .was-note { font-size: 14.5px; line-height: 1.9; color: var(--shu); margin-top: 12px; }
+  .turn-arrow { position: relative; display: flex; align-items: center; justify-content: center; }
+  .turn-arrow.arrow-row { margin: 12px 0; flex: none; }
+  .turn-arrow.arrow-row::before { display: none; }
+  .turn-arrow.arrow-row span { padding: 0; font-size: 28px; }
+  .turn-arrow::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+    border-left: 1.4px dashed var(--line);
+  }
+  .turn-arrow span {
+    position: relative; background: var(--paper);
+    padding: 14px 0; font-size: 34px; line-height: 1; color: var(--moss);
+  }
+
+  /* ---------- two-axis ---------- */
+  .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .axis.shu { border-top-color: var(--shu); }
+  .axes.dense { gap: 20px; }
+  .axes.dense .axis { padding: 18px 22px 20px; }
+  .axes.dense .axis .n { margin-bottom: 8px; }
+  .axes.dense .axis h3 { font-size: 22px; margin-bottom: 11px; }
+  .axes.dense .axis li { font-size: 14px; line-height: 1.75; margin-bottom: 5px; padding-left: 16px; }
+  .axes.dense .axis li::before { top: 11px; }
+  .axis { border: 1px solid var(--line); border-top: 3px solid var(--moss); padding: 26px 28px 30px; background: var(--paper); }
+  .axis .n { font-size: 12.5px; letter-spacing: .2em; color: var(--ink-soft); margin-bottom: 12px; }
+  .axis h3 { font-size: 28px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
+  .axis ul { list-style: none; }
+  .axis li { font-size: 15.5px; line-height: 1.9; color: var(--ink-soft); padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .axis li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- statement ---------- */
+  .statement { font-size: 40px; font-weight: 700; line-height: 1.85; letter-spacing: .03em; }
+  .statement small { display: block; max-width: 960px; font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 2.1; margin-top: 26px; letter-spacing: 0; }
+
+  /* ---------- quad: テクノロジーの哲学マップ ---------- */
+  .quad { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); flex: 1; min-height: 0; }
+  .quad::before { content: ""; position: absolute; left: 50%; top: 12px; bottom: 12px; border-left: 1.6px dashed var(--mint); }
+  .quad::after { content: ""; position: absolute; top: 50%; left: 12px; right: 12px; border-top: 1.6px dashed var(--mint); }
+  .q-cell { padding: 24px 30px; }
+  .q-cell h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .q-cell .q-ex { font-size: 11.5px; letter-spacing: .1em; color: var(--moss); font-weight: 600; margin-bottom: 8px; }
+  .q-cell p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); max-width: 400px; }
+  .q-cell.b { display: flex; flex-direction: column; justify-content: flex-end; }
+  .q-label { position: absolute; z-index: 2; background: var(--paper); border: 1.4px solid var(--moss); color: var(--moss); border-radius: 999px; font-size: 12px; letter-spacing: .1em; font-weight: 600; padding: 4px 16px; white-space: nowrap; }
+  .q-label.t { top: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.bt { bottom: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.l { left: 14px; top: 50%; transform: translateY(-50%); }
+  .q-label.r { right: 14px; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- det: 技術決定論の階段図 ---------- */
+  .det { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+  .det-body { margin-top: 18px; }
+  .det-body .det { flex: none; height: 280px; margin-bottom: 8px; }
+  .det-body .det svg { height: 100%; width: auto; max-width: 100%; }
+  .det svg { width: 100%; max-width: 950px; height: auto; }
+  .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+  .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
+  .det .lbl { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  .det .sub2 { font-size: 15px; fill: var(--ink-soft); }
+  .det .br { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 5 7; }
+  .det .fossil { fill: var(--paper); stroke: var(--moss); stroke-width: 2; }
+
+  /* ---------- conv: 二極の合流 ---------- */
+  .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .conv-join { text-align: center; font-size: 26px; line-height: 1; color: var(--moss); margin: 14px 0; }
+  .conv-goal { border: 1.8px solid var(--moss); background: #f4faf6; padding: 18px 26px; text-align: center; font-size: 23px; font-weight: 700; }
+  .conv-goal { margin-bottom: 6px; }
+  .conv-goal .goal-pts { list-style: none; text-align: left; max-width: 800px; margin: 14px auto 0; }
+  .conv-goal .goal-pts li { position: relative; font-size: 15.5px; font-weight: 400; line-height: 1.9; color: var(--ink-soft); padding-left: 20px; margin-bottom: 6px; }
+  .conv-goal .goal-pts li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--moss); }
+  .conv-goal small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink-soft); line-height: 1.9; margin-top: 8px; }
+
+  /* ---------- ship: 船の比喩 ---------- */
+  .ship-lead { font-size: 17px; margin-top: 12px; }
+  .ship-body { margin-top: 24px; }
+  .ship { display: flex; justify-content: center; }
+  .ship svg { width: 100%; max-width: 1000px; height: auto; }
+  .ship .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .ship .hull { fill: var(--ink); }
+  .ship .wave { fill: none; stroke: var(--line); stroke-width: 1.6; }
+  .ship .route { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 6 8; }
+  .ship .beacon { fill: var(--mint); }
+  .ship .isle { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-dasharray: 4 6; }
+  .ship text { font-family: inherit; }
+  .ship .here { font-size: 14px; fill: var(--ink-soft); text-anchor: middle; letter-spacing: .08em; }
+  .ship .dest { font-size: 30px; font-weight: 700; fill: var(--moss); text-anchor: middle; }
+  .ship-cols { margin-top: 14px; }
+  .ship-cols .col { padding: 20px 26px 22px; }
+  .ship-cols .col .h { margin-bottom: 10px; }
+  .ship-cols .col h3 { font-size: 22px; margin-bottom: 8px; }
+  .ship-cols .col p { font-size: 15.5px; line-height: 1.9; }
+
+  /* ---------- then/now: 思考実験から現実へ ---------- */
+  .tn { border: 1px solid var(--line); }
+  .tn-row { display: grid; grid-template-columns: 1fr 46px 1.25fr; align-items: stretch; border-top: 1px solid var(--line); }
+  .tn-row:first-child { border-top: none; }
+  .tn-head { background: #f3f2ea; }
+  .tn-head .tn-c { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); font-weight: 600; padding: 11px 24px; }
+  .tn-c { padding: 13px 24px; font-size: 16px; line-height: 1.7; display: flex; align-items: center; }
+  .tn-c.then { color: var(--ink-soft); }
+  .tn-c.now { font-weight: 700; border-left: 1px solid var(--line); }
+  .tn-c.mid { justify-content: center; color: var(--moss); font-size: 17px; padding: 0; }
+
+  /* ---------- day: 一日の媒介 ---------- */
+  .day { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .day-cell { background: var(--paper); padding: 22px 20px 26px; }
+  .day-cell .t { font-size: 12px; letter-spacing: .16em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .day-cell h3 { font-size: 18px; font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
+  .day-cell p { font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+  /* ---------- one: 一撃の事例 ---------- */
+  .one { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+  .one-q { font-size: 34px; font-weight: 700; line-height: 1.8; letter-spacing: .02em; }
+  .one-q .shu { color: var(--shu); }
+  .one-list { list-style: none; border-left: 2px solid var(--shu); padding-left: 26px; }
+  .one-list li { font-size: 16px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 14px; }
+  .one-list li strong { color: var(--ink); }
+
+  /* ---------- drv: テクノロジーを発展させる要因 ---------- */
+  .drv-body { margin-top: 6px; }
+  .drv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 34px; }
+  .drv ol { list-style: none; }
+  .drv li { display: grid; grid-template-columns: 24px 1fr 92px; gap: 8px; align-items: baseline;
+            padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .drv li:last-child { border-bottom: none; }
+  .drv .n { font-size: 11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .drv .f { font-size: 15.5px; line-height: 1.6; }
+  .drv .w { font-size: 12.5px; color: var(--moss); font-weight: 600; text-align: right; line-height: 1.6; }
+  .drv .hd { border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+  .drv .hd .n, .drv .hd .f, .drv .hd .w { font-size: 11.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- tie: 第1部の理由との紐づけ ---------- */
+  .tie { display: inline-block; font-size: 11px; letter-spacing: .1em; font-weight: 600;
+         border: 1.3px solid var(--moss); color: var(--moss); border-radius: 999px;
+         padding: 2px 10px; margin-right: 10px; line-height: 1.6; vertical-align: 2px; }
+  .tie.base { border-color: var(--line); color: var(--ink-soft); }
+  .tie-chip { margin-top: 14px; }
+  .tie-chip .tie { font-size: 12px; padding: 4px 14px; margin-right: 0; }
+  .tie-chip .cap { font-size: 13.5px; color: var(--ink-soft); margin-left: 12px; }
+
+  /* ---------- book: 書籍カード（書影を差し替え可） ---------- */
+  .bookrow { display: grid; grid-template-columns: 210px 1fr; gap: 44px; align-items: center; }
+  .book { position: relative; width: 210px; height: 296px; background: var(--paper);
+          border: 1px solid var(--line); border-left: 7px solid var(--ink);
+          box-shadow: 4px 5px 0 rgba(20,20,15,.06); padding: 26px 20px 20px 22px;
+          display: flex; flex-direction: column; }
+  .book img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .book .bt { font-size: 21px; font-weight: 700; line-height: 1.45; letter-spacing: .02em; }
+  .book .bs { font-size: 11.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 10px; }
+  .book .ba { margin-top: auto; font-size: 12.5px; font-weight: 600; }
+  .book .bp { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); margin-top: 4px; }
+  .book .bmark { position: absolute; right: 14px; top: 0; width: 12px; height: 34px; background: var(--mint); }
+  .book.dark { background: #101013; border: 1px solid #101013; border-left: 7px solid #060608; color: #f2f1ec; }
+  .book.dark .bt { color: #fff; }
+  .book.dark .bs { color: #9adfd2; }
+  .book.dark .ba { color: #e8e7e1; }
+  .book.dark .bp { color: #8a8a82; }
+  .book.dark .bmark { background: #1de3c4; }
+  .book.dark .wave2 { position: absolute; left: 0; right: 0; bottom: 78px; height: 56px; pointer-events: none; }
+  .book.dark .wave2 path { fill: none; stroke: #1de3c4; stroke-width: 2; opacity: .75; }
+  .book.dark .wave2 path + path { opacity: .3; stroke-width: 4; }
+  .prof { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
+  .prof .who { border-top: 3px solid var(--moss); padding-top: 20px; }
+  .prof .who .nm { font-size: 40px; font-weight: 700; letter-spacing: .06em; }
+  .prof .who .kana { font-size: 13px; letter-spacing: .22em; color: var(--ink-soft); margin-top: 8px; }
+  .prof .who .role { font-size: 16px; line-height: 2; color: var(--ink-soft); margin-top: 20px; }
+  .prof .who .role strong { color: var(--ink); }
+  .booklink { display: inline-block; font-size: 12.5px; color: var(--moss); font-weight: 600;
+              border-bottom: 1px solid var(--mint); margin-top: 14px; }
+
+  /* ---------- paths ---------- */
+  .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
+  .path.on { border: 1.8px solid var(--moss); background: #f4faf6; }
+  .path .n { font-size: 12.5px; letter-spacing: .18em; color: var(--ink-soft); margin-bottom: 12px; }
+  .path h3 { font-size: 22px; font-weight: 700; line-height: 1.6; margin-bottom: 12px; }
+  .path h3 small { display: block; font-size: 11.5px; letter-spacing: .14em; color: var(--moss); font-weight: 600; margin-top: 5px; }
+  .path p { font-size: 15px; line-height: 1.95; color: var(--ink-soft); }
+  .path p + p { margin-top: 10px; }
+
+  /* ---------- step4: mU の4STEP ---------- */
+  .step4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .step4 .st { background: var(--paper); padding: 24px 20px 22px; display: flex; flex-direction: column; }
+  .step4 .st.on { background: #f4faf6; box-shadow: inset 0 3px 0 var(--moss); }
+  .axis li.lnk { padding-left: 0; margin-top: 4px; }
+  .axis li.lnk::before { display: none; }
+  .step4 .st .n { font-size: 11.5px; letter-spacing: .18em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .step4 .st h3 { font-size: 21px; font-weight: 700; line-height: 1.55; margin-bottom: 12px; }
+  .step4 .st p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); }
+  .step4 .st .tag { margin-top: auto; padding-top: 16px; font-size: 11.5px; letter-spacing: .08em;
+                    color: var(--moss); font-weight: 600; }
+
+  /* ---------- qed: 論証 ---------- */
+  .qed { border-top: 1px solid var(--line); }
+  .qed-row { display: grid; grid-template-columns: 322px 1fr; gap: 32px; align-items: start;
+             padding: 13px 0 14px; border-bottom: 1px solid var(--line); }
+  .qed-row .p { font-size: 19px; font-weight: 700; line-height: 1.6; }
+  .qed-row .p .n { display: block; font-size: 11px; letter-spacing: .16em; color: var(--moss);
+                   font-weight: 600; margin-bottom: 7px; }
+  .qed-row .p em { display: block; font-style: normal; font-size: 13.5px; font-weight: 600;
+                   color: var(--shu); line-height: 1.75; margin-top: 8px; }
+  .qed-row ul { list-style: none; }
+  .qed-row li { position: relative; font-size: 14.5px; line-height: 1.85; color: var(--ink-soft);
+                padding-left: 18px; margin-bottom: 3px; }
+  .qed-row li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- 出典注記 ---------- */
+  .q-src { display: block; font-size: 12.5px; color: var(--ink-soft); opacity: .8; margin-top: 6px; }
+
+  /* ---------- tmap: 技術哲学の問いの見取り図 ---------- */
+  .tmap { display: grid; grid-template-columns: 620px 1fr; gap: 30px; align-items: center; }
+  .tmap-fig { width: 100%; }
+  .tmap-fig svg { width: 100%; height: auto; display: block; }
+  .tmap .fld { fill: #ecebe2; stroke: var(--ink-soft); stroke-width: 3; }
+  .tmap .cyb { fill: none; stroke: var(--moss); stroke-width: 4; stroke-dasharray: 13 9; }
+  .tmap .hum { fill: var(--paper); stroke: var(--ink); stroke-width: 3.5; }
+  .tmap .box { fill: var(--ink); }
+  .tmap .bt { fill: var(--paper); font-size: 33px; text-anchor: middle; }
+  .tmap .hm { fill: var(--ink); font-size: 38px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb { fill: var(--ink); font-size: 39px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb.g { fill: var(--moss); }
+  .tmap .ws { fill: var(--ink-soft); font-size: 33px; text-anchor: middle; letter-spacing: .08em; }
+  .tmap .ar { fill: none; stroke: var(--ink); stroke-width: 4; }
+  .tmap ol { list-style: none; }
+  .tmap li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: baseline;
+             padding: 5px 0; border-bottom: 1px solid var(--line); }
+  .tmap li:last-child { border-bottom: none; }
+  .tmap li .q { font-size: 15px; font-weight: 700; color: var(--moss); }
+  .tmap li h4 { font-size: 16px; font-weight: 700; line-height: 1.45; }
+  .tmap li p { font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 1px; }
+
+  /* ---------- fut: 過去へさかのぼり、未来へ投影する ---------- */
+  .fut { align-self: center; margin-bottom: 4px; }
+  .fut img { display: block; max-height: 460px; width: auto; margin: 0 auto; border: 1px solid var(--line); }
+  .fut svg { width: 100%; height: auto; display: block; }
+  .fut .tl { stroke: var(--ink); stroke-width: 3; }
+  .fut .cone { stroke: #1f5e46; stroke-width: 2.6; }
+  .fut .tick circle { fill: var(--ink); }
+  .fut .tick line { stroke: var(--ink-soft); stroke-width: 2; stroke-dasharray: 2 7; stroke-linecap: round; }
+  .fut .tick text { font-size: 24px; fill: var(--ink); text-anchor: middle; }
+  .fut .tick.now circle { fill: var(--moss); }
+  .fut .tf { font-size: 25px; fill: var(--ink); text-anchor: middle; }
+  .fut .rg { font-size: 27px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .fut .pf { font-size: 26px; fill: var(--ink-soft); }
+  .fut .lf { fill: none; stroke: var(--ink); stroke-width: 2.4; }
+  .fut .pu { fill: var(--mint); }
+  .fut .eye { animation: futslide 9s ease-in-out infinite alternate; }
+  @keyframes futslide { from { transform: translate(-230px, 55px); } to { transform: translate(230px, -55px); } }
+  @media (prefers-reduced-motion: reduce) { .fut .eye { animation: none !important; } }
+  .step4.mini .st { padding: 11px 14px 12px; }
+  .step4.mini .st .n { font-size: 10.5px; margin-bottom: 8px; }
+  .step4.mini .st h3 { font-size: 17px; margin-bottom: 6px; }
+  .step4.mini .st p { font-size: 12px; line-height: 1.7; }
+
+  /* ---------- ex3: 三つの事例 ---------- */
+  .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .ex { display: flex; flex-direction: column; }
+  .ex h3 { font-size: 19px; font-weight: 700; line-height: 1.45; margin: 13px 0 8px; }
+  .ex p { font-size: 13px; line-height: 1.8; color: var(--ink-soft); }
+  .ex .booklink { margin-top: 10px; align-self: flex-start; }
+  .book.sm { width: 132px; height: 186px; padding: 15px 12px 12px 13px; border-left-width: 5px;
+             box-shadow: 3px 4px 0 rgba(20,20,15,.06); }
+  .book.sm .bt { font-size: 14px; line-height: 1.4; }
+  .book.sm .bs { font-size: 9px; line-height: 1.6; margin-top: 7px; }
+  .book.sm .ba { font-size: 10px; }
+  .book.sm .bp { font-size: 8.5px; margin-top: 3px; }
+  .book.sm .bmark { right: 10px; width: 9px; height: 24px; }
+
+  /* ---------- tmap2: 考え方＋象徴図 ---------- */
+  .tmap2 .tmap { display: block; }
+  .tmap2 { display: grid; grid-template-columns: 1fr 350px; gap: 34px; align-items: center; }
+  .tmap2 ul.pts.compact > li { margin-bottom: 9px; font-size: 19px; line-height: 1.7; }
+  .tmap2 ul.pts.compact > li small { font-size: 13.5px; line-height: 1.7; }
+  .tmap2 .tmap-fig2 svg { width: 100%; height: auto; display: block; }
+  .tmap2 ul.pts.compact > li { max-width: none; }
+
+  .day.d4 { grid-template-columns: repeat(4, 1fr); }
+  .day.sm .day-cell { padding: 15px 17px 17px; }
+  .day.sm .day-cell .t { margin-bottom: 9px; }
+  .day.sm .day-cell h3 { font-size: 16.5px; margin-bottom: 8px; }
+  .day.sm .day-cell p { font-size: 12.5px; line-height: 1.75; }
+  .det-sm { flex: none; }
+  .det-sm svg { height: 205px; width: auto; }
+  /* ---------- chrome ---------- */
+  .foot {
+    position: absolute; left: 96px; right: 96px; bottom: 34px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: .18em; color: var(--ink-soft);
+  }
+  .slide.part .foot { color: rgba(250,249,245,.5); }
+  .bar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--mint); transition: width .38s ease; z-index: 5; }
+
+  .ui { position: fixed; right: 20px; bottom: 18px; display: flex; gap: 8px; z-index: 40; transition: opacity .4s; }
+  .ui.idle { opacity: 0; pointer-events: none; }
+  .ui button {
+    font: inherit; font-size: 12px; letter-spacing: .14em;
+    background: var(--paper); color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 16px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .ui button:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .toc {
+    position: fixed; inset: 0; z-index: 50; background: var(--ink); color: var(--paper);
+    padding: 56px 6vw; overflow-y: auto; display: none;
+  }
+  .toc.open { display: block; }
+  .toc h4 { font-size: 12px; letter-spacing: .3em; color: var(--mint); font-weight: 600; margin-bottom: 26px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 56px; }
+  .toc li { break-inside: avoid; }
+  .toc button {
+    font: inherit; text-align: left; width: 100%;
+    display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+    background: none; border: none; border-bottom: 1px solid #33332c; color: rgba(250,249,245,.72);
+    padding: 11px 0; font-size: 15.5px; cursor: pointer; transition: color .2s;
+  }
+  .toc button:hover, .toc button.here { color: #fff; }
+  .toc button.here .no { color: var(--mint); }
+  .toc .no { font-size: 12px; letter-spacing: .1em; color: #7b7b70; }
+  .toc .pt { font-size: 11px; letter-spacing: .2em; color: var(--mint); display: block; margin-top: 4px; }
+
+  /* ---------- print ---------- */
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { overflow: visible; background: #fff; }
+    .deck { position: static; overflow: visible; }
+    .stage { position: static; width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
+    .slide {
+      position: static; opacity: 1 !important; visibility: visible !important;
+      width: 1280px; height: 720px; page-break-after: always; break-after: page;
+    }
+    .ui, .toc, .bar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <!-- 01 title -->
+  <section class="slide title" data-title="技術史概論" data-part="">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">History of Technology — 01</div>
+    <h1 style="font-size:52px; line-height:1.5;">技術史概論</h1>
+    <p class="sub">いかに「技術」によって<br>「世界」は形作られてきたのか？</p>
+    <p class="meta">技術史 第1回<br>七沢智樹<br>makers Unlearn 2026 ／ 2026.09.17</p>
+  </section>
+
+  <!-- 02 agenda -->
+  <section class="slide" data-title="今夜の流れ" data-part="">
+    <div class="kicker">Agenda</div>
+    <h2>今夜の流れ</h2>
+    <div class="body">
+      <ol class="agenda">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>テクノロジー史<span class="act">「技術＝テクノロジー」はどう作られたか</span></h3>
+            <p>産業革命とベックマン、中世に撒かれた種、時計仕掛けの宇宙論。技術種の爆発。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>変わらないボトム<span class="act">足元の旧石器時代</span></h3>
+            <p>料理・衣服・建築の基本構造は変わっていない。眠っている技術と、どこまで遡るか。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>技術とは何か<span class="act">生命から捉え直す（七沢の考え）</span></h3>
+            <p>ポイエーシス、機能と技術のあいだ、動物たちは技術を持つか——そして作業定義へ。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <div>
+            <h3>まとめ<span class="act">タイトルの問いへの答え</span></h3>
+            <p>二重の意味——時計仕掛けの宇宙と、技術の基層。そして次回・島田さんへの橋。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 why -->
+  <section class="slide" data-title="なぜ、技術史なのか" data-part="">
+    <div class="kicker">Introduction</div>
+    <h2>なぜ、技術史なのか</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>mUは4つのSTEP——未来を見通す→<strong>根源に遡る</strong>→再定義する→未開の未来——で「つくる」を捉え直す。技術史はその<span class="term">遡り方の本体</span></li>
+        <li>いま「つくる」の未来は、AI・ロボティクスがすべてを作るという<strong>単一の未来</strong>として語られている<small>一つの世界観・一つの真理の下で暮らすという未来像は、実は西洋的な価値観に基づく——技術哲学で解体した通り。この後の「技術の人類学」で詳しく扱うテーマでもある。</small></li>
+        <li class="em">過去の技術に遡ることで、<span class="term">多様な技術の可能性</span>を再発見する——それがこの講義でやること</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 04 rewrite history -->
+  <section class="slide" data-title="技術史を、編み直す" data-part="">
+    <div class="kicker">Introduction</div>
+    <h2>技術史を、編み直す</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>世界の技術史学会で語られるのは、ほぼすべて<strong>産業革命以後</strong>の技術——電気、半導体、AI<small>それより前に遡るのは考古学。しかし考古学は年代の同定が目的で、「技術の本質」というモチベーションでは発展していない。</small></li>
+        <li>つまり、<strong>遡る技術史は、まだ書かれていない</strong></li>
+        <li class="em">この講義は、国立科学博物館・科学技術史グループのリーダーと共同で、<span class="term">技術史そのものを編み直す</span>試み</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 05 map -->
+  <section class="slide" data-title="講義の地図──遡っていく" data-part="">
+    <div class="kicker">Introduction</div>
+    <h2>講義の地図<span class="thin">｜ここから、遡っていく</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li><strong>第1回（今夜）</strong>　技術史概論——ビッグピクチャーと「技術とは何か」</li>
+        <li><strong>第2回（9/24）</strong>　遊び・模倣・社会的学習からみる技術の起源<span class="en">　島田将喜さん（霊長類研究）</span></li>
+        <li><strong>第3回（9/28）</strong>　縄文技術概論——実践から見えてきた縄文の技術からのメッセージ<span class="en">　相馬皓介さん</span></li>
+        <li class="em">回を追うごとに<strong>根源へ遡り</strong>、多様な技術の可能性を再発見していく</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 06 question -->
+  <section class="slide" data-title="今夜の問い" data-part="">
+    <div class="kicker">Key Question</div>
+    <h2>今夜の問い</h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em" style="font-size:32px; line-height:1.9;">そもそも、<span class="term">技術</span>とは何か<small style="font-size:17px; margin-top:14px;">当たり前に使っているこの言葉を、今夜は歴史と生命の両側から捉え直します。答えは最後に。</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 part1 -->
+  <section class="slide part" data-title="PART 1｜テクノロジー史" data-part="">
+    <div class="kicker">Part One</div>
+    <div class="pnum">1</div>
+    <h2>テクノロジー史<br><span class="thin" style="color:#9a9a8e;">「技術＝テクノロジー」はどう作られたか</span></h2>
+    <p class="lead">私たちが「技術」と聞いて思い浮かべるもの——それがどう作られてきたのかから始めます。</p>
+  </section>
+
+  <!-- 08 birth of technology -->
+  <section class="slide" data-title="テクノロジーの誕生" data-part="1">
+    <div class="kicker">1 — 01</div>
+    <h2>テクノロジーの誕生</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>テクノロジーとは、<strong>産業革命によって誕生した、一つの技術のあり方</strong>である</li>
+        <li>「Technologie」という言葉を学問の名として立てたのは<span class="term">ヨハン・ベックマン</span>（18世紀ドイツ）<small>技術を体系的な知として扱う発想そのものが、近代の産物。</small></li>
+        <li>そして産業革命は一度ではない——動力（蒸気）、重工業・電信、電気・大量生産、情報……と<strong>複数の革命の系譜</strong>が現代まで続いている</li>
+      </ul>
+      <div class="note">この系譜の延長線上に、いまのAIがいる。私たちの「技術」のイメージは、この<strong>わずか5世代</strong>の中で作られた。</div>
+    </div>
+  </section>
+
+  <!-- 09 clockwork -->
+  <section class="slide" data-title="種は中世に撒かれていた──時計仕掛けの宇宙" data-part="1">
+    <div class="kicker">1 — 02</div>
+    <h2 style="font-size:36px">種は中世に撒かれていた<span class="thin">｜時計仕掛けの宇宙</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>産業革命以後の技術の種は、<strong>中世にすでに撒かれていた</strong>——その象徴が機械時計</li>
+        <li>時計は時間を計る道具にとどまらず、<span class="term">時計仕掛けの宇宙論</span>を生んだ<small>宇宙は神が作った精密な機械であり、法則に従って動く——この世界像が、のちの科学とテクノロジーの土台になる。</small></li>
+        <li class="em">技術が、「世界とは何か」の像そのものを作り替えた——タイトルの問い<strong>「技術によって世界は形作られる」の第一の意味</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 explosion -->
+  <section class="slide" data-title="技術種の爆発" data-part="1">
+    <div class="kicker">1 — 03</div>
+    <h2>技術種の爆発</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>産業革命以後、技術の<strong>種類</strong>は爆発的に増えた<small>※ここに種類数・特許数などの推移の図を挿入予定。</small></li>
+        <li>この爆発があまりに劇的だったために、<strong>「テクノロジー＝技術そのもの」</strong>だと思われるようになった</li>
+        <li class="em">しかし、爆発したのは技術の<strong>一つの系譜</strong>にすぎない——では、それ以外は？</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 11 part2 -->
+  <section class="slide part" data-title="PART 2｜変わらないボトム" data-part="">
+    <div class="kicker">Part Two</div>
+    <div class="pnum">2</div>
+    <h2>変わらないボトム<br><span class="thin" style="color:#9a9a8e;">足元の旧石器時代</span></h2>
+    <p class="lead">爆発するテクノロジーの足元で、変わっていないものを見ます。</p>
+  </section>
+
+  <!-- 12 look at your feet -->
+  <section class="slide" data-title="しかし、足元を見る" data-part="2">
+    <div class="kicker">2 — 01</div>
+    <h2>しかし、足元を見る</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>私たちが<strong>生活のために必要とする技術</strong>——料理、衣服、建築——の基本構造は、産業革命によっても変わっていない<small>火を通す。繊維をまとう。囲いと屋根の下で眠る。ガスレンジになっても、化繊になっても、構造は同じ。</small></li>
+        <li>日本であれば、<strong>縄文時代からあまり変わらない暮らし</strong>が、明治初期まで地続きだった</li>
+        <li class="em">私たちの足元には、<span class="term">旧石器時代のままの技術</span>が転がっている——そして私たち自身が、旧石器時代のままの心と体を生きている</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 13 sleeping technologies -->
+  <section class="slide" data-title="眠っている技術" data-part="2">
+    <div class="kicker">2 — 02</div>
+    <h2 style="font-size:36px">眠っている技術<span class="thin">｜技術の分岐</span></h2>
+    <div class="body" style="margin-top:10px;">
+      <div class="det det-sm" style="align-self:center;">
+        <svg viewBox="0 0 980 400" aria-label="単線に見える技術史から、掘り起こされていない枝が分かれている図" style="height:170px;">
+          <defs>
+            <marker id="aiH" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#14140f"/>
+            </marker>
+          </defs>
+          <line class="ln" x1="40" y1="300" x2="700" y2="235" marker-end="url(#aiH)"/>
+          <path class="br" d="M170 287 Q 205 210 250 160"/><circle class="fossil" cx="254" cy="155" r="6"/>
+          <path class="br" d="M300 274 Q 340 330 405 352"/><circle class="fossil" cx="411" cy="353" r="6"/>
+          <path class="br" d="M420 262 Q 470 190 545 128"/><circle class="fossil" cx="550" cy="124" r="6"/>
+          <path class="br" d="M470 257 Q 520 300 596 316"/><circle class="fossil" cx="602" cy="317" r="6"/>
+          <path class="br" d="M575 247 Q 620 200 672 176"/><circle class="fossil" cx="677" cy="173" r="6"/>
+          <text class="lbl" x="716" y="240">単線の進歩史</text>
+          <text class="sub2" x="716" y="266">——「書かれた歴史」</text>
+          <text class="sub2" x="560" y="80">掘り起こされていない枝</text>
+          <text class="sub2" x="560" y="102">＝眠っている技術</text>
+        </svg>
+      </div>
+      <ul class="pts compact six" style="margin-top:8px;">
+        <li>実際の技術史は、枝分かれと傍流と絶滅に満ちている——チンパンジーの技術から旧人の技術まで、<strong>あり得た技術は膨大にある</strong></li>
+        <li class="em">しかも、過去に発明された技術の<strong>ほとんどすべては、現代もなお地球上のどこかで使われている</strong>（ケビン・ケリー『テクニウム』）</li>
+        <li class="em">眠っている技術を掘り出すことは、<span class="term">新しい技術を開発することと、同じように価値がある</span>——車輪の再発明でよい</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14 how far back -->
+  <section class="slide" data-title="どこまで、さかのぼるか" data-part="2">
+    <div class="kicker">2 — 03</div>
+    <h2>どこまで、さかのぼるか<span class="thin">｜技術史の層</span></h2>
+    <div class="body">
+      <div style="display:flex; flex-direction:column; align-items:stretch; max-width:1010px;">
+        <div style="border:1px solid var(--line); background:var(--paper); padding:9px 24px;"><strong style="font-size:17px;">テクノロジー</strong><span style="font-size:14px; color:var(--ink-soft);">　——わずか5世代。掘るまでもなく表層</span></div>
+        <div style="text-align:center; color:var(--moss); font-size:16px; line-height:1.2; font-weight:700;">↓&nbsp;&nbsp;↑</div>
+        <div style="border:1px solid var(--line); background:var(--paper); padding:9px 24px;"><strong style="font-size:17px;">里山・農村</strong><span style="font-size:14px; color:var(--ink-soft);">　——理想とされがちだが、古代国家が開拓した産物。掘り出されるのは国家と農耕のシステム</span></div>
+        <div style="text-align:center; color:var(--moss); font-size:16px; line-height:1.2; font-weight:700;">↓&nbsp;&nbsp;↑</div>
+        <div style="border:1px solid var(--line); background:var(--paper); padding:9px 24px;"><strong style="font-size:17px;">狩猟採集</strong><span style="font-size:14px; color:var(--ink-soft);">　——戦争がなく、平和な社会。何万年も変わらない、現代にも失われていない技術のあり方</span></div>
+        <div style="text-align:center; color:var(--moss); font-size:16px; line-height:1.2; font-weight:700;">↓&nbsp;&nbsp;↑</div>
+        <div style="border:1px solid var(--line); background:var(--paper); padding:9px 24px;"><strong style="font-size:17px;">サピエンス誕生</strong><span style="font-size:14px; color:var(--ink-soft);">　——道具の誕生で、ヒトは他の動物とは異なる特性を発揮するようになった</span></div>
+        <div style="text-align:center; color:var(--moss); font-size:16px; line-height:1.2; font-weight:700;">↓&nbsp;&nbsp;↑</div>
+        <div style="border:2px solid var(--moss); background:var(--paper); padding:10px 24px;"><strong style="font-size:18px;">生命</strong><span style="font-size:14px; color:var(--ink-soft);">　——今夜は、ここまで降りる。</span><strong style="font-size:15px;">技術の根源は、生命が環境に応じるはたらきにある</strong></div>
+      </div>
+      <div class="note">下向きは「さかのぼる」、上向きは「そこから未来を投影する」。さかのぼった分だけ、投影できる未来の角度は広がる。</div>
+    </div>
+  </section>
+
+  <!-- 15 part3 -->
+  <section class="slide part" data-title="PART 3｜技術とは何か" data-part="">
+    <div class="kicker">Part Three</div>
+    <div class="pnum">3</div>
+    <h2>技術とは何か<br><span class="thin" style="color:#9a9a8e;">生命から捉え直す（七沢の考え）</span></h2>
+    <p class="lead">歴史を降りきった先で、技術の定義を生命から立て直します。</p>
+  </section>
+
+  <!-- 16 life poiesis -->
+  <section class="slide" data-title="生命は、環境に応じて機能を発揮する" data-part="3">
+    <div class="kicker">3 — 01</div>
+    <h2 style="font-size:36px">生命は、環境に応じて機能を発揮する</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>種がある。水があり、光があり、土があり、条件が合う——発芽し、やがて<strong>花が咲く</strong></li>
+        <li class="em">何もないところから、花がもたらされる——ハイデガーはこれを<span class="term">ポイエーシス（こちらへと前へともたらすこと）</span>と呼び、技術の本質だと言った</li>
+        <li>環境に応じて何かが引き出されてくること——それが技術の<strong>根源</strong>にある</li>
+      </ul>
+      <div class="note">では、この「生命のはたらき」と、私たちが呼ぶところの「技術」は、何が違うのか。</div>
+    </div>
+  </section>
+
+  <!-- 17 function vs technique -->
+  <section class="slide" data-title="機能と技術のあいだ" data-part="3">
+    <div class="kicker">3 — 02</div>
+    <h2>機能と技術のあいだ</h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <h3>心臓が、ドクドク動く</h3>
+          <p>坂道を登るとき、心臓のポンプは環境に応じてしっかり動く。これは<strong>機能</strong>であって、技術とは呼ばない。</p>
+        </div>
+        <div class="col">
+          <h3>ヨガの達人が、心拍を制御する</h3>
+          <p>同じ心臓の働きでも、修行者が心拍の速さをコントロールするとき、私たちはそれを<strong>技術</strong>と呼ぶ。</p>
+        </div>
+      </div>
+      <div class="note">デフォルトの自然の働きを、<strong>意図と能力をもって変えることができる力</strong>——そこに「技術」の輪郭が見えてくる。</div>
+    </div>
+  </section>
+
+  <!-- 18 animals -->
+  <section class="slide" data-title="動物たちは、技術を持つか" data-part="3">
+    <div class="kicker">3 — 03</div>
+    <h2>動物たちは、技術を持つか</h2>
+    <div class="body">
+      <ul class="pts compact">
+        <li><strong>チーターの狩り</strong>——兄弟のあいだで発達する。しかし世代を超えては伝承されない<small>チンパンジーの道具使用も同様に、脳——とりわけ哺乳類の脳——の働きと密接に関わる。ここには「技術」と呼びたくなる何かがある。</small></li>
+        <li><strong>蜂の巣・アリの巣・鳥の巣</strong>——人間はこれを「技術」と呼ぶ。しかしDNAレベルでそうなっている働きは、その生き物が<strong>自ら発揮している</strong>と言えるのか<small>無意識に呼吸をすることと、蜂が巣を作ることが同じだとするならば、蜂の巣づくりは技術とは言えないことになる。</small></li>
+        <li>では、生殖は？　代謝は？——それはそもそも技術なのだろうか</li>
+        <li class="em">境界線は、<span class="term">学習</span>にありそうだ——技術は、学習と不可分である</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 19 definition -->
+  <section class="slide" data-title="作業定義──学習を伴う機能が、技術である" data-part="3">
+    <div class="kicker">3 — 04 ／ Key Concept</div>
+    <h2 style="font-size:36px">作業定義<span class="thin">｜学習を伴う機能が、技術である</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>生命は環境に応じて<strong>機能</strong>を発揮する——心臓も、呼吸も、蜂の巣も</li>
+        <li class="em">その機能のうち、<span class="term">学習を伴うもの</span>を「技術」と呼ぶことにしよう——意図・能力・学習が結びついたとき、機能は技術になる</li>
+        <li class="em">ならば——<strong>技術の起源とは、学習の起源</strong>である<small>そしてそれこそが、来週・島田将喜さんの「遊び・模倣・社会的学習からみる技術の起源」の主題になる。</small></li>
+      </ul>
+      <div class="note">この定義自体も、ひとつの作業仮説にすぎない。この講義シリーズを通じて、皆さん自身の定義へと更新していってほしい。</div>
+    </div>
+  </section>
+
+  <!-- 20 human specificity -->
+  <section class="slide" data-title="人間の技術の特異性" data-part="3">
+    <div class="kicker">3 — 05</div>
+    <h2>人間の技術の特異性</h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li><strong>継承する</strong>——猿もカラスも道具を使うが、作った道具を世代を超えて継承しない。人間は継承し、蓄積する</li>
+        <li><strong>記号と結びつく</strong>——道具が流通し共有物として機能するには言語（あれ・これ・それ）が要る。<span class="term">道具の発達と言語の発達は、相互に作用してきた</span></li>
+        <li><strong>取り外し可能な身体</strong>——毛皮→衣、消化の外化→火の料理、巣→建築。動物が身体の内側に持つ技術を、人間は道具として外に作り直した<small>道具は「私であり、私でないもの」。内でもあり外でもあるというあり方が、200万年前の石斧の時代から人間の知能を形作ってきた。</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 21 breakout -->
+  <section class="slide" data-title="ブレイクアウト──足元の旧石器時代を探す" data-part="3">
+    <div class="kicker">3 — 06 ／ Breakout（15分）</div>
+    <h2 style="font-size:36px">ブレイクアウト<span class="thin">｜足元の旧石器時代を探す</span></h2>
+    <div class="body">
+      <ul class="pts">
+        <li class="em">あなたの身の回りにある<strong>「旧石器時代のままの技術」</strong>を探して、シェアしてください</li>
+        <li>迷ったら——それは<strong>機能</strong>か、<strong>技術</strong>か？　境界例を出し合うのも歓迎</li>
+      </ul>
+      <div class="note">アーカイブでご覧の皆さまも、動画を止めて探してみましょう！</div>
+    </div>
+  </section>
+
+  <!-- 22 part4 -->
+  <section class="slide part" data-title="PART 4｜まとめ" data-part="">
+    <div class="kicker">Part Four</div>
+    <div class="pnum">4</div>
+    <h2>まとめ</h2>
+    <p class="lead">今夜の問い——そもそも、技術とは何か——に答えます。</p>
+  </section>
+
+  <!-- 23 answer -->
+  <section class="slide" data-title="答え──二重の意味" data-part="4">
+    <div class="kicker">4 — 01</div>
+    <h2 style="font-size:34px">いかに「技術」によって「世界」は形作られてきたのか</h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col">
+          <h3>上から<span class="en">　テクノロジー史</span></h3>
+          <p>時計仕掛けの宇宙——技術が「世界とは何か」の像を作り替え、その世界像がさらに技術を加速させてきた。<strong>世界観と技術の循環</strong>。</p>
+        </div>
+        <div class="col">
+          <h3>下から<span class="en">　技術の基層</span></h3>
+          <p>生命が環境に応じて機能を発揮し、学習がそれを技術に変え、人間は道具と言語でそれを継承してきた。<strong>生きることが世界を作る</strong>。</p>
+        </div>
+      </div>
+      <div class="note">この二層を行き来しながら技術を捉え直すことが、<strong>技術史を編み直す</strong>ということ。爆発したテクノロジーは上の層の、わずか5世代の出来事にすぎない。</div>
+    </div>
+  </section>
+
+  <!-- 24 outlook -->
+  <section class="slide" data-title="展望──ここから遡っていく" data-part="4">
+    <div class="kicker">4 — 02</div>
+    <h2>展望<span class="thin">｜ここから、遡っていく</span></h2>
+    <div class="body">
+      <ul class="pts tight">
+        <li>来週は<strong>島田将喜さん</strong>——チンパンジーの研究から、遊び・模倣・社会的学習と<span class="term">技術（＝学習）の起源</span>へ</li>
+        <li>その次は<strong>相馬皓介さん</strong>——実践から見えてきた、縄文の技術からのメッセージ</li>
+        <li class="em">眠っている技術の再発見は、<strong>未来の技術の再発明</strong>である——技術哲学・最終回で話した「惑星的普遍技術」は、この技術史の上に立つ</li>
+      </ul>
+      <div class="note">感想フォーム・質問フォームは、チャットでご案内します。それでは来週、根源への旅を続けましょう。</div>
+    </div>
+  </section>
+
+</div><!-- /stage -->
+<div class="bar" id="bar"></div>
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    '1': 'PART 1 ／ テクノロジー史',
+    '2': 'PART 2 ／ 変わらないボトム',
+    '3': 'PART 3 ／ 技術とは何か──生命から捉え直す',
+    '4': 'PART 4 ／ まとめ'
+  };
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || '') + '</span><span>' +
+      pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' +
+      s.getAttribute('data-title') +
+      (part ? '<span class="pt">PART ' + part + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  function fit() {
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
+  }
+
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
+  fit();
+  setTimeout(fit, 120);
+  setTimeout(fit, 600);
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
