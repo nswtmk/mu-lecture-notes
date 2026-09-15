@@ -85,6 +85,32 @@
     font-size: 15px; line-height: 1.95; color: var(--ink-soft); max-width: 960px;
   }
   .arrow { color: var(--moss); font-weight: 700; }
+
+  /* ---------- 接続バナー：全8回への紐づけ ---------- */
+  .conn {
+    margin-top: auto; display: flex; align-items: center; gap: 20px;
+    padding: 15px 22px; border-radius: 12px;
+    background: linear-gradient(90deg, rgba(12,165,104,.11), rgba(29,227,148,.03));
+    border: 1px solid rgba(12,165,104,.30); border-left: 7px solid var(--moss);
+  }
+  .note + .conn { margin-top: 14px; }
+  .conn .cnum { flex: none; background: var(--moss); color: #fff; font-weight: 700; font-size: 15px; letter-spacing: .06em; padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+  .conn .cbody { min-width: 0; flex: 1; }
+  .conn .cname { font-size: 19px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .conn .cttl { font-size: 13.5px; font-weight: 600; color: var(--moss); margin-left: 12px; letter-spacing: .02em; }
+  .conn .cdesc { font-size: 14px; color: var(--ink-soft); line-height: 1.8; margin-top: 2px; }
+  .conn .cbody + .cbody { border-left: 1px solid rgba(12,165,104,.30); padding-left: 20px; }
+  .conn .cpill { display: inline-block; background: var(--moss); color: #fff; font-weight: 700; font-size: 12.5px; padding: 3px 11px; border-radius: 999px; margin-right: 10px; vertical-align: 2px; }
+
+  /* ---------- 全8回の地図 ---------- */
+  ol.map8 { list-style: none; border-top: 1px solid var(--line); }
+  ol.map8 li { display: grid; grid-template-columns: 34px 104px 1fr; gap: 16px; padding: 13px 10px; border-bottom: 1px solid var(--line); align-items: baseline; }
+  ol.map8 .n { font-size: 21px; font-weight: 700; color: var(--moss); }
+  ol.map8 .d { font-size: 13px; color: var(--ink-soft); letter-spacing: .02em; line-height: 1.6; }
+  ol.map8 h3 { font-size: 18px; font-weight: 700; line-height: 1.55; letter-spacing: .01em; }
+  ol.map8 h3 .who { font-size: 13.5px; color: var(--moss); font-weight: 700; margin-left: 10px; white-space: nowrap; }
+  ol.map8 p { font-size: 13px; color: var(--ink-soft); line-height: 1.75; margin-top: 3px; }
+  ol.map8 li.tonight { background: rgba(29,227,148,.08); border-radius: 8px; }
   .term { border-bottom: 1.6px solid var(--mint); padding-bottom: 1px; }
   .en { font-size: .62em; letter-spacing: .06em; color: var(--ink-soft); font-weight: 400; }
 
@@ -254,6 +280,7 @@
 
   /* ---------- then/now: 思考実験から現実へ ---------- */
   .tn { border: 1px solid var(--line); }
+  .tn.tncompact .tn-c { padding: 9px 20px; font-size: 15px; line-height: 1.6; }
   .tn-row { display: grid; grid-template-columns: 1fr 46px 1.25fr; align-items: stretch; border-top: 1px solid var(--line); }
   .tn-row:first-child { border-top: none; }
   .tn-head { background: #f3f2ea; }
@@ -576,6 +603,7 @@
         <li>いま「つくる」の未来は、AI・ロボティクスがすべてを作るという<strong>単一の未来</strong>として語られている<small>一つの世界観・一つの真理の下で暮らすという未来像は、実は西洋的な価値観に基づく——技術哲学で解体した通り。この後の「技術の人類学」で詳しく扱うテーマでもある。</small></li>
         <li class="em">過去の技術に遡ることで、<span class="term">多様な技術の可能性</span>を再発見する——それがこの講義でやること</li>
       </ul>
+      <div class="note">「すべての歴史は重要だが、技術史は何よりも重要である」——技術史家メルヴィン・クランツバーグ</div>
     </div>
   </section>
 
@@ -586,21 +614,34 @@
       <ul class="pts tight">
         <li>世界の技術史学会で語られるのは、ほぼすべて<strong>産業革命以後</strong>の技術——電気、半導体、AI<small>それより前に遡るのは考古学。しかし考古学は年代の同定が目的で、「技術の本質」というモチベーションでは発展していない。</small></li>
         <li>つまり、<strong>遡る技術史は、まだ書かれていない</strong></li>
-        <li class="em">この講義は、国立科学博物館・科学技術史グループのリーダーと共同で、<span class="term">技術史そのものを編み直す</span>試み</li>
+        <li class="em">この講義は、国立科学博物館・科学技術史グループ長の<strong>沓名貴彦さん</strong>（第4回講師）を企画者に迎え、相馬皓介さんとともに<span class="term">技術史そのものを編み直す</span>試み</li>
       </ul>
     </div>
   </section>
 
-  <section class="slide" data-title="講義の地図──遡っていく" data-part="">
-    <div class="kicker">Introduction</div>
-    <h2>講義の地図<span class="thin">｜ここから、遡っていく</span></h2>
+  <section class="slide" data-title="全8回の地図（前半）" data-part="">
+    <div class="kicker">Course Map 1/2</div>
+    <h2 style="font-size:36px">全8回の地図<span class="thin">｜遡っていく16時間・前半</span></h2>
     <div class="body">
-      <ul class="pts tight">
-        <li><strong>第1回（今夜）</strong>　技術史概論——ビッグピクチャーと「技術とは何か」</li>
-        <li><strong>第2回（9/24）</strong>　遊び・模倣・社会的学習からみる技術の起源<span class="en">　島田将喜さん（霊長類研究）</span></li>
-        <li><strong>第3回（9/28）</strong>　縄文技術概論——実践から見えてきた縄文の技術からのメッセージ<span class="en">　相馬皓介さん</span></li>
-        <li class="em">回を追うごとに<strong>根源へ遡り</strong>、多様な技術の可能性を再発見していく</li>
-      </ul>
+      <ol class="map8">
+        <li class="tonight"><span class="n">1</span><span class="d">9/17（木）<br>今夜</span><div><h3>技術史概論——いかに「技術」によって「世界」は形作られてきたのか？<span class="who">七沢智樹</span></h3><p>講座全体の見取り図。石器から近代産業までを「道具の進歩」ではなく、身体・暮らし・社会構造・世界観を組み替えてきた歴史として俯瞰する。</p></div></li>
+        <li><span class="n">2</span><span class="d">9/24（木）</span><div><h3>動物の遊び・道具使用からみる技術の起源<span class="who">島田将喜さん</span></h3><p>チンパンジーなどヒト以外の動物の生活全体から「技術＝人間だけのもの」という技術像を解体し、身体性と不可分な技術の起源を考える。</p></div></li>
+        <li><span class="n">3</span><span class="d">9/28（月）</span><div><h3>「あるもので、なんとかする」——現代の道具を排して見えた縄文の知性<span class="who">相馬皓介さん</span></h3><p>縄文を「前段階」ではなく、環境・身体・共同体・審美と結びついた総合的技術体系として捉え直す。効率や進歩の尺度では測れない技術の価値。</p></div></li>
+        <li><span class="n">4</span><span class="d">10/1（木）</span><div><h3>マテリアルから見える人類の歩み——装飾品を事例に<span class="who">沓名貴彦さん</span></h3><p>石・土・木・繊維・金属——素材の制約と可能性が、エネルギー・加工・流通・権力構造をどう変えたかを横断する。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide" data-title="全8回の地図（後半）" data-part="">
+    <div class="kicker">Course Map 2/2</div>
+    <h2 style="font-size:36px">全8回の地図<span class="thin">｜遡っていく16時間・後半</span></h2>
+    <div class="body">
+      <ol class="map8">
+        <li><span class="n">5</span><span class="d">10/5（月）</span><div><h3>民具・生業・身体技法——技術の継承と熟練をどう捉えるか<span class="who">小島孝夫さん</span></h3><p>技術を発明物ではなく「身体＋道具＋場＋語り」が結びついた継承可能な型として捉える。熟練・加齢・役割分担と、伝承の回路。</p></div></li>
+        <li><span class="n">6</span><span class="d">10/8（木）</span><div><h3>汚穢と技術——隔離し、隠蔽し、混じり合うための装置と技法<span class="who">酒井朋子さん</span></h3><p>「きたない」とされるものを見えないようにする技術は、近代にいちじるしく発達した。汚穢を処理する技術と、汚穢とまじわる技法から「生きること」を考える。</p></div></li>
+        <li><span class="n">7</span><span class="d">10/15（木）</span><div><h3>都市の起源／国家の形成と技術<span class="who">小泉龍人さん</span></h3><p>西アジアでの数十年の発掘調査から、都市化＝技術の複合（農業・貯蔵・物流・建築・計量・記録）を読み解く。「巨大社会」を可能にする技術と、その副作用。</p></div></li>
+        <li><span class="n">8</span><span class="d">10/19（月）</span><div><h3>対談：技術史をどう「語り直す」か<span class="who">七沢×相馬×沓名×島田</span></h3><p>7回分の議論を統合する総括対談。技術は「人間の延長」か「世界の再編」か——これからの技術史の射程を展望する。</p></div></li>
+      </ol>
     </div>
   </section>
 
@@ -709,6 +750,7 @@
         </div>
       </div>
       <div class="note">灌漑は共同作業と水利の秩序を求め、農耕は備蓄と分配を生み、備蓄は管理する者を生む——<strong>都市構造と権力構造の前提が、約5000年前にここで一式そろった</strong>。</div>
+      <div class="conn"><div class="cnum">第7回　10/15</div><div class="cbody"><div class="cname">小泉龍人さん<span class="cttl">都市の起源／国家の形成と技術</span></div><div class="cdesc">西アジアで数十年発掘調査をしてきた考古学者から、都市と国家の起源を直接聞ける回。今夜の見取り図の「終着点」を深掘りします。</div></div></div>
     </div>
   </section>
 
@@ -910,6 +952,7 @@
         <li>残るのは石と骨ばかり——だから「<strong>石器</strong>時代」と呼ばれ、石器ばかりが時代を代表してしまう</li>
         <li class="em">書かれた技術史は、<span class="term">残ったものの歴史</span>にすぎない——見えない技術こそ、生活の本体だった<small>技術の分岐図で見た「掘り起こされていない枝」は、地中だけでなく、歴史の書き方そのものの中にもある。</small></li>
       </ul>
+      <div class="conn"><div class="cbody"><span class="cpill">第4回　10/1</span><span class="cname">沓名貴彦さん</span><span class="cttl">マテリアルから見える人類の歩み</span><div class="cdesc">残る素材と残らない素材——素材の歴史から技術史を見直す回。</div></div><div class="cbody"><span class="cpill">第5回　10/5</span><span class="cname">小島孝夫さん</span><span class="cttl">民具・生業・身体技法</span><div class="cdesc">記録に残らない生活技術の継承を、民具から捉える回。</div></div></div>
     </div>
   </section>
 
@@ -921,8 +964,9 @@
         <li><strong>磨製石斧</strong>——世界最古級（約3.8万年前）が、日本列島の後期旧石器から出ている</li>
         <li><strong>土器</strong>——青森・大平山元遺跡の土器は約1万6500年前。世界最古級であり、<strong>農耕より1万年近く早い</strong></li>
         <li><strong>航海</strong>——神津島の黒曜石が約3.8万年前に本州へ運ばれている。往復の外洋航海の技術がすでにあった</li>
-        <li class="em">縄文はその延長にある——<span class="term">農耕なしで1万年以上続いた、定住の技術文明</span><small>この続きは第3回・相馬皓介さんの「縄文技術概論」で、実践から。</small></li>
+        <li class="em">縄文はその延長にある——<span class="term">農耕なしで1万年以上続いた、定住の技術文明</span></li>
       </ul>
+      <div class="conn"><div class="cnum">第3回　9/28</div><div class="cbody"><div class="cname">相馬皓介さん<span class="cttl">「あるもので、なんとかする」——現代の道具を排して見えた縄文の知性</span></div><div class="cdesc">この続きは、実践から。縄文を環境・身体・共同体・審美と結びついた総合的技術体系として捉え直します。</div></div></div>
     </div>
   </section>
 
@@ -989,7 +1033,7 @@
           <text x="46" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#0ca568">ヒト</text>
         </svg>
       </div>
-      <div class="note"><span class="arrow">→</span> チンパンジーは石でナッツを割り、棒でシロアリを釣る——ヒトとの境界線は？　<strong>第2回・島田将喜さん（霊長類研究）が、まさにここから始めます。</strong></div>
+      <div class="conn"><div class="cnum">第2回　9/24</div><div class="cbody"><div class="cname">島田将喜さん<span class="cttl">動物の遊び・道具使用からみる技術の起源</span></div><div class="cdesc">チンパンジーは石でナッツを割り、棒でシロアリを釣る——ヒトとの境界線は？　霊長類学から、まさにこの問いに答える回。</div></div></div>
     </div>
   </section>
 
@@ -1020,7 +1064,7 @@
           <text x="170" y="258" text-anchor="middle" font-size="11.5" fill="#4a4a42">操作する</text>
         </svg>
       </div>
-      <div class="note"><span class="arrow">→</span> このループを回した燃料が<strong>遊び・模倣・社会的学習</strong>——第2回・島田さんの主題です。</div>
+      <div class="conn"><div class="cnum">第2回　9/24</div><div class="cbody"><div class="cname">島田将喜さん<span class="cttl">動物の遊び・道具使用からみる技術の起源</span></div><div class="cdesc">脳・手・道具のループを回した燃料は<strong>遊びと模倣</strong>——動物の生活全体の中で、技術と身体の結びつきを見る回。</div></div></div>
     </div>
   </section>
 
@@ -1050,7 +1094,7 @@
           <text x="170" y="288" text-anchor="middle" font-size="11.5" fill="#4a4a42">石＋木＋接着＋結束——それぞれ別の技術の合流点</text>
         </svg>
       </div>
-      <div class="note">一本の石斧にも、石・木・タール（20万年前）・紐（5万年前）の連関がある——PART 3の年表の技術たちは、<strong>最初から網の目</strong>だった。<span class="arrow">→</span> 縄文の土器づくりの連関は、第3回・相馬皓介さんの実践で。</div>
+      <div class="conn"><div class="cbody"><span class="cpill">第4回　10/1</span><span class="cname">沓名貴彦さん</span><span class="cttl">マテリアル</span><div class="cdesc">石・木・タール・紐——石斧は<strong>素材の合流点</strong>。素材から技術史を横断する回。</div></div><div class="cbody"><span class="cpill">第3回　9/28</span><span class="cname">相馬皓介さん</span><span class="cttl">縄文の知性</span><div class="cdesc">縄文の道具づくりの連関を、現代の道具を排した<strong>実践</strong>から見る回。</div></div></div>
     </div>
   </section>
 
@@ -1079,7 +1123,8 @@
           <text x="170" y="278" text-anchor="middle" font-size="11.5" fill="#4a4a42">互いに育て合い、同じ母胎から立ち上がった</text>
         </svg>
       </div>
-      <div class="note">その到達点が<strong>粘土板の文字</strong>（PART 1・メソポタミア）——道具の記号化の5000年前のゴール。<span class="arrow">→</span> 模倣と社会的学習がこの結び目をつくる——第2回・島田さんへ。</div>
+      <div class="note">その到達点が<strong>粘土板の文字</strong>（PART 1・メソポタミア）——道具の記号化の5000年前のゴール。記録と計量の技術は、第7回・小泉さんの都市と国家へつながる。</div>
+      <div class="conn"><div class="cnum">第2回　9/24</div><div class="cbody"><div class="cname">島田将喜さん<span class="cttl">動物の遊び・道具使用からみる技術の起源</span></div><div class="cdesc">この結び目をつくるのは<strong>模倣と社会的学習</strong>——ヒト以外の動物の「社会の中の技術」から考える回。</div></div></div>
     </div>
   </section>
 
@@ -1109,7 +1154,7 @@
           <text x="170" y="242" text-anchor="middle" font-size="11.5" fill="#4a4a42">外に出た道具が、内なる意識を育てた</text>
         </svg>
       </div>
-      <div class="note"><span class="arrow">→</span> 縄文の土器の文様と土偶は、<strong>技術と神話が一体だった時代</strong>の実物——第3回・相馬さんの縄文技術概論へ。</div>
+      <div class="conn"><div class="cnum">第3回　9/28</div><div class="cbody"><div class="cname">相馬皓介さん<span class="cttl">「あるもので、なんとかする」——縄文の知性</span></div><div class="cdesc">縄文の土器の文様と土偶は、<strong>技術と神話が一体だった時代</strong>の実物。審美と結びついた技術体系を、実践から見る回。</div></div></div>
     </div>
   </section>
 
@@ -1192,7 +1237,7 @@
           <text x="170" y="206" text-anchor="middle" font-size="11" fill="#4a4a42">（復元実践＝縄文技術の方法）</text>
         </svg>
       </div>
-      <div class="note"><span class="arrow">→</span> 透明になった技術を再び見えるようにするのが<strong>復元実践</strong>——第3回・相馬さんが縄文でやっていること。</div>
+      <div class="conn"><div class="cbody"><span class="cpill">第3回　9/28</span><span class="cname">相馬皓介さん</span><span class="cttl">縄文の知性</span><div class="cdesc">透明になった技術を再び見えるようにする——それが<strong>復元実践</strong>という方法。</div></div><div class="cbody"><span class="cpill">第6回　10/8</span><span class="cname">酒井朋子さん</span><span class="cttl">汚穢と技術</span><div class="cdesc">近代は「<strong>見えなくする技術</strong>」を大発達させた——汚穢の隔離と隠蔽から考える回。</div></div></div>
     </div>
   </section>
 
@@ -1222,6 +1267,7 @@
         </svg>
       </div>
       <div class="note">1万年前の農耕が、すでにこの構造だった——<strong>止まれなさの原型</strong>はメソポタミアにある（PART 1）。洗濯機もスマホもAIも、同じ回路の上にいる。</div>
+      <div class="conn"><div class="cnum">第7回　10/15</div><div class="cbody"><div class="cname">小泉龍人さん<span class="cttl">都市の起源／国家の形成と技術</span></div><div class="cdesc">この回路が行き着いた先が都市と国家——「巨大社会」を可能にする技術と、その<strong>副作用</strong>を発掘調査から読む回。</div></div></div>
     </div>
   </section>
 
@@ -1229,7 +1275,7 @@
     <div class="kicker">5 — 05 ／ Key Concept</div>
     <h2 style="font-size:36px">四つのジレンマは、地盤である</h2>
     <div class="body">
-      <div class="tn">
+      <div class="tn tncompact">
         <div class="tn-row">
           <div class="tn-c then">Ⅰ　内でも外でもある</div>
           <div class="tn-c mid">→</div>
@@ -1251,7 +1297,8 @@
           <div class="tn-c now">洗濯機は母を忙しくした。発明は必要の母——道具が新たな必要を生み、往復は止まらない</div>
         </div>
       </div>
-      <div class="note">「テクノロジーの問題」と呼ばれるものはすべて——文字も時計も車もAIも——<strong>この四つのジレンマを地盤として生じている</strong>。ただし、これは告発ではない。<strong>ジレンマがあるがゆえに、人間の精神が、言葉が、社会が——つまり創造性が——生まれた</strong>（七沢執筆中の書籍より）。</div>
+      <div class="note" style="padding-top:14px;">「テクノロジーの問題」と呼ばれるものはすべて——文字も時計も車もAIも——<strong>この四つのジレンマを地盤として生じている</strong>。ただし、これは告発ではない。<strong>ジレンマがあるがゆえに、人間の精神が、言葉が、社会が——つまり創造性が——生まれた</strong>（七沢執筆中の書籍より）。</div>
+      <div class="conn"><div class="cnum">第8回　10/19</div><div class="cbody"><div class="cname">総括対談<span class="cttl">技術史をどう「語り直す」か</span></div><div class="cdesc">七沢×相馬×沓名×島田。この地盤の上で、7回分の議論を統合して技術史を語り直す最終回。</div></div></div>
     </div>
   </section>
 
@@ -1285,11 +1332,12 @@
     <h2>展望<span class="thin">｜ここから、遡っていく</span></h2>
     <div class="body">
       <ul class="pts tight">
-        <li>来週は<strong>島田将喜さん</strong>——チンパンジーの研究から、遊び・模倣・社会的学習と<span class="term">技術（＝学習）の起源</span>へ</li>
-        <li>その次は<strong>相馬皓介さん</strong>——実践から見えてきた、縄文の技術からのメッセージ</li>
+        <li>ここからは、各分野の第一人者と<strong>実際に遡っていく</strong>——動物の道具使用（島田さん）→縄文の実践（相馬さん）→素材（沓名さん）→民具と身体技法（小島さん）→汚穢（酒井さん）→都市と国家（小泉さん）</li>
+        <li>最終回10/19は総括対談<strong>「技術史をどう語り直すか」</strong>——今夜の見取り図が、7回分の議論でどう編み直されるか</li>
         <li class="em">眠っている技術の再発見は、<strong>未来の技術の再発明</strong>である——技術哲学・最終回で話した「惑星的普遍技術」は、この技術史の上に立つ</li>
       </ul>
-      <div class="note">感想フォーム・質問フォームは、チャットでご案内します。それでは来週、根源への旅を続けましょう。</div>
+      <div class="conn"><div class="cnum">次回　9/24</div><div class="cbody"><div class="cname">島田将喜さん<span class="cttl">動物の遊び・道具使用からみる技術の起源</span></div><div class="cdesc">チンパンジーの遊びと道具使用から、「技術＝人間だけのもの」という技術像を解体する回。</div></div></div>
+      <div class="note" style="margin-top:16px;">感想フォーム・質問フォームは、チャットでご案内します。それでは来週、根源への旅を続けましょう。</div>
     </div>
   </section>
 </div><!-- /stage -->
