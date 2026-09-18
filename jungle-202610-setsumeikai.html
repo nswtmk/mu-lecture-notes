@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>JUNGLE Gathering 2026.10 参加説明会｜Iriomote JUNGLE CLUB</title>
+<meta name="description" content="2026年10月24日〜11月4日、西表島。JUNGLE Gathering 参加説明会スライド。">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+  :root {
+    --paper:#faf9f5; --ink:#14140f; --ink-soft:#4a4a42; --line:#ddd9cd;
+    --moss:#2F7D4F; --mint:#79C293; --shu:#C25A32;
+    --deep:#0E1A12; --deep2:#18291D; --cream:#F4F1E8; --sand:#C8C2B0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    background:#e9e7df; color:var(--ink);
+    font-family:"Helvetica Neue","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Arial,sans-serif;
+    font-feature-settings:"palt"; -webkit-font-smoothing:antialiased; overflow:hidden;
+  }
+  .deck { position:fixed; inset:0; overflow:hidden; }
+  .stage { position:absolute; left:50%; top:50%; width:1280px; height:720px;
+    background:var(--paper); transform-origin:center center;
+    box-shadow:0 18px 60px rgba(20,20,15,.14); overflow:hidden; }
+  .slide { position:absolute; inset:0; padding:64px 86px 82px;
+    display:flex; flex-direction:column; opacity:0; visibility:hidden; transition:opacity .38s ease; }
+  .slide.is-active { opacity:1; visibility:visible; }
+
+  /* ---- dark variant ---- */
+  .slide.dark { background:var(--deep); color:var(--cream); }
+  .slide.dark h2 { color:var(--cream); }
+  .slide.dark .kicker { color:var(--mint); }
+  .slide.dark .lead { color:var(--sand); }
+
+  /* ---- photo layers ---- */
+  .bg { position:absolute; inset:0; z-index:0; }
+  .bg img { width:100%; height:100%; object-fit:cover; display:block; }
+  .bg::after { content:""; position:absolute; inset:0; background:var(--deep); opacity:.46; }
+  .bg.soft::after { opacity:.24; }
+  .slide.scrim .bg::after { opacity:1;
+    background:linear-gradient(97deg, rgba(14,26,18,.92) 0%, rgba(14,26,18,.80) 38%, rgba(14,26,18,.40) 78%, rgba(14,26,18,.30) 100%); }
+  .half { position:absolute; top:0; bottom:0; width:44%; z-index:0; overflow:hidden; }
+  .half.right { right:0; } .half.left { left:0; }
+  .half img { width:100%; height:100%; object-fit:cover; display:block; }
+  .slide > *:not(.bg):not(.half):not(.foot) { position:relative; z-index:1; }
+  .narrow { max-width:600px; }
+
+  /* ---- type ---- */
+  .kicker { font-size:12px; letter-spacing:.3em; color:var(--moss); font-weight:700; text-transform:uppercase; }
+  .slide h1 { font-size:52px; font-weight:700; line-height:1.4; letter-spacing:.01em; }
+  .slide h2 { font-size:38px; font-weight:700; line-height:1.45; letter-spacing:.02em; margin-top:14px; }
+  .lead { font-size:16px; line-height:1.95; color:var(--ink-soft); margin-top:12px; max-width:900px; }
+  .body { margin-top:34px; flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
+  .p { font-size:18px; line-height:2.0; margin-top:16px; }
+  .slide.dark .p { color:var(--sand); }
+  .p.em { font-weight:700; color:var(--ink); }
+  .slide.dark .p.em { color:var(--cream); }
+  .small { font-size:14px; line-height:1.85; color:var(--ink-soft); }
+  .slide.dark .small { color:var(--sand); }
+  .accent { color:var(--moss); font-weight:700; }
+  .slide.dark .accent { color:var(--mint); }
+
+  /* ---- title slide ---- */
+  .slide.title { justify-content:flex-end; padding-bottom:118px; }
+  .slide.title .foot span:first-child { visibility:hidden; }
+  .slide:has(.half.left) .foot { left:48%; }
+  .slide:has(.half.right) .foot { right:48%; }
+  .slide.title h1 { color:var(--cream); }
+  .slide.title .sub { font-size:24px; color:var(--cream); margin-top:14px; font-weight:400; }
+  .slide.title .meta { font-size:15px; color:var(--sand); margin-top:26px; letter-spacing:.06em; }
+
+  /* ---- agenda ---- */
+  ol.agenda { list-style:none; }
+  ol.agenda li { display:grid; grid-template-columns:44px 300px 1fr; gap:18px; align-items:baseline;
+    padding:14px 4px; border-bottom:1px solid var(--line); }
+  ol.agenda .n { font-size:13px; font-weight:700; color:#fff; background:var(--moss);
+    border-radius:999px; text-align:center; padding:5px 0; letter-spacing:.06em; }
+  ol.agenda h3 { font-size:19px; font-weight:700; line-height:1.5; }
+  ol.agenda p { font-size:14px; color:var(--ink-soft); line-height:1.8; }
+
+  /* ---- cards ---- */
+  .grid { display:grid; gap:18px; }
+  .g3 { grid-template-columns:repeat(3,1fr); }
+  .g4 { grid-template-columns:repeat(4,1fr); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 22px; }
+  .slide.dark .card { background:var(--deep2); border-color:#2A3D30; }
+  .card h3 { font-size:18px; font-weight:700; line-height:1.5; }
+  .card h3 .dot { display:inline-block; width:9px; height:9px; border-radius:50%;
+    background:var(--moss); margin-right:10px; vertical-align:2px; }
+  .card p { font-size:13.5px; color:var(--ink-soft); line-height:1.8; margin-top:8px; }
+  .slide.dark .card h3 { color:var(--cream); }
+  .slide.dark .card p { color:var(--sand); }
+
+  /* ---- stat ---- */
+  .stat .v { font-size:46px; font-weight:700; line-height:1.15; letter-spacing:-.01em; }
+  .stat .l { font-size:14px; font-weight:700; color:var(--moss); margin-top:10px; }
+  .stat .d { font-size:12px; color:var(--ink-soft); line-height:1.7; margin-top:6px; }
+  .slide.dark .stat .v { color:var(--cream); }
+  .slide.dark .stat .l { color:var(--mint); }
+  .slide.dark .stat .d { color:var(--sand); }
+
+  /* ---- 表 ---- */
+  dl.facts { display:grid; grid-template-columns:110px 1fr; row-gap:17px; column-gap:22px; align-items:baseline; }
+  dl.facts dt { font-size:14px; font-weight:700; color:var(--moss); }
+  dl.facts dd { font-size:17px; line-height:1.7; }
+
+  /* ---- 棒グラフ ---- */
+  .chart { display:grid; grid-template-columns:repeat(12,1fr); gap:12px; align-items:end; height:300px; }
+  .chart .col { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+  .chart .v { font-size:13px; font-weight:700; color:var(--cream); margin-bottom:6px; }
+  .chart .b { width:100%; background:#31543C; border-radius:3px 3px 0 0; }
+  .chart .col.now .b { background:var(--mint); }
+  .chart .col.now .v { color:var(--mint); }
+  .xlab { display:grid; grid-template-columns:repeat(12,1fr); gap:12px; margin-top:10px; text-align:center; }
+  .xlab .d { font-size:11.5px; color:var(--sand); letter-spacing:.02em; }
+  .xlab .n { font-size:11px; color:#7E8E7E; margin-top:3px; }
+
+  /* ---- 番号つきリスト ---- */
+  ol.steps { list-style:none; }
+  ol.steps li { display:grid; grid-template-columns:40px 1fr; gap:18px; align-items:baseline;
+    padding:12px 2px; border-bottom:1px solid var(--line); }
+  .slide.dark ol.steps li { border-color:#2A3D30; }
+  ol.steps .n { font-size:13px; font-weight:700; color:#fff; background:var(--ink);
+    border-radius:999px; text-align:center; padding:5px 0; }
+  ol.steps h3 { font-size:19px; font-weight:700; line-height:1.5; }
+  ol.steps p { font-size:14px; color:var(--ink-soft); line-height:1.8; margin-top:3px; }
+
+  ul.plain { list-style:none; }
+  ul.plain li { position:relative; padding-left:20px; font-size:14px; line-height:1.9; color:var(--ink-soft); }
+  ul.plain li::before { content:""; position:absolute; left:2px; top:12px; width:6px; height:6px;
+    border-radius:50%; background:var(--moss); }
+  .slide.dark ul.plain li { color:var(--sand); }
+  .slide.dark ul.plain li::before { background:var(--mint); }
+
+  .callout { border:1px solid var(--line); background:#fff; border-radius:10px; padding:16px 20px; font-size:14px; line-height:1.85; color:var(--ink-soft); }
+  .slide.dark .callout { background:var(--deep2); border-color:#2A3D30; color:var(--sand); }
+  .warn { color:var(--shu); font-weight:700; }
+
+  /* ---- chrome ---- */
+  .foot { position:absolute; left:86px; right:86px; bottom:30px; z-index:2;
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; letter-spacing:.18em; color:var(--ink-soft); }
+  .slide.dark .foot, .slide.title .foot { color:rgba(244,241,232,.5); }
+  .bar { position:absolute; left:0; bottom:0; height:3px; background:var(--mint); transition:width .38s ease; z-index:5; }
+  .ui { position:fixed; right:20px; bottom:18px; display:flex; gap:8px; z-index:40; transition:opacity .4s; }
+  .ui.idle { opacity:0; pointer-events:none; }
+  .ui button { font:inherit; font-size:12px; letter-spacing:.14em; background:var(--paper); color:var(--ink-soft);
+    border:1px solid var(--line); border-radius:999px; padding:8px 16px; cursor:pointer; transition:background .2s,color .2s; }
+  .ui button:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .toc { position:fixed; inset:0; z-index:50; background:var(--deep); color:var(--cream);
+    padding:56px 6vw; overflow-y:auto; display:none; }
+  .toc.open { display:block; }
+  .toc h4 { font-size:12px; letter-spacing:.3em; color:var(--mint); font-weight:700; margin-bottom:26px; }
+  .toc ol { list-style:none; columns:2; column-gap:56px; }
+  .toc li { break-inside:avoid; }
+  .toc button { font:inherit; text-align:left; width:100%; display:grid; grid-template-columns:40px 1fr; gap:14px;
+    align-items:baseline; background:none; border:none; border-bottom:1px solid #2A3D30; color:rgba(244,241,232,.72);
+    padding:11px 0; font-size:15.5px; cursor:pointer; transition:color .2s; }
+  .toc button:hover, .toc button.here { color:#fff; }
+  .toc button.here .no { color:var(--mint); }
+  .toc .no { font-size:12px; letter-spacing:.1em; color:#7b8b7b; }
+  .toc .pt { font-size:11px; letter-spacing:.2em; color:var(--mint); display:block; margin-top:4px; }
+  @page { size:1280px 720px; margin:0; }
+  @media print {
+    body { background:#fff; overflow:visible; }
+    .deck, .stage { position:static; width:1280px; height:auto; box-shadow:none; }
+    .slide { position:relative; opacity:1 !important; visibility:visible !important; height:720px; page-break-after:always; }
+    .ui, .toc, .bar { display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <section class="slide title" data-title="表紙" data-part="">
+    <div class="bg"><img src="jungle202610_jg_cover.jpg" alt=""></div>
+    <div class="kicker" style="color:var(--mint)">Iriomote JUNGLE CLUB</div>
+    <h1 style="margin-top:14px">JUNGLE Gathering<br>2026.10</h1>
+    <p class="sub">参加説明会</p>
+    <p class="meta">2026.10.24 (土) – 11.4 (水)　沖縄県 西表島</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="slide" data-title="本日の流れ" data-part="">
+    <div class="kicker">Agenda</div>
+    <h2>本日の流れ</h2>
+    <p class="lead">説明のあと、質疑の時間をたっぷり取ります。</p>
+    <div class="body">
+      <ol class="agenda">
+        <li><span class="n">01</span><div><h3>ジャングルギャザリングとは</h3></div><p>何をする滞在なのか、コンセプトと過ごし方</p></li>
+        <li><span class="n">02</span><div><h3>これまでの歩み</h3></div><p>2022年から12回。数字で見るジャングルギャザリング</p></li>
+        <li><span class="n">03</span><div><h3>前回 2026.6 で起きたこと</h3></div><p>レポートのハイライトと、参加者に共通して起きる変化</p></li>
+        <li><span class="n">04</span><div><h3>2026年10月の開催概要</h3></div><p>日程・料金・場所・アクセス</p></li>
+        <li><span class="n">05</span><div><h3>現地の暮らしと持ち物</h3></div><p>設備、食事、通信環境、装備</p></li>
+        <li><span class="n">06</span><div><h3>参加までの流れ</h3></div><p>申込から当日まで</p></li>
+        <li><span class="n">07</span><div><h3>質疑応答</h3></div><p>なんでも聞いてください</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="slide dark" data-title="現代人に、ジャングルを処方する" data-part="1">
+    <div class="half right"><img src="jungle202610_jg_taki.jpg" alt=""></div>
+    <div class="kicker">Concept</div>
+    <h2 style="max-width:560px">現代人に、<br>ジャングルを処方する。</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:28px">
+      <p class="p">西表島の奥地、集落から離れたキャンプ場を貸し切って行う「ジャングル仮暮らし」です。</p>
+      <p class="p em">持ち込むのは、テントと道具、そして食料は米だけ。</p>
+      <p class="p">あとは島人の手ほどきを受けながら、狩猟採集、塩づくり、道具づくりをして暮らします。</p>
+      <p class="small" style="margin-top:22px; color:var(--mint)">インフラから離れ、何もないところから生活を立ち上げていく。その過程で、文明とテクノロジーを捉え直す。</p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="slide" data-title="何をするのか" data-part="1">
+    <div class="kicker">Works</div>
+    <h2>何をするのか</h2>
+    <p class="lead">サバイバルの達人が手ほどきします。事前に必要なスキルはありません。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3><span class="dot"></span>火と水</h3><p>薪割り、火起こし、焚き火料理、ロープワーク</p></div>
+        <div class="card"><h3><span class="dot"></span>狩る</h3><p>魚突きの実践、イノシシ猟への同行</p></div>
+        <div class="card"><h3><span class="dot"></span>さばく</h3><p>獲物の解体と調理、石蒸し・燻製</p></div>
+        <div class="card"><h3><span class="dot"></span>つくる</h3><p>塩づくり、竹の食器づくり、道具のリペア</p></div>
+        <div class="card"><h3><span class="dot"></span>採る</h3><p>野草採集、ジャングルファームの手入れ</p></div>
+        <div class="card"><h3><span class="dot"></span>整える</h3><p>サバイバルのためのボディワークと瞑想</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="slide" data-title="ただのキャンプでは、ない" data-part="1">
+    <div class="half left"><img src="jungle202610_jg_irori.jpg" alt=""></div>
+    <div style="margin-left:48%">
+      <div class="kicker">Dialogue</div>
+      <h2>ただのキャンプでは、ない。</h2>
+      <p class="p">哲学者・研究者・アーティストの参加も多く、火を囲みながら議論が起きます。</p>
+      <p class="p">「自然とはなにか」「生命とは」「テクノロジーと人間のあるべき関係は」。西表の環境問題も、現地で当事者として考えることになります。</p>
+      <div class="callout" style="margin-top:26px">オーガナイザー・七沢智樹は技術哲学の研究者。WIRED 連載「野生のサイバネティクス」でこの試みを書いています。</div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="slide dark" data-title="これまでの歩み" data-part="2">
+    <div class="kicker">History</div>
+    <h2>これまでの歩み</h2>
+    <p class="lead">2022年10月の第1回から、12回。バーの高さは、その回の「のべ宿泊数」です。</p>
+    <div class="body" style="margin-top:22px">
+      <div class="chart" id="chart"></div>
+      <div class="xlab" id="xlab"></div>
+      <p class="small" style="margin-top:16px; font-size:12px; color:#7E8E7E">
+        2025.03 と 2026.03 は、Techキャンプやファミリー回を同時開催した大規模回。数字は運営シートの集計ベース。</p>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="slide" data-title="数字で見る" data-part="2">
+    <div class="kicker">By the numbers</div>
+    <h2>数字で見る、ジャングルギャザリング</h2>
+    <p class="lead">2022年10月 – 2026年6月（全12回）の累計。</p>
+    <div class="body">
+      <div class="grid g4">
+        <div class="card stat"><div class="v">12</div><div class="l">回 開催してきました</div><div class="d">2026年10月で13回目</div></div>
+        <div class="card stat"><div class="v">338</div><div class="l">名が参加（のべ）</div><div class="d">スタッフ・子どもを含む</div></div>
+        <div class="card stat"><div class="v">1,556</div><div class="l">泊（のべ宿泊数）</div><div class="d">島で過ごした時間の合計は、およそ4年3ヶ月分</div></div>
+        <div class="card stat"><div class="v">90<span style="font-size:26px">+</span></div><div class="l">名のメンバー</div><div class="d">ジャングルクラブの仲間</div></div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:18px">
+        <div class="card"><h3 style="font-size:16px">いちばん長く島にいた人</h3><p>のべ118泊。次いで111泊。5泊以上を重ねた常連が、何人もいます。行くほどに、できることが増えていきます。</p></div>
+        <div class="card"><h3 style="font-size:16px">稼いだお金ではありません</h3><p>ジャングルクラブは非営利です。会費収入の15%は西表島の環境保護団体へ寄付し、残りは備品と、学割・研究枠を支える基金になります。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="slide dark" data-title="前回 2026.6" data-part="3">
+    <div class="bg soft"><img src="jungle202610_jg_inoshishi.jpg" alt=""></div>
+    <div class="kicker">前回 2026.6</div>
+    <h2 style="font-size:40px">JUNGLE DIVE:<br>Beyond Simulation</h2>
+    <div class="body" style="justify-content:flex-end">
+      <div style="display:flex; gap:70px; align-items:flex-end">
+        <div><div style="font-size:64px; font-weight:700; line-height:1">13</div><div class="l" style="color:var(--mint); font-size:14px; font-weight:700; margin-top:6px">日間</div></div>
+        <div><div style="font-size:64px; font-weight:700; line-height:1">20</div><div class="l" style="color:var(--mint); font-size:14px; font-weight:700; margin-top:6px">名が参加</div></div>
+        <div><div style="font-size:64px; font-weight:700; line-height:1">87</div><div class="l" style="color:var(--mint); font-size:14px; font-weight:700; margin-top:6px">のべ宿泊数</div></div>
+      </div>
+      <p class="small" style="margin-top:26px">2026.6.19 – 7.1 ／ レポートは note で公開中</p>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="slide" data-title="前回、何が起きたか" data-part="3">
+    <div class="kicker">Report</div>
+    <h2>前回、何が起きたか</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>猪を、土に埋めて蒸した</h3><p>狩ったイノシシをバナナの葉で包み、焼けた石とともに土の中へ。はじめての石蒸し料理は、とてもうまくいった。歯磨き粉や歯ブラシも現地で発明された。</p></div></li>
+        <li><span class="n">2</span><div><h3>魚を突けるようになった</h3><p>魚突きをしたことのなかった人たちが、何人も自分で獲れるようになった。海の中で、魚が「食べ物」に見えはじめる。</p></div></li>
+        <li><span class="n">3</span><div><h3>台風で、フェリーが止まった</h3><p>撤収するほどではないものの、丸一日欠航。予測を超えた日程変更を余儀なくされた——それ自体が、まさにビヨンド・シミュレーションだった。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide dark" data-title="これは政治の始まりだ" data-part="3">
+    <div class="body" style="flex-direction:row; gap:56px; align-items:center; margin-top:0">
+      <div style="flex:1.15">
+        <h2 style="font-size:40px; margin-top:0">「これは政治の始まりだ」</h2>
+        <p class="p" style="font-size:16px">海で危ない目にあった夜、火を囲んで今後を話していたときに、参加者のひとりがつぶやいた言葉です。</p>
+        <p class="small" style="margin-top:24px; color:var(--mint); line-height:2.0">
+          リスクを管理し、排除して、安全な世界へ向かうこと。それは正しい。<br>
+          けれど、そればかりを考えることで、見失うものもあるのではないか。<br>
+          自然の不確かさを遠ざけつづけた先に、私たちは何を置いてきたのか。</p>
+        <p class="p" style="margin-top:26px"><span class="warn">そのうえで、この企画は完全に自己責任で行うものです。</span></p>
+      </div>
+      <div class="card" style="flex:.85">
+        <h3 style="font-size:16px; color:var(--mint)">今回からの体制</h3>
+        <ul class="plain" style="margin-top:12px">
+          <li>危険管理をよりいっそう徹底します</li>
+          <li>応急手当の拠点と AED を含む救護体制を整備します</li>
+          <li>海の活動は、当日の海況とご本人の慣れに応じて判断します</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide" data-title="参加者に共通して起きること" data-part="3">
+    <div class="kicker">What happens to people</div>
+    <h2>参加者に、共通して起きること</h2>
+    <p class="lead">2024年10月以降の振り返りの会 6回・のべ数十時間の記録を AI に読ませ、共通するパターンを抽出しました。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3 style="font-size:16px">心身が healthy になる</h3><p>「1ヶ月経っても体調がすこぶる良い」「長年の腸の不調が治った」。そして帰宅後の反動——通称ジャングル病。</p></div>
+        <div class="card"><h3 style="font-size:16px">命を食べることが、身体の感覚に変わる</h3><p>「かわいそう」という観念が、「さばけるものを責任を持って食べる」という実感へ。</p></div>
+        <div class="card"><h3 style="font-size:16px">文明が立ち上がる瞬間を追体験する</h3><p>火が生まれ、竹が現れ、鉄が打たれ、食卓が豊かになる。人類の来た道を数日でなぞる。</p></div>
+        <div class="card"><h3 style="font-size:16px">もう一つのホームができる</h3><p>「集落に着いたら自然と『ただいま』が出た」。初参加・一人参加でも居心地がよかった、という声。</p></div>
+        <div class="card"><h3 style="font-size:16px">眠っていた野生が目を覚ます</h3><p>時計も鏡もない生活。鳥が鳴いたら朝。スマホがなくても、生きるためのタスクで忙しい。</p></div>
+        <div class="card"><h3 style="font-size:16px">日常が、静かに変わっていく</h3><p>帰ってから瞑想を続ける人、火起こしを練習する人、引っ越しや転職に踏み切った人まで。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide" data-title="2026年10月 開催概要" data-part="4">
+    <div class="kicker">Overview</div>
+    <h2>2026年10月 開催概要</h2>
+    <div class="body">
+      <dl class="facts">
+        <dt>日程</dt><dd>2026年10月24日 (土) – 11月4日 (水)　全12日間</dd>
+        <dt>場所</dt><dd>沖縄県 西表島　集落から離れた奥地のキャンプ場を貸し切り</dd>
+        <dt>滞在</dt><dd>この期間のうち、都合のよい日程だけの参加でかまいません（最短1泊から）</dd>
+        <dt>参加</dt><dd>現在 <span class="accent">9名</span>が参加予定。デジタルハリウッド大学学長・藤井直敬さんが初日から参加されます</dd>
+        <dt>集合</dt><dd>大原港までお迎えに上がります。フェリーの便に合わせて調整します</dd>
+      </dl>
+      <div class="callout" style="margin-top:26px">年3回（3月・6月・11月）の開催です。台風シーズンと天候の悪い冬を避けると、このタイミングがベストです。</div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide dark" data-title="料金" data-part="4">
+    <div class="kicker">Fee</div>
+    <h2>料金</h2>
+    <p class="lead">1泊あたり。参加費は参加後のお支払いで、キャンセル料はありません。</p>
+    <div class="body">
+      <div class="grid g4">
+        <div class="card stat"><div class="l" style="margin-top:0">一般</div><div class="v" style="font-size:40px; margin-top:8px">12,000</div><div class="d">円 / 泊</div></div>
+        <div class="card stat"><div class="l" style="margin-top:0">JCメンバー</div><div class="v" style="font-size:40px; margin-top:8px">10,000</div><div class="d">円 / 泊</div></div>
+        <div class="card stat"><div class="l" style="margin-top:0">学割</div><div class="v" style="font-size:40px; margin-top:8px">8,000</div><div class="d">円 / 泊</div></div>
+        <div class="card stat"><div class="l" style="margin-top:0">研究目的</div><div class="v" style="font-size:40px; margin-top:8px">無料</div><div class="d">要・研究計画書</div></div>
+      </div>
+      <ul class="plain" style="margin-top:24px">
+        <li>支払い方法は、現金・銀行振込・PayPay に対応しています</li>
+        <li>累積滞在日数が10日を超えると、恒常的に割引が適用される制度があります</li>
+        <li>別途かかる費用：航空券／フェリー往復 約4,000円／石垣前泊が必要な場合の宿泊費／ジャングルツアーのガイド料</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide" data-title="住まい" data-part="5">
+    <div class="half right"><img src="jungle202610_jg_camp.jpg" alt=""></div>
+    <div class="narrow">
+      <div class="kicker">Life on site — 住まい</div>
+      <h2>雑魚寝では、ありません。</h2>
+      <div class="body" style="margin-top:26px; justify-content:flex-start">
+        <ol class="steps" style="border:none">
+          <li style="grid-template-columns:1fr"><div><h3 style="font-size:17px">テント</h3><p>6人用の Nordisk レイサ6 に3人。つまり実質的に個室です。コットと寝袋も一人ひとつ。</p></div></li>
+          <li style="grid-template-columns:1fr"><div><h3 style="font-size:17px">トイレ・風呂</h3><p>汲み取り式トイレ（清潔です）とドラム缶風呂。シャワーは山の水のみ。ドライヤーはありません。</p></div></li>
+          <li style="grid-template-columns:1fr"><div><h3 style="font-size:17px">通信</h3><p>キャンプ内はほぼ圏外。浜辺まで歩くとつながります。滞在中はスマホを見ない生活が前提です。</p></div></li>
+          <li style="grid-template-columns:1fr; border:none"><div><h3 style="font-size:17px">電源</h3><p>ソーラーパネルとバッテリーがあります。</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide dark" data-title="食" data-part="5">
+    <div class="half left"><img src="jungle202610_jg_sakana.jpg" alt=""></div>
+    <div style="margin-left:48%">
+      <div class="kicker">Life on site — 食</div>
+      <h2>持ち込むのは、米だけ。</h2>
+      <p class="p">あとは獲る、採る、つくる。魚を突き、猪をさばき、野草を摘み、海水から塩をつくります。</p>
+      <p class="p">うまくいかない日もあります。その日は、獲れたものだけで食べます。</p>
+      <div class="callout" style="margin-top:26px">
+        <b style="color:var(--mint)">食べられないもの・苦手なものがある方へ</b><br>
+        アレルギーや食事のリクエストは、申込フォームと事前ミーティングでうかがいます。無理に食べる必要はまったくありません。米と、現地で採れるもので十分に足ります。
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" data-title="アクセス" data-part="5">
+    <div class="kicker">Access</div>
+    <h2>アクセス</h2>
+    <p class="lead">石垣島を経由して、フェリーで西表島・大原港へ。</p>
+    <div class="body">
+      <div class="grid g4">
+        <div class="card"><h3 style="font-size:17px"><span class="dot"></span>石垣空港</h3><p>東京・名古屋・大阪・福岡から直行便</p></div>
+        <div class="card"><h3 style="font-size:17px"><span class="dot"></span>バス 30分</h3><p>石垣空港 → 石垣港</p></div>
+        <div class="card"><h3 style="font-size:17px"><span class="dot"></span>フェリー 45分</h3><p>石垣港 → 大原港　往復約4,000円・予約不要</p></div>
+        <div class="card"><h3 style="font-size:17px"><span class="dot"></span>大原港</h3><p>お迎えに上がります</p></div>
+      </div>
+      <ul class="plain" style="margin-top:26px">
+        <li>フェリーの最終は16時台。間に合わないフライトの場合は石垣で前泊し、翌朝7時台の便で来ることになります</li>
+        <li>Peach を早めに予約すると往復2万円前後で飛べます。JAL・ANA も就航しています</li>
+        <li>石垣での待ち時間には、港近くの「八重山博物館」がおすすめです</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide" data-title="持ち物" data-part="5">
+    <div class="kicker">Packing</div>
+    <h2>持ち物</h2>
+    <p class="lead">ほとんどの装備は現地にあります。季節に応じたおすすめは参加者にご案内します。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3 style="font-size:17px">必ず持ってくるもの</h3>
+          <ul class="plain" style="margin-top:10px"><li>ヘッドライト</li><li>アウトドア用の動きやすい服装</li><li>帽子</li><li>常備薬・保険証</li></ul></div>
+        <div class="card"><h3 style="font-size:17px">あるとよいもの</h3>
+          <ul class="plain" style="margin-top:10px"><li>シュノーケル、レギンス、ラッシュガード</li><li>海靴、サンダル</li><li>虫よけ、日焼け止め</li><li>水着・着替え</li></ul></div>
+        <div class="card"><h3 style="font-size:17px">現地にあるもの</h3>
+          <ul class="plain" style="margin-top:10px"><li>テント、コット、寝袋、マット</li><li>皿・コップ・箸（現地で竹から作ります）</li><li>銛、斧、ナタ、ノコ、釣り道具</li><li>ダッチオーブン等の調理器具</li><li>ウェットスーツ、フィン（数に限りあり）</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide" data-title="参加条件" data-part="6">
+    <div class="half right"><img src="jungle202610_jg_kaigan.jpg" alt=""></div>
+    <div class="narrow">
+      <div class="kicker">Who can join</div>
+      <h2>参加条件は、<br>とくにありません。</h2>
+      <div class="body" style="margin-top:24px; justify-content:flex-start">
+        <p class="p" style="font-size:16px">事前に必要なスキルもありません。キャンプやシュノーケルが初めての方も参加しています。</p>
+        <p class="p" style="font-size:16px">初回の参加は、ジャングルクラブのメンバーでなくても大丈夫です。（2回目以降、または企画を持ち込む場合はメンバーシップが必要になります）</p>
+        <p class="p" style="font-size:16px">小学生以下のお子さんは、毎年3月のファミリー向けギャザリングへ。</p>
+        <div class="callout" style="margin-top:22px"><span class="warn">申込の前に、note の「参加同意事項」を必ずご確認ください。自己責任でのご参加が前提です。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide" data-title="参加までの流れ" data-part="6">
+    <div class="kicker">How to join</div>
+    <h2>参加までの流れ</h2>
+    <p class="lead">申込期限はとくにありません。直前に決めていただいてもかまいません。</p>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>申し込む</h3><p>note 記事の下にある申込フォームから。この時点で日程が確定している必要はありません。</p></div></li>
+        <li><span class="n">2</span><div><h3>事前ミーティング（2回）</h3><p>オンラインで開催します。参加できない場合は録画でも大丈夫です。</p></div></li>
+        <li><span class="n">3</span><div><h3>事前アンケートに回答</h3><p>飛行機の便など。初回ミーティングのあとにお願いします。</p></div></li>
+        <li><span class="n">4</span><div><h3>装備を確認してパッキング</h3><p>事前に島へ荷物を送ることもできます。</p></div></li>
+        <li><span class="n">5</span><div><h3>現地へ</h3><p>大原港でお迎えします。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide dark" data-title="メンバーシップ" data-part="6">
+    <div class="kicker">Membership</div>
+    <h2>ジャングルクラブ・メンバーシップ</h2>
+    <p class="lead">2回目以降の参加と、クラブを一緒に運営していくための会員権です。</p>
+    <div class="body">
+      <div class="grid" style="grid-template-columns:1fr 1.15fr">
+        <div class="card stat">
+          <div class="v" style="font-size:52px">30,000</div>
+          <div class="l">円（NFT。ウォレットがなくても現金・振込で対応します）</div>
+          <div class="d" style="margin-top:14px">NFT画像は、島を代表する写真家が撮影した、西表の貴重な動植物の写真をもとにしています。</div>
+        </div>
+        <div class="card">
+          <h3 style="font-size:16px; color:var(--mint)">会費とギャザリングの収益は、こう使われます</h3>
+          <ul class="plain" style="margin-top:12px">
+            <li>テント・コット・ウェットスーツなど、みんなで使う備品の購入とリペア</li>
+            <li>収入の15%を、西表島の環境保護団体へ寄付</li>
+            <li>学割・研究枠を支えるジャングルクラブ基金</li>
+            <li>海洋プラごみのリサイクル事業（竹富町の実証実験）への協力</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:20px; color:var(--mint)">ジャングルクラブは非営利で運営しています。ギャザリングは毎回赤字で、参加者のみなさんからの寄付で成り立っています。</p>
+    </div>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide dark scrim" data-title="新たな文明をつくるのは、あなただ" data-part="6">
+    <div class="bg"><img src="jungle202610_jg_ishimushi.jpg" alt=""></div>
+    <div class="kicker">火を起こすところから、はじまる</div>
+    <h2 style="font-size:46px; max-width:640px; line-height:1.4">新たな文明をつくるのは、<br>あなただ。</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:30px">
+      <p class="p" style="font-size:16px">火を起こし、道具をつくり、命をいただく。何もないところから暮らしを組み上げていく日々は、人類が通ってきた道を、もう一度なぞりなおす時間です。</p>
+      <p class="p" style="font-size:16px">そこで手にした技術と知恵は、島を出たあとも消えません。都市に戻ったあなたの中で、次の文明の芽になります。</p>
+      <p class="p em" style="font-size:19px; margin-top:24px; color:var(--mint)">その最初のひとりに、なりませんか。</p>
+    </div>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide dark" data-title="申込・お問い合わせ" data-part="">
+    <div class="bg soft"><img src="jungle202610_jg_close.jpg" alt=""></div>
+    <h2 style="font-size:40px; margin-top:6px">ご参加を、お待ちしています</h2>
+    <div class="body">
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <div class="card">
+          <h3 style="font-size:16px; color:var(--mint)">申し込む</h3>
+          <p>note の記事末に申込フォームがあります。</p>
+          <p style="margin-top:12px"><a href="https://note.com/nanasawa/n/n82969f726f1b" style="color:var(--cream)">note.com/nanasawa/n/n82969f726f1b</a></p>
+          <h3 style="font-size:16px; color:var(--mint); margin-top:20px">ジャングルブック（参加マニュアル）</h3>
+          <p><a href="https://jungleclub.notion.site/jungle-book" style="color:var(--cream)">jungleclub.notion.site/jungle-book</a></p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:16px; color:var(--mint)">なんでも聞いてください</h3>
+          <ul class="plain" style="margin-top:12px">
+            <li>メール　nswtmk@gmail.com</li>
+            <li>Messenger　七沢智樹</li>
+            <li>電話　090-3057-0914</li>
+            <li>Instagram　@iriomote_jungle_club</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:20px; color:var(--cream)">お問い合わせの時点で、参加日程が決まっている必要はありません。キャンセル料もありません。</p>
+    </div>
+  </section>
+
+  <div class="bar" id="bar"></div>
+</div><!-- /stage -->
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  /* ---- 歩みグラフを生成 ---- */
+  var HIST = [["2022.10",20,58],["2023.03",12,44],["2023.06",27,102],["2023.10",18,68],
+              ["2024.03",24,117],["2024.06",21,108],["2024.10",22,95],["2025.03",49,279],
+              ["2025.06",22,114],["2025.11",27,132],["2026.03",76,352],["2026.06",20,87]];
+  var mx = 352, chart = document.getElementById('chart'), xlab = document.getElementById('xlab');
+  HIST.forEach(function (h, k) {
+    var col = document.createElement('div');
+    col.className = 'col' + (k === HIST.length - 1 ? ' now' : '');
+    col.innerHTML = '<div class="v">' + h[2] + '</div><div class="b" style="height:' +
+      (h[2] / mx * 86) + '%"></div>';
+    chart.appendChild(col);
+    var l = document.createElement('div');
+    l.innerHTML = '<div class="d">' + h[0] + '</div><div class="n">' + h[1] + '名</div>';
+    xlab.appendChild(l);
+  });
+
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    '1': '01 ／ ジャングルギャザリングとは',
+    '2': '02 ／ これまでの歩み',
+    '3': '03 ／ 前回 2026.6 で起きたこと',
+    '4': '04 ／ 2026年10月の開催概要',
+    '5': '05 ／ 現地の暮らしと持ち物',
+    '6': '06 ／ 参加までの流れ'
+  };
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || 'JUNGLE Gathering 2026.10 説明会') +
+      '</span><span>' + pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' + s.getAttribute('data-title') +
+      (part ? '<span class="pt">PART ' + part + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+  function fit() {
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
+  }
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
+  fit(); setTimeout(fit, 120); setTimeout(fit, 600);
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
