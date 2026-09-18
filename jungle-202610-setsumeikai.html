@@ -74,8 +74,8 @@
 
   /* ---- agenda ---- */
   ol.agenda { list-style:none; }
-  ol.agenda li { display:grid; grid-template-columns:44px 300px 1fr; gap:18px; align-items:baseline;
-    padding:14px 4px; border-bottom:1px solid var(--line); }
+  ol.agenda li { display:grid; grid-template-columns:44px 290px 1fr; gap:18px; align-items:baseline;
+    padding:10px 4px; border-bottom:1px solid var(--line); }
   ol.agenda .n { font-size:13px; font-weight:700; color:#fff; background:var(--moss);
     border-radius:999px; text-align:center; padding:5px 0; letter-spacing:.06em; }
   ol.agenda h3 { font-size:19px; font-weight:700; line-height:1.5; }
@@ -135,6 +135,31 @@
   .slide.dark ul.plain li { color:var(--sand); }
   .slide.dark ul.plain li::before { background:var(--mint); }
 
+  /* ---- 3段の帯（技術の基層→テクノロジー→惑星的普遍技術） ---- */
+  .bands { display:flex; flex-direction:column; gap:0; }
+  .band { border-radius:10px; padding:16px 22px; display:grid; grid-template-columns:230px 1fr; gap:22px; align-items:baseline; }
+  .band .bt { font-size:19px; font-weight:700; }
+  .band .bd { font-size:13.5px; line-height:1.8; }
+  .band.b1 { background:#EDF1E9; }
+  .band.b2 { background:#E4EBE2; }
+  .band.b3 { background:var(--moss); color:#fff; }
+  .band.b3 .bd { color:rgba(255,255,255,.88); }
+  .slide.dark .band.b1 { background:#1B2E21; }
+  .slide.dark .band.b2 { background:#23402C; }
+  .phase { text-align:center; font-size:11.5px; letter-spacing:.2em; color:var(--moss); font-weight:700; padding:7px 0; }
+  .slide.dark .phase { color:var(--mint); }
+  /* ---- 往復の図 ---- */
+  .loop { display:grid; grid-template-columns:1fr 150px 1fr; align-items:center; gap:0; }
+  .loop .side { border:1px solid var(--line); border-radius:10px; padding:20px 24px; background:#fff; }
+  .slide.dark .loop .side { background:var(--deep2); border-color:#2A3D30; }
+  .loop .side h3 { font-size:19px; font-weight:700; }
+  .loop .side p { font-size:13px; color:var(--ink-soft); line-height:1.8; margin-top:7px; }
+  .slide.dark .loop .side p { color:var(--sand); }
+  .loop .mid { text-align:center; }
+  .loop .mid .ar { font-size:22px; color:var(--moss); letter-spacing:.1em; }
+  .slide.dark .loop .mid .ar { color:var(--mint); }
+  .loop .mid .lb { font-size:11.5px; color:var(--ink-soft); line-height:1.7; margin:5px 0; }
+  .slide.dark .loop .mid .lb { color:var(--sand); }
   .callout { border:1px solid var(--line); background:#fff; border-radius:10px; padding:16px 20px; font-size:14px; line-height:1.85; color:var(--ink-soft); }
   .slide.dark .callout { background:var(--deep2); border-color:#2A3D30; color:var(--sand); }
   .warn { color:var(--shu); font-weight:700; }
@@ -144,6 +169,7 @@
     display:flex; justify-content:space-between; align-items:baseline;
     font-size:11.5px; letter-spacing:.18em; color:var(--ink-soft); }
   .slide.dark .foot, .slide.title .foot { color:rgba(244,241,232,.5); }
+  .slide:has(.bg) .foot { text-shadow:0 1px 4px rgba(14,26,18,.75); }
   .bar { position:absolute; left:0; bottom:0; height:3px; background:var(--mint); transition:width .38s ease; z-index:5; }
   .ui { position:fixed; right:20px; bottom:18px; display:flex; gap:8px; z-index:40; transition:opacity .4s; }
   .ui.idle { opacity:0; pointer-events:none; }
@@ -194,12 +220,13 @@
     <div class="body">
       <ol class="agenda">
         <li><span class="n">01</span><div><h3>ジャングルギャザリングとは</h3></div><p>何をする滞在なのか、コンセプトと過ごし方</p></li>
-        <li><span class="n">02</span><div><h3>これまでの歩み</h3></div><p>2022年から12回。数字で見るジャングルギャザリング</p></li>
-        <li><span class="n">03</span><div><h3>前回 2026.6 で起きたこと</h3></div><p>レポートのハイライトと、参加者に共通して起きる変化</p></li>
-        <li><span class="n">04</span><div><h3>2026年10月の開催概要</h3></div><p>日程・料金・場所・アクセス</p></li>
-        <li><span class="n">05</span><div><h3>現地の暮らしと持ち物</h3></div><p>設備、食事、通信環境、装備</p></li>
-        <li><span class="n">06</span><div><h3>参加までの流れ</h3></div><p>申込から当日まで</p></li>
-        <li><span class="n">07</span><div><h3>質疑応答</h3></div><p>なんでも聞いてください</p></li>
+        <li><span class="n">02</span><div><h3>なぜ、ジャングルなのか</h3></div><p>技術の基層・原初のサイボーグ・野生のサイバネティクス</p></li>
+        <li><span class="n">03</span><div><h3>これまでの歩み</h3></div><p>2022年から12回。数字で見るジャングルギャザリング</p></li>
+        <li><span class="n">04</span><div><h3>前回 2026.6 で起きたこと</h3></div><p>レポートのハイライトと、参加者に共通して起きる変化</p></li>
+        <li><span class="n">05</span><div><h3>2026年10月の開催概要</h3></div><p>日程・料金・場所・アクセス</p></li>
+        <li><span class="n">06</span><div><h3>現地の暮らしと持ち物</h3></div><p>設備、食事、通信環境、装備</p></li>
+        <li><span class="n">07</span><div><h3>参加までの流れ</h3></div><p>申込から当日まで</p></li>
+        <li><span class="n">08</span><div><h3>質疑応答</h3></div><p>なんでも聞いてください</p></li>
       </ol>
     </div>
   </section>
@@ -246,8 +273,105 @@
     </div>
   </section>
 
-  <!-- 06 -->
-  <section class="slide dark" data-title="これまでの歩み" data-part="2">
+  <!-- 06 なぜ、ジャングルなのか -->
+  <section class="slide" data-title="なぜ、ジャングルなのか" data-part="2">
+    <div class="kicker">Why the jungle</div>
+    <h2>なぜ、ジャングルなのか</h2>
+    <p class="lead">七沢が講義「技術哲学」「技術史」で掘り下げてきたことを、教室ではなく身体で確かめる場所。それがジャングルギャザリングです。</p>
+    <div class="body">
+      <div class="bands">
+        <div class="band b1"><div class="bt">技術の基層</div><div class="bd">火・石器・編む・発酵。何万年も続き、いまも続いている。</div></div>
+        <div class="phase">▼ 相転移</div>
+        <div class="band b2"><div class="bt">テクノロジー</div><div class="bd">普遍的な《論理》で動くもの。その歴史は、わずか5世代。</div></div>
+        <div class="phase">▼ 相転移</div>
+        <div class="band b3"><div class="bt">惑星的普遍技術</div><div class="bd">テクノロジーの内側から、未来へ。過去の技術の上に、これから成立するもの。</div></div>
+      </div>
+      <div class="callout" style="margin-top:22px">テクノロジーを捨てて基層に戻ることではありません。<b>過去の技術の上に、未来に成立するもの</b>を探す実践です。</div>
+    </div>
+  </section>
+
+  <!-- 07 3つのこと -->
+  <section class="slide" data-title="ジャングルで、確かめている3つのこと" data-part="2">
+    <div class="kicker">Three steps</div>
+    <h2>ジャングルで、確かめている3つのこと</h2>
+    <p class="lead">いずれも思弁ではなく、この島で実践から確かめてきたことです。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card">
+          <h3 style="font-size:17px"><span class="dot"></span>1｜技術の基層に気づく</h3>
+          <p>技術とは、生きとし生けるものが<b>環境に応じることで生じるはたらき</b>。蔓は他者の幹を足場に光へ届き、ヤドカリは他者の殻を住居に変え、シロアリは空調の効いた塔を建て、菌糸は土の中に流通網を張ります。</p>
+          <p>島では「技術＝人間だけのもの」という前提が、理屈ではなく<b>実感としてほどけます</b>。イノシシを「あいつら」と呼ぶ猟師がいます。</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:17px"><span class="dot"></span>2｜原初のサイボーグを知る</h3>
+          <p>人間は、<b>最低限の道具を必要とするサイボーグ</b>です。道具なしでは一日ももたない。けれど本当に必要な道具は、驚くほど少ない。</p>
+          <p>いちばん引いた地点まで一度行ってしまえば、あとは引いたうえで、自分にちょうどいいところを探ればいい。その地点を知るための12日間です。</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:17px"><span class="dot"></span>3｜野生のサイバネティクスを実現する</h3>
+          <p>自然と都市の<b>往復による再帰的学習</b>で、「異なる身体」を獲得する。機械の再帰性を、生命という地に添付し直す試みです。</p>
+          <p>島での学びは、島を出たあとに効いてきます。だから毎回来る人がいるのです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 原初のサイボーグ -->
+  <section class="slide dark scrim" data-title="原初のサイボーグ──台風の夜" data-part="2">
+    <div class="bg"><img src="jungle202610_jg_camp.jpg" alt=""></div>
+    <div class="kicker">原初のサイボーグ</div>
+    <h2 style="max-width:640px">台風の夜に、<br>わかったこと。</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:26px">
+      <p class="p" style="font-size:16px">台風でテントが壊れ、火もつかず、その日は退散しました。ところがその先に、台風の中でも平然と暮らしている達人がいた。<b>3メートル四方の、びしっと張られたミニマムの人工空間。</b></p>
+      <p class="p" style="font-size:16px">人間には、最低限の人工空間がいる。そしてそれが果てしなく拡張したものが、都市だった——そう気づいた夜でした。</p>
+      <p class="p em" style="font-size:18px; margin-top:22px; color:var(--mint)">いちばん引いた地点まで行けば、<br>あとは、ちょうどいいところを探ればいい。</p>
+    </div>
+  </section>
+
+  <!-- 09 野生のサイバネティクス -->
+  <section class="slide dark" data-title="野生のサイバネティクス" data-part="2">
+    <div class="kicker">Wild cybernetics</div>
+    <h2>往復が、異なる身体をつくる</h2>
+    <p class="lead">サイバネティクスは本来、「ある生物にとっての意味＝価値」を扱うものでした。テクノロジーを手放して原始に戻ることではなく、機械的な再帰性を、生命という地に添付し直すこと。</p>
+    <div class="body">
+      <div class="loop">
+        <div class="side">
+          <h3>都市</h3>
+          <p>飼いならされた身体。メニューから選び、データとして扱われる。</p>
+        </div>
+        <div class="mid">
+          <div class="ar">→</div>
+          <div class="lb">テクノロジーの<br>引き算</div>
+          <div class="lb" style="margin-top:14px">足し算</div>
+          <div class="ar">←</div>
+        </div>
+        <div class="side">
+          <h3>森・ジャングル・海</h3>
+          <p>自然に応答する、異なる身体。環境に引き出され、環境を改変する。</p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:24px; color:var(--mint); text-align:center">
+        往復が生む「テクノロジーの引き算と足し算の感覚」——それ自体が、よりよく生きるための再帰的学習になる。<br>
+        AI時代に要るのは、知識でも知能でもなく、知恵です。</p>
+    </div>
+  </section>
+
+  <!-- 10 ロマン主義ではない -->
+  <section class="slide" data-title="これは、ロマン主義ではない" data-part="2">
+    <div class="kicker">Not romanticism</div>
+    <h2>これは、ロマン主義ではない</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>「昔に戻る」は、最初から選択肢にありません</h3><p>私たちは、意識や個人という概念を失うことができない。だから「戻る」という道はそもそも存在しません。</p></div></li>
+        <li><span class="n">2</span><div><h3>「先住民の暮らしは素晴らしい」という賛美でもありません</h3><p>賛美はしない。実践して、確かめる。それだけです。</p></div></li>
+        <li><span class="n">3</span><div><h3>近代的な意識と自律性を持ったまま、原初の実践をするとどうなるか</h3><p>——まだ誰も知りません。そこが開かれている。だから、やってみる価値があります。</p></div></li>
+      </ol>
+      <div class="callout" style="margin-top:22px">あり得たかもしれない技術を、いま自分の手で立ち上げてみる。そこから未来へ向かう——それがこの島でやっていることです。</div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide dark" data-title="これまでの歩み" data-part="3">
     <div class="kicker">History</div>
     <h2>これまでの歩み</h2>
     <p class="lead">2022年10月の第1回から、12回。バーの高さは、その回の「のべ宿泊数」です。</p>
@@ -260,7 +384,7 @@
   </section>
 
   <!-- 07 -->
-  <section class="slide" data-title="数字で見る" data-part="2">
+  <section class="slide" data-title="数字で見る" data-part="3">
     <div class="kicker">By the numbers</div>
     <h2>数字で見る、ジャングルギャザリング</h2>
     <p class="lead">2022年10月 – 2026年6月（全12回）の累計。</p>
@@ -279,7 +403,7 @@
   </section>
 
   <!-- 08 -->
-  <section class="slide dark" data-title="前回 2026.6" data-part="3">
+  <section class="slide dark" data-title="前回 2026.6" data-part="4">
     <div class="bg soft"><img src="jungle202610_jg_inoshishi.jpg" alt=""></div>
     <div class="kicker">前回 2026.6</div>
     <h2 style="font-size:40px">JUNGLE DIVE:<br>Beyond Simulation</h2>
@@ -294,7 +418,7 @@
   </section>
 
   <!-- 09 -->
-  <section class="slide" data-title="前回、何が起きたか" data-part="3">
+  <section class="slide" data-title="前回、何が起きたか" data-part="4">
     <div class="kicker">Report</div>
     <h2>前回、何が起きたか</h2>
     <div class="body">
@@ -307,7 +431,7 @@
   </section>
 
   <!-- 10 -->
-  <section class="slide dark" data-title="これは政治の始まりだ" data-part="3">
+  <section class="slide dark" data-title="これは政治の始まりだ" data-part="4">
     <div class="body" style="flex-direction:row; gap:56px; align-items:center; margin-top:0">
       <div style="flex:1.15">
         <h2 style="font-size:40px; margin-top:0">「これは政治の始まりだ」</h2>
@@ -330,7 +454,7 @@
   </section>
 
   <!-- 11 -->
-  <section class="slide" data-title="参加者に共通して起きること" data-part="3">
+  <section class="slide" data-title="参加者に共通して起きること" data-part="4">
     <div class="kicker">What happens to people</div>
     <h2>参加者に、共通して起きること</h2>
     <p class="lead">2024年10月以降の振り返りの会 6回・のべ数十時間の記録を AI に読ませ、共通するパターンを抽出しました。</p>
@@ -347,7 +471,7 @@
   </section>
 
   <!-- 12 -->
-  <section class="slide" data-title="2026年10月 開催概要" data-part="4">
+  <section class="slide" data-title="2026年10月 開催概要" data-part="5">
     <div class="kicker">Overview</div>
     <h2>2026年10月 開催概要</h2>
     <div class="body">
@@ -363,7 +487,7 @@
   </section>
 
   <!-- 13 -->
-  <section class="slide dark" data-title="料金" data-part="4">
+  <section class="slide dark" data-title="料金" data-part="5">
     <div class="kicker">Fee</div>
     <h2>料金</h2>
     <p class="lead">1泊あたり。参加費は参加後のお支払いで、キャンセル料はありません。</p>
@@ -383,7 +507,7 @@
   </section>
 
   <!-- 14 -->
-  <section class="slide" data-title="住まい" data-part="5">
+  <section class="slide" data-title="住まい" data-part="6">
     <div class="half right"><img src="jungle202610_jg_camp.jpg" alt=""></div>
     <div class="narrow">
       <div class="kicker">Life on site — 住まい</div>
@@ -400,7 +524,7 @@
   </section>
 
   <!-- 15 -->
-  <section class="slide dark" data-title="食" data-part="5">
+  <section class="slide dark" data-title="食" data-part="6">
     <div class="half left"><img src="jungle202610_jg_sakana.jpg" alt=""></div>
     <div style="margin-left:48%">
       <div class="kicker">Life on site — 食</div>
@@ -415,7 +539,7 @@
   </section>
 
   <!-- 16 -->
-  <section class="slide" data-title="アクセス" data-part="5">
+  <section class="slide" data-title="アクセス" data-part="6">
     <div class="kicker">Access</div>
     <h2>アクセス</h2>
     <p class="lead">石垣島を経由して、フェリーで西表島・大原港へ。</p>
@@ -435,7 +559,7 @@
   </section>
 
   <!-- 17 -->
-  <section class="slide" data-title="持ち物" data-part="5">
+  <section class="slide" data-title="持ち物" data-part="6">
     <div class="kicker">Packing</div>
     <h2>持ち物</h2>
     <p class="lead">ほとんどの装備は現地にあります。季節に応じたおすすめは参加者にご案内します。</p>
@@ -452,7 +576,7 @@
   </section>
 
   <!-- 18 -->
-  <section class="slide" data-title="参加条件" data-part="6">
+  <section class="slide" data-title="参加条件" data-part="7">
     <div class="half right"><img src="jungle202610_jg_kaigan.jpg" alt=""></div>
     <div class="narrow">
       <div class="kicker">Who can join</div>
@@ -467,7 +591,7 @@
   </section>
 
   <!-- 19 -->
-  <section class="slide" data-title="参加までの流れ" data-part="6">
+  <section class="slide" data-title="参加までの流れ" data-part="7">
     <div class="kicker">How to join</div>
     <h2>参加までの流れ</h2>
     <p class="lead">申込期限はとくにありません。直前に決めていただいてもかまいません。</p>
@@ -483,7 +607,7 @@
   </section>
 
   <!-- 20 -->
-  <section class="slide dark" data-title="メンバーシップ" data-part="6">
+  <section class="slide dark" data-title="メンバーシップ" data-part="7">
     <div class="kicker">Membership</div>
     <h2>ジャングルクラブ・メンバーシップ</h2>
     <p class="lead">2回目以降の参加と、クラブを一緒に運営していくための会員権です。</p>
@@ -509,7 +633,7 @@
   </section>
 
   <!-- 21 -->
-  <section class="slide dark scrim" data-title="新たな文明をつくるのは、あなただ" data-part="6">
+  <section class="slide dark scrim" data-title="新たな文明をつくるのは、あなただ" data-part="7">
     <div class="bg"><img src="jungle202610_jg_ishimushi.jpg" alt=""></div>
     <div class="kicker">火を起こすところから、はじまる</div>
     <h2 style="font-size:46px; max-width:640px; line-height:1.4">新たな文明をつくるのは、<br>あなただ。</h2>
@@ -591,11 +715,12 @@
 
   var PART_NAME = {
     '1': '01 ／ ジャングルギャザリングとは',
-    '2': '02 ／ これまでの歩み',
-    '3': '03 ／ 前回 2026.6 で起きたこと',
-    '4': '04 ／ 2026年10月の開催概要',
-    '5': '05 ／ 現地の暮らしと持ち物',
-    '6': '06 ／ 参加までの流れ'
+    '2': '02 ／ なぜ、ジャングルなのか',
+    '3': '03 ／ これまでの歩み',
+    '4': '04 ／ 前回 2026.6 で起きたこと',
+    '5': '05 ／ 2026年10月の開催概要',
+    '6': '06 ／ 現地の暮らしと持ち物',
+    '7': '07 ／ 参加までの流れ'
   };
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
