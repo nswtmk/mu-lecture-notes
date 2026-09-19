@@ -160,6 +160,12 @@
   .slide.dark .loop .mid .ar { color:var(--mint); }
   .loop .mid .lb { font-size:11.5px; color:var(--ink-soft); line-height:1.7; margin:5px 0; }
   .slide.dark .loop .mid .lb { color:var(--sand); }
+  .card .ph { width:100%; height:78px; object-fit:cover; border-radius:6px; display:block; margin-bottom:11px; }
+  .card .ph.tall { height:104px; }
+  .gal { display:grid; grid-template-columns:repeat(6,1fr); gap:9px; }
+  .gal img { width:100%; height:118px; object-fit:cover; border-radius:5px; display:block; }
+  ol.steps li.withph { grid-template-columns:40px 150px 1fr; }
+  ol.steps img.thumb { width:150px; height:84px; object-fit:cover; border-radius:6px; display:block; }
   .callout { border:1px solid var(--line); background:#fff; border-radius:10px; padding:16px 20px; font-size:14px; line-height:1.85; color:var(--ink-soft); }
   .slide.dark .callout { background:var(--deep2); border-color:#2A3D30; color:var(--sand); }
   .warn { color:var(--shu); font-weight:700; }
@@ -251,19 +257,19 @@
     <p class="lead">サバイバルの達人が手ほどきします。事前に必要なスキルはありません。</p>
     <div class="body">
       <div class="grid g3">
-        <div class="card"><h3><span class="dot"></span>火と水</h3><p>薪割り、火起こし、焚き火料理、ロープワーク</p></div>
-        <div class="card"><h3><span class="dot"></span>狩る</h3><p>魚突きの実践、イノシシ猟への同行</p></div>
-        <div class="card"><h3><span class="dot"></span>さばく</h3><p>獲物の解体と調理、石蒸し・燻製</p></div>
-        <div class="card"><h3><span class="dot"></span>つくる</h3><p>塩づくり、竹の食器づくり、道具のリペア</p></div>
-        <div class="card"><h3><span class="dot"></span>採る</h3><p>野草採集、ジャングルファームの手入れ</p></div>
-        <div class="card"><h3><span class="dot"></span>整える</h3><p>サバイバルのためのボディワークと瞑想</p></div>
+        <div class="card"><img class="ph" src="jungle202610_hi.jpg" alt=""><h3><span class="dot"></span>火と水</h3><p>薪割り、火起こし、焚き火料理、ロープワーク</p></div>
+        <div class="card"><img class="ph" src="jungle202610_higata2.jpg" alt=""><h3><span class="dot"></span>狩る</h3><p>魚突きの実践、イノシシ猟への同行</p></div>
+        <div class="card"><img class="ph" src="jungle202610_sabaku.jpg" alt=""><h3><span class="dot"></span>さばく</h3><p>獲物の解体と調理、石蒸し・燻製</p></div>
+        <div class="card"><img class="ph" src="jungle202610_kago.jpg" alt=""><h3><span class="dot"></span>つくる</h3><p>塩づくり、竹の食器づくり、道具のリペア</p></div>
+        <div class="card"><img class="ph" src="jungle202610_banana.jpg" alt=""><h3><span class="dot"></span>採る</h3><p>野草採集、ジャングルファームの手入れ</p></div>
+        <div class="card"><img class="ph" src="jungle202610_higata.jpg" alt=""><h3><span class="dot"></span>整える</h3><p>サバイバルのためのボディワークと瞑想</p></div>
       </div>
     </div>
   </section>
 
   <!-- 05 -->
   <section class="slide" data-title="ただのキャンプでは、ない" data-part="1">
-    <div class="half left"><img src="jungle202610_jg_irori.jpg" alt=""></div>
+    <div class="half left"><img src="jungle202610_yoru.jpg" alt=""></div>
     <div style="margin-left:48%">
       <div class="kicker">Dialogue</div>
       <h2>ただのキャンプでは、ない。</h2>
@@ -298,16 +304,19 @@
     <div class="body">
       <div class="grid g3">
         <div class="card">
+          <img class="ph tall" src="jungle202610_jungle.jpg" alt="">
           <h3 style="font-size:17px"><span class="dot"></span>1｜技術の基層に気づく</h3>
           <p>技術とは、生きとし生けるものが<b>環境に応じることで生じるはたらき</b>。蔓は他者の幹を足場に光へ届き、ヤドカリは他者の殻を住居に変え、シロアリは空調の効いた塔を建て、菌糸は土の中に流通網を張ります。</p>
           <p>島では「技術＝人間だけのもの」という前提が、理屈ではなく<b>実感としてほどけます</b>。イノシシを「あいつら」と呼ぶ猟師がいます。</p>
         </div>
         <div class="card">
+          <img class="ph tall" src="jungle202610_tent.jpg" alt="">
           <h3 style="font-size:17px"><span class="dot"></span>2｜原初のサイボーグを知る</h3>
           <p>人間は、<b>最低限の道具を必要とするサイボーグ</b>です。道具なしでは一日ももたない。けれど本当に必要な道具は、驚くほど少ない。</p>
           <p>いちばん引いた地点まで一度行ってしまえば、あとは引いたうえで、自分にちょうどいいところを探ればいい。その地点を知るための12日間です。</p>
         </div>
         <div class="card">
+          <img class="ph tall" src="jungle202610_g08.jpg" alt="">
           <h3 style="font-size:17px"><span class="dot"></span>3｜野生のサイバネティクスを実現する</h3>
           <p>自然と都市の<b>往復による再帰的学習</b>で、「異なる身体」を獲得する。機械の再帰性を、生命という地に添付し直す試みです。</p>
           <p>島での学びは、島を出たあとに効いてきます。だから毎回来る人がいるのです。</p>
@@ -402,6 +411,30 @@
     </div>
   </section>
 
+  <!-- 13 ギャラリー -->
+  <section class="slide dark" data-title="12回の、断片" data-part="3">
+    <div class="kicker">Fragments</div>
+    <h2>12回の、断片</h2>
+    <p class="lead">獲る、さばく、つくる、食べる。毎回、何もないところから始まります。</p>
+    <div class="body">
+      <div class="gal">
+        <img src="jungle202610_g01.jpg" alt="">
+        <img src="jungle202610_g02.jpg" alt="">
+        <img src="jungle202610_g03.jpg" alt="">
+        <img src="jungle202610_g04.jpg" alt="">
+        <img src="jungle202610_g05.jpg" alt="">
+        <img src="jungle202610_g06.jpg" alt="">
+        <img src="jungle202610_g07.jpg" alt="">
+        <img src="jungle202610_g10.jpg" alt="">
+        <img src="jungle202610_g12.jpg" alt="">
+        <img src="jungle202610_hamono.jpg" alt="">
+        <img src="jungle202610_jg_irori.jpg" alt="">
+        <img src="jungle202610_jg_inoshishi.jpg" alt="">
+      </div>
+      <p class="small" style="margin-top:18px; font-size:11.5px; color:#7E8E7E">2024.10 – 2026.6 のギャザリングより</p>
+    </div>
+  </section>
+
   <!-- 08 -->
   <section class="slide dark" data-title="前回 2026.6" data-part="4">
     <div class="bg soft"><img src="jungle202610_jg_inoshishi.jpg" alt=""></div>
@@ -423,9 +456,9 @@
     <h2>前回、何が起きたか</h2>
     <div class="body">
       <ol class="steps">
-        <li><span class="n">1</span><div><h3>猪を、土に埋めて蒸した</h3><p>狩ったイノシシをバナナの葉で包み、焼けた石とともに土の中へ。はじめての石蒸し料理は、とてもうまくいった。歯磨き粉や歯ブラシも現地で発明された。</p></div></li>
-        <li><span class="n">2</span><div><h3>魚を突けるようになった</h3><p>魚突きをしたことのなかった人たちが、何人も自分で獲れるようになった。海の中で、魚が「食べ物」に見えはじめる。</p></div></li>
-        <li><span class="n">3</span><div><h3>台風で、フェリーが止まった</h3><p>撤収するほどではないものの、丸一日欠航。予測を超えた日程変更を余儀なくされた——それ自体が、まさにビヨンド・シミュレーションだった。</p></div></li>
+        <li class="withph"><span class="n">1</span><img class="thumb" src="jungle202610_jg_inoshishi.jpg" alt=""><div><h3>猪を、土に埋めて蒸した</h3><p>狩ったイノシシをバナナの葉で包み、焼けた石とともに土の中へ。はじめての石蒸し料理は、とてもうまくいった。歯磨き粉や歯ブラシも現地で発明された。</p></div></li>
+        <li class="withph"><span class="n">2</span><img class="thumb" src="jungle202610_jg_sakana.jpg" alt=""><div><h3>魚を突けるようになった</h3><p>魚突きをしたことのなかった人たちが、何人も自分で獲れるようになった。海の中で、魚が「食べ物」に見えはじめる。</p></div></li>
+        <li class="withph"><span class="n">3</span><img class="thumb" src="jungle202610_jg_cover.jpg" alt=""><div><h3>台風で、フェリーが止まった</h3><p>撤収するほどではないものの、丸一日欠航。予測を超えた日程変更を余儀なくされた——それ自体が、まさにビヨンド・シミュレーションだった。</p></div></li>
       </ol>
     </div>
   </section>
@@ -446,7 +479,6 @@
         <h3 style="font-size:16px; color:var(--mint)">今回からの体制</h3>
         <ul class="plain" style="margin-top:12px">
           <li>危険管理をよりいっそう徹底します</li>
-          <li>応急手当の拠点と AED を含む救護体制を整備します</li>
           <li>海の活動は、当日の海況とご本人の慣れに応じて判断します</li>
         </ul>
       </div>
@@ -479,7 +511,7 @@
         <dt>日程</dt><dd>2026年10月24日 (土) – 11月4日 (水)　全12日間</dd>
         <dt>場所</dt><dd>沖縄県 西表島　集落から離れた奥地のキャンプ場を貸し切り</dd>
         <dt>滞在</dt><dd>この期間のうち、都合のよい日程だけの参加でかまいません（最短1泊から）</dd>
-        <dt>参加</dt><dd>現在 <span class="accent">9名</span>が参加予定。デジタルハリウッド大学学長・藤井直敬さんが初日から参加されます</dd>
+        <dt>ゲスト</dt><dd>デジタルハリウッド大学学長・藤井直敬さんが初日から参加されます</dd>
         <dt>集合</dt><dd>大原港までお迎えに上がります。フェリーの便に合わせて調整します</dd>
       </dl>
       <div class="callout" style="margin-top:26px">年3回（3月・6月・11月）の開催です。台風シーズンと天候の悪い冬を避けると、このタイミングがベストです。</div>
@@ -508,7 +540,7 @@
 
   <!-- 14 -->
   <section class="slide" data-title="住まい" data-part="6">
-    <div class="half right"><img src="jungle202610_jg_camp.jpg" alt=""></div>
+    <div class="half right"><img src="jungle202610_tent2.jpg" alt=""></div>
     <div class="narrow">
       <div class="kicker">Life on site — 住まい</div>
       <h2>雑魚寝では、ありません。</h2>
@@ -619,6 +651,7 @@
           <div class="d" style="margin-top:14px">NFT画像は、島を代表する写真家が撮影した、西表の貴重な動植物の写真をもとにしています。</div>
         </div>
         <div class="card">
+          <img class="ph" src="jungle202610_hamono.jpg" alt="" style="height:96px">
           <h3 style="font-size:16px; color:var(--mint)">会費とギャザリングの収益は、こう使われます</h3>
           <ul class="plain" style="margin-top:12px">
             <li>テント・コット・ウェットスーツなど、みんなで使う備品の購入とリペア</li>
