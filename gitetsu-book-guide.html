@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>『未開の未来へ』構成ガイド｜再野生化のための技術哲学</title>
+<meta name="description" content="書籍『未開の未来へ——再野生化のための技術哲学』の全体構成スライド（執筆ガイダンス）。">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+  :root {
+    --paper:#faf9f5; --ink:#14140f; --ink-soft:#4a4a42; --line:#ddd9cd;
+    --moss:#2F7D4F; --mint:#79C293; --shu:#C25A32;
+    --deep:#0E1A12; --deep2:#18291D; --cream:#F4F1E8; --sand:#C8C2B0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    background:#e9e7df; color:var(--ink);
+    font-family:"Helvetica Neue","Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Arial,sans-serif;
+    font-feature-settings:"palt"; -webkit-font-smoothing:antialiased; overflow:hidden;
+  }
+  .deck { position:fixed; inset:0; overflow:hidden; }
+  .stage { position:absolute; left:50%; top:50%; width:1280px; height:720px;
+    background:var(--paper); transform-origin:center center;
+    box-shadow:0 18px 60px rgba(20,20,15,.14); overflow:hidden; }
+  .slide { position:absolute; inset:0; padding:64px 86px 82px;
+    display:flex; flex-direction:column; opacity:0; visibility:hidden; transition:opacity .38s ease; }
+  .slide.is-active { opacity:1; visibility:visible; }
+
+  /* ---- dark variant ---- */
+  .slide.dark { background:var(--deep); color:var(--cream); }
+  .slide.dark h2 { color:var(--cream); }
+  .slide.dark .kicker { color:var(--mint); }
+  .slide.dark .lead { color:var(--sand); }
+
+  /* ---- photo layers ---- */
+  .bg { position:absolute; inset:0; z-index:0; }
+  .bg img { width:100%; height:100%; object-fit:cover; display:block; }
+  .bg::after { content:""; position:absolute; inset:0; background:var(--deep); opacity:.46; }
+  .bg.soft::after { opacity:.24; }
+  .slide.scrim .bg::after { opacity:1;
+    background:linear-gradient(97deg, rgba(14,26,18,.92) 0%, rgba(14,26,18,.80) 38%, rgba(14,26,18,.40) 78%, rgba(14,26,18,.30) 100%); }
+  .half { position:absolute; top:0; bottom:0; width:44%; z-index:0; overflow:hidden; }
+  .half.right { right:0; } .half.left { left:0; }
+  .half img { width:100%; height:100%; object-fit:cover; display:block; }
+  .slide > *:not(.bg):not(.half):not(.foot) { position:relative; z-index:1; }
+  .narrow { max-width:600px; }
+
+  /* ---- type ---- */
+  .kicker { font-size:12px; letter-spacing:.3em; color:var(--moss); font-weight:700; text-transform:uppercase; }
+  .slide h1 { font-size:52px; font-weight:700; line-height:1.4; letter-spacing:.01em; }
+  .slide h2 { font-size:38px; font-weight:700; line-height:1.45; letter-spacing:.02em; margin-top:14px; }
+  .lead { font-size:16px; line-height:1.95; color:var(--ink-soft); margin-top:12px; max-width:900px; }
+  .body { margin-top:34px; flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
+  .p { font-size:18px; line-height:2.0; margin-top:16px; }
+  .slide.dark .p { color:var(--sand); }
+  .p.em { font-weight:700; color:var(--ink); }
+  .slide.dark .p.em { color:var(--cream); }
+  .small { font-size:14px; line-height:1.85; color:var(--ink-soft); }
+  .slide.dark .small { color:var(--sand); }
+  .accent { color:var(--moss); font-weight:700; }
+  .slide.dark .accent { color:var(--mint); }
+
+  /* ---- title slide ---- */
+  .slide.title { justify-content:flex-end; padding-bottom:118px; }
+  .slide.title .foot span:first-child { visibility:hidden; }
+  .slide:has(.half.left) .foot { left:48%; }
+  .slide:has(.half.right) .foot { right:48%; }
+  .slide.title h1 { color:var(--cream); }
+  .slide.title .sub { font-size:24px; color:var(--cream); margin-top:14px; font-weight:400; }
+  .slide.title .meta { font-size:15px; color:var(--sand); margin-top:26px; letter-spacing:.06em; }
+
+  /* ---- agenda ---- */
+  ol.agenda { list-style:none; }
+  ol.agenda li { display:grid; grid-template-columns:44px 290px 1fr; gap:18px; align-items:baseline;
+    padding:10px 4px; border-bottom:1px solid var(--line); }
+  ol.agenda .n { font-size:13px; font-weight:700; color:#fff; background:var(--moss);
+    border-radius:999px; text-align:center; padding:5px 0; letter-spacing:.06em; }
+  ol.agenda h3 { font-size:19px; font-weight:700; line-height:1.5; }
+  ol.agenda p { font-size:14px; color:var(--ink-soft); line-height:1.8; }
+
+  /* ---- cards ---- */
+  .grid { display:grid; gap:18px; }
+  .g3 { grid-template-columns:repeat(3,1fr); }
+  .g4 { grid-template-columns:repeat(4,1fr); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 22px; }
+  .slide.dark .card { background:var(--deep2); border-color:#2A3D30; }
+  .card h3 { font-size:18px; font-weight:700; line-height:1.5; }
+  .card h3 .dot { display:inline-block; width:9px; height:9px; border-radius:50%;
+    background:var(--moss); margin-right:10px; vertical-align:2px; }
+  .card p { font-size:13.5px; color:var(--ink-soft); line-height:1.8; margin-top:8px; }
+  .slide.dark .card h3 { color:var(--cream); }
+  .slide.dark .card p { color:var(--sand); }
+
+  /* ---- stat ---- */
+  .stat .v { font-size:46px; font-weight:700; line-height:1.15; letter-spacing:-.01em; }
+  .stat .l { font-size:14px; font-weight:700; color:var(--moss); margin-top:10px; }
+  .stat .d { font-size:12px; color:var(--ink-soft); line-height:1.7; margin-top:6px; }
+  .slide.dark .stat .v { color:var(--cream); }
+  .slide.dark .stat .l { color:var(--mint); }
+  .slide.dark .stat .d { color:var(--sand); }
+
+  /* ---- 表 ---- */
+  dl.facts { display:grid; grid-template-columns:110px 1fr; row-gap:17px; column-gap:22px; align-items:baseline; }
+  dl.facts dt { font-size:14px; font-weight:700; color:var(--moss); }
+  dl.facts dd { font-size:17px; line-height:1.7; }
+
+  /* ---- 棒グラフ ---- */
+  .chart { display:grid; grid-template-columns:repeat(12,1fr); gap:12px; align-items:end; height:300px; }
+  .chart .col { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+  .chart .v { font-size:13px; font-weight:700; color:var(--cream); margin-bottom:6px; }
+  .chart .b { width:100%; background:#31543C; border-radius:3px 3px 0 0; }
+  .chart .col.now .b { background:var(--mint); }
+  .chart .col.now .v { color:var(--mint); }
+  .xlab { display:grid; grid-template-columns:repeat(12,1fr); gap:12px; margin-top:10px; text-align:center; }
+  .xlab .d { font-size:11.5px; color:var(--sand); letter-spacing:.02em; }
+  .xlab .n { font-size:11px; color:#7E8E7E; margin-top:3px; }
+
+  /* ---- 番号つきリスト ---- */
+  ol.steps { list-style:none; }
+  ol.steps li { display:grid; grid-template-columns:40px 1fr; gap:18px; align-items:baseline;
+    padding:12px 2px; border-bottom:1px solid var(--line); }
+  .slide.dark ol.steps li { border-color:#2A3D30; }
+  ol.steps .n { font-size:13px; font-weight:700; color:#fff; background:var(--ink);
+    border-radius:999px; text-align:center; padding:5px 0; }
+  ol.steps h3 { font-size:19px; font-weight:700; line-height:1.5; }
+  ol.steps p { font-size:14px; color:var(--ink-soft); line-height:1.8; margin-top:3px; }
+
+  ul.plain { list-style:none; }
+  ul.plain li { position:relative; padding-left:20px; font-size:14px; line-height:1.9; color:var(--ink-soft); }
+  ul.plain li::before { content:""; position:absolute; left:2px; top:12px; width:6px; height:6px;
+    border-radius:50%; background:var(--moss); }
+  .slide.dark ul.plain li { color:var(--sand); }
+  .slide.dark ul.plain li::before { background:var(--mint); }
+
+  /* ---- 3段の帯（技術の基層→テクノロジー→惑星的普遍技術） ---- */
+  .bands { display:flex; flex-direction:column; gap:0; }
+  .band { border-radius:10px; padding:16px 22px; display:grid; grid-template-columns:230px 1fr; gap:22px; align-items:baseline; }
+  .band .bt { font-size:19px; font-weight:700; }
+  .band .bd { font-size:13.5px; line-height:1.8; }
+  .band.b1 { background:#EDF1E9; }
+  .band.b2 { background:#E4EBE2; }
+  .band.b3 { background:var(--moss); color:#fff; }
+  .band.b3 .bd { color:rgba(255,255,255,.88); }
+  .slide.dark .band.b1 { background:#1B2E21; }
+  .slide.dark .band.b2 { background:#23402C; }
+  .phase { text-align:center; font-size:11.5px; letter-spacing:.2em; color:var(--moss); font-weight:700; padding:7px 0; }
+  .slide.dark .phase { color:var(--mint); }
+  /* ---- 往復の図 ---- */
+  .loop { display:grid; grid-template-columns:1fr 150px 1fr; align-items:center; gap:0; }
+  .loop .side { border:1px solid var(--line); border-radius:10px; padding:20px 24px; background:#fff; }
+  .slide.dark .loop .side { background:var(--deep2); border-color:#2A3D30; }
+  .loop .side h3 { font-size:19px; font-weight:700; }
+  .loop .side p { font-size:13px; color:var(--ink-soft); line-height:1.8; margin-top:7px; }
+  .slide.dark .loop .side p { color:var(--sand); }
+  .loop .mid { text-align:center; }
+  .loop .mid .ar { font-size:22px; color:var(--moss); letter-spacing:.1em; }
+  .slide.dark .loop .mid .ar { color:var(--mint); }
+  .loop .mid .lb { font-size:11.5px; color:var(--ink-soft); line-height:1.7; margin:5px 0; }
+  .slide.dark .loop .mid .lb { color:var(--sand); }
+  .card .ph { width:100%; height:78px; object-fit:cover; border-radius:6px; display:block; margin-bottom:11px; }
+  .card .ph.tall { height:104px; }
+  .gal { display:grid; grid-template-columns:repeat(6,1fr); gap:9px; }
+  .gal img { width:100%; height:118px; object-fit:cover; border-radius:5px; display:block; }
+  ol.steps li.withph { grid-template-columns:40px 150px 1fr; }
+  ol.steps img.thumb { width:150px; height:84px; object-fit:cover; border-radius:6px; display:block; }
+  .callout { border:1px solid var(--line); background:#fff; border-radius:10px; padding:16px 20px; font-size:14px; line-height:1.85; color:var(--ink-soft); }
+  .slide.dark .callout { background:var(--deep2); border-color:#2A3D30; color:var(--sand); }
+  .warn { color:var(--shu); font-weight:700; }
+
+  /* ---- chrome ---- */
+  .foot { position:absolute; left:86px; right:86px; bottom:30px; z-index:2;
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11.5px; letter-spacing:.18em; color:var(--ink-soft); }
+  .slide.dark .foot, .slide.title .foot { color:rgba(244,241,232,.5); }
+  .slide:has(.bg) .foot { text-shadow:0 1px 4px rgba(14,26,18,.75); }
+  .bar { position:absolute; left:0; bottom:0; height:3px; background:var(--mint); transition:width .38s ease; z-index:5; }
+  .ui { position:fixed; right:20px; bottom:18px; display:flex; gap:8px; z-index:40; transition:opacity .4s; }
+  .ui.idle { opacity:0; pointer-events:none; }
+  .ui button { font:inherit; font-size:12px; letter-spacing:.14em; background:var(--paper); color:var(--ink-soft);
+    border:1px solid var(--line); border-radius:999px; padding:8px 16px; cursor:pointer; transition:background .2s,color .2s; }
+  .ui button:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .toc { position:fixed; inset:0; z-index:50; background:var(--deep); color:var(--cream);
+    padding:56px 6vw; overflow-y:auto; display:none; }
+  .toc.open { display:block; }
+  .toc h4 { font-size:12px; letter-spacing:.3em; color:var(--mint); font-weight:700; margin-bottom:26px; }
+  .toc ol { list-style:none; columns:2; column-gap:56px; }
+  .toc li { break-inside:avoid; }
+  .toc button { font:inherit; text-align:left; width:100%; display:grid; grid-template-columns:40px 1fr; gap:14px;
+    align-items:baseline; background:none; border:none; border-bottom:1px solid #2A3D30; color:rgba(244,241,232,.72);
+    padding:11px 0; font-size:15.5px; cursor:pointer; transition:color .2s; }
+  .toc button:hover, .toc button.here { color:#fff; }
+  .toc button.here .no { color:var(--mint); }
+  .toc .no { font-size:12px; letter-spacing:.1em; color:#7b8b7b; }
+  .toc .pt { font-size:11px; letter-spacing:.2em; color:var(--mint); display:block; margin-top:4px; }
+  @page { size:1280px 720px; margin:0; }
+  @media print {
+    body { background:#fff; overflow:visible; }
+    .deck, .stage { position:static; width:1280px; height:auto; box-shadow:none; }
+    .slide { position:relative; opacity:1 !important; visibility:visible !important; height:720px; page-break-after:always; }
+    .ui, .toc, .bar { display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <section class="slide title scrim" data-title="表紙" data-part="">
+    <div class="bg"><img src="gbook_cover.jpg" alt=""></div>
+    <div class="kicker" style="color:var(--mint)">BOOK STRUCTURE GUIDE</div>
+    <h1 style="margin-top:14px">未開の未来へ</h1>
+    <p class="sub">再野生化のための技術哲学──全体構成スライド</p>
+    <p class="meta">2026.9.20版　執筆ガイダンス（本の軸）</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="slide" data-title="このスライドの役割" data-part="">
+    <div class="kicker">About</div>
+    <h2>このスライドの役割</h2>
+    <p class="lead">口述の新構成と、現行原稿（約21万字）を統合した「本の軸」。ここから先の原稿は、この構成をガイダンスに書く。</p>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>章ごとに「主張の流れ」を固定する</h3><p>各章スライドは、その章が何をどの順で言うかの設計図。</p></div></li>
+        <li><span class="n">2</span><div><h3>キー概念の置き場所を決める</h3><p>技術的意識・道具のジレンマ・技術多様性・再野生化──どの章で立て、どの章で回収するか。</p></div></li>
+        <li><span class="n">3</span><div><h3>原稿の状態を明示する</h3><p>章スライドの末尾に現状を表記する。</p></div></li>
+      </ol>
+      <div class="callout" style="margin-top:22px"><span class="accent">◎</span>＝現行原稿あり（仕上げ済み）　<span class="accent">△</span>＝原稿あり・増補や再フレームが必要　<span class="warn">✕</span>＝新規執筆（口述素材あり）</div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="slide dark" data-title="この本が言うこと" data-part="">
+    <div class="half right"><img src="gbook_mori.jpg" alt=""></div>
+    <div class="kicker">Thesis</div>
+    <h2 style="max-width:600px">この本が言うこと</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
+      <p class="p">惑星的危機の根源には、テクノロジーという「一つの技術」の支配がある。しかも、誰も能動的に操縦していない。</p>
+      <p class="p em">人類は言語的意識を獲得した。次に獲得すべきは、技術的意識である。</p>
+      <p class="p">出口は、外からの規制でも、文明から降りることでもない。テクノロジーを内側から更新すること──技術の再野生化、未開の未来。</p>
+      <p class="small" style="margin-top:20px; color:var(--mint)">立場：反テクノロジーではない。「内側から更新する」派。</p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="slide" data-title="背骨の概念──技術的意識" data-part="">
+    <div class="kicker">Backbone Concept</div>
+    <h2>背骨の概念──技術的意識</h2>
+    <p class="lead">本書全体を貫く新概念。言語や意識には自覚へのアプローチがあるのに、技術にだけ無い。</p>
+    <div class="body">
+      <dl class="facts" style="grid-template-columns:90px 1fr">
+        <dt>言語</dt><dd>言語学が構造を明らかにした。私たちは、自分がどんな文法で話しているかを知っている。</dd>
+        <dt>意識</dt><dd>認知科学・心理学・瞑想・カウンセリング。自分がどんな意識状態かにアプローチする方法がある。</dd>
+        <dt>技術</dt><dd><b>どんな技術的意識で、どんな技術体験をしているのか──アプローチする方法が、全く無い。</b></dd>
+      </dl>
+      <div class="callout" style="margin-top:24px">洞窟に手を描いた頃から、技術への気づきはあった。だが主観的な感動・驚きのままで終わってきた。入來篤史の実験が示すように、道具は現に意識と身体を変容させているのに、私たちはそれに意識的でない。<span class="accent">技術的意識の獲得こそ、AI時代に真っ先になすべきこと。これなしにAI倫理を論じても、すべて上滑りする。</span></div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="slide" data-title="全体マップ──全9章" data-part="">
+    <div class="kicker">Map</div>
+    <h2>全体マップ</h2>
+    <p class="lead">序＋8章。基層から立ち上げ、秩序の歴史で折り返し、再野生化で締める。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3><span class="dot"></span>序　はじめに</h3><p>ジャングルの違和感から。全体概要と三つの未来。</p></div>
+        <div class="card"><h3><span class="dot"></span>1　惑星的危機</h3><p>いま、現在、どうなっているのか。</p></div>
+        <div class="card"><h3><span class="dot"></span>2　技術の哲学</h3><p>危機に応答する学問としての役割。</p></div>
+        <div class="card"><h3><span class="dot"></span>3　技術の基層</h3><p>定義→宇宙的起源→生命。最も広い技術。</p></div>
+        <div class="card"><h3><span class="dot"></span>4　技術の黎明</h3><p>道具と人間。道具性・ジレンマ・技術的意識。</p></div>
+        <div class="card"><h3><span class="dot"></span>5　技術の秩序</h3><p>技術的意識が強制されてきた5万年。</p></div>
+        <div class="card"><h3><span class="dot"></span>6　技術の応答</h3><p>応答すべき・生命から・没入。</p></div>
+        <div class="card"><h3><span class="dot"></span>7　技術の自然</h3><p>ハイデガー・野生のサイバネティクス・東洋。</p></div>
+        <div class="card"><h3><span class="dot"></span>8　技術の再野生化</h3><p>総まとめ。未開の未来へ。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="slide dark scrim" data-title="序──はじめに" data-part="i">
+    <div class="bg"><img src="gbook_field.jpg" alt=""></div>
+    <div class="kicker">序</div>
+    <h2>はじめに──ジャングルからの問いかけ</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
+      <p class="p">銛一本のジレンマ。消えなかった違和感。プリミティブなサイボーグ。</p>
+      <p class="p">全体概要として、三つの未来と「未開の未来」の実現、テクノロジーを内側から更新する必要性、その前提としての惑星的危機まで、冒頭で一気に見せる。</p>
+      <p class="small" style="margin-top:18px; color:var(--mint)">原稿：◎ ほぼ完成。惑星的危機の章へつなぐ一段のみ追加。</p>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="slide" data-title="はじめにの流れ" data-part="i">
+    <div class="kicker">序</div>
+    <h2>はじめにの流れ</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>問いの始まり</h3><p>少年期の違和感と、ジャングルの銛。テクノロジーを多少嗜んできた半生。</p></div></li>
+        <li><span class="n">2</span><div><h3>プリミティブなサイボーグ</h3><p>人間の条件の発見。人間が悪いのか？</p></div></li>
+        <li><span class="n">3</span><div><h3>技術によって作り変えられる世界</h3><p>技術の本質と、根源へ遡る意味。</p></div></li>
+        <li><span class="n">4</span><div><h3>三つの未来と、第三の道</h3><p>このまま／降りる／方向を変える。内側から更新する。</p></div></li>
+        <li><span class="n">5</span><div><h3>未開の未来──本書の航路</h3><p>全章の予告。そして惑星的危機へ橋を架ける。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="slide dark scrim" data-title="第1章 惑星的危機" data-part="1">
+    <div class="bg"><img src="gbook_tokyo.jpg" alt=""></div>
+    <div class="kicker">Chapter 1</div>
+    <h2>惑星的危機</h2>
+    <p class="lead" style="color:var(--sand)">いま、現在、どうなっているのか。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <p class="p">気候・生態系・社会・AIの加速。危機の現在地を、データの羅列ではなく「作らされている」という感覚から描く。誰も操縦していない巨大な力。</p>
+      <p class="p">役割：読者と危機認識を共有し、「なぜいま技術を問うのか」への必然をつくる。</p>
+      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規執筆</span>（現行はスタブ）。ハラリ的診断の引用で終わらせず、「技術のあり方」への問いに絞り込む。</p>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="slide dark scrim" data-title="第2章 技術の哲学" data-part="2">
+    <div class="bg"><img src="gbook_crossing.jpg" alt=""></div>
+    <div class="kicker">Chapter 2</div>
+    <h2>技術の哲学──応答する学問</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
+      <p class="p">惑星的危機に応答する学問として、技術哲学を紹介する。若い学問、古い問い。</p>
+      <p class="p">「人間と技術のあいだ」は、なぜ誰にも問われてこなかったのか──そこから始める。</p>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" data-title="技術の哲学の流れ" data-part="2">
+    <div class="kicker">Chapter 2</div>
+    <h2>技術の哲学の流れ</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>「あいだ」は、誰にも問われてこなかった</h3><p>理由1：二つの不可分性。理由2：実質的な技術決定論。</p></div></li>
+        <li><span class="n">2</span><div><h3>技術哲学とは何か</h3><p>若い学問、古い問い。</p></div></li>
+        <li><span class="n">3</span><div><h3>五つの視点</h3><p>道具ではない／生まれながらのサイボーグ／関係のなかで何かになる／ゲシュテル／技術多様性。</p></div></li>
+        <li><span class="n">4</span><div><h3>技術のジレンマと、見えない天秤</h3><p>便利さの裏で、何が量られているのか。</p></div></li>
+        <li><span class="n">5</span><div><h3>計器ではなく、航路を</h3><p>降ろすべき中心は二つある。これはロマン主義ではない。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。「危機に応答する学」という役割づけを冒頭に明示する再フレームのみ。</p>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide dark scrim" data-title="第3章 技術の基層" data-part="3">
+    <div class="bg"><img src="gbook_milkyway.jpg" alt=""></div>
+    <div class="kicker">Chapter 3</div>
+    <h2>技術の基層</h2>
+    <p class="lead" style="color:var(--sand)">ここからが本題。最も広い「技術」の概念づけ。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <p class="p">人間以外の技術を含めた、技術一般の、いちばん広いレベルでの捉え直し。技術の基礎はどうなっているのか、本質部分はどうなっているのか。</p>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide" data-title="技術の基層の流れ" data-part="3">
+    <div class="kicker">Chapter 3</div>
+    <h2>技術の基層の流れ</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>技術とはなにか──定義から入る</h3><p>テクネー／モノかワザか／生きるための知恵／科学と技術／技術・道具・テクノロジーの三区別。</p></div></li>
+        <li><span class="n">2</span><div><h3>技術の宇宙的起源</h3><p>素材と身体の普遍的な共鳴。発明とは発見。宇宙的条件。生命という底。</p></div></li>
+        <li><span class="n">3</span><div><h3>技術の生命的基層</h3><p>アフォーダンスとエナクティヴィズム。倫理以前からの、倫理の問い。</p></div></li>
+        <li><span class="n">4</span><div><h3>道具と身体性へ</h3><p>デザインされたアフォーダンス──「使う技術」から「使われる技術」へ。テクノロジーと基層の距離。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり（統合清書済み）。順序を「定義→宇宙→生命→身体」に固定。</p>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide dark scrim" data-title="第4章 技術の黎明" data-part="4">
+    <div class="bg"><img src="gbook_hiokoshi.jpg" alt=""></div>
+    <div class="kicker">Chapter 4</div>
+    <h2>技術の黎明──人間の技術</h2>
+    <p class="lead" style="color:var(--sand)">道具を掘り下げる。そして「技術的意識」へ。</p>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide" data-title="原初のサイボーグ" data-part="4">
+    <div class="half right"><img src="gbook_dogu.jpg" alt=""></div>
+    <div class="kicker">Chapter 4 ─ 1</div>
+    <h2 style="max-width:600px">原初のサイボーグ</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
+      <p class="p">いかに人間は技術を、道具を必要とするのか。どのように道具を発明したのか。</p>
+      <ul class="plain" style="margin-top:14px">
+        <li>道具は身体機能を外化させ、能力を拡張する</li>
+        <li>火という、最初のシンギュラリティ</li>
+        <li>ルロワ゠グーラン──身ぶりと言葉、技術的傾向</li>
+        <li>人間と他の動物の技術の違い</li>
+      </ul>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" data-title="道具性──みんな気づいていない" data-part="4">
+    <div class="kicker">Chapter 4 ─ 2</div>
+    <h2>道具性──みんな気づいていない</h2>
+    <p class="lead">道具の性質を体系的に解説する。誰もが使っているのに、誰も気づいていない。気づいた方がいい。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3><span class="dot"></span>外化・拡張・身体化・透明化</h3><p>外に出し、広げ、取り込み、見えなくなる。</p></div>
+        <div class="card"><h3><span class="dot"></span>連関性・世界構成性</h3><p>道具は単体で存在しない。世界を編む。</p></div>
+        <div class="card"><h3><span class="dot"></span>意味・シンボル性</h3><p>道具は意味を運ぶ。物語のなかで道具になる。</p></div>
+        <div class="card"><h3><span class="dot"></span>時間性・持続性・習熟性</h3><p>道具は時間を貯め、身体に沈む。</p></div>
+        <div class="card"><h3><span class="dot"></span>連鎖性</h3><p>道具が道具を生む。止まらない連鎖。</p></div>
+        <div class="card" style="background:transparent; border-style:dashed"><h3 style="color:var(--moss)">→ ジレンマへ</h3><p>性質に気づいても、それだけでは済まない。</p></div>
+      </div>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり（道具分析）。</p>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" data-title="道具のジレンマ──最も厄介な部分" data-part="4">
+    <div class="kicker">Chapter 4 ─ 3</div>
+    <h2>道具のジレンマ──最も厄介な部分</h2>
+    <p class="lead">道具性に気づいたとしても、ジレンマに陥る。技術の一番厄介な部分を、深く解説する。</p>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">一</span><div><h3>生存に必要なものが、身体の外にある</h3><p>外に出したものは、盗まれ、失われうる。</p></div></li>
+        <li><span class="n">二</span><div><h3>拡張するほど、失う</h3><p>足し算か、引き出しか。得るたびに、沈んでいた何かが痩せる。</p></div></li>
+        <li><span class="n">三</span><div><h3>使いこなすほど、見えなくなる</h3><p>透明化。うまく機能しているときほど、問えない。</p></div></li>
+        <li><span class="n">四</span><div><h3>止まれない</h3><p>連鎖は誰にも止められない。それでも、生きる。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり（四つのジレンマは地盤である／内にあるのか、外にあるのか）。</p>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide dark scrim" data-title="精神と道具のマトリックス" data-part="4">
+    <div class="bg"><img src="gbook_cave.jpg" alt=""></div>
+    <div class="kicker">Chapter 4 ─ 4</div>
+    <h2>精神と道具のマトリックス</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
+      <p class="p em">人間の意識・言語・社会性は、はじめから技術とともにあった。</p>
+      <ul class="plain" style="margin-top:14px">
+        <li>入來実験──熊手の先まで広がる身体（脳は道具を身体に取り込む）</li>
+        <li>つくることは、考えること</li>
+        <li>道具が、言葉と社会を生んだ</li>
+        <li>自然が、自らに気づく──原初のサイボーグ</li>
+      </ul>
+      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide" data-title="技術的意識──章のクライマックス" data-part="4">
+    <div class="kicker">Chapter 4 ─ 5</div>
+    <h2>技術的意識──章のクライマックス</h2>
+    <p class="lead">技術への意識を獲得していく必要がある。だが、その気づきが決定的に足りていない。</p>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>気づきは、あった。だが感動のままで終わった</h3><p>洞窟に手を描いた頃から、技術への驚きはあった。主観的な感動どまりで、本質・本性への気づきに至らなかった。</p></div></li>
+        <li><span class="n">2</span><div><h3>言語と意識は分析されたのに、技術だけが手つかず</h3><p>言語は言語学が、意識は認知科学・心理学が自覚への道をつくった。技術的意識へのアプローチだけが、全く無い。</p></div></li>
+        <li><span class="n">3</span><div><h3>科学は変容を示している。なのに意識的になれていない</h3><p>道具は現に意識と身体を変容させている（入來実験ほか）。だが、いまどんな技術を使っているか、誰も気づいていない。</p></div></li>
+        <li><span class="n">4</span><div><h3>どんな技術体験をしているかに、意識的になるべきだ</h3><p>それは道具性とジレンマを知ること、人間の本性を知ることにつながる。AI時代に真っ先になすべきこと。これなしのAI倫理は上滑りする。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:14px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。この章の結論部として書き下ろす。</p>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide dark" data-title="ここまでの圧縮整理" data-part="4">
+    <div class="kicker">Chapter 4 ─ 6</div>
+    <h2>ここまでの圧縮整理</h2>
+    <p class="lead" style="color:var(--sand)">壮大な議論なので、ここで一度、圧縮して整理する小括を置く。</p>
+    <div class="body">
+      <div class="bands">
+        <div class="band b1"><div class="bt">技術の基層</div><div class="bd">宇宙・生命・身体。素材との共鳴。人間以外を含む最も広い技術。</div></div>
+        <div class="phase">↓</div>
+        <div class="band b2"><div class="bt">技術の黎明</div><div class="bd">道具の発明。道具性。四つのジレンマ。意識・言語・社会は技術とともに生まれた。</div></div>
+        <div class="phase">↓</div>
+        <div class="band b3"><div class="bt">技術的意識</div><div class="bd">言語的意識の次に、人類が獲得すべきもの。ここから後半へ。</div></div>
+      </div>
+      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規</span>（1〜2ページの小括）。</p>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide dark scrim" data-title="第5章 技術の秩序" data-part="5">
+    <div class="bg"><img src="gbook_ishtar.jpg" alt=""></div>
+    <div class="kicker">Chapter 5</div>
+    <h2>技術の秩序</h2>
+    <p class="lead" style="color:var(--sand)">技術的意識は、いかに一方向に強制されてきたか。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <p class="p">「技術は道具である」という考えを克服できなかったのは、5万年かけて、その意識が強化されてきたからだ。その歴史を、神話からAIまで一本の線で整理する。</p>
+    </div>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide" data-title="技術と神話" data-part="5">
+    <div class="half right"><img src="gbook_myth.jpg" alt=""></div>
+    <div class="kicker">Chapter 5 ─ 1</div>
+    <h2 style="max-width:600px">技術と神話</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
+      <p class="p">そもそも私たちの技術を発揮する行為は、神話的なものに紐づけられている。</p>
+      <ul class="plain" style="margin-top:14px">
+        <li>神話が、世界を配列する</li>
+        <li>風土が神話を、神話が技術を、かたちづくる</li>
+        <li>だから技術は多様である──技術多様性</li>
+        <li>誰も、能動的にはつくっていない</li>
+      </ul>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide" data-title="神話の三つのタイプ" data-part="5">
+    <div class="kicker">Chapter 5 ─ 2</div>
+    <h2>神話の三つのタイプ</h2>
+    <p class="lead">世界神話学説。人類の移動経路に沿って、神話は分岐した。</p>
+    <div class="body">
+      <div class="grid g3">
+        <div class="card"><h3><span class="dot"></span>ゴンドワナ型</h3><p>世界ははじめからある。循環する時間。精霊と地続きの共存。約7万年前の第一波。</p></div>
+        <div class="card"><h3><span class="dot"></span>ローラシア型</h3><p>創造から終末への一本の物語。階層と秩序。ギリシャ神話も聖書も古事記もこの型。</p></div>
+        <div class="card"><h3><span class="dot"></span>ミックス型</h3><p>日本。縄文の古層に弥生が重なり、神道・仏教・儒教が併存する混交。</p></div>
+      </div>
+      <div class="callout" style="margin-top:22px"><b>強調：どのタイプの神話であっても、技術のありようそのものに気づくものではなかった。</b>技術は未分化なまま、神話のなかに埋め込まれていた。</div>
+      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり ＋ <span class="accent">△</span>「未分化」の強調を追記。</p>
+    </div>
+  </section>
+
+  <!-- 23 -->
+  <section class="slide" data-title="以心伝心の克服" data-part="5">
+    <div class="kicker">Chapter 5 ─ 3</div>
+    <h2>「以心伝心」の克服</h2>
+    <div class="body">
+      <p class="p">「技術は、意識に上る前に発揮されるのが良い」「技術は以心伝心で、言語を伴わずに伝承されるものだ」──この考え方を、本書は克服する。</p>
+      <p class="p">それは、これまでは良かった。実際、うまくいってきた。だが、時代は変わってしまった。</p>
+      <p class="p em">言語的意識──世界を言語的に理解すること──を獲得した人類が、次に得るべきものが、技術的意識──世界を技術的に理解すること──である。</p>
+      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。神話の章と歴史の章をつなぐ蝶番。</p>
+    </div>
+  </section>
+
+  <!-- 24 -->
+  <section class="slide dark scrim" data-title="メソポタミアからの技術決定論" data-part="5">
+    <div class="bg"><img src="gbook_cuneiform.jpg" alt=""></div>
+    <div class="kicker">Chapter 5 ─ 4</div>
+    <h2>メソポタミアからの技術決定論</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
+      <p class="p">ローラシア型の系譜の西側で、メソポタミア文明が誕生する。私たちは、5000年前の雛形のまま生きている。</p>
+      <ul class="plain" style="margin-top:14px">
+        <li>組織という当たり前──物語と宗教</li>
+        <li>未来と管理という当たり前──倉庫と穀物</li>
+        <li>国家と責任という当たり前──文字と法</li>
+      </ul>
+      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり（古代の技術の秩序の誕生）。</p>
+    </div>
+  </section>
+
+  <!-- 25 -->
+  <section class="slide" data-title="西洋形而上学──ロゴスとキリスト教" data-part="5">
+    <div class="kicker">Chapter 5 ─ 5</div>
+    <h2>西洋形而上学──ロゴスとキリスト教</h2>
+    <p class="lead">古代ギリシャから中世ヨーロッパへ。テクノロジー前夜。</p>
+    <div class="body">
+      <ul class="plain">
+        <li>ロゴス──言葉と理性による世界把握。イデア、設計図の思想</li>
+        <li>キリスト教──一神教と、始まりから終わりへ向かう直線の時間</li>
+        <li>観想の玉座──技術は奴隷の仕事とされ、問われないまま発達した</li>
+        <li>この系譜だけが、なぜ「普遍」を名乗るに至ったのか</li>
+      </ul>
+      <p class="small" style="margin-top:18px"><span class="accent">△</span> 増補。現行は薄い。「近代の秩序」の手前に1章分立てる。</p>
+    </div>
+  </section>
+
+  <!-- 26 -->
+  <section class="slide" data-title="テクノロジー誕生" data-part="5">
+    <div class="kicker">Chapter 5 ─ 6</div>
+    <h2>テクノロジー誕生</h2>
+    <p class="lead">産業革命。技術が科学と資本に束ねられ、テクノロジーになる。</p>
+    <div class="body">
+      <ul class="plain">
+        <li>個人という当たり前──機械と科学</li>
+        <li>ゲシュテル──世界が「資源」として立ち現れる（ハイデガーはここで本格導入）</li>
+        <li>生産性・効率性でしか世界が見えなくなる、その仕組み</li>
+      </ul>
+      <p class="small" style="margin-top:18px"><span class="accent">△</span> ゲシュテル論を応答部からこの章へ移動。接続を書き直す。</p>
+    </div>
+  </section>
+
+  <!-- 27 -->
+  <section class="slide dark scrim" data-title="AIと計算可能な世界" data-part="5">
+    <div class="bg"><img src="gbook_server.jpg" alt=""></div>
+    <div class="kicker">Chapter 5 ─ 7</div>
+    <h2>AIと計算可能な世界</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
+      <p class="p">計算機とAI。「計算可能な世界」という当たり前の完成形。5000年の秩序の最新層。</p>
+      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり（計算機とAI／固定化が生むもの）。</p>
+    </div>
+  </section>
+
+  <!-- 28 -->
+  <section class="slide" data-title="秩序の最終章──ほころび" data-part="5">
+    <div class="half right"><img src="gbook_crowd.jpg" alt=""></div>
+    <div class="kicker">Chapter 5 ─ 8</div>
+    <h2 style="max-width:600px">秩序の最終章──ほころび</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:16px">
+      <ul class="plain">
+        <li>AIにおいて、テクノロジーの傾向性がむき出しになった。「AI」という概念自体が普遍的ではない</li>
+        <li>AGI論・シミュレーション仮説に、日本人は冷めている（千葉雅也・東浩紀の発言から）</li>
+        <li>深刻に語るAGI論者もいる。だが「頭のいい人が考えすぎているだけ」ではないか</li>
+        <li>知性に知性で応答しても仕方がない。知性が全てではない</li>
+        <li>ここで、異なる未来の可能性をもう一度開く</li>
+      </ul>
+      <p class="small" style="margin-top:16px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。秩序の部の締め。</p>
+    </div>
+  </section>
+
+  <!-- 29 -->
+  <section class="slide dark" data-title="第6章 技術の応答" data-part="6">
+    <div class="half right"><img src="gbook_koou.jpg" alt=""></div>
+    <div class="kicker">Chapter 6</div>
+    <h2 style="max-width:560px">技術の応答</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
+      <p class="p">このように形作られたテクノロジーに対して、いかなる応答が可能なのか。</p>
+      <p class="p em">＝技術的意識を、いかに獲得できるのか。</p>
+    </div>
+  </section>
+
+  <!-- 30 -->
+  <section class="slide" data-title="三つの応答" data-part="6">
+    <div class="kicker">Chapter 6</div>
+    <h2>三つの応答</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>応答すべきだ</h3><p>絶望から始める。火を盗んだ者たちの系譜。三つの命題──不可分性の受容と、決定論の乗り越え。</p></div></li>
+        <li><span class="n">2</span><div><h3>応答は、生命からなされる</h3><p>プラトンの呪い。生情報の序列──タモス王、AIに物申す。技術を使う生命に、気づく。</p></div></li>
+        <li><span class="n">3</span><div><h3>没入──作ることから応答する</h3><p>メイカーズ。観想の玉座を降りる。作られたものから、作るものへ。</p></div></li>
+        <li><span class="n">＋</span><div><h3>サイボーグ・メディテーション</h3><p>気づいているサイボーグ。絶望しながら、超えていく。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。ゲシュテル論を秩序へ移した分の接続を調整。</p>
+    </div>
+  </section>
+
+  <!-- 31 -->
+  <section class="slide dark scrim" data-title="第7章 技術の自然" data-part="7">
+    <div class="bg"><img src="gbook_wild.jpg" alt=""></div>
+    <div class="kicker">Chapter 7</div>
+    <h2>技術の自然──技術と野生</h2>
+    <p class="lead" style="color:var(--sand)">飼いならされた世界の見方を超えるヒントは、どこにあるか。</p>
+  </section>
+
+  <!-- 32 -->
+  <section class="slide" data-title="ハイデガーから野生へ" data-part="7">
+    <div class="kicker">Chapter 7 ─ 1</div>
+    <h2>ハイデガーから野生へ</h2>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>もう一度、ハイデガーから</h3><p>ゲシュテルの診断は第5章で確認済み。ここでは、その先のヒントを拾う。</p></div></li>
+        <li><span class="n">2</span><div><h3>放下──「然り」と「否」を同時に</h3><p>ハイデガーの理想：自然に内在する力を、外へ導く。</p></div></li>
+        <li><span class="n">3</span><div><h3>ハイデガーを超えて──多元性へ</h3><p>一つの存在の歴史ではなく、複数の技術のありようへ。</p></div></li>
+        <li><span class="n">4</span><div><h3>野生のサイバネティクス</h3><p>予測が現実を上回る時代に、サイボーグとして野生に還る。いま求められる「知恵」。</p></div></li>
+      </ol>
+      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 33 -->
+  <section class="slide" data-title="東洋思想の中にヒントを見出す" data-part="7">
+    <div class="kicker">Chapter 7 ─ 2</div>
+    <h2>東洋思想の中にヒントを見出す</h2>
+    <p class="lead">東洋思想において、技術は自然との関係をどう築いてきたか。</p>
+    <div class="body">
+      <ul class="plain">
+        <li>無為の技術の扉──テクノロジーカルトの教典と、隠れた絶対者</li>
+        <li>おのずからの技術──自然則のマインド・アップローディング</li>
+        <li>テクノロジーは夢である──胡蝶の夢と、洞窟の比喩。あわいから、出ずるもの</li>
+        <li>どんな夢を見るのか</li>
+      </ul>
+      <p class="small" style="margin-top:18px"><span class="accent">◎</span> 原稿あり（無為の技術の扉／テクノロジーは夢である）。</p>
+    </div>
+  </section>
+
+  <!-- 34 -->
+  <section class="slide dark scrim" data-title="第8章 技術の再野生化" data-part="8">
+    <div class="bg"><img src="gbook_field11.jpg" alt=""></div>
+    <div class="kicker">Chapter 8</div>
+    <h2>技術の再野生化</h2>
+    <p class="lead" style="color:var(--sand)">総まとめ。技術の基層から、原初のサイボーグから、野生のサイバネティクスまで──一気に束ねる。</p>
+  </section>
+
+  <!-- 35 -->
+  <section class="slide" data-title="未開の未来へ" data-part="8">
+    <div class="half right"><img src="gbook_niwa.jpg" alt=""></div>
+    <div class="kicker">Chapter 8 ─ 1</div>
+    <h2 style="max-width:600px">未開の未来へ</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:16px">
+      <ul class="plain">
+        <li>三つの未来──このまま／降りる／方向を変える</li>
+        <li>未開の未来──飼い慣らされた未来からの逸脱</li>
+        <li>makers Unlearn──実装の現場。アンラーンに教科書はない</li>
+        <li>モア・ザン・ヒューマンと、プリミティブ・サイボーグ</li>
+        <li>里山より、先へ。反ではなく、もしも</li>
+      </ul>
+      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 36 -->
+  <section class="slide" data-title="惑星的普遍技術という挑戦" data-part="8">
+    <div class="kicker">Chapter 8 ─ 2</div>
+    <h2>惑星的普遍技術という挑戦</h2>
+    <div class="body">
+      <div class="bands">
+        <div class="band b1"><div class="bt">正しさは、基層に</div><div class="bd">橋が落ちるかどうかは、宇宙の物理法則が定める。相対主義ではない。</div></div>
+        <div class="band b2"><div class="bt">多様性は、風土に</div><div class="bd">神話・文化・傾向性。技術は風土に応じて多様である。</div></div>
+        <div class="band b3"><div class="bt">「普遍」は、歴史のなかに</div><div class="bd">最後に載せられた屋根。設計書・科学・テクノロジーが仕上げた想定。</div></div>
+      </div>
+      <ul class="plain" style="margin-top:18px">
+        <li>モノの普遍から、ワザの普遍へ</li>
+        <li>ソフトウェアとAI──ハードを編み直し、前提を壊す道具</li>
+        <li>野生を、ループに入れる</li>
+      </ul>
+      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 37 -->
+  <section class="slide dark scrim" data-title="宣言" data-part="8">
+    <div class="bg"><img src="gbook_ember.jpg" alt=""></div>
+    <div class="kicker">Chapter 8 ─ 3</div>
+    <h2>宣言──技術の再野生化</h2>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
+      <p class="p em" style="font-size:22px">テクノロジーを、内側から更新する。</p>
+      <p class="p">そして、応答してほしい。</p>
+      <p class="small" style="margin-top:18px; color:var(--mint)">◎ 原稿あり。</p>
+    </div>
+  </section>
+
+  <!-- 38 -->
+  <section class="slide" data-title="章別の原稿状態" data-part="g">
+    <div class="kicker">Writing Guide</div>
+    <h2>章別の原稿状態</h2>
+    <div class="body">
+      <dl class="facts" style="grid-template-columns:210px 1fr; row-gap:13px">
+        <dt>序　はじめに</dt><dd><span class="accent">◎</span>　惑星的危機への橋を一段だけ追加</dd>
+        <dt>1　惑星的危機</dt><dd><span class="warn">✕</span>　新規執筆（現行はスタブ）</dd>
+        <dt>2　技術の哲学</dt><dd><span class="accent">◎</span>　「応答する学」への再フレーム小</dd>
+        <dt>3　技術の基層</dt><dd><span class="accent">◎</span>　統合清書済み</dd>
+        <dt>4　技術の黎明</dt><dd><span class="accent">◎</span>＋<span class="warn">✕</span>　技術的意識・小括を書き下ろし</dd>
+        <dt>5　技術の秩序</dt><dd><span class="accent">◎</span>＋<span class="accent">△</span>＋<span class="warn">✕</span>　以心伝心／西洋形而上学／AIほころび</dd>
+        <dt>6　技術の応答</dt><dd><span class="accent">◎</span>　ゲシュテル移動分の接続調整</dd>
+        <dt>7　技術の自然</dt><dd><span class="accent">◎</span>　整理のみ</dd>
+        <dt>8　技術の再野生化</dt><dd><span class="accent">◎</span>　仕上げ済み</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 39 -->
+  <section class="slide" data-title="執筆順の提案" data-part="g">
+    <div class="kicker">Writing Guide</div>
+    <h2>執筆順の提案</h2>
+    <p class="lead">背骨から書く。新規✕→増補△→接続調整の順。</p>
+    <div class="body">
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>第4章末「技術的意識」＋小括</h3><p>本書の背骨。口述素材あり。ここが決まると全体の語りが定まる。</p></div></li>
+        <li><span class="n">2</span><div><h3>第5章「以心伝心の克服」「AIほころび」</h3><p>秩序の部の蝶番と締め。口述素材あり。</p></div></li>
+        <li><span class="n">3</span><div><h3>第5章 西洋形而上学の増補</h3><p>ロゴス・キリスト教・観想の玉座。ゲシュテル論の移設もここで。</p></div></li>
+        <li><span class="n">4</span><div><h3>第1章 惑星的危機</h3><p>新規。「はじめに」からの橋と合わせて書く。</p></div></li>
+        <li><span class="n">5</span><div><h3>全章の接続調整 → 通し読み</h3><p>技術的意識の語彙で全体を貫いているか検証。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 40 -->
+  <section class="slide dark scrim" data-title="クロージング" data-part="">
+    <div class="bg"><img src="gbook_milkyway.jpg" alt=""></div>
+    <div class="kicker" style="color:var(--mint)">Toward the Untamed Future</div>
+    <h1 style="margin-top:14px; color:var(--cream)">未開の未来へ</h1>
+    <p class="sub" style="color:var(--cream); font-size:20px; margin-top:14px">この構成をガイダンスに、原稿を書き進める。</p>
+    <p class="meta" style="color:var(--sand); margin-top:22px">2026.9.20　構成ガイド v1</p>
+  </section>
+
+  <div class="bar" id="bar"></div>
+</div><!-- /stage -->
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    'i': '序 ／ はじめに',
+    '1': '第1章 ／ 惑星的危機',
+    '2': '第2章 ／ 技術の哲学',
+    '3': '第3章 ／ 技術の基層',
+    '4': '第4章 ／ 技術の黎明',
+    '5': '第5章 ／ 技術の秩序',
+    '6': '第6章 ／ 技術の応答',
+    '7': '第7章 ／ 技術の自然',
+    '8': '第8章 ／ 技術の再野生化',
+    'g': '執筆ガイド'
+  };
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || '『未開の未来へ』構成ガイド') +
+      '</span><span>' + pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' + s.getAttribute('data-title') +
+      (part ? '<span class="pt">' + (PART_NAME[part] || '') + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+  function fit() {
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
+  }
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
+  fit(); setTimeout(fit, 120); setTimeout(fit, 600);
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
