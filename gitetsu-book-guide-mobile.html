@@ -80,6 +80,15 @@
   li.ct-ch a::after { content:"›"; position:absolute; right:4px; top:9px;
     color:var(--sand); font-size:16px; }
 
+  .ct-w { margin-left:auto; font-size:11.5px; font-weight:700; color:var(--ink-soft);
+    font-variant-numeric:tabular-nums; }
+  li.ct-ch a { display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding-right:20px; }
+  .ct-w2 { flex:0 0 auto; font-size:11.5px; color:var(--ink-soft);
+    font-variant-numeric:tabular-nums; }
+  li.ct-ch a.stub .ct-w2 { color:#B4532F; font-weight:700; }
+  .ctnote { margin-top:16px; font-size:11.5px; color:var(--ink-soft); line-height:1.8; }
+
   /* ---- 部扉 ---- */
   .partdiv { position:relative; background:var(--deep); color:var(--cream); overflow:hidden;
     padding:0; margin-top:6px; }
@@ -197,53 +206,54 @@
 <section class="contents" id="contents">
   <p class="eyebrow dark">CONTENTS</p>
   <h2>目次</h2>
-  <p class="lead">全9部・23章。タップでその章へ移動します。</p>
+  <p class="lead">全9部・23章。数字は現行原稿の文字数（2026.9.21時点）。総計 約194,761字＝400字詰で約487枚。タップでその章へ移動します。</p>
   <ol class="ctlist">
     <li class="ct-part"><a href="#ch3">
-      <span class="ct-n">1</span><span class="ct-pt">はじめに</span></a></li>
-    <li class="ct-ch"><a href="#ch3">はじめに</a></li>
+      <span class="ct-n">1</span><span class="ct-pt">はじめに</span><span class="ct-w">15,743字</span></a></li>
+    <li class="ct-ch"><a href="#ch3"><span>はじめに</span><span class="ct-w2">15,743</span></a></li>
     <li class="ct-part"><a href="#ch4">
-      <span class="ct-n">2</span><span class="ct-pt">惑星的危機／技術の問題</span></a></li>
-    <li class="ct-ch"><a href="#ch4">惑星的危機／技術の問題</a></li>
+      <span class="ct-n">2</span><span class="ct-pt">惑星的危機／技術の問題</span><span class="ct-w">997字</span></a></li>
+    <li class="ct-ch"><a href="#ch4" class="stub"><span>惑星的危機／技術の問題</span><span class="ct-w2">997</span></a></li>
     <li class="ct-part"><a href="#ch5">
-      <span class="ct-n">3</span><span class="ct-pt">技術の哲学</span></a></li>
-    <li class="ct-ch"><a href="#ch5">技術の哲学</a></li>
+      <span class="ct-n">3</span><span class="ct-pt">技術の哲学</span><span class="ct-w">11,441字</span></a></li>
+    <li class="ct-ch"><a href="#ch5"><span>技術の哲学</span><span class="ct-w2">11,441</span></a></li>
     <li class="ct-part"><a href="#part4">
-      <span class="ct-n">4</span><span class="ct-pt">技術の基層</span></a></li>
-    <li class="ct-ch"><a href="#ch7">技術とはなにか</a></li>
-    <li class="ct-ch"><a href="#ch8">技術の宇宙的起源</a></li>
-    <li class="ct-ch"><a href="#ch9">技術の生命的起源</a></li>
-    <li class="ct-ch"><a href="#ch10">環境／身体からの技術の再定義</a></li>
+      <span class="ct-n">4</span><span class="ct-pt">技術の基層</span><span class="ct-w">23,161字</span></a></li>
+    <li class="ct-ch"><a href="#ch7"><span>技術とはなにか</span><span class="ct-w2">5,935</span></a></li>
+    <li class="ct-ch"><a href="#ch8"><span>技術の宇宙的起源</span><span class="ct-w2">5,978</span></a></li>
+    <li class="ct-ch"><a href="#ch9"><span>技術の生命的起源</span><span class="ct-w2">3,200</span></a></li>
+    <li class="ct-ch"><a href="#ch10"><span>環境／身体からの技術の再定義</span><span class="ct-w2">8,048</span></a></li>
     <li class="ct-part"><a href="#part5">
-      <span class="ct-n">5</span><span class="ct-pt">技術の黎明</span></a></li>
-    <li class="ct-ch"><a href="#ch12">原初のサイボーグ</a></li>
-    <li class="ct-ch"><a href="#ch13">道具の哲学──潜在化した道具の働き</a></li>
-    <li class="ct-ch"><a href="#ch14">道具とサイボーグのジレンマ</a></li>
-    <li class="ct-ch"><a href="#ch15">精神と道具のマトリックス</a></li>
-    <li class="ct-ch"><a href="#ch16">技術的意識</a></li>
+      <span class="ct-n">5</span><span class="ct-pt">技術の黎明</span><span class="ct-w">46,151字</span></a></li>
+    <li class="ct-ch"><a href="#ch12"><span>原初のサイボーグ</span><span class="ct-w2">6,461</span></a></li>
+    <li class="ct-ch"><a href="#ch13"><span>道具の哲学──潜在化した道具の働き</span><span class="ct-w2">10,244</span></a></li>
+    <li class="ct-ch"><a href="#ch14"><span>道具とサイボーグのジレンマ</span><span class="ct-w2">11,696</span></a></li>
+    <li class="ct-ch"><a href="#ch15"><span>精神と道具のマトリックス</span><span class="ct-w2">9,224</span></a></li>
+    <li class="ct-ch"><a href="#ch16"><span>技術的意識</span><span class="ct-w2">8,431</span></a></li>
     <li class="ct-part"><a href="#part6">
-      <span class="ct-n">6</span><span class="ct-pt">技術の秩序</span></a></li>
-    <li class="ct-ch"><a href="#ch18">技術の普遍化</a></li>
-    <li class="ct-ch"><a href="#ch19">宇宙技芸と神話／風土</a></li>
-    <li class="ct-ch"><a href="#ch20">古代メソポタミアからの技術決定論</a></li>
-    <li class="ct-ch"><a href="#ch21">西洋形而上学／一神教の問題</a></li>
-    <li class="ct-ch"><a href="#ch22">テクノロジーによる世界制圧</a></li>
-    <li class="ct-ch"><a href="#ch23">AIの知性／人間の野性</a></li>
+      <span class="ct-n">6</span><span class="ct-pt">技術の秩序</span><span class="ct-w">43,839字</span></a></li>
+    <li class="ct-ch"><a href="#ch18"><span>技術の普遍化</span><span class="ct-w2">11,657</span></a></li>
+    <li class="ct-ch"><a href="#ch19"><span>宇宙技芸と神話／風土</span><span class="ct-w2">8,346</span></a></li>
+    <li class="ct-ch"><a href="#ch20"><span>古代メソポタミアからの技術決定論</span><span class="ct-w2">6,800</span></a></li>
+    <li class="ct-ch"><a href="#ch21" class="stub"><span>西洋形而上学／一神教の問題</span><span class="ct-w2">160</span></a></li>
+    <li class="ct-ch"><a href="#ch22"><span>テクノロジーによる世界制圧</span><span class="ct-w2">8,050</span></a></li>
+    <li class="ct-ch"><a href="#ch23"><span>AIの知性／人間の野性</span><span class="ct-w2">8,826</span></a></li>
     <li class="ct-part"><a href="#part7">
-      <span class="ct-n">7</span><span class="ct-pt">技術の覚醒</span></a></li>
-    <li class="ct-ch"><a href="#ch25">技術への応答</a></li>
-    <li class="ct-ch"><a href="#ch26">技術の生命化</a></li>
-    <li class="ct-ch"><a href="#ch27">技術への没入</a></li>
+      <span class="ct-n">7</span><span class="ct-pt">技術の覚醒</span><span class="ct-w">12,425字</span></a></li>
+    <li class="ct-ch"><a href="#ch25"><span>技術への応答</span><span class="ct-w2">4,266</span></a></li>
+    <li class="ct-ch"><a href="#ch26"><span>技術の生命化</span><span class="ct-w2">4,544</span></a></li>
+    <li class="ct-ch"><a href="#ch27"><span>技術への没入</span><span class="ct-w2">3,608</span></a></li>
     <li class="ct-part"><a href="#part8">
-      <span class="ct-n">8</span><span class="ct-pt">技術の再野生化</span></a></li>
-    <li class="ct-ch"><a href="#ch29">野生のサイバネティクス</a></li>
-    <li class="ct-ch"><a href="#ch30">無為の技術の扉</a></li>
-    <li class="ct-ch"><a href="#ch31">サイボーグ・メディテーション</a></li>
+      <span class="ct-n">8</span><span class="ct-pt">技術の再野生化</span><span class="ct-w">22,222字</span></a></li>
+    <li class="ct-ch"><a href="#ch29"><span>野生のサイバネティクス</span><span class="ct-w2">5,056</span></a></li>
+    <li class="ct-ch"><a href="#ch30"><span>無為の技術の扉</span><span class="ct-w2">7,517</span></a></li>
+    <li class="ct-ch"><a href="#ch31"><span>サイボーグ・メディテーション</span><span class="ct-w2">9,388</span></a></li>
     <li class="ct-part"><a href="#part9">
-      <span class="ct-n">9</span><span class="ct-pt">惑星的普遍技術へ</span></a></li>
-    <li class="ct-ch"><a href="#ch33">未開の未来へ</a></li>
-    <li class="ct-ch"><a href="#ch34">惑星的普遍技術という挑戦</a></li>
+      <span class="ct-n">9</span><span class="ct-pt">惑星的普遍技術へ</span><span class="ct-w">18,782字</span></a></li>
+    <li class="ct-ch"><a href="#ch33"><span>未開の未来へ</span><span class="ct-w2">10,423</span></a></li>
+    <li class="ct-ch"><a href="#ch34"><span>惑星的普遍技術という挑戦</span><span class="ct-w2">8,149</span></a></li>
   </ol>
+  <p class="ctnote">※文字数は空白・改行を除く実文字数（見出し含む）。部の値は部扉リードを含むため章の合計と一致しない部がある。<span style="color:#B4532F">赤字</span>＝本文未稿（構成メモのみ）。</p>
 </section>
 <article class="ch" id="ch3" data-part="1">
   <p class="eyebrow dark">はじめに</p>
