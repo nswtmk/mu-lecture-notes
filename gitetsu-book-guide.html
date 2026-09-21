@@ -210,6 +210,19 @@
   .fx .fg { flex:0 0 486px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 12px 10px; }
   .fx .fg svg { width:100%; height:auto; display:block; }
   .fg .cap { font-size:11.5px; color:var(--ink-soft); text-align:center; letter-spacing:.05em; margin:6px 0 2px; }
+
+  /* ---- 目次スライド ---- */
+  .toc3 { display:grid; grid-template-columns:repeat(3,1fr); gap:0 34px; margin-top:4px; }
+  .toc3 .tp { display:flex; align-items:center; gap:9px; font-size:15px; font-weight:700;
+    color:var(--moss); margin-top:15px; padding-bottom:5px; border-bottom:1.5px solid var(--moss); }
+  .toc3 .tp:first-child { margin-top:0; }
+  .toc3 .tn { display:inline-flex; align-items:center; justify-content:center;
+    width:19px; height:19px; border-radius:50%; background:var(--moss); color:#fff;
+    font-size:11px; font-weight:700; flex:0 0 19px; }
+  .toc3 .tc { font-size:13.5px; line-height:1.65; color:var(--ink); padding:5px 0 5px 28px;
+    position:relative; }
+  .toc3 .tc::before { content:""; position:absolute; left:11px; top:14px;
+    width:5px; height:5px; border-radius:50%; background:var(--sand); }
 </style>
 </head>
 <body>
@@ -242,6 +255,58 @@
         <div class="card"><h3><span class="dot"></span>技術の覚醒（3章）</h3><p>応答・生命化・没入。</p></div>
         <div class="card"><h3><span class="dot"></span>技術の再野生化（3章）</h3><p>野生のサイバネティクス・無為・メディテーション。</p></div>
         <div class="card"><h3><span class="dot"></span>惑星的普遍技術へ（2章）</h3><p>未開の未来へ。挑戦の宣言。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 目次 -->
+  <section class="slide" data-title="目次──全9部23章" data-part="">
+    <div class="kicker">Contents</div>
+    <h2>目次</h2>
+    <p class="lead">全9部・23章。部ごとの章立て一覧。</p>
+    <div class="body">
+      <div class="toc3">
+        <div class="tcol">
+          <div class="tp"><span class="tn">1</span>はじめに</div>
+          <div class="tc">はじめに──ジャングルからの問いかけ</div>
+          <div class="tp"><span class="tn">2</span>惑星的危機／技術の問題</div>
+          <div class="tc">惑星的危機を引き受ける</div>
+          <div class="tp"><span class="tn">3</span>技術の哲学</div>
+          <div class="tc">技術の哲学──応答する学問</div>
+          <div class="tp"><span class="tn">4</span>技術の基層</div>
+          <div class="tc">技術とはなにか</div>
+          <div class="tc">技術の宇宙的起源</div>
+          <div class="tc">技術の生命的起源</div>
+          <div class="tc">環境／身体からの技術の再定義</div>
+        </div>
+        <div class="tcol">
+          <div class="tp"><span class="tn">5</span>技術の黎明</div>
+          <div class="tc">原初のサイボーグ</div>
+          <div class="tc">道具の哲学──潜在化した道具の働き</div>
+          <div class="tc">道具とサイボーグのジレンマ</div>
+          <div class="tc">精神と道具のマトリックス</div>
+          <div class="tc">技術的意識</div>
+          <div class="tp"><span class="tn">6</span>技術の秩序</div>
+          <div class="tc">技術の普遍化</div>
+          <div class="tc">宇宙技芸と神話／風土</div>
+          <div class="tc">古代メソポタミアからの技術決定論</div>
+          <div class="tc">西洋形而上学／一神教の問題</div>
+          <div class="tc">テクノロジーによる世界制圧</div>
+          <div class="tc">AIの知性／人間の野性</div>
+        </div>
+        <div class="tcol">
+          <div class="tp"><span class="tn">7</span>技術の覚醒</div>
+          <div class="tc">技術への応答</div>
+          <div class="tc">技術の生命化</div>
+          <div class="tc">技術への没入</div>
+          <div class="tp"><span class="tn">8</span>技術の再野生化</div>
+          <div class="tc">野生のサイバネティクス</div>
+          <div class="tc">無為の技術の扉</div>
+          <div class="tc">サイボーグ・メディテーション</div>
+          <div class="tp"><span class="tn">9</span>惑星的普遍技術へ</div>
+          <div class="tc">未開の未来へ</div>
+          <div class="tc">惑星的普遍技術という挑戦</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1183,16 +1248,16 @@
         <svg viewBox="0 0 460 290">
           <circle cx="70" cy="145" r="12" fill="#14140f"/>
           <text x="70" y="115" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">現在</text>
-          <path d="M82 138 L360 54" stroke="#4a4a42" stroke-width="2.5"/><polygon points="370,50 354,50 360,64" fill="#4a4a42"/>
-          <text x="382" y="46" font-size="12" font-weight="700" fill="#4a4a42">このまま</text>
-          <text x="382" y="63" font-size="10.5" fill="#4a4a42">AGI／ディストピア</text>
-          <path d="M82 152 L360 236" stroke="#4a4a42" stroke-width="2.5" stroke-dasharray="6 5"/><polygon points="370,240 356,230 352,244" fill="#4a4a42"/>
-          <text x="382" y="232" font-size="12" font-weight="700" fill="#4a4a42">降りる</text>
-          <text x="382" y="249" font-size="10.5" fill="#4a4a42">里山・自給（限界あり）</text>
-          <path d="M82 145 L360 145" stroke="#2F7D4F" stroke-width="5"/><polygon points="374,145 352,133 352,157" fill="#2F7D4F"/>
-          <text x="382" y="140" font-size="13" font-weight="700" fill="#2F7D4F">方向を変える</text>
-          <text x="382" y="158" font-size="10.5" fill="#2F7D4F">未開の未来</text>
-          <text x="220" y="130" font-size="11" fill="#2F7D4F" font-weight="700" text-anchor="middle">テクノロジーそのものの向きを転回する</text>
+          <path d="M82 138 L268 58" stroke="#4a4a42" stroke-width="2.5"/><polygon points="278,54 262,54 268,68" fill="#4a4a42"/>
+          <text x="290" y="48" font-size="12" font-weight="700" fill="#4a4a42">このまま</text>
+          <text x="290" y="66" font-size="10.5" fill="#4a4a42">AGI／ディストピア</text>
+          <path d="M82 152 L268 232" stroke="#4a4a42" stroke-width="2.5" stroke-dasharray="6 5"/><polygon points="278,236 262,236 268,222" fill="#4a4a42"/>
+          <text x="290" y="230" font-size="12" font-weight="700" fill="#4a4a42">降りる</text>
+          <text x="290" y="248" font-size="10.5" fill="#4a4a42">里山・自給（限界あり）</text>
+          <path d="M82 145 L270 145" stroke="#2F7D4F" stroke-width="5"/><polygon points="284,145 264,134 264,156" fill="#2F7D4F"/>
+          <text x="294" y="140" font-size="13" font-weight="700" fill="#2F7D4F">方向を変える</text>
+          <text x="294" y="159" font-size="10.5" fill="#2F7D4F">未開の未来</text>
+          <text x="176" y="122" font-size="11" fill="#2F7D4F" font-weight="700" text-anchor="middle">向きを転回する</text>
           <text x="230" y="278" font-size="12" fill="#4a4a42" text-anchor="middle">さかのぼった分だけ、未来の角度が広がる</text>
         </svg>
         <p class="cap">図：三つの未来と、第三の道</p>
