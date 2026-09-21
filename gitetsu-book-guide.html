@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>『未開の未来へ』構成ガイド｜再野生化のための技術哲学</title>
-<meta name="description" content="書籍『未開の未来へ——再野生化のための技術哲学』の全体構成スライド（執筆ガイダンス）。">
+<meta name="description" content="書籍『未開の未来へ——再野生化のための技術哲学』の全体構成スライド（全9部23章・図解つき）。">
 <style>
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overscroll-behavior: none; touch-action: manipulation; }
@@ -202,6 +202,14 @@
     .slide { position:relative; opacity:1 !important; visibility:visible !important; height:720px; page-break-after:always; }
     .ui, .toc, .bar { display:none !important; }
   }
+
+  /* ---- 章スライド：本文＋図解 ---- */
+  .fx { display:flex; flex-direction:row; gap:34px; align-items:center; }
+  .fx .tx { flex:1 1 0; min-width:0; }
+  .fx .tx ul.plain li { font-size:15px; line-height:1.95; padding-left:22px; margin-top:6px; }
+  .fx .fg { flex:0 0 486px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 12px 10px; }
+  .fx .fg svg { width:100%; height:auto; display:block; }
+  .fg .cap { font-size:11.5px; color:var(--ink-soft); text-align:center; letter-spacing:.05em; margin:6px 0 2px; }
 </style>
 </head>
 <body>
@@ -209,574 +217,1030 @@
 <div class="deck" id="deck">
 <div class="stage" id="stage">
 
-  <!-- 01 -->
+  <!-- 01 表紙 -->
   <section class="slide title scrim" data-title="表紙" data-part="">
     <div class="bg"><img src="gbook_cover.jpg" alt=""></div>
-    <div class="kicker" style="color:var(--mint)">BOOK STRUCTURE GUIDE</div>
+    <div class="kicker" style="color:var(--mint)">BOOK STRUCTURE GUIDE v2</div>
     <h1 style="margin-top:14px">未開の未来へ</h1>
     <p class="sub">再野生化のための技術哲学──全体構成スライド</p>
-    <p class="meta">2026.9.20版　執筆ガイダンス（本の軸）</p>
+    <p class="meta">2026.9.21版　全9部23章　各章図解つき</p>
   </section>
 
-  <!-- 02 -->
-  <section class="slide" data-title="このスライドの役割" data-part="">
-    <div class="kicker">About</div>
-    <h2>このスライドの役割</h2>
-    <p class="lead">口述の新構成と、現行原稿（約21万字）を統合した「本の軸」。ここから先の原稿は、この構成をガイダンスに書く。</p>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>章ごとに「主張の流れ」を固定する</h3><p>各章スライドは、その章が何をどの順で言うかの設計図。</p></div></li>
-        <li><span class="n">2</span><div><h3>キー概念の置き場所を決める</h3><p>技術的意識・道具のジレンマ・技術多様性・再野生化──どの章で立て、どの章で回収するか。</p></div></li>
-        <li><span class="n">3</span><div><h3>原稿の状態を明示する</h3><p>章スライドの末尾に現状を表記する。</p></div></li>
-      </ol>
-      <div class="callout" style="margin-top:22px"><span class="accent">◎</span>＝現行原稿あり（仕上げ済み）　<span class="accent">△</span>＝原稿あり・増補や再フレームが必要　<span class="warn">✕</span>＝新規執筆（口述素材あり）</div>
-    </div>
-  </section>
-
-  <!-- 03 -->
-  <section class="slide dark" data-title="この本が言うこと" data-part="">
-    <div class="half right"><img src="gbook_mori.jpg" alt=""></div>
-    <div class="kicker">Thesis</div>
-    <h2 style="max-width:600px">この本が言うこと</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
-      <p class="p">惑星的危機の根源には、テクノロジーという「一つの技術」の支配がある。しかも、誰も能動的に操縦していない。</p>
-      <p class="p em">人類は言語的意識を獲得した。次に獲得すべきは、技術的意識である。</p>
-      <p class="p">出口は、外からの規制でも、文明から降りることでもない。テクノロジーを内側から更新すること──技術の再野生化、未開の未来。</p>
-      <p class="small" style="margin-top:20px; color:var(--mint)">立場：反テクノロジーではない。「内側から更新する」派。</p>
-    </div>
-  </section>
-
-  <!-- 04 -->
-  <section class="slide" data-title="背骨の概念──技術的意識" data-part="">
-    <div class="kicker">Backbone Concept</div>
-    <h2>背骨の概念──技術的意識</h2>
-    <p class="lead">本書全体を貫く新概念。言語や意識には自覚へのアプローチがあるのに、技術にだけ無い。</p>
-    <div class="body">
-      <dl class="facts" style="grid-template-columns:90px 1fr">
-        <dt>言語</dt><dd>言語学が構造を明らかにした。私たちは、自分がどんな文法で話しているかを知っている。</dd>
-        <dt>意識</dt><dd>認知科学・心理学・瞑想・カウンセリング。自分がどんな意識状態かにアプローチする方法がある。</dd>
-        <dt>技術</dt><dd><b>どんな技術的意識で、どんな技術体験をしているのか──アプローチする方法が、全く無い。</b></dd>
-      </dl>
-      <div class="callout" style="margin-top:24px">洞窟に手を描いた頃から、技術への気づきはあった。だが主観的な感動・驚きのままで終わってきた。入來篤史の実験が示すように、道具は現に意識と身体を変容させているのに、私たちはそれに意識的でない。<span class="accent">技術的意識の獲得こそ、AI時代に真っ先になすべきこと。これなしにAI倫理を論じても、すべて上滑りする。</span></div>
-    </div>
-  </section>
-
-  <!-- 05 -->
-  <section class="slide" data-title="全体マップ──全9章" data-part="">
+  <!-- 02 全体マップ -->
+  <section class="slide" data-title="全体マップ──全9部" data-part="">
     <div class="kicker">Map</div>
-    <h2>全体マップ</h2>
-    <p class="lead">序＋8章。基層から立ち上げ、秩序の歴史で折り返し、再野生化で締める。</p>
+    <h2>全体マップ──全9部</h2>
+    <p class="lead">基層から立ち上げ、秩序の歴史で折り返し、覚醒・再野生化を経て、惑星的普遍技術へ。</p>
     <div class="body">
       <div class="grid g3">
-        <div class="card"><h3><span class="dot"></span>序　はじめに</h3><p>ジャングルの違和感から。全体概要と三つの未来。</p></div>
-        <div class="card"><h3><span class="dot"></span>1　惑星的危機</h3><p>いま、現在、どうなっているのか。</p></div>
-        <div class="card"><h3><span class="dot"></span>2　技術の哲学</h3><p>危機に応答する学問としての役割。</p></div>
-        <div class="card"><h3><span class="dot"></span>3　技術の基層</h3><p>定義→宇宙的起源→生命。最も広い技術。</p></div>
-        <div class="card"><h3><span class="dot"></span>4　技術の黎明</h3><p>道具と人間。道具性・ジレンマ・技術的意識。</p></div>
-        <div class="card"><h3><span class="dot"></span>5　技術の秩序</h3><p>技術的意識が強制されてきた5万年。</p></div>
-        <div class="card"><h3><span class="dot"></span>6　技術の応答</h3><p>応答すべき・生命から・没入。</p></div>
-        <div class="card"><h3><span class="dot"></span>7　技術の自然</h3><p>ハイデガー・野生のサイバネティクス・東洋。</p></div>
-        <div class="card"><h3><span class="dot"></span>8　技術の再野生化</h3><p>総まとめ。未開の未来へ。</p></div>
+        <div class="card"><h3><span class="dot"></span>はじめに</h3><p>ジャングルからの問いかけ。技術的意識の獲得へ。</p></div>
+        <div class="card"><h3><span class="dot"></span>惑星的危機／技術の問題</h3><p>エネルギーの方向性。戦争とゲシュテル。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の哲学</h3><p>問われてこなかった「あいだ」。五つの視点。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の基層（4章）</h3><p>定義・宇宙的起源・生命的起源・環境／身体。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の黎明（5章）</h3><p>原初のサイボーグ→道具性→ジレンマ→精神→技術的意識。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の秩序（6章）</h3><p>普遍化の脱構築→神話→メソポタミア→形而上学→制圧→AI。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の覚醒（3章）</h3><p>応答・生命化・没入。</p></div>
+        <div class="card"><h3><span class="dot"></span>技術の再野生化（3章）</h3><p>野生のサイバネティクス・無為・メディテーション。</p></div>
+        <div class="card"><h3><span class="dot"></span>惑星的普遍技術へ（2章）</h3><p>未開の未来へ。挑戦の宣言。</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 06 -->
-  <section class="slide dark scrim" data-title="序──はじめに" data-part="i">
-    <div class="bg"><img src="gbook_field.jpg" alt=""></div>
-    <div class="kicker">序</div>
+  <!-- 03 はじめに -->
+  <section class="slide" data-title="はじめに" data-part="1">
+    <div class="kicker">はじめに</div>
     <h2>はじめに──ジャングルからの問いかけ</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
-      <p class="p">銛一本のジレンマ。消えなかった違和感。プリミティブなサイボーグ。</p>
-      <p class="p">全体概要として、三つの未来と「未開の未来」の実現、テクノロジーを内側から更新する必要性、その前提としての惑星的危機まで、冒頭で一気に見せる。</p>
-      <p class="small" style="margin-top:18px; color:var(--mint)">原稿：◎ ほぼ完成。惑星的危機の章へつなぐ一段のみ追加。</p>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>問いの始まり──少年期の違和感と、ジャングルの銛。消えなかった違和感</li>
+          <li>プリミティブなサイボーグ──人間の条件の発見。人間が悪いのか？</li>
+          <li>技術の本質と、技術的意識の獲得。根源へ遡る意味</li>
+          <li>単なるノスタルジーを超えて──未開の未来、野生のサイバネティクス</li>
+          <li>世代を超えて問い継がれるべきもの</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <text x="70" y="40" font-size="14" font-weight="700" fill="#14140f">現在</text>
+          <text x="30" y="60" font-size="11.5" fill="#4a4a42">テクノロジーに覆われた世界</text>
+          <path d="M85 70 Q120 200 230 225" fill="none" stroke="#4a4a42" stroke-width="3"/>
+          <polygon points="230,225 216,215 219,231" fill="#4a4a42"/>
+          <text x="90" y="160" font-size="12.5" fill="#4a4a42">遡る</text>
+          <rect x="160" y="235" width="140" height="34" rx="8" fill="#2F7D4F"/>
+          <text x="230" y="257" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">技術の基層</text>
+          <path d="M240 225 Q330 195 375 60" fill="none" stroke="#2F7D4F" stroke-width="3"/>
+          <polygon points="375,60 364,72 380,75" fill="#2F7D4F"/>
+          <text x="350" y="160" font-size="12.5" fill="#2F7D4F" font-weight="700">立ち上げ直す</text>
+          <text x="388" y="40" font-size="14" font-weight="700" fill="#2F7D4F">未開の未来</text>
+        </svg>
+        <p class="cap">図：本書の航路──基層へ降り、未来へ折り返すV字</p>
+      </div>
     </div>
   </section>
 
-  <!-- 07 -->
-  <section class="slide" data-title="はじめにの流れ" data-part="i">
-    <div class="kicker">序</div>
-    <h2>はじめにの流れ</h2>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>問いの始まり</h3><p>少年期の違和感と、ジャングルの銛。テクノロジーを多少嗜んできた半生。</p></div></li>
-        <li><span class="n">2</span><div><h3>プリミティブなサイボーグ</h3><p>人間の条件の発見。人間が悪いのか？</p></div></li>
-        <li><span class="n">3</span><div><h3>技術によって作り変えられる世界</h3><p>技術の本質と、根源へ遡る意味。</p></div></li>
-        <li><span class="n">4</span><div><h3>三つの未来と、第三の道</h3><p>このまま／降りる／方向を変える。内側から更新する。</p></div></li>
-        <li><span class="n">5</span><div><h3>未開の未来──本書の航路</h3><p>全章の予告。そして惑星的危機へ橋を架ける。</p></div></li>
-      </ol>
+  <!-- 04 惑星的危機 -->
+  <section class="slide" data-title="惑星的危機／技術の問題" data-part="2">
+    <div class="kicker">惑星的危機／技術の問題</div>
+    <h2>惑星的危機を引き受ける</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>テクノロジーが生む巨大なエネルギー。エネルギー自体ではなく、その「方向性」が問題</li>
+          <li>マッシブデータフロー──巨大なデータはどこへ向かっているのか</li>
+          <li>技術と戦争──二つの世界大戦が方向づけたもの（ベルクソン、ユク・ホイ）</li>
+          <li>ハイデガーのゲシュテルの問い──駆り立て、そうとしか行動できないように仕向ける環境</li>
+        </ul>
+        <p class="small" style="margin-top:14px"><span class="warn">✕</span> 本文は方針メモ段階。ゲシュテル論はこの部に置く。</p>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <text x="30" y="38" font-size="12.5" fill="#4a4a42">エネルギー／データ</text>
+          <path d="M40 80 L340 80" stroke="#C25A32" stroke-width="16" fill="none"/>
+          <polygon points="376,80 336,60 336,100" fill="#C25A32"/>
+          <path d="M40 110 L300 110" stroke="#C25A32" stroke-width="9" fill="none" opacity=".6"/>
+          <polygon points="326,110 296,96 296,124" fill="#C25A32" opacity=".6"/>
+          <path d="M40 134 L280 134" stroke="#C25A32" stroke-width="5" fill="none" opacity=".35"/>
+          <polygon points="300,134 278,124 278,144" fill="#C25A32" opacity=".35"/>
+          <text x="392" y="76" font-size="13" font-weight="700" fill="#C25A32">一方向</text>
+          <text x="392" y="93" font-size="11.5" fill="#C25A32">ゲシュテル</text>
+          <text x="392" y="109" font-size="11.5" fill="#C25A32">（駆り立て）</text>
+          <path d="M200 80 Q260 40 320 200" fill="none" stroke="#2F7D4F" stroke-width="3" stroke-dasharray="7 5" transform="rotate(180 260 120)" visibility="hidden"/>
+          <path d="M220 74 Q270 20 350 24" fill="none" stroke="#2F7D4F" stroke-width="3" stroke-dasharray="7 5"/>
+          <polygon points="360,24 340,16 342,34" fill="#2F7D4F"/>
+          <text x="288" y="18" font-size="13" font-weight="700" fill="#2F7D4F">方向を変える</text>
+          <rect x="30" y="185" width="400" height="76" rx="10" fill="#EDF1E9"/>
+          <text x="230" y="215" font-size="13" fill="#14140f" text-anchor="middle">問題はエネルギーの大きさではなく、</text>
+          <text x="230" y="238" font-size="13.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">その方向性が一つに固定されていること</text>
+        </svg>
+        <p class="cap">図：巨大な流れの「方向」こそが問題</p>
+      </div>
     </div>
   </section>
 
-  <!-- 08 -->
-  <section class="slide dark scrim" data-title="第1章 惑星的危機" data-part="1">
-    <div class="bg"><img src="gbook_tokyo.jpg" alt=""></div>
-    <div class="kicker">Chapter 1</div>
-    <h2>惑星的危機</h2>
-    <p class="lead" style="color:var(--sand)">いま、現在、どうなっているのか。</p>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
-      <p class="p">気候・生態系・社会・AIの加速。危機の現在地を、データの羅列ではなく「作らされている」という感覚から描く。誰も操縦していない巨大な力。</p>
-      <p class="p">役割：読者と危機認識を共有し、「なぜいま技術を問うのか」への必然をつくる。</p>
-      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規執筆</span>（現行はスタブ）。ハラリ的診断の引用で終わらせず、「技術のあり方」への問いに絞り込む。</p>
-    </div>
-  </section>
-
-  <!-- 09 -->
-  <section class="slide dark scrim" data-title="第2章 技術の哲学" data-part="2">
-    <div class="bg"><img src="gbook_crossing.jpg" alt=""></div>
-    <div class="kicker">Chapter 2</div>
+  <!-- 05 技術の哲学 -->
+  <section class="slide" data-title="技術の哲学" data-part="3">
+    <div class="kicker">技術の哲学</div>
     <h2>技術の哲学──応答する学問</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
-      <p class="p">惑星的危機に応答する学問として、技術哲学を紹介する。若い学問、古い問い。</p>
-      <p class="p">「人間と技術のあいだ」は、なぜ誰にも問われてこなかったのか──そこから始める。</p>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>「あいだ」は、誰にも問われてこなかった──二つの不可分性／実質的な技術決定論</li>
+          <li>技術哲学とは何か──若い学問、古い問い</li>
+          <li>五つの視点──道具ではない／生まれながらのサイボーグ／関係のなかで何かになる／ゲシュテル／技術多様性</li>
+          <li>技術のジレンマと、見えない天秤</li>
+          <li>計器ではなく、航路を──降ろすべき中心は二つある。これはロマン主義ではない</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <circle cx="150" cy="130" r="95" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="2"/>
+          <circle cx="310" cy="130" r="95" fill="#E4EBE2" stroke="#4a4a42" stroke-width="2"/>
+          <text x="105" y="135" font-size="16" font-weight="700" fill="#14140f">人間</text>
+          <text x="330" y="135" font-size="16" font-weight="700" fill="#14140f">技術</text>
+          <text x="230" y="120" font-size="14" font-weight="700" fill="#C25A32" text-anchor="middle">あいだ</text>
+          <text x="230" y="140" font-size="11" fill="#C25A32" text-anchor="middle">誰にも</text>
+          <text x="230" y="155" font-size="11" fill="#C25A32" text-anchor="middle">問われてこなかった</text>
+          <path d="M230 175 L230 235" stroke="#2F7D4F" stroke-width="2.5"/>
+          <polygon points="230,243 222,229 238,229" fill="#2F7D4F"/>
+          <text x="230" y="268" font-size="13.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">技術哲学＝この「あいだ」を問う</text>
+        </svg>
+        <p class="cap">図：不可分ゆえに見えなかった「あいだ」</p>
+      </div>
     </div>
   </section>
 
-  <!-- 10 -->
-  <section class="slide" data-title="技術の哲学の流れ" data-part="2">
-    <div class="kicker">Chapter 2</div>
-    <h2>技術の哲学の流れ</h2>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>「あいだ」は、誰にも問われてこなかった</h3><p>理由1：二つの不可分性。理由2：実質的な技術決定論。</p></div></li>
-        <li><span class="n">2</span><div><h3>技術哲学とは何か</h3><p>若い学問、古い問い。</p></div></li>
-        <li><span class="n">3</span><div><h3>五つの視点</h3><p>道具ではない／生まれながらのサイボーグ／関係のなかで何かになる／ゲシュテル／技術多様性。</p></div></li>
-        <li><span class="n">4</span><div><h3>技術のジレンマと、見えない天秤</h3><p>便利さの裏で、何が量られているのか。</p></div></li>
-        <li><span class="n">5</span><div><h3>計器ではなく、航路を</h3><p>降ろすべき中心は二つある。これはロマン主義ではない。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。「危機に応答する学」という役割づけを冒頭に明示する再フレームのみ。</p>
-    </div>
-  </section>
-
-  <!-- 11 -->
-  <section class="slide dark scrim" data-title="第3章 技術の基層" data-part="3">
+  <!-- 06 部扉 技術の基層 -->
+  <section class="slide dark scrim" data-title="技術の基層（部扉）" data-part="4">
     <div class="bg"><img src="gbook_milkyway.jpg" alt=""></div>
-    <div class="kicker">Chapter 3</div>
+    <div class="kicker">部扉</div>
     <h2>技術の基層</h2>
-    <p class="lead" style="color:var(--sand)">ここからが本題。最も広い「技術」の概念づけ。</p>
+    <p class="lead" style="color:var(--sand)">最も広い「技術」の概念づけ。人間以外の技術を含めて。</p>
     <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
-      <p class="p">人間以外の技術を含めた、技術一般の、いちばん広いレベルでの捉え直し。技術の基礎はどうなっているのか、本質部分はどうなっているのか。</p>
+      <ul class="plain">
+        <li>技術とはなにか</li>
+        <li>技術の宇宙的起源</li>
+        <li>技術の生命的起源</li>
+        <li>環境／身体からの技術の再定義</li>
+      </ul>
     </div>
   </section>
 
-  <!-- 12 -->
-  <section class="slide" data-title="技術の基層の流れ" data-part="3">
-    <div class="kicker">Chapter 3</div>
-    <h2>技術の基層の流れ</h2>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>技術とはなにか──定義から入る</h3><p>テクネー／モノかワザか／生きるための知恵／科学と技術／技術・道具・テクノロジーの三区別。</p></div></li>
-        <li><span class="n">2</span><div><h3>技術の宇宙的起源</h3><p>素材と身体の普遍的な共鳴。発明とは発見。宇宙的条件。生命という底。</p></div></li>
-        <li><span class="n">3</span><div><h3>技術の生命的基層</h3><p>アフォーダンスとエナクティヴィズム。倫理以前からの、倫理の問い。</p></div></li>
-        <li><span class="n">4</span><div><h3>道具と身体性へ</h3><p>デザインされたアフォーダンス──「使う技術」から「使われる技術」へ。テクノロジーと基層の距離。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり（統合清書済み）。順序を「定義→宇宙→生命→身体」に固定。</p>
+  <!-- 07 技術とはなにか -->
+  <section class="slide" data-title="技術とはなにか" data-part="4">
+    <div class="kicker">技術の基層 ─ 1/4</div>
+    <h2>技術とはなにか</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>テクネー──technology の語源</li>
+          <li>技術は「モノ」か「ワザ」か</li>
+          <li>技術と、生きるための知恵。科学と技術の違い</li>
+          <li>技術・道具・テクノロジー──三つの違いを定義する</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="30" y="30" width="400" height="230" rx="14" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="2"/>
+          <text x="52" y="60" font-size="15" font-weight="700" fill="#2F7D4F">技術（ワザ）</text>
+          <text x="52" y="80" font-size="11.5" fill="#4a4a42">生きるための知恵。生命にまで開かれた最広義</text>
+          <rect x="70" y="100" width="320" height="140" rx="12" fill="#fff" stroke="#4a4a42" stroke-width="1.5"/>
+          <text x="90" y="128" font-size="14" font-weight="700" fill="#14140f">道具（モノ）</text>
+          <text x="90" y="146" font-size="11.5" fill="#4a4a42">ワザが宿り、外化された物</text>
+          <rect x="110" y="160" width="240" height="62" rx="10" fill="#C25A32"/>
+          <text x="130" y="186" font-size="13.5" font-weight="700" fill="#fff">テクノロジー</text>
+          <text x="130" y="204" font-size="11" fill="#fff" opacity=".9">科学×産業×資本の惑星規模システム</text>
+        </svg>
+        <p class="cap">図：技術⊃道具⊃テクノロジー──三つの違い</p>
+      </div>
     </div>
   </section>
 
-  <!-- 13 -->
-  <section class="slide dark scrim" data-title="第4章 技術の黎明" data-part="4">
+  <!-- 08 技術の宇宙的起源 -->
+  <section class="slide" data-title="技術の宇宙的起源" data-part="4">
+    <div class="kicker">技術の基層 ─ 2/4</div>
+    <h2>技術の宇宙的起源</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>技術の微細な予兆──歴史以前へ、宇宙へ</li>
+          <li>素材と身体の普遍的な共鳴──なぜ素材に相談するのか</li>
+          <li>発明とは発見？──技術が世界をひらく</li>
+          <li>宇宙的条件と、可能性の条件</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <path d="M40 145 L400 145" stroke="#ddd9cd" stroke-width="3"/>
+          <polygon points="424,145 396,132 396,158" fill="#ddd9cd"/>
+          <circle cx="60" cy="145" r="7" fill="#14140f"/>
+          <text x="60" y="120" font-size="11.5" fill="#14140f" text-anchor="middle" font-weight="700">ビッグバン</text>
+          <circle cx="130" cy="145" r="7" fill="#4a4a42"/>
+          <text x="130" y="178" font-size="11.5" fill="#4a4a42" text-anchor="middle">超新星</text>
+          <text x="130" y="193" font-size="10.5" fill="#4a4a42" text-anchor="middle">（鉄の誕生）</text>
+          <circle cx="200" cy="145" r="7" fill="#4a4a42"/>
+          <text x="200" y="120" font-size="11.5" fill="#4a4a42" text-anchor="middle">地球</text>
+          <circle cx="270" cy="145" r="7" fill="#2F7D4F"/>
+          <text x="270" y="178" font-size="11.5" fill="#2F7D4F" text-anchor="middle" font-weight="700">生命</text>
+          <circle cx="340" cy="145" r="7" fill="#2F7D4F"/>
+          <text x="340" y="120" font-size="11.5" fill="#2F7D4F" text-anchor="middle" font-weight="700">身体</text>
+          <circle cx="400" cy="145" r="9" fill="#C25A32"/>
+          <text x="400" y="178" font-size="12" fill="#C25A32" text-anchor="middle" font-weight="700">ナイフ</text>
+          <text x="400" y="194" font-size="10.5" fill="#C25A32" text-anchor="middle">いま手の中に</text>
+          <text x="230" y="50" font-size="13.5" font-weight="700" fill="#14140f" text-anchor="middle">一本のナイフを握ることは、138億年を握ること</text>
+          <text x="230" y="245" font-size="12" fill="#4a4a42" text-anchor="middle">素材はすべて宇宙から来た──だから、素材に相談する</text>
+        </svg>
+        <p class="cap">図：138億年のタイムラインの先端としての道具</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 技術の生命的起源 -->
+  <section class="slide" data-title="技術の生命的起源" data-part="4">
+    <div class="kicker">技術の基層 ─ 3/4</div>
+    <h2>技術の生命的起源</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>生命という底──生きとし生けるものはマテリアルに触れ、応答して生きる</li>
+          <li>技術の方向性──進化は進歩ではない</li>
+          <li>生命と機械──解ききれない底</li>
+          <li>底の上に差す、黎明</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="60" y="200" width="340" height="56" rx="8" fill="#14140f"/>
+          <text x="230" y="226" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">宇宙（物理法則・マテリアル）</text>
+          <text x="230" y="244" font-size="10.5" fill="#C8C2B0" text-anchor="middle">解ききれない底</text>
+          <rect x="90" y="130" width="280" height="52" rx="8" fill="#2F7D4F"/>
+          <text x="230" y="153" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">生命（触れる・応答する）</text>
+          <text x="230" y="171" font-size="10.5" fill="#EDF1E9" text-anchor="middle">身体による呼応が技術の芽</text>
+          <rect x="120" y="66" width="220" height="46" rx="8" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="2"/>
+          <text x="230" y="86" font-size="14" font-weight="700" fill="#2F7D4F" text-anchor="middle">技術の黎明</text>
+          <text x="230" y="103" font-size="10.5" fill="#4a4a42" text-anchor="middle">底の上に差す光</text>
+          <path d="M230 200 L230 186" stroke="#4a4a42" stroke-width="2.5"/><polygon points="230,180 223,192 237,192" fill="#4a4a42"/>
+          <path d="M230 130 L230 120" stroke="#4a4a42" stroke-width="2.5"/><polygon points="230,114 223,126 237,126" fill="#4a4a42"/>
+          <text x="70" y="40" font-size="12.5" fill="#4a4a42">生成の方向 ↑</text>
+        </svg>
+        <p class="cap">図：宇宙→生命→技術──底からの生成</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 環境／身体からの技術の再定義 -->
+  <section class="slide" data-title="環境／身体からの技術の再定義" data-part="4">
+    <div class="kicker">技術の基層 ─ 4/4</div>
+    <h2>環境／身体からの技術の再定義</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>身体との呼応──アフォーダンスとエナクティヴィズム</li>
+          <li>デザインされたアフォーダンス──「使う技術」から「使われる技術」へ</li>
+          <li>相互作用のなかでの、技術の再定義。対象化される前の技術</li>
+          <li>倫理以前からの、倫理の問い。テクノロジーと、技術の基層</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="40" y="105" width="120" height="80" rx="12" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="2"/>
+          <text x="100" y="150" font-size="15" font-weight="700" fill="#14140f" text-anchor="middle">身体</text>
+          <rect x="300" y="105" width="120" height="80" rx="12" fill="#E4EBE2" stroke="#4a4a42" stroke-width="2"/>
+          <text x="360" y="150" font-size="15" font-weight="700" fill="#14140f" text-anchor="middle">環境</text>
+          <rect x="192" y="118" width="76" height="54" rx="10" fill="#C25A32" transform="rotate(45 230 145)"/>
+          <text x="230" y="150" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">道具</text>
+          <path d="M160 118 Q230 66 300 118" fill="none" stroke="#2F7D4F" stroke-width="2.5"/>
+          <polygon points="304,122 288,112 292,128" fill="#2F7D4F"/>
+          <text x="230" y="62" font-size="12.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">使う（働きかける）</text>
+          <path d="M300 176 Q230 228 160 176" fill="none" stroke="#C25A32" stroke-width="2.5"/>
+          <polygon points="156,172 172,182 168,166" fill="#C25A32"/>
+          <text x="230" y="245" font-size="12.5" font-weight="700" fill="#C25A32" text-anchor="middle">使われる（引き出される・促される）</text>
+        </svg>
+        <p class="cap">図：身体⇄道具⇄環境の相互作用ループ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 部扉 技術の黎明 -->
+  <section class="slide dark scrim" data-title="技術の黎明（部扉）" data-part="5">
     <div class="bg"><img src="gbook_hiokoshi.jpg" alt=""></div>
-    <div class="kicker">Chapter 4</div>
-    <h2>技術の黎明──人間の技術</h2>
-    <p class="lead" style="color:var(--sand)">道具を掘り下げる。そして「技術的意識」へ。</p>
-  </section>
-
-  <!-- 14 -->
-  <section class="slide" data-title="原初のサイボーグ" data-part="4">
-    <div class="half right"><img src="gbook_dogu.jpg" alt=""></div>
-    <div class="kicker">Chapter 4 ─ 1</div>
-    <h2 style="max-width:600px">原初のサイボーグ</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
-      <p class="p">いかに人間は技術を、道具を必要とするのか。どのように道具を発明したのか。</p>
-      <ul class="plain" style="margin-top:14px">
-        <li>道具は身体機能を外化させ、能力を拡張する</li>
-        <li>火という、最初のシンギュラリティ</li>
-        <li>ルロワ゠グーラン──身ぶりと言葉、技術的傾向</li>
-        <li>人間と他の動物の技術の違い</li>
+    <div class="kicker">部扉</div>
+    <h2>技術の黎明</h2>
+    <p class="lead" style="color:var(--sand)">人間の技術。道具を掘り下げ、技術的意識へ。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <ul class="plain">
+        <li>原初のサイボーグ</li>
+        <li>道具の哲学──潜在化した道具の働き</li>
+        <li>道具とサイボーグのジレンマ</li>
+        <li>精神と道具のマトリックス</li>
+        <li>技術的意識</li>
       </ul>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
     </div>
   </section>
 
-  <!-- 15 -->
-  <section class="slide" data-title="道具性──みんな気づいていない" data-part="4">
-    <div class="kicker">Chapter 4 ─ 2</div>
-    <h2>道具性──みんな気づいていない</h2>
-    <p class="lead">道具の性質を体系的に解説する。誰もが使っているのに、誰も気づいていない。気づいた方がいい。</p>
-    <div class="body">
-      <div class="grid g3">
-        <div class="card"><h3><span class="dot"></span>外化・拡張・身体化・透明化</h3><p>外に出し、広げ、取り込み、見えなくなる。</p></div>
-        <div class="card"><h3><span class="dot"></span>連関性・世界構成性</h3><p>道具は単体で存在しない。世界を編む。</p></div>
-        <div class="card"><h3><span class="dot"></span>意味・シンボル性</h3><p>道具は意味を運ぶ。物語のなかで道具になる。</p></div>
-        <div class="card"><h3><span class="dot"></span>時間性・持続性・習熟性</h3><p>道具は時間を貯め、身体に沈む。</p></div>
-        <div class="card"><h3><span class="dot"></span>連鎖性</h3><p>道具が道具を生む。止まらない連鎖。</p></div>
-        <div class="card" style="background:transparent; border-style:dashed"><h3 style="color:var(--moss)">→ ジレンマへ</h3><p>性質に気づいても、それだけでは済まない。</p></div>
+  <!-- 12 原初のサイボーグ -->
+  <section class="slide" data-title="原初のサイボーグ" data-part="5">
+    <div class="kicker">技術の黎明 ─ 1/5</div>
+    <h2>原初のサイボーグ</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>道具──人間の起源。道具の本質と、先人の道具の教え</li>
+          <li>人間と他の動物の技術の違い</li>
+          <li>道具は身体機能を外化させ、能力を拡張する</li>
+          <li>人類はどのように道具を獲得したのか。火という、最初のシンギュラリティ</li>
+        </ul>
       </div>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり（道具分析）。</p>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <circle cx="230" cy="145" r="52" fill="#2F7D4F"/>
+          <text x="230" y="151" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">身体</text>
+          <path d="M186 116 L104 74" stroke="#4a4a42" stroke-width="2.5"/><polygon points="96,70 112,68 106,84" fill="#4a4a42"/>
+          <rect x="20" y="34" width="96" height="34" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/><text x="68" y="56" font-size="12.5" text-anchor="middle" fill="#14140f">腕 → ハンマー</text>
+          <path d="M274 116 L356 74" stroke="#4a4a42" stroke-width="2.5"/><polygon points="364,70 348,68 354,84" fill="#4a4a42"/>
+          <rect x="344" y="34" width="96" height="34" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/><text x="392" y="56" font-size="12.5" text-anchor="middle" fill="#14140f">歯・爪 → 刃</text>
+          <path d="M186 174 L104 216" stroke="#4a4a42" stroke-width="2.5"/><polygon points="96,220 112,222 106,206" fill="#4a4a42"/>
+          <rect x="20" y="222" width="96" height="34" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/><text x="68" y="244" font-size="12.5" text-anchor="middle" fill="#14140f">皮膚 → 衣服</text>
+          <path d="M274 174 L356 216" stroke="#4a4a42" stroke-width="2.5"/><polygon points="364,220 348,222 354,206" fill="#4a4a42"/>
+          <rect x="344" y="222" width="96" height="34" rx="8" fill="#FBE9E0" stroke="#C25A32"/><text x="392" y="244" font-size="12.5" text-anchor="middle" fill="#C25A32">胃 → 火・調理</text>
+          <text x="230" y="272" font-size="13" font-weight="700" fill="#14140f" text-anchor="middle">外化＝内部器官を外へ出し、拡張する</text>
+        </svg>
+        <p class="cap">図：外化──人間はサイボーグとして始まった</p>
+      </div>
     </div>
   </section>
 
-  <!-- 16 -->
-  <section class="slide" data-title="道具のジレンマ──最も厄介な部分" data-part="4">
-    <div class="kicker">Chapter 4 ─ 3</div>
-    <h2>道具のジレンマ──最も厄介な部分</h2>
-    <p class="lead">道具性に気づいたとしても、ジレンマに陥る。技術の一番厄介な部分を、深く解説する。</p>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">一</span><div><h3>生存に必要なものが、身体の外にある</h3><p>外に出したものは、盗まれ、失われうる。</p></div></li>
-        <li><span class="n">二</span><div><h3>拡張するほど、失う</h3><p>足し算か、引き出しか。得るたびに、沈んでいた何かが痩せる。</p></div></li>
-        <li><span class="n">三</span><div><h3>使いこなすほど、見えなくなる</h3><p>透明化。うまく機能しているときほど、問えない。</p></div></li>
-        <li><span class="n">四</span><div><h3>止まれない</h3><p>連鎖は誰にも止められない。それでも、生きる。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり（四つのジレンマは地盤である／内にあるのか、外にあるのか）。</p>
+  <!-- 13 道具の哲学 -->
+  <section class="slide" data-title="道具の哲学──潜在化した道具の働き" data-part="5">
+    <div class="kicker">技術の黎明 ─ 2/5</div>
+    <h2>道具の哲学──潜在化した道具の働き</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>道具性──内でも外でもあるもの。誰もが使っているのに、誰も気づいていない</li>
+          <li>外化・拡張・身体化／顕現と隠れ</li>
+          <li>連関性・世界構成性／意味・シンボル性</li>
+          <li>時間性・持続性・習熟性／連鎖性</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <circle cx="230" cy="145" r="46" fill="#2F7D4F"/>
+          <text x="230" y="140" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">道具性</text>
+          <text x="230" y="158" font-size="10" fill="#EDF1E9" text-anchor="middle">潜在化した働き</text>
+          <line x1="230" y1="99" x2="230" y2="62" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="150" y="26" width="160" height="32" rx="16" fill="#EDF1E9" stroke="#2F7D4F"/><text x="230" y="47" font-size="12" text-anchor="middle" fill="#14140f">外化・拡張・身体化</text>
+          <line x1="272" y1="126" x2="342" y2="94" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="330" y="74" width="118" height="32" rx="16" fill="#EDF1E9" stroke="#2F7D4F"/><text x="389" y="95" font-size="12" text-anchor="middle" fill="#14140f">顕現と隠れ</text>
+          <line x1="274" y1="160" x2="344" y2="188" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="322" y="182" width="130" height="46" rx="16" fill="#EDF1E9" stroke="#2F7D4F"/><text x="387" y="201" font-size="12" text-anchor="middle" fill="#14140f">連関性</text><text x="387" y="218" font-size="12" text-anchor="middle" fill="#14140f">世界構成性</text>
+          <line x1="230" y1="191" x2="230" y2="226" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="152" y="230" width="156" height="32" rx="16" fill="#EDF1E9" stroke="#2F7D4F"/><text x="230" y="251" font-size="12" text-anchor="middle" fill="#14140f">意味・シンボル性</text>
+          <line x1="186" y1="160" x2="116 " y2="188" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="8" y="182" width="130" height="46" rx="16" fill="#EDF1E9" stroke="#2F7D4F"/><text x="73" y="201" font-size="12" text-anchor="middle" fill="#14140f">時間性・持続性</text><text x="73" y="218" font-size="12" text-anchor="middle" fill="#14140f">習熟性</text>
+          <line x1="188" y1="126" x2="118" y2="94" stroke="#ddd9cd" stroke-width="2"/>
+          <rect x="14" y="74" width="104" height="32" rx="16" fill="#FBE9E0" stroke="#C25A32"/><text x="66" y="95" font-size="12" text-anchor="middle" fill="#C25A32">連鎖性</text>
+        </svg>
+        <p class="cap">図：道具性の六つの相</p>
+      </div>
     </div>
   </section>
 
-  <!-- 17 -->
-  <section class="slide dark scrim" data-title="精神と道具のマトリックス" data-part="4">
-    <div class="bg"><img src="gbook_cave.jpg" alt=""></div>
-    <div class="kicker">Chapter 4 ─ 4</div>
+  <!-- 14 道具とサイボーグのジレンマ -->
+  <section class="slide" data-title="道具とサイボーグのジレンマ" data-part="5">
+    <div class="kicker">技術の黎明 ─ 3/5</div>
+    <h2>道具とサイボーグのジレンマ</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>足し算か、引き出しか──道具の問題</li>
+          <li>四つのジレンマ。それは欠陥ではなく、人間の条件の地盤である</li>
+          <li>それでも、生きる</li>
+          <li>技術への気づきと、道具のジレンマ──次章「技術的意識」への橋</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="30" y="30" width="190" height="100" rx="10" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="1.5"/>
+          <text x="48" y="58" font-size="13" font-weight="700" fill="#2F7D4F">一　外にある</text>
+          <text x="48" y="80" font-size="11" fill="#4a4a42">生存に必要なものが身体の外に。</text>
+          <text x="48" y="97" font-size="11" fill="#4a4a42">盗まれ、失われうる</text>
+          <rect x="240" y="30" width="190" height="100" rx="10" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="1.5"/>
+          <text x="258" y="58" font-size="13" font-weight="700" fill="#2F7D4F">二　拡張するほど、失う</text>
+          <text x="258" y="80" font-size="11" fill="#4a4a42">得るたびに、身体に沈んでいた</text>
+          <text x="258" y="97" font-size="11" fill="#4a4a42">何かが痩せていく</text>
+          <rect x="30" y="160" width="190" height="100" rx="10" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="1.5"/>
+          <text x="48" y="188" font-size="13" font-weight="700" fill="#2F7D4F">三　見えなくなる</text>
+          <text x="48" y="210" font-size="11" fill="#4a4a42">使いこなすほど透明化し、</text>
+          <text x="48" y="227" font-size="11" fill="#4a4a42">問えなくなる</text>
+          <rect x="240" y="160" width="190" height="100" rx="10" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="1.5"/>
+          <text x="258" y="188" font-size="13" font-weight="700" fill="#2F7D4F">四　止まれない</text>
+          <text x="258" y="210" font-size="11" fill="#4a4a42">連鎖は誰にも</text>
+          <text x="258" y="227" font-size="11" fill="#4a4a42">止められない</text>
+          <ellipse cx="230" cy="145" rx="74" ry="26" fill="#14140f"/>
+          <text x="230" y="141" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">四つのジレンマは</text>
+          <text x="230" y="157" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">地盤である</text>
+        </svg>
+        <p class="cap">図：四つのジレンマ──欠陥ではなく地盤</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 精神と道具のマトリックス -->
+  <section class="slide" data-title="精神と道具のマトリックス" data-part="5">
+    <div class="kicker">技術の黎明 ─ 4/5</div>
     <h2>精神と道具のマトリックス</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
-      <p class="p em">人間の意識・言語・社会性は、はじめから技術とともにあった。</p>
-      <ul class="plain" style="margin-top:14px">
-        <li>入來実験──熊手の先まで広がる身体（脳は道具を身体に取り込む）</li>
-        <li>つくることは、考えること</li>
-        <li>道具が、言葉と社会を生んだ</li>
-        <li>自然が、自らに気づく──原初のサイボーグ</li>
-      </ul>
-      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり。</p>
-    </div>
-  </section>
-
-  <!-- 18 -->
-  <section class="slide" data-title="技術的意識──章のクライマックス" data-part="4">
-    <div class="kicker">Chapter 4 ─ 5</div>
-    <h2>技術的意識──章のクライマックス</h2>
-    <p class="lead">技術への意識を獲得していく必要がある。だが、その気づきが決定的に足りていない。</p>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>気づきは、あった。だが感動のままで終わった</h3><p>洞窟に手を描いた頃から、技術への驚きはあった。主観的な感動どまりで、本質・本性への気づきに至らなかった。</p></div></li>
-        <li><span class="n">2</span><div><h3>言語と意識は分析されたのに、技術だけが手つかず</h3><p>言語は言語学が、意識は認知科学・心理学が自覚への道をつくった。技術的意識へのアプローチだけが、全く無い。</p></div></li>
-        <li><span class="n">3</span><div><h3>科学は変容を示している。なのに意識的になれていない</h3><p>道具は現に意識と身体を変容させている（入來実験ほか）。だが、いまどんな技術を使っているか、誰も気づいていない。</p></div></li>
-        <li><span class="n">4</span><div><h3>どんな技術体験をしているかに、意識的になるべきだ</h3><p>それは道具性とジレンマを知ること、人間の本性を知ることにつながる。AI時代に真っ先になすべきこと。これなしのAI倫理は上滑りする。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:14px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。この章の結論部として書き下ろす。</p>
-    </div>
-  </section>
-
-  <!-- 19 -->
-  <section class="slide dark" data-title="ここまでの圧縮整理" data-part="4">
-    <div class="kicker">Chapter 4 ─ 6</div>
-    <h2>ここまでの圧縮整理</h2>
-    <p class="lead" style="color:var(--sand)">壮大な議論なので、ここで一度、圧縮して整理する小括を置く。</p>
-    <div class="body">
-      <div class="bands">
-        <div class="band b1"><div class="bt">技術の基層</div><div class="bd">宇宙・生命・身体。素材との共鳴。人間以外を含む最も広い技術。</div></div>
-        <div class="phase">↓</div>
-        <div class="band b2"><div class="bt">技術の黎明</div><div class="bd">道具の発明。道具性。四つのジレンマ。意識・言語・社会は技術とともに生まれた。</div></div>
-        <div class="phase">↓</div>
-        <div class="band b3"><div class="bt">技術的意識</div><div class="bd">言語的意識の次に、人類が獲得すべきもの。ここから後半へ。</div></div>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>アフリカの夜、七万年前──認知革命</li>
+          <li>自然が、自らに気づく</li>
+          <li>友人が、銛をつくる／脳のなかの銛──入來実験</li>
+          <li>つくることは、考えること</li>
+        </ul>
       </div>
-      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規</span>（1〜2ページの小括）。</p>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <path d="M230 60 A85 85 0 1 1 229 60" fill="none" stroke="#2F7D4F" stroke-width="3"/>
+          <polygon points="230,52 216,60 230,68" fill="#2F7D4F" transform="rotate(8 230 60)"/>
+          <rect x="168" y="36" width="124" height="34" rx="17" fill="#2F7D4F"/><text x="230" y="58" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">つくる</text>
+          <rect x="330" y="128" width="124" height="34" rx="17" fill="#EDF1E9" stroke="#2F7D4F"/><text x="392" y="150" font-size="12.5" text-anchor="middle" fill="#14140f">脳が変わる</text>
+          <rect x="168" y="222" width="124" height="34" rx="17" fill="#2F7D4F"/><text x="230" y="244" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">考える</text>
+          <rect x="6" y="128" width="124" height="34" rx="17" fill="#EDF1E9" stroke="#2F7D4F"/><text x="68" y="150" font-size="12.5" text-anchor="middle" fill="#14140f">世界が変わる</text>
+          <text x="230" y="138" font-size="13.5" font-weight="700" fill="#14140f" text-anchor="middle">精神と道具の</text>
+          <text x="230" y="158" font-size="13.5" font-weight="700" fill="#14140f" text-anchor="middle">再帰ループ</text>
+          <text x="230" y="180" font-size="10.5" fill="#4a4a42" text-anchor="middle">（マトリックス＝母胎）</text>
+        </svg>
+        <p class="cap">図：つくる→変わる→考える→つくる──再帰の母胎</p>
+      </div>
     </div>
   </section>
 
-  <!-- 20 -->
-  <section class="slide dark scrim" data-title="第5章 技術の秩序" data-part="5">
+  <!-- 16 技術的意識 -->
+  <section class="slide" data-title="技術的意識" data-part="5">
+    <div class="kicker">技術の黎明 ─ 5/5</div>
+    <h2>技術的意識</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>道具が、言葉と社会を生んだ──モノは誰のものでもない／神々の沈黙、その後</li>
+          <li>戻れない、だからつくる</li>
+          <li>足し算・引き算、そして東洋の捉え方──技術は生命の内側から引き出される（ポイエーシス）</li>
+          <li>技術の以心伝心を超える──言語的意識の次に得るべきものが、技術的意識である</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="30" y="34" width="400" height="52" rx="8" fill="#EDF1E9"/>
+          <text x="52" y="66" font-size="13.5" font-weight="700" fill="#14140f">言語</text>
+          <text x="130" y="60" font-size="11.5" fill="#4a4a42">言語学が構造を解明。自分の文法を知っている</text>
+          <text x="404" y="66" font-size="16" font-weight="700" fill="#2F7D4F" text-anchor="middle">✓</text>
+          <rect x="30" y="96" width="400" height="52" rx="8" fill="#EDF1E9"/>
+          <text x="52" y="128" font-size="13.5" font-weight="700" fill="#14140f">意識</text>
+          <text x="130" y="122" font-size="11.5" fill="#4a4a42">認知科学・心理学・瞑想。意識状態に近づける</text>
+          <text x="404" y="128" font-size="16" font-weight="700" fill="#2F7D4F" text-anchor="middle">✓</text>
+          <rect x="30" y="158" width="400" height="52" rx="8" fill="#FBE9E0" stroke="#C25A32" stroke-width="2"/>
+          <text x="52" y="190" font-size="13.5" font-weight="700" fill="#C25A32">技術</text>
+          <text x="130" y="184" font-size="11.5" fill="#C25A32">どんな技術体験をしているか──方法が無い</text>
+          <text x="404" y="190" font-size="16" font-weight="700" fill="#C25A32" text-anchor="middle">✕</text>
+          <path d="M230 218 L230 240" stroke="#2F7D4F" stroke-width="3"/><polygon points="230,248 221,234 239,234" fill="#2F7D4F"/>
+          <text x="230" y="272" font-size="14" font-weight="700" fill="#2F7D4F" text-anchor="middle">言語的意識の次に──技術的意識の獲得へ</text>
+        </svg>
+        <p class="cap">図：技術にだけ、自覚へのアプローチが無い</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 部扉 技術の秩序 -->
+  <section class="slide dark scrim" data-title="技術の秩序（部扉）" data-part="6">
     <div class="bg"><img src="gbook_ishtar.jpg" alt=""></div>
-    <div class="kicker">Chapter 5</div>
+    <div class="kicker">部扉</div>
     <h2>技術の秩序</h2>
     <p class="lead" style="color:var(--sand)">技術的意識は、いかに一方向に強制されてきたか。</p>
     <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
-      <p class="p">「技術は道具である」という考えを克服できなかったのは、5万年かけて、その意識が強化されてきたからだ。その歴史を、神話からAIまで一本の線で整理する。</p>
-    </div>
-  </section>
-
-  <!-- 21 -->
-  <section class="slide" data-title="技術と神話" data-part="5">
-    <div class="half right"><img src="gbook_myth.jpg" alt=""></div>
-    <div class="kicker">Chapter 5 ─ 1</div>
-    <h2 style="max-width:600px">技術と神話</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
-      <p class="p">そもそも私たちの技術を発揮する行為は、神話的なものに紐づけられている。</p>
-      <ul class="plain" style="margin-top:14px">
-        <li>神話が、世界を配列する</li>
-        <li>風土が神話を、神話が技術を、かたちづくる</li>
-        <li>だから技術は多様である──技術多様性</li>
-        <li>誰も、能動的にはつくっていない</li>
+      <ul class="plain">
+        <li>技術の普遍化</li>
+        <li>宇宙技芸と神話／風土</li>
+        <li>古代メソポタミアからの技術決定論</li>
+        <li>西洋形而上学／一神教の問題</li>
+        <li>テクノロジーによる世界制圧</li>
+        <li>AIの知性／人間の野性</li>
       </ul>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
     </div>
   </section>
 
-  <!-- 22 -->
-  <section class="slide" data-title="神話の三つのタイプ" data-part="5">
-    <div class="kicker">Chapter 5 ─ 2</div>
-    <h2>神話の三つのタイプ</h2>
-    <p class="lead">世界神話学説。人類の移動経路に沿って、神話は分岐した。</p>
-    <div class="body">
-      <div class="grid g3">
-        <div class="card"><h3><span class="dot"></span>ゴンドワナ型</h3><p>世界ははじめからある。循環する時間。精霊と地続きの共存。約7万年前の第一波。</p></div>
-        <div class="card"><h3><span class="dot"></span>ローラシア型</h3><p>創造から終末への一本の物語。階層と秩序。ギリシャ神話も聖書も古事記もこの型。</p></div>
-        <div class="card"><h3><span class="dot"></span>ミックス型</h3><p>日本。縄文の古層に弥生が重なり、神道・仏教・儒教が併存する混交。</p></div>
+  <!-- 18 技術の普遍化 -->
+  <section class="slide" data-title="技術の普遍化" data-part="6">
+    <div class="kicker">技術の秩序 ─ 1/6</div>
+    <h2>技術の普遍化</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>「普遍性」の脱構築──世界を覆う同じテクノロジー。火は、本当に一つなのか</li>
+          <li>「普遍的な技術」という思い込み──通説の積層は転倒している</li>
+          <li>普遍性への洗脳──普遍性は集団内でのみ成立する（ちょんまげと切腹の例）</li>
+          <li>普遍化の傾向と、抵抗への道しるべ</li>
+        </ul>
       </div>
-      <div class="callout" style="margin-top:22px"><b>強調：どのタイプの神話であっても、技術のありようそのものに気づくものではなかった。</b>技術は未分化なまま、神話のなかに埋め込まれていた。</div>
-      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり ＋ <span class="accent">△</span>「未分化」の強調を追記。</p>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <text x="120" y="30" font-size="12.5" font-weight="700" fill="#4a4a42" text-anchor="middle">【通説】</text>
+          <rect x="40" y="42" width="160" height="34" rx="6" fill="#E4EBE2"/><text x="120" y="64" font-size="11" text-anchor="middle" fill="#14140f">三　主観的な技術体験</text>
+          <rect x="40" y="80" width="160" height="34" rx="6" fill="#E4EBE2"/><text x="120" y="102" font-size="11" text-anchor="middle" fill="#14140f">二　個別の傾向性</text>
+          <rect x="40" y="118" width="160" height="34" rx="6" fill="#C25A32"/><text x="120" y="140" font-size="11" font-weight="700" text-anchor="middle" fill="#fff">一　普遍的な機能＝土台?</text>
+          <rect x="40" y="156" width="160" height="34" rx="6" fill="#14140f"/><text x="120" y="178" font-size="11" text-anchor="middle" fill="#fff">〇　技術の基層</text>
+          <line x1="52" y1="50" x2="188" y2="184" stroke="#C25A32" stroke-width="4"/>
+          <line x1="188" y1="50" x2="52" y2="184" stroke="#C25A32" stroke-width="4"/>
+          <text x="340" y="30" font-size="12.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">【生成の順序】</text>
+          <rect x="260" y="42" width="160" height="34" rx="6" fill="#FBE9E0" stroke="#C25A32"/><text x="340" y="58" font-size="10.5" text-anchor="middle" fill="#C25A32">一「普遍」という想定</text><text x="340" y="71" font-size="9.5" text-anchor="middle" fill="#C25A32">＝最後に載った屋根</text>
+          <rect x="260" y="86" width="160" height="30" rx="6" fill="#E4EBE2"/><text x="340" y="105" font-size="10.5" text-anchor="middle" fill="#14140f">二　傾向性（風土・神話）</text>
+          <rect x="260" y="122" width="160" height="30" rx="6" fill="#E4EBE2"/><text x="340" y="141" font-size="10.5" text-anchor="middle" fill="#14140f">三　主観的な技術体験</text>
+          <rect x="260" y="158" width="160" height="32" rx="6" fill="#14140f"/><text x="340" y="178" font-size="10.5" text-anchor="middle" fill="#fff">〇　技術の基層</text>
+          <path d="M244 168 L244 60" stroke="#2F7D4F" stroke-width="2.5"/><polygon points="244,52 237,66 251,66" fill="#2F7D4F"/>
+          <text x="230" y="230 " font-size="13" font-weight="700" fill="#14140f" text-anchor="middle">「土台」と思われてきたものは、最後に載せられた屋根</text>
+          <text x="230" y="252" font-size="11.5" fill="#4a4a42" text-anchor="middle">底から生まれる：基層 → 体験 → 傾向性 →「普遍」の想定</text>
+        </svg>
+        <p class="cap">図：通説の転倒──「普遍」は最後に生まれた</p>
+      </div>
     </div>
   </section>
 
-  <!-- 23 -->
-  <section class="slide" data-title="以心伝心の克服" data-part="5">
-    <div class="kicker">Chapter 5 ─ 3</div>
-    <h2>「以心伝心」の克服</h2>
-    <div class="body">
-      <p class="p">「技術は、意識に上る前に発揮されるのが良い」「技術は以心伝心で、言語を伴わずに伝承されるものだ」──この考え方を、本書は克服する。</p>
-      <p class="p">それは、これまでは良かった。実際、うまくいってきた。だが、時代は変わってしまった。</p>
-      <p class="p em">言語的意識──世界を言語的に理解すること──を獲得した人類が、次に得るべきものが、技術的意識──世界を技術的に理解すること──である。</p>
-      <p class="small" style="margin-top:18px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。神話の章と歴史の章をつなぐ蝶番。</p>
+  <!-- 19 宇宙技芸と神話／風土 -->
+  <section class="slide" data-title="宇宙技芸と神話／風土" data-part="6">
+    <div class="kicker">技術の秩序 ─ 2/6</div>
+    <h2>宇宙技芸と神話／風土</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>神話が、世界を配列する。西洋と東洋という比較を乗り越え、アフリカから考える</li>
+          <li>世界神話学説──連続と、分岐</li>
+          <li>風土が神話を、神話が技術を、かたちづくる（宇宙技芸）</li>
+          <li>誰も、能動的にはつくっていない。経路──一度定まった方向は、道になる</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="160" y="20" width="140" height="34" rx="17" fill="#14140f"/><text x="230" y="42" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">出アフリカ</text>
+          <path d="M200 54 L110 92" stroke="#4a4a42" stroke-width="2"/><path d="M260 54 L350 92" stroke="#4a4a42" stroke-width="2"/>
+          <rect x="30" y="96" width="160" height="40" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/><text x="110" y="113" font-size="12" font-weight="700" text-anchor="middle" fill="#14140f">ゴンドワナ型</text><text x="110" y="129" font-size="10" text-anchor="middle" fill="#4a4a42">循環・精霊・世界ははじめからある</text>
+          <rect x="270" y="96" width="160" height="40" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/><text x="350" y="113" font-size="12" font-weight="700" text-anchor="middle" fill="#14140f">ローラシア型</text><text x="350" y="129" font-size="10" text-anchor="middle" fill="#4a4a42">創造から終末への一本の物語</text>
+          <path d="M310 136 L250 176" stroke="#4a4a42" stroke-width="2"/><path d="M390 136 L420 176" stroke="#4a4a42" stroke-width="2"/>
+          <rect x="180" y="180" width="130" height="40" rx="8" fill="#FBE9E0" stroke="#C25A32"/><text x="245" y="197" font-size="11.5" font-weight="700" text-anchor="middle" fill="#C25A32">西 → 一神教</text><text x="245" y="213" font-size="10" text-anchor="middle" fill="#C25A32">→ テクノロジーへ</text>
+          <rect x="330" y="180" width="120" height="40" rx="8" fill="#E4EBE2"/><text x="390" y="197" font-size="11.5" font-weight="700" text-anchor="middle" fill="#14140f">東 → 無・空</text><text x="390" y="213" font-size="10" text-anchor="middle" fill="#4a4a42">混沌からの生成</text>
+          <path d="M290 220 L320 248" stroke="#4a4a42" stroke-width="2"/><path d="M370 220 L346 248" stroke="#4a4a42" stroke-width="2"/>
+          <rect x="272" y="250" width="130" height="32" rx="8" fill="#2F7D4F"/><text x="337" y="271" font-size="11.5" font-weight="700" text-anchor="middle" fill="#fff">日本＝ミックス型</text>
+          <text x="110" y="176" font-size="11" fill="#4a4a42" text-anchor="middle">アボリジニ、コイサン、</text>
+          <text x="110" y="192" font-size="11" fill="#4a4a42" text-anchor="middle">ピグミーらが担い手</text>
+          <text x="110" y="240" font-size="11.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">神話の型ごとに</text>
+          <text x="110" y="256" font-size="11.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">技術の傾向性＝宇宙技芸</text>
+        </svg>
+        <p class="cap">図：神話の分岐樹と技術の傾向性</p>
+      </div>
     </div>
   </section>
 
-  <!-- 24 -->
-  <section class="slide dark scrim" data-title="メソポタミアからの技術決定論" data-part="5">
-    <div class="bg"><img src="gbook_cuneiform.jpg" alt=""></div>
-    <div class="kicker">Chapter 5 ─ 4</div>
-    <h2>メソポタミアからの技術決定論</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
-      <p class="p">ローラシア型の系譜の西側で、メソポタミア文明が誕生する。私たちは、5000年前の雛形のまま生きている。</p>
-      <ul class="plain" style="margin-top:14px">
-        <li>組織という当たり前──物語と宗教</li>
-        <li>未来と管理という当たり前──倉庫と穀物</li>
-        <li>国家と責任という当たり前──文字と法</li>
-      </ul>
-      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり（古代の技術の秩序の誕生）。</p>
+  <!-- 20 古代メソポタミアからの技術決定論 -->
+  <section class="slide" data-title="古代メソポタミアからの技術決定論" data-part="6">
+    <div class="kicker">技術の秩序 ─ 3/6</div>
+    <h2>古代メソポタミアからの技術決定論</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>組織という当たり前──物語と宗教</li>
+          <li>未来と管理という当たり前──倉庫と穀物</li>
+          <li>国家と責任という当たり前──文字と法</li>
+          <li>私たちは、5000年前の雛形のまま生きている</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="60" y="52" width="240" height="46" rx="6" fill="#EDF1E9" stroke="#2F7D4F"/><text x="80" y="72" font-size="12.5" font-weight="700" fill="#14140f">組織</text><text x="80" y="89" font-size="10.5" fill="#4a4a42">物語と宗教が人を束ねる</text>
+          <rect x="60" y="106" width="240" height="46" rx="6" fill="#EDF1E9" stroke="#2F7D4F"/><text x="80" y="126" font-size="12.5" font-weight="700" fill="#14140f">未来と管理</text><text x="80" y="143" font-size="10.5" fill="#4a4a42">倉庫と穀物＝未来の発明</text>
+          <rect x="60" y="160" width="240" height="46" rx="6" fill="#EDF1E9" stroke="#2F7D4F"/><text x="80" y="180" font-size="12.5" font-weight="700" fill="#14140f">国家と責任</text><text x="80" y="197" font-size="10.5" fill="#4a4a42">文字は帳簿、法は責任の装置</text>
+          <text x="180" y="36" font-size="12.5" font-weight="700" fill="#4a4a42" text-anchor="middle">紀元前3000年　メソポタミア</text>
+          <path d="M316 129 L400 129" stroke="#C25A32" stroke-width="8"/>
+          <polygon points="424,129 396,115 396,143" fill="#C25A32"/>
+          <text x="392" y="100" font-size="12.5" font-weight="700" fill="#C25A32" text-anchor="middle">現在</text>
+          <text x="230" y="245" font-size="13.5" font-weight="700" fill="#14140f" text-anchor="middle">床は敷き直されていない──5000年前の雛形のまま</text>
+          <text x="230" y="268" font-size="11.5" fill="#4a4a42" text-anchor="middle">倉庫→プラットフォーム、穀物→データ、帳簿→アルゴリズム</text>
+        </svg>
+        <p class="cap">図：三つの「当たり前」の床と、その現代形</p>
+      </div>
     </div>
   </section>
 
-  <!-- 25 -->
-  <section class="slide" data-title="西洋形而上学──ロゴスとキリスト教" data-part="5">
-    <div class="kicker">Chapter 5 ─ 5</div>
-    <h2>西洋形而上学──ロゴスとキリスト教</h2>
-    <p class="lead">古代ギリシャから中世ヨーロッパへ。テクノロジー前夜。</p>
-    <div class="body">
-      <ul class="plain">
-        <li>ロゴス──言葉と理性による世界把握。イデア、設計図の思想</li>
-        <li>キリスト教──一神教と、始まりから終わりへ向かう直線の時間</li>
-        <li>観想の玉座──技術は奴隷の仕事とされ、問われないまま発達した</li>
-        <li>この系譜だけが、なぜ「普遍」を名乗るに至ったのか</li>
-      </ul>
-      <p class="small" style="margin-top:18px"><span class="accent">△</span> 増補。現行は薄い。「近代の秩序」の手前に1章分立てる。</p>
+  <!-- 21 西洋形而上学／一神教の問題 -->
+  <section class="slide" data-title="西洋形而上学／一神教の問題" data-part="6">
+    <div class="kicker">技術の秩序 ─ 4/6</div>
+    <h2>西洋形而上学／一神教の問題</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>ハイデガー・ニーチェからの問いかけ</li>
+          <li>プラトンとアリストテレスの技術哲学</li>
+          <li>「ロゴス」と技術</li>
+          <li>イデア・テロス、という呪い</li>
+        </ul>
+        <p class="small" style="margin-top:14px"><span class="warn">✕</span> 骨子（見出し）のみ。本文は新規執筆。</p>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="120" y="24" width="220" height="44" rx="10" fill="#14140f"/>
+          <text x="230" y="43" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">イデア／唯一神</text>
+          <text x="230" y="60" font-size="10.5" fill="#C8C2B0" text-anchor="middle">完全な設計図・テロス（目的）</text>
+          <path d="M230 68 L230 96" stroke="#4a4a42" stroke-width="2.5"/><polygon points="230,104 222,90 238,90" fill="#4a4a42"/>
+          <rect x="140" y="106" width="180" height="38" rx="10" fill="#E4EBE2"/>
+          <text x="230" y="130" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">ロゴス（言葉・理性）</text>
+          <path d="M230 144 L230 172" stroke="#4a4a42" stroke-width="2.5"/><polygon points="230,180 222,166 238,166" fill="#4a4a42"/>
+          <rect x="140" y="182" width="180" height="38" rx="10" fill="#EDF1E9" stroke="#2F7D4F"/>
+          <text x="230" y="206" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">制作（地上のコピー）</text>
+          <text x="230" y="252" font-size="13" font-weight="700" fill="#C25A32" text-anchor="middle">上から下へ、完全から不完全へ──「呪い」の構図</text>
+          <text x="382" y="122" font-size="11" fill="#4a4a42">世界の外に</text>
+          <text x="382" y="138" font-size="11" fill="#4a4a42">正解がある、</text>
+          <text x="382" y="154" font-size="11" fill="#4a4a42">という発想</text>
+        </svg>
+        <p class="cap">図：イデア→ロゴス→制作という垂直の系譜</p>
+      </div>
     </div>
   </section>
 
-  <!-- 26 -->
-  <section class="slide" data-title="テクノロジー誕生" data-part="5">
-    <div class="kicker">Chapter 5 ─ 6</div>
-    <h2>テクノロジー誕生</h2>
-    <p class="lead">産業革命。技術が科学と資本に束ねられ、テクノロジーになる。</p>
-    <div class="body">
-      <ul class="plain">
-        <li>個人という当たり前──機械と科学</li>
-        <li>ゲシュテル──世界が「資源」として立ち現れる（ハイデガーはここで本格導入）</li>
-        <li>生産性・効率性でしか世界が見えなくなる、その仕組み</li>
-      </ul>
-      <p class="small" style="margin-top:18px"><span class="accent">△</span> ゲシュテル論を応答部からこの章へ移動。接続を書き直す。</p>
+  <!-- 22 テクノロジーによる世界制圧 -->
+  <section class="slide" data-title="テクノロジーによる世界制圧" data-part="6">
+    <div class="kicker">技術の秩序 ─ 5/6</div>
+    <h2>テクノロジーによる世界制圧</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>個人という当たり前──機械と科学</li>
+          <li>計算可能な世界という当たり前──計算機とAI</li>
+          <li>世界がデータに二重化され、人間の認知と注意が採掘の対象になる（監視資本主義）</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="26" y="60" width="130" height="150" rx="10" fill="#EDF1E9" stroke="#2F7D4F"/>
+          <text x="91" y="88" font-size="13" font-weight="700" fill="#14140f" text-anchor="middle">世界</text>
+          <text x="91" y="118" font-size="11.5" fill="#4a4a42" text-anchor="middle">森</text>
+          <text x="91" y="142" font-size="11.5" fill="#4a4a42" text-anchor="middle">川</text>
+          <text x="91" y="166" font-size="11.5" fill="#4a4a42" text-anchor="middle">人</text>
+          <rect x="180" y="100" width="100" height="70" rx="8" fill="#14140f"/>
+          <text x="230" y="130" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">計算可能化</text>
+          <text x="230" y="148" font-size="10" fill="#C8C2B0" text-anchor="middle">機械・科学・AI</text>
+          <path d="M156 135 L176 135" stroke="#4a4a42" stroke-width="2.5"/><polygon points="182,135 170,128 170,142" fill="#4a4a42"/>
+          <path d="M280 135 L300 135" stroke="#4a4a42" stroke-width="2.5"/><polygon points="306,135 294,128 294,142" fill="#4a4a42"/>
+          <rect x="308" y="60" width="130" height="150" rx="10" fill="#FBE9E0" stroke="#C25A32"/>
+          <text x="373" y="88" font-size="13" font-weight="700" fill="#C25A32" text-anchor="middle">資源・データ</text>
+          <text x="373" y="118" font-size="11.5" fill="#C25A32" text-anchor="middle">木材</text>
+          <text x="373" y="142" font-size="11.5" fill="#C25A32" text-anchor="middle">電力</text>
+          <text x="373" y="166" font-size="11.5" fill="#C25A32" text-anchor="middle">注意・認知</text>
+          <text x="230" y="248" font-size="13" font-weight="700" fill="#14140f" text-anchor="middle">すべてが「駆り立て」の対象として立ち現れる</text>
+        </svg>
+        <p class="cap">図：世界の資源化・データ化（ゲシュテルの完成）</p>
+      </div>
     </div>
   </section>
 
-  <!-- 27 -->
-  <section class="slide dark scrim" data-title="AIと計算可能な世界" data-part="5">
-    <div class="bg"><img src="gbook_server.jpg" alt=""></div>
-    <div class="kicker">Chapter 5 ─ 7</div>
-    <h2>AIと計算可能な世界</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:20px">
-      <p class="p">計算機とAI。「計算可能な世界」という当たり前の完成形。5000年の秩序の最新層。</p>
-      <p class="small" style="margin-top:16px; color:var(--mint)">◎ 原稿あり（計算機とAI／固定化が生むもの）。</p>
+  <!-- 23 AIの知性／人間の野性 -->
+  <section class="slide" data-title="AIの知性／人間の野性" data-part="6">
+    <div class="kicker">技術の秩序 ─ 6/6</div>
+    <h2>AIの知性／人間の野性</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>AIで、テクノロジーの傾向性がむき出しになった──「AI」という概念自体が普遍的ではない</li>
+          <li>AGI論・シミュレーション仮説と、日本の冷め（千葉雅也・東浩紀）</li>
+          <li>知性に知性で応答しても仕方がない。知性が全てではない</li>
+          <li>固定化が生むもの。それでも、基層はある──身体と宇宙</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <polygon points="230,28 90,96 370,96" fill="#C25A32"/>
+          <text x="230" y="80" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">「普遍性」の屋根</text>
+          <path d="M282 44 L262 72 L286 66 L268 92" stroke="#fff" stroke-width="3" fill="none"/>
+          <text x="356" y="46" font-size="11.5" font-weight="700" fill="#C25A32">ほころび</text>
+          <rect x="110" y="96" width="240" height="88" fill="#E4EBE2"/>
+          <text x="230" y="132" font-size="12" fill="#14140f" text-anchor="middle">固定化された秩序</text>
+          <text x="230" y="152" font-size="10.5" fill="#4a4a42" text-anchor="middle">倉庫・文字・法・機械・計算・AI</text>
+          <rect x="80" y="184" width="300" height="52" rx="4" fill="#2F7D4F"/>
+          <text x="230" y="206" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">基層──身体と宇宙（野性）</text>
+          <text x="230" y="224" font-size="10.5" fill="#EDF1E9" text-anchor="middle">固定化されえないもの</text>
+          <text x="230" y="266" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">屋根がほころぶとき、基層＝野性から応答する</text>
+        </svg>
+        <p class="cap">図：屋根のほころびと、固定化されえない基層</p>
+      </div>
     </div>
   </section>
 
-  <!-- 28 -->
-  <section class="slide" data-title="秩序の最終章──ほころび" data-part="5">
-    <div class="half right"><img src="gbook_crowd.jpg" alt=""></div>
-    <div class="kicker">Chapter 5 ─ 8</div>
-    <h2 style="max-width:600px">秩序の最終章──ほころび</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:16px">
-      <ul class="plain">
-        <li>AIにおいて、テクノロジーの傾向性がむき出しになった。「AI」という概念自体が普遍的ではない</li>
-        <li>AGI論・シミュレーション仮説に、日本人は冷めている（千葉雅也・東浩紀の発言から）</li>
-        <li>深刻に語るAGI論者もいる。だが「頭のいい人が考えすぎているだけ」ではないか</li>
-        <li>知性に知性で応答しても仕方がない。知性が全てではない</li>
-        <li>ここで、異なる未来の可能性をもう一度開く</li>
-      </ul>
-      <p class="small" style="margin-top:16px"><span class="warn">✕ 新規執筆</span>（口述素材あり）。秩序の部の締め。</p>
-    </div>
-  </section>
-
-  <!-- 29 -->
-  <section class="slide dark" data-title="第6章 技術の応答" data-part="6">
+  <!-- 24 部扉 技術の覚醒 -->
+  <section class="slide dark" data-title="技術の覚醒（部扉）" data-part="7">
     <div class="half right"><img src="gbook_koou.jpg" alt=""></div>
-    <div class="kicker">Chapter 6</div>
-    <h2 style="max-width:560px">技術の応答</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
-      <p class="p">このように形作られたテクノロジーに対して、いかなる応答が可能なのか。</p>
-      <p class="p em">＝技術的意識を、いかに獲得できるのか。</p>
-    </div>
-  </section>
-
-  <!-- 30 -->
-  <section class="slide" data-title="三つの応答" data-part="6">
-    <div class="kicker">Chapter 6</div>
-    <h2>三つの応答</h2>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>応答すべきだ</h3><p>絶望から始める。火を盗んだ者たちの系譜。三つの命題──不可分性の受容と、決定論の乗り越え。</p></div></li>
-        <li><span class="n">2</span><div><h3>応答は、生命からなされる</h3><p>プラトンの呪い。生情報の序列──タモス王、AIに物申す。技術を使う生命に、気づく。</p></div></li>
-        <li><span class="n">3</span><div><h3>没入──作ることから応答する</h3><p>メイカーズ。観想の玉座を降りる。作られたものから、作るものへ。</p></div></li>
-        <li><span class="n">＋</span><div><h3>サイボーグ・メディテーション</h3><p>気づいているサイボーグ。絶望しながら、超えていく。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。ゲシュテル論を秩序へ移した分の接続を調整。</p>
-    </div>
-  </section>
-
-  <!-- 31 -->
-  <section class="slide dark scrim" data-title="第7章 技術の自然" data-part="7">
-    <div class="bg"><img src="gbook_wild.jpg" alt=""></div>
-    <div class="kicker">Chapter 7</div>
-    <h2>技術の自然──技術と野生</h2>
-    <p class="lead" style="color:var(--sand)">飼いならされた世界の見方を超えるヒントは、どこにあるか。</p>
-  </section>
-
-  <!-- 32 -->
-  <section class="slide" data-title="ハイデガーから野生へ" data-part="7">
-    <div class="kicker">Chapter 7 ─ 1</div>
-    <h2>ハイデガーから野生へ</h2>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>もう一度、ハイデガーから</h3><p>ゲシュテルの診断は第5章で確認済み。ここでは、その先のヒントを拾う。</p></div></li>
-        <li><span class="n">2</span><div><h3>放下──「然り」と「否」を同時に</h3><p>ハイデガーの理想：自然に内在する力を、外へ導く。</p></div></li>
-        <li><span class="n">3</span><div><h3>ハイデガーを超えて──多元性へ</h3><p>一つの存在の歴史ではなく、複数の技術のありようへ。</p></div></li>
-        <li><span class="n">4</span><div><h3>野生のサイバネティクス</h3><p>予測が現実を上回る時代に、サイボーグとして野生に還る。いま求められる「知恵」。</p></div></li>
-      </ol>
-      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。</p>
-    </div>
-  </section>
-
-  <!-- 33 -->
-  <section class="slide" data-title="東洋思想の中にヒントを見出す" data-part="7">
-    <div class="kicker">Chapter 7 ─ 2</div>
-    <h2>東洋思想の中にヒントを見出す</h2>
-    <p class="lead">東洋思想において、技術は自然との関係をどう築いてきたか。</p>
-    <div class="body">
+    <div class="kicker">部扉</div>
+    <h2 style="max-width:560px">技術の覚醒</h2>
+    <p class="lead" style="color:var(--sand); max-width:520px">形作られたテクノロジーに、いかなる応答が可能か。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
       <ul class="plain">
-        <li>無為の技術の扉──テクノロジーカルトの教典と、隠れた絶対者</li>
-        <li>おのずからの技術──自然則のマインド・アップローディング</li>
-        <li>テクノロジーは夢である──胡蝶の夢と、洞窟の比喩。あわいから、出ずるもの</li>
-        <li>どんな夢を見るのか</li>
+        <li>技術への応答</li>
+        <li>技術の生命化</li>
+        <li>技術への没入</li>
       </ul>
-      <p class="small" style="margin-top:18px"><span class="accent">◎</span> 原稿あり（無為の技術の扉／テクノロジーは夢である）。</p>
     </div>
   </section>
 
-  <!-- 34 -->
-  <section class="slide dark scrim" data-title="第8章 技術の再野生化" data-part="8">
-    <div class="bg"><img src="gbook_field11.jpg" alt=""></div>
-    <div class="kicker">Chapter 8</div>
-    <h2>技術の再野生化</h2>
-    <p class="lead" style="color:var(--sand)">総まとめ。技術の基層から、原初のサイボーグから、野生のサイバネティクスまで──一気に束ねる。</p>
-  </section>
-
-  <!-- 35 -->
-  <section class="slide" data-title="未開の未来へ" data-part="8">
-    <div class="half right"><img src="gbook_niwa.jpg" alt=""></div>
-    <div class="kicker">Chapter 8 ─ 1</div>
-    <h2 style="max-width:600px">未開の未来へ</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:16px">
-      <ul class="plain">
-        <li>三つの未来──このまま／降りる／方向を変える</li>
-        <li>未開の未来──飼い慣らされた未来からの逸脱</li>
-        <li>makers Unlearn──実装の現場。アンラーンに教科書はない</li>
-        <li>モア・ザン・ヒューマンと、プリミティブ・サイボーグ</li>
-        <li>里山より、先へ。反ではなく、もしも</li>
-      </ul>
-      <p class="small" style="margin-top:16px"><span class="accent">◎</span> 原稿あり。</p>
-    </div>
-  </section>
-
-  <!-- 36 -->
-  <section class="slide" data-title="惑星的普遍技術という挑戦" data-part="8">
-    <div class="kicker">Chapter 8 ─ 2</div>
-    <h2>惑星的普遍技術という挑戦</h2>
-    <div class="body">
-      <div class="bands">
-        <div class="band b1"><div class="bt">正しさは、基層に</div><div class="bd">橋が落ちるかどうかは、宇宙の物理法則が定める。相対主義ではない。</div></div>
-        <div class="band b2"><div class="bt">多様性は、風土に</div><div class="bd">神話・文化・傾向性。技術は風土に応じて多様である。</div></div>
-        <div class="band b3"><div class="bt">「普遍」は、歴史のなかに</div><div class="bd">最後に載せられた屋根。設計書・科学・テクノロジーが仕上げた想定。</div></div>
+  <!-- 25 技術への応答 -->
+  <section class="slide" data-title="技術への応答" data-part="7">
+    <div class="kicker">技術の覚醒 ─ 1/3</div>
+    <h2>技術への応答</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>現在地──絶望から始める</li>
+          <li>火を盗んだ者たちの系譜</li>
+          <li>問いから、応答へ</li>
+          <li>三つの命題──二つの不可分性は受容できる。実質的な技術決定論は、乗り越えられる</li>
+        </ul>
       </div>
-      <ul class="plain" style="margin-top:18px">
-        <li>モノの普遍から、ワザの普遍へ</li>
-        <li>ソフトウェアとAI──ハードを編み直し、前提を壊す道具</li>
-        <li>野生を、ループに入れる</li>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="46" y="60" width="112" height="130" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/>
+          <text x="102" y="92" font-size="12" font-weight="700" fill="#14140f" text-anchor="middle">一</text>
+          <text x="102" y="118" font-size="11" fill="#4a4a42" text-anchor="middle">技術と人間の</text>
+          <text x="102" y="134" font-size="11" fill="#4a4a42" text-anchor="middle">不可分性は</text>
+          <text x="102" y="150" font-size="11" font-weight="700" fill="#2F7D4F" text-anchor="middle">受容できる</text>
+          <rect x="174" y="60" width="112" height="130" rx="8" fill="#EDF1E9" stroke="#2F7D4F"/>
+          <text x="230" y="92" font-size="12" font-weight="700" fill="#14140f" text-anchor="middle">二</text>
+          <text x="230" y="118" font-size="11" fill="#4a4a42" text-anchor="middle">技術と哲学の</text>
+          <text x="230" y="134" font-size="11" fill="#4a4a42" text-anchor="middle">不可分性も</text>
+          <text x="230" y="150" font-size="11" font-weight="700" fill="#2F7D4F" text-anchor="middle">受容できる</text>
+          <rect x="302" y="60" width="112" height="130" rx="8" fill="#FBE9E0" stroke="#C25A32"/>
+          <text x="358" y="92" font-size="12" font-weight="700" fill="#C25A32" text-anchor="middle">三</text>
+          <text x="358" y="118" font-size="11" fill="#C25A32" text-anchor="middle">実質的な</text>
+          <text x="358" y="134" font-size="11" fill="#C25A32" text-anchor="middle">技術決定論は</text>
+          <text x="358" y="150" font-size="11" font-weight="700" fill="#C25A32" text-anchor="middle">乗り越えられる</text>
+          <rect x="30" y="204" width="400" height="46" rx="8" fill="#2F7D4F"/>
+          <text x="230" y="226" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">足場：技術の基層</text>
+          <text x="230" y="243" font-size="10.5" fill="#EDF1E9" text-anchor="middle">固定化されえない、技術を使う「生命」としての身体</text>
+        </svg>
+        <p class="cap">図：三つの命題と、それを支える足場</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 26 技術の生命化 -->
+  <section class="slide" data-title="技術の生命化" data-part="7">
+    <div class="kicker">技術の覚醒 ─ 2/3</div>
+    <h2>技術の生命化</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>テクノロジーは、どこから来るのか──プラトンの呪い</li>
+          <li>呼応という生々しいプロセス</li>
+          <li>生情報の序列──タモス王、AIに物申す</li>
+          <li>技術を使う生命に、気づく</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="30" y="44" width="190" height="180" rx="10" fill="#E4EBE2"/>
+          <text x="125" y="74" font-size="12.5" font-weight="700" fill="#4a4a42" text-anchor="middle">外から与えられる</text>
+          <path d="M125 96 L125 130" stroke="#4a4a42" stroke-width="3"/><polygon points="125,140 116,124 134,124" fill="#4a4a42"/>
+          <text x="125" y="162" font-size="11.5" fill="#4a4a42" text-anchor="middle">プロメテウスの火</text>
+          <text x="125" y="180" font-size="11.5" fill="#4a4a42" text-anchor="middle">神からの贈与・イデアのコピー</text>
+          <line x1="60" y1="206" x2="190" y2="206" stroke="#C25A32" stroke-width="3"/>
+          <text x="125" y="200" font-size="11" font-weight="700" fill="#C25A32" text-anchor="middle" visibility="hidden">呪い</text>
+          <rect x="240" y="44" width="190" height="180" rx="10" fill="#EDF1E9" stroke="#2F7D4F" stroke-width="2"/>
+          <text x="335" y="74" font-size="12.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">内から湧き上がる</text>
+          <path d="M300 160 Q335 120 370 160" fill="none" stroke="#2F7D4F" stroke-width="2.5"/>
+          <polygon points="374,164 360,158 366,148" fill="#2F7D4F"/>
+          <path d="M370 176 Q335 216 300 176" fill="none" stroke="#2F7D4F" stroke-width="2.5"/>
+          <polygon points="296,172 310,178 304,188" fill="#2F7D4F"/>
+          <text x="335" y="132" font-size="11.5" fill="#4a4a42" text-anchor="middle">生命</text>
+          <text x="335" y="205" font-size="11.5" fill="#4a4a42" text-anchor="middle">素材</text>
+          <text x="335" y="245" font-size="12" font-weight="700" fill="#2F7D4F" text-anchor="middle">呼応（ポイエーシス）</text>
+          <text x="125" y="245" font-size="12" font-weight="700" fill="#4a4a42" text-anchor="middle">プラトンの呪い</text>
+          <text x="230" y="275" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">技術の源泉を、外から内へ取り戻す</text>
+        </svg>
+        <p class="cap">図：外からの贈与ではなく、生命と素材の呼応</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 27 技術への没入 -->
+  <section class="slide" data-title="技術への没入" data-part="7">
+    <div class="kicker">技術の覚醒 ─ 3/3</div>
+    <h2>技術への没入</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>応答のムーブメントは、あった</li>
+          <li>観想の玉座──技術は、奴隷の仕事だった</li>
+          <li>作られたものから、作るものへ（メイカーズ）</li>
+          <li>サイボーグの身体は、まだ解放されていない</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <rect x="60" y="34" width="180" height="56 " rx="10" fill="#E4EBE2"/>
+          <text x="150" y="58" font-size="12.5" font-weight="700" fill="#4a4a42" text-anchor="middle">観想の玉座</text>
+          <text x="150" y="76" font-size="10.5" fill="#4a4a42" text-anchor="middle">見る・考える・使うだけ</text>
+          <path d="M150 90 L150 122 L200 122 L200 154 L250 154 L250 186" fill="none" stroke="#2F7D4F" stroke-width="3"/>
+          <polygon points="250,196 241,182 259,182" fill="#2F7D4F"/>
+          <text x="308" y="128" font-size="12.5" font-weight="700" fill="#2F7D4F">降りて、つくる</text>
+          <text x="308" y="146" font-size="10.5" fill="#4a4a42">没入＝身体ごと関わる</text>
+          <rect x="160" y="200" width="180" height="56" rx="10" fill="#2F7D4F"/>
+          <text x="250" y="224" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">制作の現場</text>
+          <text x="250" y="242" font-size="10.5" fill="#EDF1E9" text-anchor="middle">作られたものから、作るものへ</text>
+        </svg>
+        <p class="cap">図：玉座を降り、制作へ没入する</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 28 部扉 技術の再野生化 -->
+  <section class="slide dark scrim" data-title="技術の再野生化（部扉）" data-part="8">
+    <div class="bg"><img src="gbook_wild.jpg" alt=""></div>
+    <div class="kicker">部扉</div>
+    <h2>技術の再野生化</h2>
+    <p class="lead" style="color:var(--sand)">サイボーグとして、野生に還る。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <ul class="plain">
+        <li>野生のサイバネティクス</li>
+        <li>無為の技術の扉</li>
+        <li>サイボーグ・メディテーション</li>
       </ul>
-      <p class="small" style="margin-top:14px"><span class="accent">◎</span> 原稿あり。</p>
     </div>
   </section>
 
-  <!-- 37 -->
-  <section class="slide dark scrim" data-title="宣言" data-part="8">
-    <div class="bg"><img src="gbook_ember.jpg" alt=""></div>
-    <div class="kicker">Chapter 8 ─ 3</div>
-    <h2>宣言──技術の再野生化</h2>
-    <div class="body narrow" style="justify-content:flex-start; margin-top:24px">
-      <p class="p em" style="font-size:22px">テクノロジーを、内側から更新する。</p>
-      <p class="p">そして、応答してほしい。</p>
-      <p class="small" style="margin-top:18px; color:var(--mint)">◎ 原稿あり。</p>
+  <!-- 29 野生のサイバネティクス -->
+  <section class="slide" data-title="野生のサイバネティクス" data-part="8">
+    <div class="kicker">技術の再野生化 ─ 1/3</div>
+    <h2>野生のサイバネティクス</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>迫るホモ・デウス降臨。サイバネティクスとは何か</li>
+          <li>意味の転換──予測が現実を上回るとき</li>
+          <li>疎外された「人間の資質」</li>
+          <li>再野生化──サイボーグとして野生に還る。いま求められる「知恵」</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <path d="M230 52 A72 72 0 1 1 229 52" fill="none" stroke="#4a4a42" stroke-width="3"/>
+          <polygon points="230,44 217,52 230,60" fill="#4a4a42" transform="rotate(10 230 52)"/>
+          <rect x="164" y="34" width="132" height="34" rx="17" fill="#E4EBE2"/><text x="230" y="56" font-size="12" font-weight="700" fill="#4a4a42" text-anchor="middle">予測モデル</text>
+          <rect x="164" y="180" width="132" height="34" rx="17" fill="#E4EBE2"/><text x="230" y="202" font-size="12" font-weight="700" fill="#4a4a42" text-anchor="middle">現実（の代理）</text>
+          <text x="230" y="130" font-size="11.5" fill="#C25A32" text-anchor="middle" font-weight="700">閉じたループ</text>
+          <text x="230" y="146" font-size="10" fill="#C25A32" text-anchor="middle">予測が現実を上回り、飼い慣らす</text>
+          <path d="M60 250 Q120 210 158 180" fill="none" stroke="#2F7D4F" stroke-width="4"/>
+          <polygon points="164,174 148,178 156,190" fill="#2F7D4F"/>
+          <text x="66" y="272" font-size="13" font-weight="700" fill="#2F7D4F">野生＝エラー信号</text>
+          <text x="330" y="250" font-size="11.5" fill="#2F7D4F" font-weight="700">ループに野生を入れ、</text>
+          <text x="330" y="267" font-size="11.5" fill="#2F7D4F" font-weight="700">現実で更新し続ける</text>
+        </svg>
+        <p class="cap">図：閉じた予測ループを、野生が開く</p>
+      </div>
     </div>
   </section>
 
-  <!-- 38 -->
-  <section class="slide" data-title="章別の原稿状態" data-part="g">
-    <div class="kicker">Writing Guide</div>
-    <h2>章別の原稿状態</h2>
-    <div class="body">
-      <dl class="facts" style="grid-template-columns:210px 1fr; row-gap:13px">
-        <dt>序　はじめに</dt><dd><span class="accent">◎</span>　惑星的危機への橋を一段だけ追加</dd>
-        <dt>1　惑星的危機</dt><dd><span class="warn">✕</span>　新規執筆（現行はスタブ）</dd>
-        <dt>2　技術の哲学</dt><dd><span class="accent">◎</span>　「応答する学」への再フレーム小</dd>
-        <dt>3　技術の基層</dt><dd><span class="accent">◎</span>　統合清書済み</dd>
-        <dt>4　技術の黎明</dt><dd><span class="accent">◎</span>＋<span class="warn">✕</span>　技術的意識・小括を書き下ろし</dd>
-        <dt>5　技術の秩序</dt><dd><span class="accent">◎</span>＋<span class="accent">△</span>＋<span class="warn">✕</span>　以心伝心／西洋形而上学／AIほころび</dd>
-        <dt>6　技術の応答</dt><dd><span class="accent">◎</span>　ゲシュテル移動分の接続調整</dd>
-        <dt>7　技術の自然</dt><dd><span class="accent">◎</span>　整理のみ</dd>
-        <dt>8　技術の再野生化</dt><dd><span class="accent">◎</span>　仕上げ済み</dd>
-      </dl>
+  <!-- 30 無為の技術の扉 -->
+  <section class="slide" data-title="無為の技術の扉" data-part="8">
+    <div class="kicker">技術の再野生化 ─ 2/3</div>
+    <h2>無為の技術の扉</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>テクノロジーカルトの教典──完全な世界の前提、隠れた絶対者</li>
+          <li>ゴールのない到達</li>
+          <li>おのずからの技術──自然則のマインド・アップローディング</li>
+          <li>胡蝶の夢と、洞窟の比喩──あわいから出ずるもの。どんな夢を見るのか</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <path d="M40 96 L180 96" stroke="#4a4a42" stroke-width="3"/>
+          <polygon points="190,96 174,88 174,104" fill="#4a4a42"/>
+          <rect x="196" y="76" width="86" height="40" rx="8" fill="#E4EBE2"/>
+          <text x="239" y="94" font-size="11" font-weight="700" fill="#4a4a42" text-anchor="middle">ゴール</text>
+          <text x="239" y="109" font-size="9.5" fill="#4a4a42" text-anchor="middle">完全な世界</text>
+          <line x1="200" y1="80" x2="278" y2="112" stroke="#C25A32" stroke-width="3"/>
+          <line x1="278" y1="80" x2="200" y2="112" stroke="#C25A32" stroke-width="3"/>
+          <text x="120" y="70" font-size="11.5" fill="#4a4a42" text-anchor="middle">直線の到達（カルトの教典）</text>
+          <path d="M330 190 m0,-58 a58,58 0 1,1 -0.1,0" fill="none" stroke="#2F7D4F" stroke-width="3.5"/>
+          <polygon points="330,132 316,140 330,148" fill="#2F7D4F" transform="rotate(12 330 132)"/>
+          <text x="330" y="186" font-size="12.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">おのずから</text>
+          <text x="330" y="204" font-size="10.5" fill="#4a4a42" text-anchor="middle">無為自然・めぐる</text>
+          <text x="120" y="200" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">到達ではなく、</text>
+          <text x="120" y="220" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">ゴールのない生成へ</text>
+          <text x="230" y="270" font-size="12" fill="#4a4a42" text-anchor="middle">東洋思想は、技術と自然の別の関係を知っている</text>
+        </svg>
+        <p class="cap">図：直線の到達と、おのずからの円環</p>
+      </div>
     </div>
   </section>
 
-  <!-- 39 -->
-  <section class="slide" data-title="執筆順の提案" data-part="g">
-    <div class="kicker">Writing Guide</div>
-    <h2>執筆順の提案</h2>
-    <p class="lead">背骨から書く。新規✕→増補△→接続調整の順。</p>
-    <div class="body">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>第4章末「技術的意識」＋小括</h3><p>本書の背骨。口述素材あり。ここが決まると全体の語りが定まる。</p></div></li>
-        <li><span class="n">2</span><div><h3>第5章「以心伝心の克服」「AIほころび」</h3><p>秩序の部の蝶番と締め。口述素材あり。</p></div></li>
-        <li><span class="n">3</span><div><h3>第5章 西洋形而上学の増補</h3><p>ロゴス・キリスト教・観想の玉座。ゲシュテル論の移設もここで。</p></div></li>
-        <li><span class="n">4</span><div><h3>第1章 惑星的危機</h3><p>新規。「はじめに」からの橋と合わせて書く。</p></div></li>
-        <li><span class="n">5</span><div><h3>全章の接続調整 → 通し読み</h3><p>技術的意識の語彙で全体を貫いているか検証。</p></div></li>
-      </ol>
+  <!-- 31 サイボーグ・メディテーション -->
+  <section class="slide" data-title="サイボーグ・メディテーション" data-part="8">
+    <div class="kicker">技術の再野生化 ─ 3/3</div>
+    <h2>サイボーグ・メディテーション</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>壇上のサイボーグ・溶けた自己・ウロボロスの罠</li>
+          <li>ハイデガーが説く「存在の変容」。ハイパーオブジェクトと化したテクノロジー</li>
+          <li>放下──「然り」と「否」を同時に。自然に内在する力を、外へ導く</li>
+          <li>ハイデガーを超えて、多元性へ──気づいているサイボーグ。絶望しながら、超えていく</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <path d="M230 110 m0,-52 a80,62 0 1,0 0.1,0" fill="none" stroke="#4a4a42" stroke-width="3.5" transform="translate(0 62)"/>
+          <text x="230" y="160" font-size="12" font-weight="700" fill="#4a4a42" text-anchor="middle">自己 ⇄ 技術</text>
+          <text x="230" y="178" font-size="10.5" fill="#4a4a42" text-anchor="middle">溶け合い、循環する（ウロボロス）</text>
+          <circle cx="230" cy="52" r="26" fill="#2F7D4F"/>
+          <circle cx="230" cy="52" r="10" fill="#fff"/>
+          <circle cx="230" cy="52" r="4" fill="#14140f"/>
+          <text x="230" y="20" font-size="12.5" font-weight="700" fill="#2F7D4F" text-anchor="middle">気づき（メディテーション）</text>
+          <path d="M130 236 L96 258" stroke="#2F7D4F" stroke-width="3"/><text x="88" y="278" font-size="12.5" font-weight="700" fill="#2F7D4F">然り</text>
+          <path d="M330 236 L364 258" stroke="#C25A32" stroke-width="3"/><text x="350" y="278" font-size="12.5" font-weight="700" fill="#C25A32">否</text>
+          <text x="230" y="240" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">放下──使いながら、囚われない</text>
+          <text x="230" y="262" font-size="11" fill="#4a4a42" text-anchor="middle">「然り」と「否」を同時に言う</text>
+        </svg>
+        <p class="cap">図：ループの内にいて、ループに気づいている</p>
+      </div>
     </div>
   </section>
 
-  <!-- 40 -->
+  <!-- 32 部扉 惑星的普遍技術へ -->
+  <section class="slide dark scrim" data-title="惑星的普遍技術へ（部扉）" data-part="9">
+    <div class="bg"><img src="gbook_field11.jpg" alt=""></div>
+    <div class="kicker">部扉</div>
+    <h2>惑星的普遍技術へ</h2>
+    <p class="lead" style="color:var(--sand)">総まとめ。基層から立ち上げ直す、もう一つの普遍。</p>
+    <div class="body narrow" style="justify-content:flex-start; margin-top:18px">
+      <ul class="plain">
+        <li>未開の未来へ</li>
+        <li>惑星的普遍技術という挑戦</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 33 未開の未来へ -->
+  <section class="slide" data-title="未開の未来へ" data-part="9">
+    <div class="kicker">惑星的普遍技術へ ─ 1/2</div>
+    <h2>未開の未来へ</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>三つの未来。自然の半身と、テクノロジーの半身</li>
+          <li>未開の未来──飼い慣らされた未来からの逸脱。makers Unlearn──実装の現場</li>
+          <li>モア・ザン・ヒューマンと、プリミティブ・サイボーグ。関係は、途切れたときに初めて見える</li>
+          <li>アンラーンに教科書はない。さかのぼった分だけ、未来の角度が広がる</li>
+          <li>里山より、先へ。百姓──分業しない実験。反ではなく、もしも</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <circle cx="70" cy="145" r="12" fill="#14140f"/>
+          <text x="70" y="115" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">現在</text>
+          <path d="M82 138 L360 54" stroke="#4a4a42" stroke-width="2.5"/><polygon points="370,50 354,50 360,64" fill="#4a4a42"/>
+          <text x="382" y="46" font-size="12" font-weight="700" fill="#4a4a42">このまま</text>
+          <text x="382" y="63" font-size="10.5" fill="#4a4a42">AGI／ディストピア</text>
+          <path d="M82 152 L360 236" stroke="#4a4a42" stroke-width="2.5" stroke-dasharray="6 5"/><polygon points="370,240 356,230 352,244" fill="#4a4a42"/>
+          <text x="382" y="232" font-size="12" font-weight="700" fill="#4a4a42">降りる</text>
+          <text x="382" y="249" font-size="10.5" fill="#4a4a42">里山・自給（限界あり）</text>
+          <path d="M82 145 L360 145" stroke="#2F7D4F" stroke-width="5"/><polygon points="374,145 352,133 352,157" fill="#2F7D4F"/>
+          <text x="382" y="140" font-size="13" font-weight="700" fill="#2F7D4F">方向を変える</text>
+          <text x="382" y="158" font-size="10.5" fill="#2F7D4F">未開の未来</text>
+          <text x="220" y="130" font-size="11" fill="#2F7D4F" font-weight="700" text-anchor="middle">テクノロジーそのものの向きを転回する</text>
+          <text x="230" y="278" font-size="12" fill="#4a4a42" text-anchor="middle">さかのぼった分だけ、未来の角度が広がる</text>
+        </svg>
+        <p class="cap">図：三つの未来と、第三の道</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 34 惑星的普遍技術という挑戦 -->
+  <section class="slide" data-title="惑星的普遍技術という挑戦" data-part="9">
+    <div class="kicker">惑星的普遍技術へ ─ 2/2</div>
+    <h2>惑星的普遍技術という挑戦</h2>
+    <div class="body fx">
+      <div class="tx">
+        <ul class="plain">
+          <li>風土に応じる技術、風土を超える技術</li>
+          <li>正しさは基層に、多様性は風土に、「普遍」は歴史のなかに</li>
+          <li>もう一つの普遍性──モノの普遍からワザの普遍へ。ソフトウェア、AIという前提を壊す道具</li>
+          <li>野生を、ループに入れる。宣言──技術の再野生化。そして、応答してほしい</li>
+        </ul>
+      </div>
+      <div class="fg">
+        <svg viewBox="0 0 460 290">
+          <polygon points="230,34 300,110 160,110" fill="#E4EBE2"/>
+          <text x="230" y="84" font-size="11" font-weight="700" fill="#4a4a42" text-anchor="middle">「普遍」</text>
+          <text x="230" y="99" font-size="9.5" fill="#4a4a42" text-anchor="middle">歴史のなかに</text>
+          <polygon points="160,110 300,110 340,180 120,180" fill="#EDF1E9"/>
+          <text x="230" y="142" font-size="12" font-weight="700" fill="#2F7D4F" text-anchor="middle">多様性──風土に</text>
+          <text x="230" y="160" font-size="10" fill="#4a4a42" text-anchor="middle">神話・文化・傾向性（宇宙技芸）</text>
+          <polygon points="120,180 340,180 380,244 80,244" fill="#2F7D4F"/>
+          <text x="230" y="208" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">正しさ──基層に</text>
+          <text x="230" y="228" font-size="10" fill="#EDF1E9" text-anchor="middle">身体と宇宙の物理法則。相対主義ではない</text>
+          <path d="M382 210 Q440 140 380 70 Q340 30 280 44" fill="none" stroke="#C25A32" stroke-width="3" stroke-dasharray="7 5"/>
+          <polygon points="272,46 288,38 288,56" fill="#C25A32"/>
+          <text x="420" y="252" font-size="11.5" font-weight="700" fill="#C25A32" text-anchor="end">野生を、ループに入れる</text>
+          <text x="230" y="276" font-size="12.5" font-weight="700" fill="#14140f" text-anchor="middle">基層から立ち上げ直す、惑星的次元の技術</text>
+        </svg>
+        <p class="cap">図：三層の山と、野生のフィードバック</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 35 クロージング -->
   <section class="slide dark scrim" data-title="クロージング" data-part="">
-    <div class="bg"><img src="gbook_milkyway.jpg" alt=""></div>
+    <div class="bg"><img src="gbook_ember.jpg" alt=""></div>
     <div class="kicker" style="color:var(--mint)">Toward the Untamed Future</div>
     <h1 style="margin-top:14px; color:var(--cream)">未開の未来へ</h1>
     <p class="sub" style="color:var(--cream); font-size:20px; margin-top:14px">この構成をガイダンスに、原稿を書き進める。</p>
-    <p class="meta" style="color:var(--sand); margin-top:22px">2026.9.20　構成ガイド v1</p>
+    <p class="meta" style="color:var(--sand); margin-top:22px">2026.9.21　構成ガイド v2──全9部23章・図解つき</p>
   </section>
 
   <div class="bar" id="bar"></div>
@@ -806,16 +1270,15 @@
   var i = 0;
 
   var PART_NAME = {
-    'i': '序 ／ はじめに',
-    '1': '第1章 ／ 惑星的危機',
-    '2': '第2章 ／ 技術の哲学',
-    '3': '第3章 ／ 技術の基層',
-    '4': '第4章 ／ 技術の黎明',
-    '5': '第5章 ／ 技術の秩序',
-    '6': '第6章 ／ 技術の応答',
-    '7': '第7章 ／ 技術の自然',
-    '8': '第8章 ／ 技術の再野生化',
-    'g': '執筆ガイド'
+    '1': 'はじめに',
+    '2': '惑星的危機／技術の問題',
+    '3': '技術の哲学',
+    '4': '技術の基層',
+    '5': '技術の黎明',
+    '6': '技術の秩序',
+    '7': '技術の覚醒',
+    '8': '技術の再野生化',
+    '9': '惑星的普遍技術へ'
   };
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
