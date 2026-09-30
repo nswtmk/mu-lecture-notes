@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第5回 受講生の感想｜技術哲学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第5回「人はいかに技術によって形作られるのか──フェルベークのポスト現象学から考える主体性の意義」<br>受講生の感想</h1>
+    <p class="subtitle">技術哲学｜2026年8月31日（月）｜講師：大家慎也</p>
+    <div class="hstats"><div><b>7</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">「技術は私たちに何をしているのか」を、生成AI・3Dプリンタ・冷蔵庫・スマホなど自分の技術で分析するワークが強く残った回でした。技術的媒介の増幅／縮減という道具立てを使って、自分の知覚と行為の変容を書き出し、そのうえで「技術と共にどんな自分になりたいか」を構想する感想が続いています。講義設計そのものへの称賛も目立ちました。</p>
+  <ul class="theme-list">
+<li><b>現象学の一人称性・志向性が「自分の経験がそのまま学問になる」と腑に落ちた声</b></li>
+<li><b>生成AI・3Dプリンタ・食品表示など、自分の技術で媒介分析を実践</b></li>
+<li><b>「縮減」した側に目を向けることに自分らしさの糸口を見出す考察</b></li>
+<li><b>ワーク配置とスライド設計への称賛（「非常に明晰な講義」）</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>第5回　8/31(月)　人はいかに技術によって形作られるのか──フェルベークのポスト現象学から考える主体性の意義（大家慎也さん）<br>本日の講義では<br>作ったものが人にどう影響を与えるか？<br>という問いについて深く考えさせるものであった。<br>本日の目的は<br>「技術からあなたがどのような影響を受けるか」<br>「技術を使うあなたの自分らしさ、主体性」<br>について、深く考えるきっかけになって非常に面白かった。<br>世界をワンクッションおいて技術を媒介にメタに見てみる、と同時に<br>自然科学的な客観的な記述の仕方ではなく、現象学的な文学とも違う主観的な<br>記述の仕方について学べたので、この点についてもとても感銘を受けた。<br>（その他）技術は私たちに何をしているのだろう<br>・技術的媒介の分析を身に着ける<br>・ひとつ技術を選択する<br>　➡生成AI<br>・使用時の自身の知覚や行為を書き出す<br> 　➡使用時は自身の仕事のスタイルや考えにとらわれず、自分の出した問いの立て方に応じてビジネス仕事がはかどる<br> 　<br>「その技術がなかったら」知覚や行為はどうなるか<br>　➡不便になる、個別に自分で知覚し自分で考えたり、つくったりする必要性が生じる<br>技術と共にどんな自分になりたいか<br>ひとつ、技術を選択する<br>➡生成AI<br>使用時の自身の知覚や行為<br>➡個別に問題を考えるのではなく、タクトを振る指揮者やスポーツ競技の監督として存在の仕方を変えていきたい<br>➡生成AIに仕事や作業をゆだねることによって、自分はその先を考えることが可能になるし<br>　もっと重要なタスクや業務に従事することが出来る<br>影響力のなかでどんな自分になりたいかを考える<br>➡生成AIを使う監督としての自分<br>どう使うか、使わないか、どんな責任を負うかを考える<br>➡生成した出力結果の内容について人間が責任を持つ<br>ひとつ、仮想の技術を構想する<br>➡重力の強さコントロール装置<br>使用時の知覚や行為を書き出す<br>➡使用者の身の回りだけ重力の強さを強めたり、弱めたりできる<br>その影響力がどのような「望ましい」人間・社会を作るか考える<br>➡必要に応じて、その人が好ましい重力の強さを調節できるようになり<br>　この装置を通してトレーニングや生きがいにつながる、より良い社会や世界につながっていく</li>
+<li>現象学の考え方について非常にわかりやすかった。自分の経験がそのまま学問になる、ということが自分の考えと非常に合っていた。私は最近3Dプリンタにのめり込んでいて、ただ設計してプリントするだけでなく「この積層技術は社会的にどう意味を持たせることができるのか」や余談ですが「これを自己表現の手法として落とし込むにはどうすればいいのか」ということを考えていた。今回の講義では、その考えを深める問いを立てることができ、3Dプリンタに対する自分の知覚や行為（→家庭内ものづくりのハードルをこれまでより遥かに下げる存在であること、本業と関係なく作る行為ができること、自分が他のことをしている間に何か作り上げられる存在など...）の考えを深めることができた。他にも気になる技術（海底都市など）に対してこの手法を用いて考えを深めていきたい。</li>
+<li>現象学の分析手法としての、経験の見方（一人称性、思考性）は、ものの見方に違った視点を加え、新鮮であり、頭の体操となりました。<br>さらに、技術が媒介することでの、自身の行動の変容、世界の知覚の変容も、納得のいくフレームワークと分析で、技術により確かに変容していることが実感できました。<br>その中で、どう主体的に生きていくか、使っていくか、作っていくか。そこには、楽観的というよりも、抑制するようなニュアンス（ルールで縛る、本当はここまでできるが、影響があるためそこまでは使わない）も感じられ、考えさせられました。</li>
+<li>食について考えると、冷蔵庫や包装、賞味期限表示も、単に食品を保存したり情報を伝えたりするための技術ではないように思う。冷蔵庫があることで食品を数日保存することを前提に買い物をし、期限表示を見ることで、匂いや見た目だけではなく日付によって「まだ食べられるか」を判断するようになる。つまり、保存技術や表示制度は食品の状態だけではなく、私たちの「新鮮」「安全」「食べられる」という感覚にも影響している。<br>前回の講義では、人間・人工物・制度・文化が相互に影響するネットワークについて考えたが、今回の講義では、その関係の中で人間の知覚や判断自体も形づくられていることが分かった。<br>一方で、人間は技術によって一方的に決められる存在ではない。講義では、自分がどのような影響を受けているのかを考え、どのような自分になりたいかを構想しながら技術との関係を選び直すことに主体性があるとされている。<br>そう考えると、食の技術についても、保存期間や効率だけを評価するのではなく、その技術によって私たちが食べ物をどのように見て、どのように判断する人間になるのかまで考える必要があると感じた。</li>
+<li>「科学≒自然科学」であって客観的に記述するもの、主観は芸術が担えばいい、みたいな前時代があって、それを逆説的に主観を捉え直したのが現象学、みたいな雑な把握の仕方をしていました。私自身は美術作品の制作を主業にしているので、理論的裏付けを得ようとして現象学的な言説に当たることは多い気がしてたものの、それが我田引水的な、自身の主張に都合の良い言説を採用しようとするレベルにとどまっている自覚があり、知見を相対化する材料にすることができたと感じました。<br>現象学の独自性についての話題で妊婦の身体が挙げられていたことで、男性目線で「人間全体」を語ろうとしていた男たちが直面した典型的なアイデンティティ・クライシスだったのでは、という印象を受けました。フェルベークもまた超音波診断で葛藤したというエピソードで、その印象が深まってしまいました。<br>80年代のコンピュータープログラミングは、バグはあってはならない、設計者の矜持や倫理として撲滅すべし、だった気がします。その後コンピュータの進化とともにプログラムは肥大化し、やがて「まずはベータ版リリース、見つかり次第バグフィックス」といった形に変遷していったという歴史観を私自身は持っているのですが、それが「トップダウン型がボトムアップ型に権力移譲した」ような流れとして印象づけられており、現象学の受容にも似たような背景があるのでは、、、と想像しています。しらみ潰しに要素解析をしても辿り着けないのなら、知覚できるものから読み解いていくほうが実効的、という解釈です。<br>一方で、「技術の道徳化」の解説箇所については理解がし切れていません。むしろ技術とは戦争に代表されるように「先んじて入手し、他者を制圧するもの」という側面の方が大きいように感じられるためです。どちらかというと「技術自体に善悪はない」というよりも「すべての技術自体は潜在的に悪をはらんでいる」と言った方が近いようにさえ思えてしまっています。たぶん論点が違うのだと思うのですが、整理しきれていません。単に私が医療などの、技術がもたらした正の側面をきちんと評価しきれていないだけでしょうか。<br>（その他）私個人の「技術の進化による認識の変化」としては、「無痛分娩に対する感情」があります。20年ほど前には「無痛分娩で出産すると子どもを虐待するようになる(のではないか)」「生みの苦しみによって母性本能はもたらされる」などという妄言が力を持っていたように思えます。私自身、以前は無痛分娩に対して、自然が人間に課したものに反する、といった漠然とした抵抗感があった気がします。しかし、現在は男性である私が「女は子どもを持つために苦しみを味わわなくてはならない」と主張できるわけもなく、「『お腹を痛めて』得た子ども以外は偽物である」というような錯覚は撲滅させたいと考えるようになりました。そもそも他の動物のメスがすべて人類の女性と同程度の痛みを経験していることはまったく実証できないので、「自然」を盾にした無痛分娩否定も無効である、という論拠です。もちろん同じ理由で「無痛分娩は男女同権のために積極的に利用できるようにすべきである」という主張も困難でしょう。自然な選択肢として提供すべき、選択する際に社会的バイアスがかからないようにすべき、そのためには助成制度を設けて無償で選択できるようにすべき、いや、そうしたら無痛を選択しない女性が不当な差別を受けうる、、、などなど逡巡します。<br>こんな逡巡がフェルベールのメッセージへのリアクトになるのかも知れない、と考えました。</li>
+<li>私は技術から実に多くの恩恵を受け、同時にゲシュテル的な変容を日々感じている。長らく教育業に携わっていることもあり、昨今の技術（特にAI）から大きな恩恵を受けている。生徒の学習管理、保護者への報告書作成、英作文の添削など、従来では時間のかかっていた事務作業をかなりの精度でしかも短時間に処理することができるようになった。おかげで他のことに時間を割ける自分がいる。だが同時に、すでにそれなしにはいられない自分も感じている。それまで生成AIのような技術がなかったときには、授業資料を時間をかけて作成するという意味での「技術」に誇りを持っていたし、それが楽しかった。しかし、短時間でここまで効率化できることを覚えてしまうと人間はどういうわけかそこに飲み込まれてしまう。時間がかかることにフラストレーションを覚えてしまうのだ。これは教育者側だけではなく、生徒側にとっても由々しいかもしれない。昨今、「待つ」ことができない生徒が顕著に増えた。次に次にとかり立てられることが常態化してしまい、腰を据えて熟考することを極端に嫌がる人が非常に多くなっている。価値判断はおいておくとしても、技術が媒介項として不可避的に「私」に影響を与えていると強く感じる。<br>だが、肝心なのはここからかもしれない。上記を悲観的に捉えることは簡単だが、ここから技術を使う自分の「自分らしさ」を再度設計すると何か見えてくるかもしれない。最近考えるようになったのは、今現れている現象を見るとき「立ち現れていない項」はなんだろうかという点に注目するとそこにヒントが隠されているのではないか、ということである。講義内での言葉で言えば「縮減」した部分がそれになる。増幅した部分は比較的目につきやすいが、縮減したものには目が向きにくい。しかし、そこに目を向けたときに技術と共にある「自分らしさ」を構築していけるのではないか。特に、教育に携わっている以上、増幅したことによる利益と、縮減して現れが見えにくくなった項のもつ利益を看取し、伝えていくことがこの時代における私の「自分らしさ」なのかもしれない。<br>（その他）昨今の実用性重視の傾向は「増幅」した現れに該当するのかなと思いました。それゆえに古典軽視の風潮が強く「古典不要論」が後を絶たないとも考えられます。古典不要論の様々な意見を見てみると、そこには「役に立たない」が最も強くあるようです。ここに見られるように、技術によって実用的な思考になり様々な発展が見られたと同時に、精神の涵養であったり言語感覚の醸成だったりといった側面が縮減しているのかとも感じました。<br>講義内容にはあまり関係ありませんが、非常に明晰な講義だと感じました。スライドの設計とワークを入れるタイミングが相当練られているなと思いました。段階を踏みながらワークでセーブポイントを作り、次のステップに進む。私は教育業界の人間なので、そういう面も含めて学ぶところが多かったです。</li>
+<li>自然科学が世界を客観的に描写・説明しようとするのに対して、現象学は経験に対する個人の主観的な捉え方を分析する。その特徴は、「私にとってどう現れたか」という一人称性と、「世界がどういう意味を持つのか」という志向性の2つから構成される。<br>ポスト現象学では、私と世界の間に介在する技術の問題が研究される。代表的な哲学者フェルベークは、技術は人間の知覚と行動を媒介すると考えた。例えば、胎児の超音波診断によって、赤ちゃんはカップルにとって愛すべき対象として、また潜在的な患者としても現れ、そこから検査や中絶といった新たな意思決定と行動へと導かれる。<br>ただしフェルベークは、技術によって知覚と行動を媒介される人間が、必ずしも技術にあらゆる意思決定を決定される受け身な存在であるとは考えない。<br>個人的な経験として、スマホやSNSをダラダラ見ないよう、画面を白黒に設定することで刺激を減らし、技術の媒介に能動的に抵抗している。<br>ここから考えたいのは、人間と技術をめぐる責任と倫理の問題だ。技術によって媒介される以上、現象の原因を人間だけに帰することはできない。そのとき、人間はどこまで責任を負うべきなのだろうか。<br>人間と技術の新たな関係を結び直すためには、特定の価値観だけに与するのではなく、多様な他者を包摂することが必要だと感じる。しかし、普遍的な倫理観はいかにして育まれ、共通認識へと至ることができるのだろうか。</li>
+</ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techphilosophy.html">← 技術哲学 トップに戻る</a></p>
+</main>
+</body>
+</html>

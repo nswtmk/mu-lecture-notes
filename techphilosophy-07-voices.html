@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第7回 受講生の感想｜技術哲学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第7回「環境はいかに私たちを作るのか──ギブソンのアフォーダンスから考える技術の本質」<br>受講生の感想</h1>
+    <p class="subtitle">技術哲学｜2026年9月7日（月）｜講師：染谷昌義</p>
+    <div class="hstats"><div><b>7</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">具体例の豊かさで「頭にスッと入ってきた」という声が並んだ回でした。環境が行為を方向づけ、人間が環境を作り替え、その環境がまた人間を作るという循環。そして「私たちは用意されたオプションからしか選べなくなっているのではないか」という最後の問題提起が、暮らし方・働き方・経営のあり方への具体的な問い直しにつながっています。</p>
+  <ul class="theme-list">
+<li><b>アフォーダンス理論が生態学的アプローチとして腑に落ちたという声</b></li>
+<li><b>「はだし」やテクノロジーから離れる生活実験への関心</b></li>
+<li><b>「用意されたオプションの中からの選択」への違和感と、環境を作り替える実践</b></li>
+<li><b>art of living（生きる技法）としての技術という捉え直し</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>技術の可能性をもう一度開きなおすには、テクノロジーから少し離れて生活することを体験することが経験と行為には必要。だから「はだし」で野山を歩く。<br>アフォーダンスは難しそうなイメージが強かったが、染谷先生の講義は具体例がありつつ、頭にスッと入ってきた。<br>（その他）テクノロジーを否定するわけではないし、使えるに越したことはないと考えている。だからこそ、原始からの技術を知って、現代技術が使えない状況であっても生き抜く術は持っておきたいし、そのための生活実験を続けようと感じた。</li>
+<li>これまでの講義に比べると、だいぶ平易な内容で受け止めやすかったです。その分脳の刺激も少なめではありました。<br>聞きかじった程度だったアフォーダンス理論が「生態学的なアプローチ」とした視点の転換によってもたらされたものだった、という理解をすることができ、腑に落ちたというか相対化されて消化できた気がします。<br>美大界隈では「絶滅危惧動作」的な頓知ネタはよく見かけます。握り球状のノブなのにスライドさせて開くドア、みたいな。お笑いネタでもラジコンのリモコン状の物体に車輪がついていて、そっちが操作される側だった、みたいな笑いがあったことを思い出しました。(浅い意味での)アフォーダンスを逆利用し、unLearnを促す、みたいなことだったように再認識してみました。<br>「行為の束」が形成されることで生じる「ルーティン」というダイナミズムによって「方向づけ」がなされる、というメカニズムの解釈は忘れないようにしたいです。<br>講義最後の問い「art of living」についての個人的な感想。「技術」が目指すもの(原動力)のひとつに「リスクを減らすこと(死ににくい環境をもとめること)」があるように思えます。原発事故やコロナ禍を経験し、また最近の不安を感じされられるほど急激なテクノロジー進化も相まって、「失ってしまうと生きていけなくなる」というリスク(不安)が反対に高まっているのかも知れない、と感じている自分に気づきました。<br>「専門家」同士が反対のことを言い合って論争している有様を目の当たりにすると、素人である私たちは呆然とするか不安になるか、それを避けるための「好みの説」に飛びつくしかなくなります。そこで生きるための手段として「学び、考える」を選択しようとして、いまここ(mU)にいるのだ、と自身の現在地を捉え直すことができました。<br>誰かが自分の理解できない手段で固めてくれた「安定」は、むしろリスクなのかも知れない。だからそれらを全撤去した状況を思い起こして、そのリスクを定量的に把握できるようにする必要性を感じている、といったところでしょうか。「はだし」の話じゃないですが、きちんと自分の足で立っている実感を忘れずにしたい、と思います。<br>（その他）この講義群の狙いとして折り込み済みだと思いますが、やはり「re-learn」ではなく「un-learn」だというところにキモを感じます。知ってしまった後は知らなかった状態に戻ることはできない、という前提で仕組まれていることを忘れずにいないと、単なる再学習に終始してしまいそうなので、常に自戒を持って臨まなくては、と感じています。私自身の能力(?)としては「忘れる＝覚えていられない」ということでunlearnは実践できるのですが、、、笑<br>ちなみに個人的には今回の講義資料で引用されていた「絶滅危惧動作」のイラストレーションには強い違和感を感じました。「切符を切る」の右腕は明らかに描けていないし、「黒電話をかける」の右手首は時計回りにもげ折れています。私にとっては最低限のグラフィックデザインのクオリティを下回っているようにおもえるものが流布されてしまう現状(編集者の品質管理能力不足)に対して、むしろ危惧を感じました。それこそ「美大入試のデッサン力神話」の方こそ絶滅危惧なわけですが。しかし「ファインダーを覗く」は何を持っているのだ、いったい。要るのかこのイラスト。集中できん。すみません。愚痴です。</li>
+<li>今日もアフォーダンスやレシピ化などの重要な話を聞けてとてもありがたかった。技術が行動を誘起するという考え方はしっくりきたのと、さらに他のことに使えるのではというハック的な要素もアフォーダンスは含まれるのではないかと思った。染谷先生の北海道での暮らし（予定）も興味深く、実践を踏まえての技術との向き合い方についてもお聞きしたいと思った。<br>（その他）染谷先生のおっしゃっていた、経済にあまり自分を組み込むことはせずに生きていく方法について、ずっとどうやったら実現できるのかを考えています。もし先生が20代、30代だったら、まずこういうことから始めてみる、というファーストステップがあれば参考にしたくお聞きしたいと思いました。</li>
+<li>今回の講義で特に考えたのは、人間が環境を改変・構造化し、その環境が人間の行動や経験、技能を方向づけるという相互関係である。<br>道具の変化によって使われなくなり衰退する技能がある一方で、身体の可能性自体がなくなるのではなく、どの可能性が発揮されるかは環境によって変わるのではないかと思った。<br>食についても、匂いや触感、温度から食材の状態を判断する場合と、期限表示やパッケージの情報から判断する場合では、使われる知覚や技能が異なる。<br>食環境を変えることは、「食べる身体」のあり方にも影響するのではないか。<br>技術を art of living と捉えるなら、何を便利にするかだけでなく、どのような環境が、どのような身体や経験を育てるのかまで考える必要があると感じた。<br>（その他）哲学のお作法がよくわからないまま第7回を迎え、毎回難しくてつらかったです。ただ、回を重ねる中で、同じ「技術」というテーマを異なる哲学や視点から何度も考え直すこと自体に、少しずつ慣れてきたように思います。</li>
+<li>サイボーグ化、私たちはオプションの中から選択させられている、かり立てられているという話の中で、自分が生きてきた中での各段階での素朴な違和感を思い出したので、自戒を込めて書き出しました。<br>・山梨を出て、名古屋で一人暮らしをはじめた際に、夜になっても明るく、星が見えない、夜になっても寝ない町に違和感。→動物として暗くなったら休むのが自然では。<br>・東京で働いている時の、大きなシステムの歯車としての働き方。ものごとの合意形成、決済システムに動かされている中でのやり取り・コミュニケーション、お金という１つの指標に偏りがちな判断基準。→人間それぞれの個性や案件ごとの状況があるため、もっと手探りでのやり取りが自然では？お金以外で説明できないか？<br>→地方の小さな単位のコミュニティであれば、実践しながら考えられるのでは、と山梨へUターン<br>・家は、設計して作ってもらうものとの一般常識。ハウスメーカーによる組み立て方式・ブラックボックス化。→自分の住む家ぐらい一緒に考え、一緒に作り、自分で理解し、自分である程度は治したり、手を加え、カスタマイズできるのが普通では？<br>→実家のリノベーションをDIYも入れつつ実施し住む。<br>これらの違和感を忘れずに、与えられている選択肢を疑い、選択肢を広げ実践していきたい。現在進行形で感じている違和感はなにか。AIを介したつくるにあまり魅力を感じないのは、人間同士や環境や時間とのやり取りの中で出会う、偶発的、個別的な選択肢の発現がなさそうに感じているからかもしれない。</li>
+<li>本講義のテーマは、「環境と人間は相互に作りあう関係にあること」だと捉えました。  <br>　講義を通じて、周囲の環境（道具や技術など）が、知らず知らずのうちに私たちの行為や生き方の方向性を規定しているという点に納得しました。同時にこの議論から、人間が自ら環境に働きかけ、それを改変していくことで「自分たちがどのように生きたいか」という未来のあり方にも影響を与えられるという、大きな希望を感じ取りました。<br>　世の中では「AIなどの最新技術をいかに使いこなすか」というスキルの議論に終始しがちです。しかし真に重要なのは、そうした技術によって作られる環境が、私たち人間にどのような生き方や経験をもたらすのかを問うことだと考えます。<br>　個人的には、人間同士が感情を共有し合えるコミュニケーションの場を作りたいと考えています。特定の目的や成果のために情報・意見を伝達するだけの「冷たい効率的なやり取り」ではなく、一見するとしょうもない雑談や、自分の気持ちをそのまま伝え合える「温かいコミュニケーション」の機会を絶やさないためには、どのような環境を設計すればよいのか考えてみたいです。</li>
+<li>アフォーダンスという概念は以前から知っていたが、染谷さんの解説を通じてその奥深さと、それが引き起こす問題の本質をより深く理解できた。環境が提示するアフォーダンス（行為可能性）は、人間の知覚と行動を変える。さらにその変化は、新たな道具の誕生を促し、人間の行動を変え、環境そのものをも書き換えていく。そしてその環境が、また人間の行動を変えていく——そうした循環が回り続けている。特に印象的だったのは最後の問題提起だ。リードの『経験のための戦い』を引用しながら染谷さんが指摘したのは、私たちはすでに用意されたオプションの中からしか選べなくなっており、自ら環境・モノ・人の関係を作り替える経験が失われつつあるということだった。この指摘は、自分が日々向き合っている経営者やリーダーたちの姿と重なった。与えられたメニューを前提に経営し、事業・組織づくりに追われる姿は、まさにアフォーダンスの罠に嵌まっているとも言える。翻って考えれば、経営とは本来、社会・組織・人に新たなアフォーダンスを創り出す行為なのかもしれない。</li>
+</ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techphilosophy.html">← 技術哲学 トップに戻る</a></p>
+</main>
+</body>
+</html>

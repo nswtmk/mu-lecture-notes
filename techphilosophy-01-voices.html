@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第1回 受講生の感想｜技術哲学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第1回「イントロダクション──なぜいま技術哲学を学ぶのか」<br>受講生の感想</h1>
+    <p class="subtitle">技術哲学｜2026年8月17日（月）｜講師：原島大輔／七沢智樹</p>
+    <div class="hstats"><div><b>14</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">「技術とテクノロジーは違うのか」という最初の問いが、多くの受講生の前提を揺さぶった回でした。テクノロジーを西洋近代の産物として相対化し、技術多様性へと開いていく導入に、自分の仕事や組織の技術観を重ねて捉え直しを始めた感想が数多く寄せられています。</p>
+  <ul class="theme-list">
+<li><b>「技術」と「テクノロジー」の区別が前提を突き崩したという声</b></li>
+<li><b>普遍論理と普遍倫理、和魂洋才への言及と自分の現場への接続</b></li>
+<li><b>企業理念・時間観・組織づくりなど、自らの技術観を問い直す試み</b></li>
+<li><b>難しさとともに「分からないことが分かった」という手応え</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>技術は何に影響を与えているのかを知らずに、社会の風潮に乗せられている自分がいたことを気づいた<br>（その他）難しいですが、面白かったのが感想ですが、深く技術を考える機会を得たおかげで、物事の見方が変わる気がしました</li>
+<li>物質的に高度に発達した現代社会において、モノは既に満たされており、生活環境や住居環境については満たされているものの、精神的な充足感については満たされておらず科学や技術が高度に発達した程度には精神性は発達していないのだと考えられる。このような社会では物質的な欲望については無制限に湧いてくるが、精神的な充足感であるとか満足感が永遠に高めることが出来ない。なので精神的な充足感を高めるためにも、これからの現代のこの環境をよりよくしていくためにも、これからの社会においては現代社会に即した技術哲学が必要なのだと思う。<br>（その他）技術とは何か？<br>➡人の生活様式や文化を変容させ得るもの<br>テクノロジーと技術は違うのか？違うとすればどう違うのか？<br>➡テクノロジーの方が工学技術であり、技術は工学の範囲外のものも含む。<br>動物（人間以外の生き物）の技術と人間の技術の違い：<br>➡動物の技術は技術として用いる道具の素材をそのまま活かして使うことが多いが、<br>人間は（技術の手段である）道具や素材を加工したり、概念化、抽象化したりして道具を加工した上で使うことが多い。<br>技術は何を生み出すのか？<br>➡技術に即した行動様式や文化や生活スタイルを生み出す<br>と同時に、その技術が前提となる世界や社会が生み出される</li>
+<li>技術を環境的に捉えるという言葉がありました。<br>私は哲学には詳しくないのですが、市民（個人）として、漠然と技術哲学の必要性を感じる部分があり参加しています。資本主義やその加速の中で、脆弱さと「まきとられ」を感じます。しかし技術への「抵抗」がとるべき対応なのか？という疑問が強くあります。<br>ヘレニズム・ヘブライズム的な世界観、そして論理があったというお話がありましたが、技術フロンティアたるLLMによって、世界観の瓦解が起きている部分もあるのではないかと考えます。つまり、これまでにない技術の存在・在り方によって、西洋的客体化をしきれなくなっているような気がするのです。これが、市民としての違和感だと再解釈しました。<br>翻って、いま「技術の中の他者性」を、受け取りやすい状況にいるのではないかと感じます。</li>
+<li>技術とはノウハウ、テクノロジーとは体系化されたシステムだと考えた。<br>（その他）もう少し実技術に絡めた内容だと思っていた。ただ、普段と別の視点で技術について考えられたのは良かった。</li>
+<li>普遍倫理を求めるのは難しいように思えます。愛の定義も歴史的に違うし変化していったと思うので。しかし、一方で、国を超えて同じ文化を持つ人々も増えているので、一部では、同じ価値観をもつことも可能に感じるのも事実です。<br>そのうえで、もっと直接的な問題解決の視点がわかりやすいと思います。具体的に直面している問題から、それを解決するアプローチです。それだけでは足りないということでしょうか。そこが今一つもやもやしていました。<br>ひとつ講義とディスカッションの中で理解したのは、<br>「そもそも、西洋中心だけではなく個別中心の倫理、価値観を考えて、共通の倫理を構築することで解決しよう。ゆがみがあるから、一回修正しよう。」というのは理解できました。特に、資本主義などの影響によるゆがみを修正するためにも、多様な価値観は大事です。<br>また、この議論の前提として、<br>「今は、飛行機やインターネットで世界がつながってしまったから。そこで起きている摩擦を解決するために共通の倫理が必要」だと感じました。<br>要は、土地が離れていた時代なら、バラバラでもよかったでは？と。そう考えると、宇宙開発時代で、資源を奪い合う必要がない時代になれば、変わる可能性があるかもしれない。</li>
+<li>技術と哲学の関係性について知ることができ、大変有益でした。<br>（その他）技術に対する哲学の必要性や必然性についても考えてみたいと思いました。</li>
+<li>本講義のテーマは「現代に技術哲学を学ぶ意義」だと捉えました。<br>講義を通じて、スマートフォンやAIに代表されるテクノロジーが、単に作業を効率化するだけでなく、私たちの価値観や生活様式、世界の見え方そのものを劇的に変容させていることを再確認しました。同時に、現代社会で表面化している様々な問題の背景には、根底にある西洋的な価値観を反映した単一のテクノロジー観の限界が露呈しているという側面があります。<br>テクノロジーによって築かれた現代文明の行き詰まりを打開するには、表面的な活用の議論にとどまらず、「技術」そのものを根源から問い直し、変えていく必要があります。単一の進歩史観に縛られるのではなく、文化や地域ごとに異なる「技術多様性」の可能性を探索することが、技術哲学を学ぶ最大の意義であると考えます。</li>
+<li>哲学とは、技術とは、テクノロジーとは、それらによって作れている世界、予測されてしまっている未来、と多くのキーワードや問い、考えが巡り、これからの講義が楽しみとなった。<br>テクノロジーが、ヨーロッパ社会が作り上げてきた、世界の覇者（世界で自分たちが最も進んでいて、その他は遅れて野蛮）、一神教的世界感に基づくとすると、それは一元的で危うい考え方だと感じた。<br>全てが相互関連して惑星全体を作っている訳で、その意味では、進んでいる・進んでいない、正解は１つだけ、といった考え方ではない中で、技術や哲学を問い直すことが重要だと感じ、それが技術の多様性が必要との話だと感じた。</li>
+<li>ワークとして行なった5つの問いについてそれぞれ考察する。<br>【技術とは何か】<br>技術とは、「何物かを現前させる知性そのもの」だと考える。実際に生み出されたもの、というよりも、それを生み出すための「知性」が技術なのではないか。<br>【テクノロジーと技術は違うのか】<br>違うと思う。技術は「知性」だが、テクノロジーは計算可能性のもとで生み出された「もの」だと考える。テクノロジーもある意味、技術という知性によって生み出されたものの一つではある。ユク・ホイの技術多様性のように、技術はテクノロジー以外にも例えば“職人技”のようなものも生み出す。建築や寿司職人などあらゆるものも技術によるものだと考える。<br>【技術を使うのは人間だけか】<br>そうだと思う。技術が知性の領域によるものと措定する限り、それは人間だけが持ちうるものだと考える。何かを現前させるだけなら、例えば動物が巣を作ることも技術に入るだろう。しかし、それが知性ではなく本能や感情に基づくものである限り、技術とは呼べないのではないだろうか。<br>【技術は何が生み出すのか】<br>知性が生み出すと考える。これが感情に起因しているのかどうかは実際まだ定かでないが…。<br>【技術は何を生み出すのか】<br>利便性と欲望および思考だと考える。技術によって生み出されたものはテクノロジーであれなんであれ、利便性を生み出す。家、土器、農具など、古くから技術によって生活を便利にしてきたはずだ。一方で技術は欲望を生み出す。何物かを生み出すことは、それを「持つ者」と「持たざる者」の格差を生み出す。現代のテック産業によるテクノ封建制だけではなく、古くは稲作技術により稲の争奪が起こり、子を設けることさえも格差の助長となった。だから人は技術によって何かしら駆り立てられる欲望が生み出される。さらに、技術は思考をも生み出す。技術によって生み出されたものは世界に生み落とされた後、人間に否応なく影響を及ぼしてくる。人間もそれに対し応答することになるが、少なくとも思考が技術によって生み落とされたものに影響される。現代のスマホを挙げるまでもなく、外界や構造から影響を受ける我々人間は、思考をも技術によって生み出していると言って良いのではないだろうか。<br>（その他）幕末の佐久間象山の掲げた「東洋道徳、西洋芸術」といった和魂洋才は、現代を眺めてみても分かる通り、ほぼ西洋に飲み込まれたのではないかと思っています。だからこそ西垣の言う「普遍倫理」が必要なのだろうと感じます。ただなんとなく、日本人は大和魂なるものを強く持っていそうなイメージですが、利便性を前にはなす術もないのか、テクノロジーに巻き込まれてしまっているように感じます。ですが、私などは寿司職人に寿司を握ってもらうことによって、その技術の高さと同時に「粋」なあり様を体感するし、古文を読んでいても日本人の感性を呼び起こされます。ふと思ったのが、昨今の古典不要論も、テクノロジーによって絡め取られた東洋道徳なき思考なのではないかということです。もし、普遍論理一辺倒になり、実用に供さないものは不要だとする態度が蔓延したら、この世界はどうなってしまうのだろうかと恐々として考えていました。まるで夏目漱石が指摘した「皮相上滑りの開化」は現代にも当てはまるのではないでしょうか。</li>
+<li>テクノロジーの未来学にて、七沢さんが「哲学はある意味何も生み出さない」というような発言をされていたことに同調しており、当初は選択5科目の中での優先順位を下げ、受講しなくても良いかなと考えておりました。<br>が、その後discordで紹介いただいたwiredの連載の一部を読み、とても捉えやすかったこともあってその認識を変え、追加購入での受講へと至りました。しかしまだ2本程度しか読めておらず、前提知識の不足を感じながらの第一回でした。<br>その上で後日振り返ることを想定した現在地を残していくためにも、直観的な感想を記録しておこうと考えています。<br>当初、「技術哲学」という言葉から想像していたのは、技術≒自然科学的テクノロジーであり、それに対する哲学という人文科学の学際的な分野としての姿でした。<br>私自身がそうであるように、近年の自然科学テクノロジーの急速な発展、特にAIの進化についていけそうにない状況に対して、切実に難解で漠然とした危機感を抱く状況になったことを背景として、「その技術がもつ意味」を考える必要性にさらされることで「哲学」が求められている、といったような単純な図式です。<br>美大在学時に同級生から「最良の科学者は最悪の哲学を選択しがちである」などという揶揄を耳にした記憶があり、サイエンティストとフィロソフィーには一定の軋轢があるという認識(偏見)があります。実際にとても即物的な考え方をする理学・工学系の研究者を目にすることは少なくないように感じていました。<br>なので、現代において「技術哲学」というものが必要とされる理由には、理工学の「研究バカ」が危険な武器を作ってしまわないように「哲学」について配慮すべき、という背景があるのかな、という俗っぽい想像してきました。アンソロピック社が哲学の専門家を雇っているなどという(ことが驚きである、というトーンの)一時期の報道も、その認識を強めるものでした。<br>しかし本日の原島さんの導入概論では、それらのパースペクティブを組み立て直す必要にかられ、目からウロコという箇所がいくつもありました。<br>それによって技術と哲学はもともと対立しがちなものなどではなく同根ですらあったのだ、と認識を改めようとしているところです。<br>特に「教会から国家、国家から国民、国民から世界市民・・・」というように進化してきた(はずの)理念が、近年きれいに逆行している(かのようだ)という解説は印象的でした。<br>明治以降の日本の「和魂洋才」の説明では、理念のない形骸的受容による弊害としての紹介であるように受け止められたので、ローカライズによる肯定的な解釈の余地はないものなのだろうか、という気にもなりました。この辺りは今後詳細に補助線が引かれていくものとも期待しています。<br>（その他）あまりに前提知識、理解が乏しかったので講義内容を受け止めきれませんでしたが、分からないということが分かるというところまでは辿り着けました。エクササイズの「問い」に対しても、深読みの仕方も分からないかんじではありましたが、ブレイクアウトルームで同室になった方々からは、私と同じくらいきょとんとされている様子が共感できたので、ひとまずは安心しています(←良くない)。</li>
+<li>私の勤務先は、欧米から真空技術を導入し戦後復興への貢献を目的として事業を始めたとされ、現在も「技術で産業と科学技術の発展に貢献する」という経営理念を掲げている。私は以前、製造業にとって技術を発展させ、高い性能と品質を持つ製品をつくり、それによって利益を生み続けることは、ごく自然な価値観だと考えてきた。<br>今回の講義を聞き、こうした「自然に思える」技術観自体を一度捉え直してみたいと思った。講義では、現在のテクノロジーの捉え方も普遍的なものではなく、特定の歴史や文化の中で形成されてきたこと、また技術を単独の道具ではなく、社会・文化・環境・制度などとの絡み合いの中で考える視点が示されていた。技術多様性も、異なる技術を並べることではなく、自分が当然だと思っている技術の枠組み自体を相対化することとして扱われていた。<br>自社には「わが社は時間を尊重する」という社是もある。講義では、近代的なテクノロジーの導入が、機械だけでなく、一様に流れる時間を測りそれに人間の活動を合わせる時間観とも結びついていたことが和時計や「遅刻」の例から説明されていた。 これまで私はこの社是を勤勉さや効率性の表現として受け取っていたが、技術を発展させ、計画し、時間を管理しながら成果を生み出すという産業社会の価値観とも関係しているのかもしれないと思った。<br>現在サステナビリティ経営に関わる中で難しさを感じるのは、環境やサプライチェーン、人への影響を、従来の性能・品質・利益とは別の項目として追加することではなく、それらまで含めて技術や事業の価値を考えることである。もちろん企業である以上、利益を生み続けることは必要である。しかし、何を「発展」と呼ぶのか、どの範囲まで技術の影響として考えるのか、どの時間軸で価値を判断するのかによって、同じ技術の評価も変わり得る。<br>講義で示された「アンラーンの前に、まずラーンが必要」という言葉は、私には、新しい知識を得るだけでなく、自分がすでにどのような技術観を身につけ、それを自明のものとしてきたのかを知ることから始める、という意味に聞こえた。 自社の理念を否定するのではなく、「産業と科学技術の発展」がこれまで何を意味してきたのかを捉え直すことが、私にとって今回のアンラーンの入口なのだと思う。<br>（その他）講義の内容は最初ほとんど理解できず、三回聞き直してもまだ十分に整理できていません。ただ、自分が当然だと思っていた「技術」や「発展」という言葉にも、歴史的・文化的な前提があることには気づきました。今後の講義も聞きながら、今回の内容に戻って考え直していきたいと思います。また食文化についても、料理や保存を「技術」という観点から改めて考えてみたいです。</li>
+<li>• 技術について本格的に学ぶのは初めてだが、とても面白かった。<br>• 技術とテクノロジーは被っているところもあるが、異なる。テクノロジーは西洋近代に誕生し、技術は原始時代まで遡ることができる。<br>• 技術とテクノロジーは多様に存在し、固有の精神性と紐づいている。しかし、近代以降、西洋的テクノロジーが世界の中心となり、日本では和魂洋才のような表面的な導入・活用が反省される。さらに、普遍論理として技術は普及したが、どう正しく使うか、という普遍倫理が確立していない話も興味深かった。<br>・自分が生業にしている組織づくりや経営においても、技術やテクノロジーの導入・活用は自社の精神性や固有性よりも、経済合理性という単一のモノサシでしか検討されない問題が重なっていると感じた。</li>
+<li>技術哲学の初回授業として、今後の学習に向けた問いかけを自分でも考えを巡らせながら興味深く聞かせていただきました。「技術」と「テクノロジー」を異なる概念として捉えたことがなかったので、技術哲学の観点ではそこに差異があるという考え方は自分の「技術」「テクノロジー」との向き合い方の前提を突き崩すものでした。素朴な疑問としては講義で扱われた「技術」はどのように英訳されるべき語なのかという点は気になりました。<br>第2回が概論とのことなので、ライブで聞くために頑張って追いつきたいと思います。</li>
+<li>漠然と重要なイメージを持っていた技術哲学について考えることの意義について再考する機会になった。テクノロジーというものが西洋的な価値観のもとに作られた概念だということ、そして技術はもっと幅広い価値観に支えられたものであるように思った。</li>
+</ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techphilosophy.html">← 技術哲学 トップに戻る</a></p>
+</main>
+</body>
+</html>

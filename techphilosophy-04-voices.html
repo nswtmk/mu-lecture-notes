@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第4回 受講生の感想｜技術哲学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第4回「技術を形作るもの──社会構成主義・アクターネットワーク理論／西田幾多郎の技術論」<br>受講生の感想</h1>
+    <p class="subtitle">技術哲学｜2026年8月27日（木）｜講師：村田純一</p>
+    <div class="hstats"><div><b>8</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">講義末尾に示された2つの問い（ガリレオの指摘／「作られたものから作るものへ」）に、多くの受講生が自分の答えを書き込んできた回でした。技術と社会の相互作用、解釈の柔軟性、アクターネットワークの視点から、震災の巨大堤防、食品添加物、AIの規制まで、具体例による考察が豊かに展開されています。</p>
+  <ul class="theme-list">
+<li><b>Q3「予防の手段がかえって災いになる」を巨大堤防・SNS規制・食品技術などで考察</b></li>
+<li><b>Q4「作られたものから作るものへ」から、つくる＝未来の文化を規定する行為という気づき</b></li>
+<li><b>「必要は発明の母」の逆転、発明→必要という視点への驚き</b></li>
+<li><b>アクターネットワーク理論・ブラックボックス化への反省的な応答</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>技術と社会が不可分であり相互影響している。文化によって使われ方が変わる。ということから技術の「解釈の柔軟性」にはとても共感、さらに、技術自体だけでなく、「使い方」の発明もあるかもと感じた。<br>さらに、技術の解釈学の役割は、自明化していた技術をあらためて問いに付し脱安定化、再政治化すること。常に時間とともに変化していくものであることを実感。<br>「創造的過程は、因果的にも、目的論的にも説明できない。」のは一見出来そうに見えて、偶然性という観点からは、確かに難しいことを実感。そして、必要性→発明ではない、逆に発明→必要性では？ということも、少し目から鱗だった。<br>Q3：ガリレオの指摘事例<br>AIが秘密を洩らさないように、制限していたら、大事な情報もしゃべらなくなって困った？<br>Q4：「作られたものから作るものへ」<br>自分は世界から影響を受けて作られ、そして次に自分が作る側になり世界に影響を与えていくならば、作るものが誰かの笑顔を作り「世界に良い影響を与えるような使い方」含めて考えたい。また、予想外の悪い使い方をされたときも、さらに作ることだけでなく、社会、経済、政治など環境を含めて、それを修正していく姿勢を持つことが重要かもしれない。</li>
+<li>未だ哲学の問いの立て方、論の展開そのものについて不慣れであり、意味を見出すこと自体に困難を感じています。だた、私自身のこの講義受講の初期衝動である「(AIなどの)高度な技術の急速な進歩に対する不安と、何とか事態を把握するためのよすがを掴みたい」というのが、「(そもそも)技術とは何なのか」を丁寧に追っていかなくてはもたらされえないのだ、という見通しにたどり着くことができたように(今更ながら)感じられています。<br>前回「彫刻家が石の中から像を発見する」などという喩えがなされていましたが、今回の「技術／社会」や「必要／発明」の多元的要因論(?)からは、「筆と絵の具で絵を描くプロセス」を思い起こさせられました。絵画を描画する際、絵筆で画面に絵の具を置き、制作者はその有様に反応して次の一手を生み出します。その相互作用の積み重ねは協働的、リアクティブなものであり、とても良好に作用した時「神が降りてきた」「忘我の境地」「作品に作らされている気さえする」などと解説されたりします。<br>これからしばらくは、歴史にマイルストーンを残した哲学者のケーススタディをしながら「技術とは何か」を考える技術を掴もうとしていくのだと解釈していますが、どこかで聞きかじった「テクノロジーは常に戦争のメタファーである」という宿命的な言い回しからも不安を煽らされます。<br>「技術とは何か」を考えることよりも、「ともかく先んじて使いこなして他者を圧倒しよう」或いは「他者に制服されないために先んじて使いこなさなくては」という圧力の方が圧倒的にインセンティブが高いように思えるからです。<br>（その他）ガリレオの指摘: 「すべての人の予想を裏切ってことが起こり、しかも〜」な例としては、グローバリズムがあるようにも思えます。「世界の隅々にまで民主主義を」と掲げながらも、資本主義は常に「より安価な労働力」を開拓し続けてきたに過ぎず、世界規模で経済的中間層を壊滅しつくしただけだった、とも言えそうだからです。ポピュリズムの興隆は、2万年間進歩していない人体ではせいぜい数百人規模程度と協働することしかできず、「世界中の人と友だちに」なんて理想は所詮夢物語だった、ということなのでしょうか。。。<br>身内がワクチン懐疑論をきっかけとして排外主義陰謀論者へと堕ちてしまっているため、高度なネットワークがコロナ禍を生み、ワクチンがむしろ分断を惹起した、などという近年の状況にも、『すべての人の予想を裏切って』感があります。</li>
+<li>Q3 ガリレオの指摘: 「すべての人の予想を裏切ってことが起こり、しかも予防のために施した手段がかえって災いになったと解釈できるような事例としてどのような場合が考えられるでしょうか?<br> 　今回のFacebookのアメリカでの裁判による青少年への閲覧規制がそんな事態を招くような気がしてならない。もうすでに中毒状態に陥っている若者たちは、規制をかけらたことで何か事件を起こすのでは無いだろう（。予想を裏切って（超えて）ことが起こる）。覚醒剤による薬物中毒での犯罪発生に近い形で何かが起きそうな気がしてならない。すでに浸透してしまい、旨みが身体に染み付いてしまった人たちに、しかもその判断能力がない年代で中毒になってしまった若者たちに、規制だけでは解決策にならない。中毒性のあるアルゴリズムを教育を通じて理解し、この危険性が一般教養として広まる必要性を感じている。<br>（その他）Q4 西田の「作られたものから作るものへ」という技術のとらえ方は、現代において「つくる」ことを考えるうえで、どのようなヒントを与えてくれるでしょうか。<br> 　西田哲学の絶対的自己同一性については、生物学者の福岡伸一先生の著書を読んで少し頭に入っているものの、難しいというのが率直な感想である。必要は発明の母であり、発明は必要の母である、と西田哲学のような言い換えをすることが、このことに近いのであれば「まぐれ」で始まった、閃いた技術というのもあるだろうし、必要があったからこそ発明に繋がったこともある。どちらの事象も生じうると考えると、日々のくらしの中で、それを少しでも変化させる方向に意識を向け続ける、能動的な姿勢が大切である。作られたもので満たされた現代。そして作られたものに囲まれていれば、今のところは生きていける現代である。しかしそこには持続可能性が低いということも明らかになりつつある。だからこそ、作られたものたちからはみ出す思考と態度が重要であり、答えのない答えを考え続けることが必要だと感じた。</li>
+<li>講義内で扱った以下の問いについて、自分なりに回答します。<br>Q.<br>「作られたものから作るものへ」という転換は、現代で作ることを考える上でどんなヒントを与えてくれたか。<br>A.<br>　「どのようなモノを作るか」という問いを、「どのような社会や人間・文化を新しく形作るか」という問いへと接続する視点を与えてくれます。  <br>　これまで「作る」という行為は、誰かを喜ばせることや、特定の課題を効率よく解決する手段として主に捉えていました。しかし、「作られたものから作るものへ」という言葉が示すように、人間が過去に作った道具や制度（＝作られたもの）は、単なる受動的な手段にとどまらず、その後の人間の行動、価値観、社会構造を規定する「共同行為者」になるという事実を講義を通じて学びました。  この視点に立つと、現代において「モノを作る」とは、単に便利な製品を生み出すことだけではなく、未来の文化や社会の枠組みを規定する「新たな行為者」をつくることと同義であると言えます。  <br>　したがって、現代で何を作るかという決断は、私たちがどのような未来や文化を望むのかという意思表明でもあります。これからは「効率や課題解決」という局所的な視点にとどまらず、「この作られたものがどのような未来や文化を形作っていくのか」という中長期的な視点も踏まえ、自分が現代で作るべきものを問い直していきたいと考えます。</li>
+<li>Q3<br>AIを題材とした場合に、AIが対話者の質問に簡潔に答えることを提供価値として重視しすぎた結果、他の選択肢や結論への重要なプロセスが欠落してしまう可能性がある。（人間側がそこの部分まで気をつけて質問する、１次情報へアクセスしてする必要がある。）<br>→その対策として、仮にAIにそういった倫理感をあらかじめ実装することも考えられるが、その倫理感が新たなブラックボックスとなり、新たな事故も？<br>Q4<br>「作られたものから作るものへ」については、偶発性がポイントとなると感じた。検索やAIにおいては、目的設定を行うと、その目的の近傍や過去例に基づく検索結果しか現れず、クリエイティブな領域においては発想のジャンプが起こりにくい面もあると感じている。そのため、その偶発性のきっかけとして、多様な作られたものに囲まれた身体的な体験が重要であると感じている。</li>
+<li>Q3：食品を腐敗や食中毒から守り、長期間保存できるようにするために添加物や加工技術を導入した結果、別の健康上・環境上の問題が生じる場合は、ガリレオの事例構造に近いのではないかと考えた。ここで重要なのは、添加物自体が有害だということではなく、ある一つの問題を解決するための技術的介入が、流通、消費、人体、環境など他の要素との関係の中で、当初予想していなかった結果を生む可能性があるという点である。<br>Q4：食品で考えると、保存技術、冷蔵庫、包装、期限表示などは人間が作ったものである一方、それらが私たちの保存、購入、廃棄の判断を変え、その生活や流通のあり方を前提として、さらに新しい食品技術や制度が作られていく。つまり、人間、人工物、制度、文化の間には、生態系にも似た相互作用のネットワークが形成されているように感じた。ただし、それは調和した生態系というより、予期しない作用や矛盾、失敗も含む動的なネットワークである。そう考えると、現代の「つくる」とは、新しい製品や技術を作るだけではなく、すでに存在する関係の中に何を加え、それによって人間の行為や社会のあり方がどのように変わるのかまで考えることが含まれるのではないかと思った。<br>（その他）毎回何度も聞いてもよくわからない状態ですが次回も楽しみにしています。</li>
+<li>最後に提示されたQ3、Q4について考察する。<br>【Q3】<br>私の住んでいる東北にあえて引きつけてみると、「すべての人の予想を裏切ってことが起こ」ったのは間違いなく東日本大震災である。従来の堤防は容易に越えられてしまったのだ。津波経験から、東北の沿岸部では巨大堤防を建設した。再びあの様な惨禍に見舞われないようにと願い造られた巨大堤防は、高さ12.5メートル、総延長3.9キロメートルという迫力だ。おかげで次の津波被害は軽減できそうではあるが、しかし、その城壁のように聳える堤防は「海の見えない街」へと街を変えてしまった。沿岸部に住む意味の一つは「海と共にある」ことでもある。そうした連関を巨大堤防が断ち切ってしまったのだ。また、これだけ巨大な堤防を造ったものの、来たる老朽化に備えて修繕していかなければならないその維持費が莫大になるという問題にも向き合わなければならなくなった。<br>【Q4】<br>未来は構想されるものではない、というヒントかもしれない。「テクノロジーの未来学」で学んだ重要な考えがここでも生きている。どういうことかというと、「つくる」ことはつくられた物からの影響があって初めて働く行為だということである。何の影響も受けていない純粋な制作者がいて、その人が何をつくるか構想してものが生み出されるというのは考えにくい。つくられた物があるから、私たちはそこから着想を得ることができるのであり、全てが観念的に頭の中で構想されているわけではない。それゆえに、未来は構想するものではなく、つくられた物を契機として立ち上がってくるものだという視座を得る。<br>（その他）アクターネットワークの視点は完全に私から抜け落ちていたと反省しました。私の行為一つとっても、実に多様な連関がそこにはあるはずですが、背後で連関しているところまで試行できていなかったです。ある意味反省的に振り返ってみると、そこに気づけなかったのは「ブラックボックス化」によるものなのかもしれません。今後は、“現れ”として存在している事物であったり行動であったりを、それらがブラックボックス化している関係の痕跡として注視してみたい。技術はもちろん、人間にもこの視点は応用できるのではないかと考えました。</li>
+<li>技術が社会を決定するわけでも、社会が技術を決定するわけでもない。両者は相互作用の中で、新たな現象を立ち上げている。<br>技術は価値負荷的であり、多元的な解釈によってその意味と価値が方向づけられる。さらに、その解釈を決めるのは人間だけでなく、非人間という共同行為者も含まれた相互作用のネットワークである。これをアクターネットワーク理論と呼ぶ。<br>ここからさらに考えたいのは、力関係の問題だ。数・社会規範・構造・影響力によって生まれる力の差異が、共同行為者の中に強者と弱者を生み出し、技術を特定の方向へと形作っていくのではないか。そのとき、その方向は果たして多様な他者にとって倫理的で、望ましいものなのだろうか。<br>国家・社会という単位における「望ましさ」と、多元世界における複数の「望ましさ」を互いに許容し合う枠組みを、どうつくればよいのだろう。</li>
+</ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techphilosophy.html">← 技術哲学 トップに戻る</a></p>
+</main>
+</body>
+</html>

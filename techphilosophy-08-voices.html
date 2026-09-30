@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>第8回 受講生の感想｜技術哲学｜makers Unlearn 2026</title>
+<style>
+  :root{
+    --paper:#F6F5F1; --ink:#17171A; --sub:#5B5B63; --accent:#1130E8;
+    --hairline:#DEDCD3; --black:#0D0D0F; --field:#0B7A45;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:70px 24px 56px;}
+  .hero-inner{max-width:940px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 24px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:.02em;line-height:1.42;margin:0 0 12px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 32px;line-height:1.85;}
+  .hstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px 26px;border-top:1px solid #2e2e34;padding-top:20px;font-size:13px;color:#c9c9d2;}
+  .hstats b{color:#fff;font-size:18px;font-weight:700;margin-right:5px;}
+  main{max-width:940px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:21px;font-weight:700;letter-spacing:.04em;margin:70px 0 8px;padding-top:22px;border-top:3px solid var(--ink);}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:9px;}
+  p{margin:14px 0;} .intro{font-size:16px;}
+  a{color:var(--accent);text-underline-offset:3px;} strong{font-weight:700;}
+  a.ai-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;letter-spacing:.03em;padding:7px 16px;border-radius:4px;text-decoration:none;}
+  a.ai-btn:hover{background:#0B23B8;}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0 0;line-height:1.8;}
+  .backlink{margin-top:70px;font-size:14px;}
+  .access{border:1px solid #C5CEF7;background:#F0F3FE;border-radius:5px;padding:15px 19px;margin:22px 0 0;font-size:13.5px;line-height:1.85;}
+  .access b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .forms-box{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:20px 24px 21px;margin:22px 0 0;}
+  .forms-box b{display:block;font-size:15.5px;margin-bottom:3px;}
+  .forms-box p{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .forms-links{display:flex;flex-wrap:wrap;gap:9px;}
+  /* --- 科目カード（トップ） --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:18px 0 0;}
+  a.card{display:block;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px 20px 17px;text-decoration:none;color:var(--ink);transition:transform .08s ease,border-color .12s ease;}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent);}
+  a.card.upcoming{background:#FAFAF7;}
+  .card-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card-ic{font-size:19px;line-height:1;}
+  .card-badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .b-archived{background:var(--accent);color:#fff;}
+  .b-ongoing{background:var(--field);color:#fff;}
+  .b-upcoming{background:#EFEEE8;color:var(--sub);}
+  .card-name{font-size:16.5px;font-weight:700;letter-spacing:.02em;line-height:1.45;}
+  .card-meta{font-size:12px;color:var(--sub);line-height:1.7;margin-top:5px;}
+  .card-count{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:7px;letter-spacing:.03em;}
+  .step-head{display:flex;align-items:baseline;gap:14px;border-top:3px solid var(--ink);padding-top:18px;margin:56px 0 4px;}
+  .step-no{font-size:11px;letter-spacing:.26em;color:var(--accent);font-weight:700;white-space:nowrap;}
+  .step-head h2{font-size:19px;margin:0;border:none;padding:0;}
+  .step-msg{font-size:12.5px;color:var(--sub);margin:0 0 6px;}
+  .field-sec{margin-top:64px;border-top:3px solid var(--field);padding-top:20px;}
+  .field-sec h2{border:none;padding:0;margin:0 0 4px;color:var(--field);}
+  .field-sec .step-msg{margin-bottom:8px;}
+  a.card.field:hover{border-color:var(--field);}
+  .program-note{font-size:13px;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px 20px;margin:24px 0 0;line-height:1.9;}
+  /* --- 各回ブロック（科目ページ） --- */
+  .lec{border:1px solid var(--hairline);background:#fff;border-radius:5px;padding:22px 24px 20px;margin:16px 0;}
+  .lec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .lec-no{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
+  .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
+  .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
+  .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
+  .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
+  .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
+  .lec-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .open-card{display:flex;align-items:center;gap:16px;text-decoration:none;border-radius:5px;padding:16px 20px;margin:6px 0 10px;transition:transform .08s ease;}
+  .open-card:hover{transform:translateY(-1px);}
+  .open-card .ic{flex-shrink:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .open-card .tx{min-width:0;}
+  .open-card .t1{display:block;font-size:15px;font-weight:700;line-height:1.5;}
+  .open-card .t2{display:block;font-size:12.5px;line-height:1.6;margin-top:1px;}
+  .open-card .arrow{margin-left:auto;flex-shrink:0;font-size:15px;font-weight:700;}
+  .card-video{background:var(--black);border:1px solid var(--black);}
+  .card-video .ic{background:#fff;color:var(--black);}
+  .card-video .t1{color:#fff;} .card-video .t2{color:#b6b6c0;} .card-video .arrow{color:#fff;}
+  .card-slide{background:#fff;border:1px solid var(--hairline);}
+  .card-slide .ic{background:#F0F3FE;color:var(--accent);border:1px solid #C5CEF7;}
+  .card-slide .t1{color:var(--ink);} .card-slide .t2{color:var(--sub);} .card-slide .arrow{color:var(--accent);}
+  .card-slide:hover{border-color:var(--accent);}
+  .lines{margin:20px 0;padding:0;list-style:none;counter-reset:ln;}
+  .lines li{counter-increment:ln;position:relative;padding:0 0 0 44px;margin:20px 0;}
+  .lines li::before{content:counter(ln,decimal-leading-zero);position:absolute;left:0;top:3px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+  .lines b{display:block;font-size:15.5px;margin-bottom:1px;}
+  .lines span{font-size:14px;color:var(--sub);line-height:1.85;display:block;}
+  .kadai{border:1px solid var(--accent);border-radius:5px;background:#fff;padding:22px 24px 21px;margin:18px 0;}
+  .kadai .k-label{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:3px 9px;border-radius:3px;margin-bottom:9px;}
+  .kadai .k-title{font-size:17px;font-weight:700;display:block;margin-bottom:4px;}
+  .kadai .k-desc{font-size:13.5px;color:var(--sub);line-height:1.85;margin:0 0 14px;}
+  .kadai .k-links{display:flex;flex-wrap:wrap;gap:9px;}
+  .prep{border:1px dashed #CFCEC6;background:#FAFAF7;border-radius:5px;padding:24px 26px;margin:22px 0;}
+  .prep b{display:block;font-size:16px;margin-bottom:6px;}
+  .prep p{font-size:14px;color:var(--sub);margin:0 0 10px;line-height:1.9;}
+  .info-tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  .info-tbl th{text-align:left;width:120px;padding:10px 10px 10px 0;border-bottom:1px solid var(--hairline);color:var(--sub);font-weight:600;font-size:12.5px;vertical-align:top;white-space:nowrap;}
+  .info-tbl td{padding:10px 0;border-bottom:1px solid var(--hairline);}
+
+  .voice-list{margin:20px 0;padding:0;list-style:none;counter-reset:vn;}
+  .voice-list li{counter-increment:vn;position:relative;background:#fff;border:1px solid var(--hairline);border-radius:5px;padding:20px 24px 19px 58px;margin:14px 0;font-size:14.5px;line-height:1.95;}
+  .voice-list li::before{content:counter(vn,decimal-leading-zero);position:absolute;left:20px;top:20px;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .theme-list{margin:16px 0;padding:0 0 0 1.4em;}
+  .theme-list li{margin:9px 0;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">MAKERS UNLEARN 2026 — VOICES</p>
+    <h1>第8回「私たちは、いかに「生きる」ということをつくることができるのか──技術の根源的問題と正面から向き合うために」<br>受講生の感想</h1>
+    <p class="subtitle">技術哲学｜2026年9月14日（月）｜講師：七沢智樹／原島大輔</p>
+    <div class="hstats"><div><b>5</b>件の感想</div><div><b>匿名</b>掲載（原文のまま）</div></div>
+  </div>
+</header>
+<main>
+  <h2><span class="h2-en">SUMMARY</span>感想まとめ</h2>
+  <p class="intro">全8回の締めくくりとして、惑星的普遍技術と惑星的普遍倫理という大きな問いを受け取り、「まず実践してみたい」という応答が並んだ最終回でした。都市と森の往復、原初への立ち戻り、答えを出し続けないこと。それぞれの暮らしと制作の現場から、講座全体を貫く問いを持ち帰る感想が寄せられています。</p>
+  <ul class="theme-list">
+<li><b>体験（異なる身体）を通して内側から変えるという方法論への納得</b></li>
+<li><b>普遍論理に対する普遍倫理、感性・身体性への着目</b></li>
+<li><b>「なぜ原初への立ち戻りが普遍的と言えるのか」という鋭い問い返し</b></li>
+<li><b>技術史・人類学など今後の科目で問いを深めたいという継続の意思</b></li>
+  </ul>
+  <h2><span class="h2-en">VOICES</span>受講生の感想（全文）</h2>
+  <p class="step-msg">講義後アンケートに寄せられた感想を、氏名を伏せたうえで原文のまま掲載しています。</p>
+  <ol class="voice-list">
+<li>体験（異なる身体）を通して内側から変えていく。まさに自分の暮らしもそうだと思ったし、都市と森の往復というのは納得できた。私自身、田舎に移住し、はだしで山に登り、野糞や米作りに取り組んでいる。その中で東京に行く機会も月に一度は設定して、都市に敢えて身体を晒す機会を作っている。原始に戻れない、ということに同意しつつも、3歩進んで2歩下がるくらいの生活スタイルの修正はありなんじゃないかと考えながら、暮らしを日々試しているところである。「哲学」という言葉に大きな苦手意識があったが、今日の内容は腹落ちできてよかった。<br>（その他）技術哲学は3回分しか受講できていないので、また時間を作って問いを深めたいと思う。</li>
+<li>本講義のテーマは、「惑星的普遍技術と惑星的普遍倫理がもつ意味」だと捉えました。<br>　技術哲学とは、「技術」を起点に、近代西洋中心の価値観で形作られた現代社会を根本から捉え直す営みだと再確認しました。現代を覆うテクノロジーは近代西洋の産物であり、本来の広大な「技術（テクネー）」のほんの一部に過ぎないという前提を踏まえることで、テクノロジー以外の多様な技術の可能性が拓かれます。<br>　最適化や効率を至上命題とするテクノロジー主導の現代では、地球規模での人道危機や環境危機といった限界が露呈しています。この課題に立ち向かうには、万物を計算可能な資源として捉える「普遍論理」だけでなく、西洋思想の源流にある愛と対応する「普遍倫理」を取り戻す必要があります。<br>　では、私たちはどのように普遍倫理を見出し、実践できるのか。その鍵となるのが、「論理や思考」の対極にある「人間の感性や身体性＝惑星的普遍技術」だと捉えました。頭の中の論理だけでなく、手触りのある感覚や身体性を起点に、現代の諸問題やこれからの時代の生き方を考えていこうと思います。</li>
+<li>普遍的な技術を否定して過去に戻るのではなくその内側から異なる可能性を育てる、という観点で食を考えると、保存や流通の技術、日付表示は、離れた場所に食品を届け、安全を判断するために重要である。その一方で、その仕組みによって「まだ食べられるか」を判断する際、食品の状態を確かめることよりも、表示された日付が優先される場面もある。技術は食品を長持ちさせるだけでなく、私たちが何を食べ物として扱い、いつ手放すかという判断にも関わっているのだと思った。<br>そこで「判断を遅らせる」ことを考えてきた自分の問いも、見直す必要を感じた。第8回でいう技術との関係の「結び直し」を食で考えるなら、日付表示の役割を残しながら、個々の食品について判断できる条件をどうつくるか。卒業制作では、「まだ食べ物である時間」を延ばすという発想にとどまらず、その時間を誰が、どのような条件のもとで判断できるのかという人の目利きに方向に広げることも選択肢だと考えた。<br>（その他）技術哲学全体が、ぼんやりしたまま終わってしまいましたが、技術史や人類学などやっていく中で再度見直しできればと思います。</li>
+<li>惑星的普遍技術を取り戻すことで、近代西洋の都市生活に飼い慣らされた私たちは自由になれる。<br>そのために、ヒトが他の動物と異なる特性を発揮するようになった地点まで立ち戻り、つくることと生きることの実践を繰り返すことで、異なる身体を獲得する。<br>新たな身体と視点を持ってテクノロジーと向き合う中で、技術の普遍性を立ち上げることができる。<br>非常に示唆深い考え方であり、自分もまずは実践してみたいと思う。一方で、現時点では以下の問いが浮かんでいる。なぜ原初まで立ち戻ることが「普遍的」と言えるのか。それはあくまで時空間における一つの立脚点にすぎないのではないか。<br>次に惑星的普遍倫理について。テクノロジーの論理によって支配された社会において、異なる他者が共有できる倫理をいかにつくれるか。人間・非人間が共に生きられる環世界・主観性・身体性をいかに構築できるか。<br>自民族中心主義が生み出す「他者倫理に含まれない他者」の問題に対して、他者の死への悲嘆可能性をどう維持・拡大できるか。枠組みの外に排除された他者もまた、その枠組みを支えている。<br>生を機械のように錯覚させるテクノロジーの力にどう抗うか。これが生身の人間の問題であることを切実に感じ続けるために、何ができるか。</li>
+<li>惑星規模でのちょうど良い技術については、考え、行動し続け、メニューの外や根本を捉え、ある意味で答えを出さない、ことが重要であると感じた。唯一の答えへの収束の危険性とともに、足し算的な技術の進化の捉え方ではなく、引き算的・もしくは惑星統合的？な技術の捉え方が必要ではないかと感じた。<br>過去からの普遍的な技術について考えたこととして、例えば、現在擬木的な建材が増えているが、それは過剰な技術と感じており、惑星規模で自然なことではないと感じている。擬木的な環境が当たり前の世界で生きることは生命として不自然ではないか。パートナーと暮らしていても、本物の木が、熱や水に弱く割れや劣化につながるという身体的な感覚がなく驚く場面もあり、AIに限らずこれからの技術について考え続けていきたい。<br>（その他）これからの他の講座含め、さらに咀嚼していきたいと思います。</li>
+</ol>
+  <div class="note">本ページの感想は、受講生アンケートの回答を匿名で掲載したものです。文意を変える編集は行っていません。</div>
+  <p class="backlink"><a href="techphilosophy.html">← 技術哲学 トップに戻る</a></p>
+</main>
+</body>
+</html>
