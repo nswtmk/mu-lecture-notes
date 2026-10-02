@@ -375,7 +375,8 @@
       "技術多様性",
       "普遍論理と普遍倫理",
       "惑星的課題"
-     ]
+     ],
+     "voices": "techphilosophy-01-voices.html"
     },
     {
      "no": 2,
@@ -397,7 +398,8 @@
       "自然の模倣・補完",
       "技術決定論批判",
       "人工物の政治性"
-     ]
+     ],
+     "voices": "techphilosophy-02-voices.html"
     },
     {
      "no": 3,
@@ -419,7 +421,8 @@
       "アレーテイア（隠れなさ）",
       "テクネーとポイエーシス",
       "総かり立て体制（ゲシュテル）"
-     ]
+     ],
+     "voices": "techphilosophy-03-voices.html"
     },
     {
      "no": 4,
@@ -441,7 +444,8 @@
       "解釈の柔軟性",
       "アクターネットワーク理論",
       "作られたものから作るものへ"
-     ]
+     ],
+     "voices": "techphilosophy-04-voices.html"
     },
     {
      "no": 5,
@@ -458,7 +462,8 @@
       "技術的媒介",
       "道徳的主体化",
       "道徳的設計"
-     ]
+     ],
+     "voices": "techphilosophy-05-voices.html"
     },
     {
      "no": 6,
@@ -475,7 +480,8 @@
       "図と地",
       "和魂洋才の失敗",
       "複層化"
-     ]
+     ],
+     "voices": "techphilosophy-06-voices.html"
     },
     {
      "no": 7,
@@ -497,7 +503,8 @@
       "環境の改変としての道具",
       "世界のメニュー化",
       "生命の技芸"
-     ]
+     ],
+     "voices": "techphilosophy-07-voices.html"
     },
     {
      "no": 8,
@@ -523,7 +530,8 @@
       "異なる身体",
       "眠っている技術",
       "悲嘆可能性の惑星化"
-     ]
+     ],
+     "voices": "techphilosophy-08-voices.html"
     }
    ],
    "slug": "techphilosophy",
@@ -601,6 +609,12 @@
       "凝る心",
       "ブリコラージュ",
       "過剰模倣"
+     ],
+     "slides": [
+      {
+       "url": "https://docs.google.com/presentation/d/1WtATfwa7yPzeypWcKnrz9iJU9ve57D82MtVTRJ9XgU0/edit",
+       "label": "講義スライド（相馬皓介）"
+      }
      ]
     },
     {
