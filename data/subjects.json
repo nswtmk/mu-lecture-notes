@@ -46,7 +46,8 @@
           "slides": [
             {
               "id": "1MJRoYs3uyW5aVjmq0HVcUKIPrI_mOjEA",
-              "label": "講義スライド（松島倫明）"
+              "label": "講義スライド（松島倫明）",
+              "vimeo_id": "1cVJt_RwXiRIfkvGJ_Lz2OjEcahN6BNbE"
             }
           ],
           "summary": "techfutures-01.html",
@@ -69,7 +70,8 @@
           "slides": [
             {
               "id": "12fNh9bijAlPH1gsSvXsOOLt-iWkWCrYd",
-              "label": "講義スライド（梶谷健人）"
+              "label": "講義スライド（梶谷健人）",
+              "vimeo_id": "1v6D9fV92K1FkEJeUIQPdeGdhrnmFBiSl"
             }
           ],
           "summary": "techfutures-02.html",
@@ -92,7 +94,8 @@
           "slides": [
             {
               "id": "1r8UWXoeABwyROspD54vZKXsLBwIlGD8b",
-              "label": "講義スライド（高口康太）"
+              "label": "講義スライド（高口康太）",
+              "vimeo_id": "1voYEIQeVDgjnk3i9FXpjSj33WF32H4sp"
             }
           ],
           "summary": "techfutures-03.html",
@@ -115,7 +118,8 @@
           "slides": [
             {
               "id": "1qXZHTrvTb0mfIaEEmEzb8fHxy5BVQLWj",
-              "label": "講義スライド（守慎哉）"
+              "label": "講義スライド（守慎哉）",
+              "vimeo_id": "179-yhL9BZb1OhkPtfAat0rxcyxyPk9Sg"
             }
           ],
           "summary": "techfutures-04.html",
@@ -138,7 +142,8 @@
           "slides": [
             {
               "id": "1fsCW06ct29RqP-Z_Dn20gJpLUVi7eAMJ",
-              "label": "講義スライド（藤井直敬）"
+              "label": "講義スライド（藤井直敬）",
+              "vimeo_id": "1_Z7N9kXeN9QXftNbJTpJXI577GW9t_1B"
             }
           ],
           "summary": "techfutures-05.html",
@@ -161,7 +166,8 @@
           "slides": [
             {
               "id": "1cqVaWTJ5s_qGt5gtBTIqvuPgAhw1aXxa",
-              "label": "講義スライド（若山照彦）"
+              "label": "講義スライド（若山照彦）",
+              "vimeo_id": "1u6pIXFfcIlMmKKfsqobfL3eoppAGYkQt"
             }
           ],
           "summary": "techfutures-06.html",
@@ -184,7 +190,8 @@
           "slides": [
             {
               "id": "1PMlBoyi6I70ISW2FPsO5xrz4ghgDO2oM",
-              "label": "講義スライド（池上高志）"
+              "label": "講義スライド（池上高志）",
+              "vimeo_id": "1pC5zanIngNMmS75PqqnSt8OgNGUxZT3W"
             }
           ],
           "summary": "techfutures-07.html",
@@ -207,7 +214,8 @@
           "slides": [
             {
               "id": "10H7xRdq822dl_7iur_xzWKAF2mLQmOrb",
-              "label": "講義スライド（総論）"
+              "label": "講義スライド（総論）",
+              "vimeo_id": "1SPe8Gsadlp8No03uCGBwlBL87VYJ-dFf"
             }
           ],
           "summary": "techfutures-08.html",
@@ -297,11 +305,13 @@
           "slides": [
             {
               "id": "1aI4ft6m5APtco3wng98Wz9EXXDsAn5t3",
-              "label": "講義スライド①"
+              "label": "講義スライド①",
+              "vimeo_id": "1RswNtny4W18MsVe-yBw5ZFio37_H8PkV"
             },
             {
               "id": "1mMfqQNGkKU7zmBk8NEmaPtEXCnWPEGNv",
-              "label": "講義スライド②"
+              "label": "講義スライド②",
+              "vimeo_id": "1kt-CuLFIR7yM_gl0brtize2I_CskOxw_"
             }
           ],
           "summary": "aishakai1-02.html",
@@ -322,7 +332,8 @@
           "slides": [
             {
               "id": "17CJBIORVr-E4l_NprPHlJAHepG2-TqLz",
-              "label": "講義スライド（柳平大樹）"
+              "label": "講義スライド（柳平大樹）",
+              "vimeo_id": "1f_-_BkZzcigdgxpOsNlIYiD3SyfEB4EB"
             }
           ],
           "summary": "aishakai1-03.html",
@@ -401,7 +412,8 @@
           "slides": [
             {
               "id": "1Yfnia0PCrwWE_ijsxsl0mzBIqwhxLzEn",
-              "label": "講義スライド（直江清隆）"
+              "label": "講義スライド（直江清隆）",
+              "vimeo_id": "1CbFFIxWnTN5YJTak5sYvhm3ziP3b06vK"
             }
           ],
           "summary": "techphilosophy-02.html",
@@ -425,7 +437,8 @@
           "slides": [
             {
               "id": "1WWVIdBWQcd9GYTlR-nOZyPsiQhAFb_MI",
-              "label": "講義スライド（岡田悠汰）"
+              "label": "講義スライド（岡田悠汰）",
+              "vimeo_id": "1YPcXw9EuAyCSEBLeQX_uAMQeo4ugshN4"
             }
           ],
           "summary": "techphilosophy-03.html",
@@ -449,7 +462,8 @@
           "slides": [
             {
               "id": "1hGASLXnVQ7CNAM99NNdQj85FE7-eyifD",
-              "label": "講義スライド（村田純一）"
+              "label": "講義スライド（村田純一）",
+              "vimeo_id": "1l_wPlN16BU6So-Dta5PqnWdXplsHT0Sk"
             }
           ],
           "summary": "techphilosophy-04.html",
@@ -511,7 +525,8 @@
           "slides": [
             {
               "id": "1DSi8kxgK34BFd0ExvkHfHU3mL_nvn-S8",
-              "label": "講義スライド（染谷昌義）"
+              "label": "講義スライド（染谷昌義）",
+              "vimeo_id": "1M7gzVHqum3beq_JGmMJ9Mgef0EsiUndg"
             }
           ],
           "summary": "techphilosophy-07.html",
@@ -539,7 +554,8 @@
             },
             {
               "id": "16e3Buqk09YuvFktHG6BjS12qlGyLWn6Z",
-              "label": "講義スライド（原島大輔）"
+              "label": "講義スライド（原島大輔）",
+              "vimeo_id": "1wlWt_dKOIHloHfUBtkMekGp2XRi8S4Hv"
             }
           ],
           "summary": "techphilosophy-08.html",
@@ -604,7 +620,8 @@
           "slides": [
             {
               "id": "1J4DxSuZ0_LaSsehtq0RJkqlcYoEzfWu9",
-              "label": "講義スライド（島田将喜）"
+              "label": "講義スライド（島田将喜）",
+              "vimeo_id": "1gGyOV97JJ7PWVw1UG4F-TFjXPvTGFM8V"
             }
           ],
           "summary": "techhistory-02.html",
@@ -636,7 +653,8 @@
           "slides": [
             {
               "url": "https://docs.google.com/presentation/d/1WtATfwa7yPzeypWcKnrz9iJU9ve57D82MtVTRJ9XgU0/edit",
-              "label": "講義スライド（相馬皓介）"
+              "label": "講義スライド（相馬皓介）",
+              "vimeo_id": "1k_cYPqiOU8ZwVaRQ0w34w02QjgF7JAnZqapklzW3-J4"
             }
           ]
         },
@@ -676,11 +694,13 @@
           "slides": [
             {
               "id": "1pz4rwhkd3nkJB1BySjtULBr2sXjaVGpK",
-              "label": "講義スライド（小島孝夫）"
+              "label": "講義スライド（小島孝夫）",
+              "vimeo_id": "1miQjJddvAJuqrlft06Vm8_ABuLDXh_x1"
             },
             {
               "id": "1Vl9S8-0vZnDxo-Yxo8mbj-eWD2B1SdSe",
-              "label": "講義資料：素潜り潜水漁業者の生涯漁獲量・漁獲額（Excel）"
+              "label": "講義資料：素潜り潜水漁業者の生涯漁獲量・漁獲額（Excel）",
+              "vimeo_id": "1AXhmlusPOvX2hzu5lr7j6zKV72VLhSzQ"
             }
           ]
         },

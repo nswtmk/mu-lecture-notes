@@ -7,7 +7,7 @@
     python3 build.py            # 生成
     python3 build.py --check    # Driveと照合して取りこぼしを警告（別途 check_drive.py）
 """
-import json, os, sys, html
+import json, os, re, sys, html
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 DATA = json.load(open(os.path.join(BASE, "data/subjects.json"), encoding="utf-8"))
@@ -211,6 +211,10 @@ def lecture_block(s, L):
                                   "第%d%s 講義アーカイブ動画を見る" % (L["no"], unit), NOTE_OPEN))
     for sl in L.get("slides", []):
         href = sl["url"] if "url" in sl else DRIVE % sl["id"]
+        if MODE == "vimeo" and sl.get("vimeo_id"):
+            # Vimeo版は「リンクを知っている全員」の複製を開く（原本はGoogle版用に登録アカウントのみ）
+            src = sl.get("id") or re.search(r"/d/([\w-]+)", href).group(1)
+            href = href.replace(src, sl["vimeo_id"]) if "url" in sl else DRIVE % sl["vimeo_id"]
         o.append('  ' + open_card("slide", href, sl["label"], NOTE_SLIDE_LINK if MODE == "vimeo" else NOTE_OPEN))
     if L.get("gist"):
         o.append('  <p class="lec-gist">%s</p>' % L["gist"])
