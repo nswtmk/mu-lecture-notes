@@ -720,6 +720,29 @@
             "洗うという儀式",
             "災いと恵み"
           ]
+        },
+        {
+          "no": 7,
+          "date": "2026年10月15日（木）",
+          "title": "都市の起源／国家の形成と技術",
+          "lecturer": "小泉龍人",
+          "slides": [
+            {
+              "id": "1sG5M368A4telAor1IDnqyMY7fsfuuGGu",
+              "vimeo_id": "1yeBbtRz5mSHvlSw8hTRY_qjYCuqhR_ot",
+              "label": "講義資料（小泉龍人）"
+            },
+            {
+              "id": "1Q8QMrmHfryKOAenSGzH_bfcDGHks3_Pp",
+              "vimeo_id": "1CW1N1KT7UCahGAP8a_lwTajtMMocP0Cl",
+              "label": "アジア比較略年表"
+            },
+            {
+              "id": "1TGlQyg3S4ZBSrLRswVYfgjM4ExfwM1Kj",
+              "vimeo_id": "1CYYXN1b_o72_v1RfGumvVWS-lKpH4Dmx",
+              "label": "メソポタミア周辺遺跡分布図"
+            }
+          ]
         }
       ],
       "slug": "techhistory",
