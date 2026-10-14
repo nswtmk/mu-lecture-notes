@@ -17,6 +17,19 @@ SUBJECTS = DATA["subjects"]
 
 E = html.escape
 DRIVE = "https://drive.google.com/file/d/%s/view"
+VIMEO = "https://vimeo.com/%s"
+
+# 生成モード："google"（Googleドライブ組）／"vimeo"（Vimeo組）
+MODE = "google"
+
+
+def page_name(slug):
+    """科目ページのファイル名（Vimeo版は vimeo-<slug>.html）"""
+    return ("vimeo-%s.html" if MODE == "vimeo" else "%s.html") % slug
+
+
+def index_name():
+    return "vimeo.html" if MODE == "vimeo" else "index.html"
 
 STATUS_LABEL = {"archived": "アーカイブ公開", "ongoing": "開講中", "upcoming": "開講前"}
 
@@ -136,6 +149,12 @@ FOOT = "\n</main>\n</body>\n</html>\n"
 
 
 def access_block():
+    if MODE == "vimeo":
+        return ('<div class="access"><b>視聴にはVimeoへのログインが必要です</b>'
+                '受講生限定の配信です。動画のカードをクリックすると、Vimeoが別ウィンドウで開きます。'
+                '動画が表示されない場合は、ご案内したVimeoアカウントでログインしているかご確認ください。'
+                'スライドはログインなしで開けます。'
+                '開けない場合は、mU事務局（%s）までお問い合わせください。</div>' % SITE["contact"])
     return ('<div class="access"><b>視聴にはアクセス権が必要です</b>'
             '受講生限定の配信です。動画・スライドのカードをクリックすると、Googleドライブが別ウィンドウで開きます。'
             '「アクセス権が必要です」と表示される場合は、受講にお使いのGoogleアカウントでログインしているかご確認ください。'
@@ -163,6 +182,8 @@ def open_card(kind, url, t1, t2):
 
 
 NOTE_OPEN = "クリックすると別ウィンドウで開きます（Googleアカウントのログインが必要）"
+NOTE_VIMEO = "クリックするとVimeoが別ウィンドウで開きます（Vimeoへのログインが必要）"
+NOTE_SLIDE_LINK = "クリックすると別ウィンドウで開きます（ログイン不要）"
 
 
 def lecture_block(s, L):
@@ -172,12 +193,18 @@ def lecture_block(s, L):
     o.append('  <p class="lec-title">%s</p>' % E(L["title"]))
     o.append('  <p class="lec-lecturer">%s</p>' % E(L["lecturer"]))
     unit = "講" if s["slug"].startswith("aishakai") else "回"
-    if L.get("video"):
+    if MODE == "vimeo":
+        if L.get("vimeo"):
+            o.append('  ' + open_card("video", VIMEO % L["vimeo"],
+                                      "第%d%s 講義アーカイブ動画を見る" % (L["no"], unit), NOTE_VIMEO))
+        elif L.get("video"):
+            o.append('  <p class="lec-lecturer">講義動画はVimeoに準備中です。</p>')
+    elif L.get("video"):
         o.append('  ' + open_card("video", DRIVE % L["video"],
                                   "第%d%s 講義アーカイブ動画を見る" % (L["no"], unit), NOTE_OPEN))
     for sl in L.get("slides", []):
         href = sl["url"] if "url" in sl else DRIVE % sl["id"]
-        o.append('  ' + open_card("slide", href, sl["label"], NOTE_OPEN))
+        o.append('  ' + open_card("slide", href, sl["label"], NOTE_SLIDE_LINK if MODE == "vimeo" else NOTE_OPEN))
     if L.get("gist"):
         o.append('  <p class="lec-gist">%s</p>' % L["gist"])
     if L.get("keywords"):
@@ -264,12 +291,13 @@ def subject_page(s):
         else:
             o.append('<div class="prep"><b>この科目はこれから開講します</b>'
                      '<p>講義アーカイブ動画・講義スライド・AIまとめレポートは、開講後に各回ぶんを順次このページへ追加していきます。</p>'
-                     '<p>受講にはアクセス権（Googleアカウント）が必要です。開講前にご案内します。</p></div>')
+                     '<p>受講にはアクセス権（%s）が必要です。開講前にご案内します。</p></div>'
+                     % ("Vimeoアカウント" if MODE == "vimeo" else "Googleアカウント"))
         o.append(forms_block())
         if s.get("peatix"):
             o.append('<p style="margin-top:22px;"><a class="ai-btn" href="%s" target="_blank" rel="noopener">申込（Peatix）</a></p>' % s["peatix"])
 
-    o.append('<p class="backlink"><a href="index.html">← 全科目一覧に戻る</a></p>')
+    o.append('<p class="backlink"><a href="%s">← 全科目一覧に戻る</a></p>' % index_name())
     o.append(FOOT)
     return "\n".join(o)
 
@@ -280,7 +308,7 @@ def card(s):
         cls += " upcoming"
     if s["mode"] == "field":
         cls += " field"
-    o = ['<a class="%s" href="%s.html">' % (cls, s["slug"])]
+    o = ['<a class="%s" href="%s">' % (cls, page_name(s["slug"]))]
     o.append('  <div class="card-top"><span class="card-ic">%s</span>'
              '<span class="card-badge b-%s">%s</span></div>' % (s["icon"], s["status"], STATUS_LABEL[s["status"]]))
     o.append('  <div class="card-name">%s</div>' % E(s["name"]))
@@ -294,10 +322,10 @@ def index_page():
     online = [s for s in SUBJECTS if s["mode"] == "online"]
     field = [s for s in SUBJECTS if s["mode"] == "field"]
     archived = sum(1 for s in SUBJECTS if s["status"] == "archived")
-    o = [HEAD % {"title": "makers Unlearn 2026｜科目アーカイブ", "css": CSS}]
+    o = [HEAD % {"title": "makers Unlearn 2026｜科目アーカイブ" + ("（Vimeo版）" if MODE == "vimeo" else ""), "css": CSS}]
     o.append('<header class="hero">\n  <div class="hero-inner">')
     o.append('    <p class="eyebrow">MAKERS UNLEARN 2026</p>')
-    o.append('    <h1>科目アーカイブ</h1>')
+    o.append('    <h1>%s</h1>' % ("科目アーカイブ（Vimeo視聴の方向け）" if MODE == "vimeo" else "科目アーカイブ"))
     o.append('    <p class="subtitle">%s　哲学・人類学・デザイン・エンジニアリング・社会実装を横断して学ぶプログラム</p>' % E(SITE["tagline"]))
     o.append('    <div class="hstats">')
     o.append('      <div><b>12</b>科目 210時間</div>')
@@ -331,21 +359,28 @@ def index_page():
     for s in field:
         o.append(card(s))
     o.append('</div>\n</div>')
-    o.append('<div class="note">このサイトは受講生・講師向けの限定アーカイブです。'
-             '動画・スライドの視聴には、受講にお使いのGoogleアカウントでのログインが必要です。'
-             'ご不明な点は mU事務局（%s）まで。</div>' % SITE["contact"])
+    if MODE == "vimeo":
+        o.append('<div class="note">このサイトは受講生・講師向けの限定アーカイブ（Vimeo視聴の方向け）です。'
+                 '動画の視聴には、ご案内したVimeoアカウントでのログインが必要です。'
+                 'ご不明な点は mU事務局（%s）まで。</div>' % SITE["contact"])
+    else:
+        o.append('<div class="note">このサイトは受講生・講師向けの限定アーカイブです。'
+                 '動画・スライドの視聴には、受講にお使いのGoogleアカウントでのログインが必要です。'
+                 'ご不明な点は mU事務局（%s）まで。</div>' % SITE["contact"])
     o.append(FOOT)
     return "\n".join(o)
 
 
 def main():
+    global MODE
     written = []
-    open(os.path.join(BASE, "index.html"), "w", encoding="utf-8").write(index_page())
-    written.append("index.html")
-    for s in SUBJECTS:
-        p = "%s.html" % s["slug"]
-        open(os.path.join(BASE, p), "w", encoding="utf-8").write(subject_page(s))
-        written.append(p)
+    for MODE in ("google", "vimeo"):
+        open(os.path.join(BASE, index_name()), "w", encoding="utf-8").write(index_page())
+        written.append(index_name())
+        for s in SUBJECTS:
+            p = page_name(s["slug"])
+            open(os.path.join(BASE, p), "w", encoding="utf-8").write(subject_page(s))
+            written.append(p)
     print("生成:", len(written), "ページ")
     for w in written:
         print("  -", w)
