@@ -28,6 +28,13 @@ def page_name(slug):
     return ("vimeo-%s.html" if MODE == "vimeo" else "%s.html") % slug
 
 
+def qv(url):
+    """Vimeo版から開くサイト内ページには ?from=vimeo を付け、戻りリンクをVimeo版に向ける"""
+    if MODE == "vimeo" and not url.startswith("http") and url.endswith(".html"):
+        return url + "?from=vimeo"
+    return url
+
+
 def index_name():
     return "vimeo.html" if MODE == "vimeo" else "index.html"
 
@@ -212,9 +219,9 @@ def lecture_block(s, L):
     if L.get("summary") or L.get("voices"):
         links=[]
         if L.get("summary"):
-            links.append('<a class="ai-btn" href="%s">AIまとめを読む</a>' % L["summary"])
+            links.append('<a class="ai-btn" href="%s">AIまとめを読む</a>' % qv(L["summary"]))
         if L.get("voices"):
-            links.append('<a class="ai-btn" href="%s">受講生の感想を読む</a>' % L["voices"])
+            links.append('<a class="ai-btn" href="%s">受講生の感想を読む</a>' % qv(L["voices"]))
         o.append('  <div class="lec-links">%s</div>' % "".join(links))
     o.append('</div>\n')
     return "\n".join(o)
@@ -248,7 +255,7 @@ def subject_page(s):
             o.append('<div class="kadai"><span class="k-label">まとめ</span>'
                      '<span class="k-title">%s</span>'
                      '<div class="k-links"><a class="ai-btn" href="%s">まとめを読む</a></div></div>'
-                     % (E(s["extraSummary"]["label"]), s["extraSummary"]["url"]))
+                     % (E(s["extraSummary"]["label"]), qv(s["extraSummary"]["url"])))
         o.append('\n<h2><span class="h2-en">LECTURES</span>アーカイブ</h2>\n')
         for L in s["lectures"]:
             o.append(lecture_block(s, L))
@@ -264,9 +271,9 @@ def subject_page(s):
             o.append('<div class="kadai">\n  <span class="k-label">最終課題</span>')
             o.append('  <span class="k-title">%s</span>' % E(a["title"]))
             o.append('  <p class="k-desc">%s</p>' % E(a["desc"]))
-            links = ['<a class="ai-btn" href="%s">最終課題を見る</a>' % a["page"]]
+            links = ['<a class="ai-btn" href="%s">最終課題を見る</a>' % qv(a["page"])]
             if a.get("material"):
-                links.append('<a class="ai-btn" href="%s">%s</a>' % (a["material"]["url"], E(a["material"]["label"])))
+                links.append('<a class="ai-btn" href="%s">%s</a>' % (qv(a["material"]["url"]), E(a["material"]["label"])))
             if a.get("form"):
                 links.append('<a class="ai-btn" href="%s" target="_blank" rel="noopener">最終課題を提出する</a>' % a["form"])
             o.append('  <div class="k-links">%s</div>\n</div>\n' % "".join(links))
