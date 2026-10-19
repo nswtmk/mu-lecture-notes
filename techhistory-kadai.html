@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>技術史 最終課題｜技術を、語り直す</title>
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --ink:#17171A;
+    --sub:#5B5B63;
+    --accent:#1130E8;
+    --hairline:#DEDCD3;
+    --black:#0D0D0F;
+  }
+  html{background:var(--paper);}
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{background:var(--black);color:#fff;padding:72px 24px 60px;}
+  .hero-inner{max-width:720px;margin:0 auto;}
+  .eyebrow{font-size:12px;letter-spacing:.34em;color:#9a9aa4;margin:0 0 26px;font-weight:600;}
+  .hero h1{font-size:clamp(26px,4.6vw,36px);font-weight:700;letter-spacing:.02em;line-height:1.5;margin:0 0 10px;text-wrap:balance;}
+  .hero .subtitle{font-size:15px;color:#c9c9d2;margin:0 0 36px;}
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 28px;border-top:1px solid #2e2e34;padding-top:22px;font-size:13px;}
+  .meta dt{color:#84848e;font-size:11px;letter-spacing:.14em;margin-bottom:2px;}
+  .meta dd{margin:0;color:#f0f0f4;font-weight:600;}
+  main{max-width:720px;margin:0 auto;padding:0 24px 96px;}
+  h2{font-size:22px;font-weight:700;letter-spacing:.04em;margin:84px 0 8px;padding-top:26px;border-top:3px solid var(--ink);text-wrap:balance;}
+  h2 .h2-en{display:block;font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:600;margin-bottom:10px;}
+  h3{font-size:17px;font-weight:700;margin:52px 0 4px;letter-spacing:.02em;}
+  p{margin:14px 0;}
+  .lede{font-size:16.5px;}
+  strong{font-weight:700;}
+  blockquote{margin:34px 0;padding:4px 0 4px 26px;border-left:3px solid var(--accent);font-size:16.5px;font-weight:600;line-height:2.0;}
+  blockquote .attr{display:block;font-size:12.5px;font-weight:400;color:var(--sub);margin-top:8px;}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;}
+  a:hover{text-decoration-thickness:2px;}
+  ul{padding-left:1.4em;margin:14px 0;}
+  li{margin:7px 0;}
+  li::marker{color:var(--accent);}
+  .note{font-size:12.5px;color:var(--sub);background:#EFEEE8;border-radius:4px;padding:14px 18px;margin:26px 0;line-height:1.8;}
+  .stepbox{margin:34px 0;border:1px solid var(--hairline);background:#fff;border-radius:4px;padding:26px 28px 24px;}
+  .stepbox .snum{font-size:11px;letter-spacing:.28em;color:var(--accent);font-weight:700;margin:0 0 6px;}
+  .stepbox h3{margin:0 0 10px;font-size:20px;}
+  .stepbox h3 .en{font-size:12px;color:var(--sub);font-weight:600;letter-spacing:.08em;margin-left:10px;}
+  .qs{margin:16px 0 0;padding:0;list-style:none;}
+  .qs li{position:relative;padding:0 0 0 26px;margin:10px 0;font-weight:600;font-size:15.5px;}
+  .qs li::before{content:"—";position:absolute;left:0;color:var(--accent);}
+  .hint{font-size:14px;color:var(--sub);line-height:1.85;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--hairline);}
+  .fmt{margin:20px 0;padding:0;list-style:none;}
+  .fmt li{position:relative;padding:0 0 0 30px;margin:14px 0;}
+  .fmt li::before{content:"▸";position:absolute;left:4px;top:0;color:var(--accent);font-size:13px;}
+  .fmt b{display:block;font-size:15.5px;}
+  .submit-box{
+    border:1px solid var(--accent);background:#fff;border-radius:5px;
+    padding:24px 26px 25px;margin:28px 0;
+  }
+  .submit-box b{display:block;font-size:16.5px;margin-bottom:4px;}
+  .submit-box p{font-size:14px;color:var(--sub);line-height:1.85;margin:0 0 16px;}
+  a.form-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    font-size:14.5px;font-weight:700;letter-spacing:.02em;
+    padding:12px 24px;border-radius:5px;
+  }
+  a.form-btn:hover{background:#0B23B8;}
+  a.form-btn .arw{font-size:13px;}
+  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:15px;padding:13px 30px;border-radius:3px;text-decoration:none;margin:8px 0;}
+  .cta:hover{background:#0d26bb;}
+  .backlink{margin-top:80px;font-size:14px;}
+</style>
+
+<style>
+  .choose{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 10px;}
+  @media(max-width:640px){.choose{grid-template-columns:1fr;}}
+  .choose a{display:block;border:1px solid var(--hairline);background:#fff;border-radius:4px;padding:18px 20px;color:var(--ink);text-decoration:none;}
+  .choose a:hover{border-color:var(--accent);}
+  .choose .cl{font-size:11px;letter-spacing:.28em;color:var(--accent);font-weight:700;}
+  .choose .ct{display:block;font-size:17px;font-weight:700;margin:4px 0 6px;}
+  .choose .cd{font-size:13px;color:var(--sub);line-height:1.8;}
+  h2.task{margin-top:72px;}
+  h2.task .h2-sub{display:block;font-size:14px;font-weight:600;color:var(--sub);margin-top:6px;letter-spacing:0;}
+  table.ex{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;background:#fff;}
+  table.ex th,table.ex td{border:1px solid var(--hairline);padding:9px 12px;text-align:left;vertical-align:top;line-height:1.7;}
+  table.ex th{background:#EFEEE8;font-weight:700;font-size:13px;}
+  table.ex td.k{font-weight:700;white-space:nowrap;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;}
+  .chips span{border:1px solid var(--hairline);background:#fff;border-radius:999px;padding:4px 12px;font-size:13.5px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">makers Unlearn 2026 ｜ 技術史</p>
+    <h1>最終課題<br>技術を、語り直す</h1>
+    <p class="subtitle">2つの課題から、1つを選んでください</p>
+    <dl class="meta">
+      <div><dt>形式</dt><dd>自由（A4で1〜2枚程度）</dd></div>
+      <div><dt>提出</dt><dd>随時／再提出可</dd></div>
+      <div><dt>表彰対象</dt><dd>2027年3月末までの提出分</dd></div>
+    </dl>
+  </div>
+</div>
+
+<main>
+
+<h2><span class="h2-en">INTRO</span>この課題について</h2>
+<p class="lede">全8回でやってきたのは、技術史を「石器からAIへ」の一本線ではなく、<strong>身体・暮らし・場・社会との関係を何度も組み替えてきた網の目</strong>として捉え直すことでした。第1回で言ったように、私たちの日常には旧石器時代のままの技術が転がっていて、眠っている技術を掘り起こすことは新しい技術を開発することと同じ価値があります。</p>
+<p>この課題は、その捉え直しを、自分の手で一度やってみる課題です。<strong>2つの課題から1つを選んでください。</strong>どちらも、大きなテーマは要りません。毎日使っているもの、いつも見ているものが、いちばん良い入口です。</p>
+
+<div class="choose">
+  <a href="#kadai1"><span class="cl">課題 1</span><span class="ct">足元の技術史</span><span class="cd">毎日使っている技術を一つ選び、自分→家と地域→人類と遡って、小さな技術史を書く。</span></a>
+  <a href="#kadai2"><span class="cl">課題 2</span><span class="ct">名詞ではなく、形容詞で</span><span class="cd">身の回りのものを形容詞で捉え直し、別の形容詞でもう一度捉えて、何が変わるかを書く。</span></a>
+</div>
+
+<h2 class="task" id="kadai1"><span class="h2-en">ASSIGNMENT 1</span>足元の技術史<span class="h2-sub">毎日使っているものを、一つだけ遡る</span></h2>
+
+<div class="stepbox">
+  <p class="snum">STEP 01</p>
+  <h3>見つける<span class="en">Find</span></h3>
+  <ul class="qs">
+    <li>毎日の暮らしから、技術を一つ選んでください。道具でも、動作でも、段取りでもかまいません。</li>
+  </ul>
+  <p class="hint">例：包丁で皮をむく／洗濯物を干す／湯を沸かす／靴ひもを結ぶ／ご飯を炊く／縫う／鍵をかける。選ぶ目安は、自分でできて、ふだん意識しておらず、誰に教わったかはっきり思い出せないもの。</p>
+</div>
+
+<div class="stepbox">
+  <p class="snum">STEP 02</p>
+  <h3>遡る<span class="en">Trace back</span></h3>
+  <ul class="qs">
+    <li>選んだ技術を、三つの層で遡ってください。調べる前に、まず自分の記憶から。</li>
+  </ul>
+  <p class="hint">①自分の層——いつ、誰から、どう覚えたか。昔の道具と今の道具。 ②家と地域の層——親や祖父母、近所の人はどうしていたか（一人に聞ければ十分。第5回の聞き書き）。 ③人類の層——その技術はいつ、どこで、何から始まったか。何を置き換え、何に置き換えられつつあるか。<br>三つ全部を同じ深さで掘る必要はありません。どこか一層が深ければ、それでよい。</p>
+</div>
+
+<div class="stepbox">
+  <p class="snum">STEP 03</p>
+  <h3>語り直す<span class="en">Retell</span></h3>
+  <ul class="qs">
+    <li>ここまでを、その技術の「小さな技術史」として語り直してください。一本線の進歩の話にしないこと。</li>
+  </ul>
+  <p class="hint">書くときの手がかり：四つのジレンマ（内でも外でもある／拡張するほど失う／見えなくなる／止まれない）のどれが、この技術にいちばん効いているか（第1回）。ニーズが消えると何が退化し、失われるか（第4回）。眠っている技術——使われなくなった別のやり方——はどこにあるか（第1回）。最後に一行、「技術とは何か」に自分の言葉で答えてください。<br>余力があれば、一度だけ条件を変えて同じことをやってみてください（ピーラーなしで皮をむく、など）。必須ではありません。</p>
+</div>
+
+<h2 class="task" id="kadai2"><span class="h2-en">ASSIGNMENT 2</span>名詞ではなく、形容詞で<span class="h2-sub">身の回りのものを、形容詞で捉え直す</span></h2>
+
+<p>第3回で相馬さんは、縄文の知性を「ちぎれない草」「ザラザラした石」——<strong>名詞ではなく形容詞で世界を捉える</strong>見方として示しました。名前がつく前に、人は性質に触れていた。実際、私たちが名詞だと思っているものの多くは、形容詞から来ています。</p>
+
+<table class="ex">
+  <tr><th>名前</th><th>隠れている形容詞</th></tr>
+  <tr><td class="k">アカマツ／クロマツ、シロアリ、アオサギ</td><td>赤い・黒い・白い・青い——色で見分けた名残</td></tr>
+  <tr><td class="k">ヒラメ、マルタ（丸太）、ナガイモ、オオバコ</td><td>平たい・丸い・長い・大きい——形で捉えた名残</td></tr>
+  <tr><td class="k">ナガサ（マタギの山刀）、ウスバ（薄刃）、ヒラノミ／マルノミ</td><td>長い・薄い・平らな・丸い——道具は形容詞で呼び分けられてきた</td></tr>
+  <tr><td class="k">軽自動車、薄型テレビ、白物家電、高速道路、新幹線</td><td>軽い・薄い・白い・速い・新しい——いまの製品名にも形容詞は残っている</td></tr>
+  <tr><td class="k">ハードウェア／ソフトウェア、スマートフォン</td><td>硬い・柔らかい・賢い——英語でも同じ</td></tr>
+</table>
+<p>つまり、ものを形容詞で捉えることは、特別な方法ではなく、<strong>技術がずっとやってきたこと</strong>です。この課題では、それをいま目の前にあるものに対して、意識的にやってみます。</p>
+
+<div class="stepbox">
+  <p class="snum">STEP 01</p>
+  <h3>形容詞で捉える<span class="en">Adjectives</span></h3>
+  <ul class="qs">
+    <li>次の中から3つ以上を選び（自分で足してもよい）、それぞれを<strong>形容詞だけ</strong>で捉えてください。一つにつき、少なくとも5つ。</li>
+  </ul>
+  <div class="chips"><span>自動車</span><span>AI</span><span>ロボット</span><span>時計</span><span>スマートフォン</span><span>冷蔵庫</span><span>家</span><span>服</span><span>お金</span><span>道路</span><span>包丁</span><span>本</span></div>
+  <p class="hint">「速い・重い・硬い・冷たい・便利な……」。いま自分に見えているとおりに、素直に書いてください。機能の説明（「人を運ぶ」）や名詞（「乗り物」）は使わない。形容詞だけ。</p>
+</div>
+
+<div class="stepbox">
+  <p class="snum">STEP 02</p>
+  <h3>問い直し、別の形容詞で捉える<span class="en">Other adjectives</span></h3>
+  <ul class="qs">
+    <li>STEP 01で書いた捉え方そのものが、歴史的に、片方の側から作られてきたものです。では、<strong>異なる形容詞は可能でしょうか。</strong></li>
+    <li>同じものを、別の立場・別の身体から、もう一度形容詞で捉えてください。一つにつき、さらに5つ。</li>
+  </ul>
+  <p class="hint">立場の例：100年前の人なら／子どもなら／ウシやイヌなら／それをつくっている人なら／壊れたとき・止まったときなら／狩猟採集の身体なら／100年後の人なら。「速い」が「うるさい」に、「便利な」が「手放せない」に、「賢い」が「見えない」に変わるかもしれません。第1回の「四つのジレンマ」、第7回の「都市は技術開発の実験場だった」を思い出してください。</p>
+</div>
+
+<div class="stepbox">
+  <p class="snum">STEP 03</p>
+  <h3>気づきを書く<span class="en">Retell</span></h3>
+  <ul class="qs">
+    <li>二つの形容詞のリストを並べて、何が変わったか、何が見えてきたかを書いてください。</li>
+  </ul>
+  <p class="hint">これが、一つの技術の語り直しです。形容詞を入れ替えると、そのものの「歴史」の見え方も、これからの「使い方」も変わるはずです。最後に一行、「技術とは何か」に自分の言葉で答えてください。</p>
+</div>
+
+<h2><span class="h2-en">FORMAT</span>形式と分量</h2>
+<ul class="fmt">
+  <li><b>形式は自由です。</b>文章（A4で1〜2枚程度が目安）、表、写真や図つきのメモ、短い動画——どれでも。課題2は、形容詞の表が1枚と、気づきが数行あれば十分です。</li>
+  <li><b>上手さは問いません。</b>遡りの深さ（課題1）、形容詞の入れ替わりの幅（課題2）を見ます。</li>
+  <li><b>両方やってもかまいません。</b>その場合は別々に提出してください。</li>
+</ul>
+
+<h2><span class="h2-en">SUBMISSION</span>提出について</h2>
+<p><strong>提出期限は設けていません。</strong>ただし表彰の対象となるのは、2027年3月末までにご提出いただいたものです。</p>
+<p><strong>一度出して、あとで考えが深まったら再提出できます。</strong>技術の人類学・デザイン論・森で考えるのあとに深まったら、書き直して出し直してください。</p>
+<div class="submit-box">
+  <b>提出はこちらのフォームから</b>
+  <p>お名前と提出ファイルをアップロードするだけです。Word・PDF・スライド・動画・画像など形式は問いません（5ファイルまで、1ファイル100MB以内が目安）。アップロードにはGoogleアカウントへのログインが必要です。再提出も同じフォームからどうぞ。</p>
+  <a class="form-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJfFh2bg93lHNRZGR-Zu9wZu2Kb7gNX59Bf5YIkCnNRr5whQ/viewform" target="_blank" rel="noopener">最終課題を提出する<span class="arw">↗</span></a>
+</div>
+
+<h2><span class="h2-en">POINTS</span>取り組むときの視点</h2>
+<p>評価というより、書き終えたあとに自分で確かめるためのものとして挙げておきます。</p>
+<ul>
+  <li><strong>透明なものを選べたか。</strong>「技術っぽいもの」ではなく、意識していなかったものを選べたか。</li>
+  <li><strong>片方に落ちていないか。</strong>「昔は良かった」にも「今は便利」にも落ちず、両方を抱えたまま書けているか。</li>
+  <li><strong>語り直しになっているか。</strong>知っていたことの整理ではなく、書く前には見えていなかったことが一つでも出てきたか。</li>
+  <li><strong>分からなさを残せているか。</strong>きれいにまとめきらず、考え続けている状態が残っているか。</li>
+</ul>
+
+<blockquote>縄文には戻れないが、その視点からテクノロジーを内側から破ることはできる。<span class="attr">第1回より</span></blockquote>
+
+<h2><span class="h2-en">MATERIALS</span>参考資料</h2>
+<ul>
+  <li><a href="techhistory-01.html">第1回まとめレポート</a>──四つのジレンマ、眠っている技術の再発見、日常に転がる旧石器時代の技術。</li>
+  <li><a href="techhistory-03.html">第3回まとめレポート</a>──形容詞で世界を捉える、レシピの意味はあとから分かる（相馬皓介）。課題2の出発点です。</li>
+  <li><a href="techhistory-05.html">第5回まとめレポート</a>──聞き書きと参与観察、民具から技術を読む（小島孝夫）。課題1のSTEP 02の方法です。</li>
+  <li><a href="index.html">全8回のまとめレポート一覧</a></li>
+</ul>
+
+<div class="note">この課題は、第8回（2026年10月19日・最終回）の内容を踏まえて作成したものです。質問はDiscordで受け付けています。</div>
+
+<p class="backlink"><a href="index.html">← 科目・講義一覧に戻る</a></p>
+
+</main>
+
+<script id="from-vimeo">(function(){if(!/[?&]from=vimeo/.test(location.search))return;var S=/^(index|techfutures|aishakai\d|techphilosophy|techhistory|anthropology|designtheory|making|implementation|field-[a-z]+)\.html$/;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');var m=h.match(/^([^?#]+\.html)(#.*)?$/);if(!m||/^https?:/.test(h)||/^vimeo/.test(h))return;var f=m[1],t=m[2]||'';if(f==='index.html')a.setAttribute('href','vimeo.html'+t);else if(S.test(f))a.setAttribute('href','vimeo-'+f+t);else a.setAttribute('href',f+'?from=vimeo'+t);});})();</script>
+</body>
+</html>
