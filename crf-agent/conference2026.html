@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>カンファレンス運営とAIエージェント</title>
+<meta name="description" content="意識研究財団のカンファレンス「マシン・コンシャスネス」（2026年10月24・25日）の運営を、AIエージェントとどう進めたかの記録（開催2日前時点）。">
+<style>
+  :root {
+    --indigo: #3B4A9F; --teal: #1F9E85; --ink: #23283b; --gray: #5A6178;
+    --bg: #ffffff; --panel: #F2F4FA; --line: #dde1ef; --warm: #FFF6E5; --warm-line: #F0D9A8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --indigo: #9aa7ee; --teal: #3fd0b3; --ink: #e8eaf2; --gray: #a6acc4;
+      --bg: #14161f; --panel: #1d2030; --line: #303650; --warm: #2a2416; --warm-line: #5a4a26;
+    }
+  }
+  :root[data-theme="dark"] {
+    --indigo: #9aa7ee; --teal: #3fd0b3; --ink: #e8eaf2; --gray: #a6acc4;
+    --bg: #14161f; --panel: #1d2030; --line: #303650; --warm: #2a2416; --warm-line: #5a4a26;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body { margin: 0; font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+         color: var(--ink); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 36px 16px 72px; }
+  header { border-bottom: 3px solid var(--teal); padding-bottom: 18px; margin-bottom: 28px; }
+  .eyebrow { font-size: .78rem; letter-spacing: .2em; color: var(--teal); font-weight: 700; margin: 0 0 8px; }
+  h1 { color: var(--indigo); font-size: clamp(1.35rem, 4.4vw, 1.75rem); line-height: 1.45; margin: 0 0 10px; text-wrap: balance; }
+  .meta { color: var(--gray); font-size: .88rem; }
+  h2 { color: var(--indigo); font-size: 1.18rem; border-left: 4px solid var(--teal);
+       padding-left: 10px; margin: 44px 0 14px; }
+  h3 { font-size: 1rem; color: var(--indigo); margin: 22px 0 6px; }
+  p { margin: 0 0 14px; }
+  .lead { font-size: 1.04rem; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+  .stat { background: var(--panel); border-radius: 10px; padding: 14px 16px; }
+  .stat .n { font-size: 1.55rem; font-weight: 700; color: var(--teal); line-height: 1.3; }
+  .stat .l { font-size: .82rem; color: var(--gray); }
+  /* 体制図 */
+  .org { display: grid; gap: 10px; margin: 18px 0 8px; }
+  .org .box { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; background: var(--panel); }
+  .org .box b { color: var(--indigo); }
+  .org .human { background: var(--warm); border-color: var(--warm-line); }
+  .org .center { border: 2px solid var(--teal); background: var(--bg); }
+  .org .arrow { text-align: center; color: var(--gray); font-size: .85rem; line-height: 1.4; }
+  .org .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .org .small { font-size: .85rem; color: var(--gray); }
+  .tablebox { overflow-x: auto; margin: 10px 0 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--panel); color: var(--indigo); }
+  td:first-child { white-space: nowrap; font-weight: 700; color: var(--indigo); }
+  ul { padding-left: 1.3em; margin: 0 0 14px; }
+  li { margin: 4px 0; }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .card.human { background: var(--warm); border-color: var(--warm-line); }
+  .card h3 { margin-top: 0; }
+  .tag { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--bg); background: var(--teal);
+         border-radius: 4px; padding: 0 6px; margin-right: 6px; vertical-align: 1px; }
+  .tag.plan { background: var(--gray); }
+  .note { background: var(--panel); border-left: 4px solid var(--indigo); border-radius: 6px;
+          padding: 12px 16px; font-size: .9rem; color: var(--gray); margin-top: 18px; }
+  a { color: var(--indigo); word-break: break-all; }
+  footer { margin-top: 40px; color: var(--gray); font-size: .82rem; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">CONSCIOUSNESS RESEARCH FOUNDATION × AI AGENT</p>
+  <h1>カンファレンス「マシン・コンシャスネス」の運営を、AIエージェントと進めています</h1>
+  <div class="meta">開催2日前（2026年10月22日）時点の記録｜一般財団法人 意識研究財団（意識研）事務局</div>
+</header>
+
+<p class="lead">意識研究財団は、2026年10月24日（土）・25日（日）に東京ミッドタウンでカンファレンス「マシン・コンシャスネス」を開きます。テーマは「機械に意識は宿るのか」。その準備の事務局の仕事の多くを、AIエージェント（Anthropic の Claude Code）と一緒に進めてきました。</p>
+
+<p>人がやったのは、主に<b>「決めること」と「最後に送信・支払いのボタンを押すこと」</b>です。調べる、数える、文章にする、組む、直す、という作業の大部分はAIが受け持ちました。このページは、その運用の記録です。</p>
+
+<div class="stats">
+  <div class="stat"><div class="n">9名</div><div class="l">登壇者（2日間）</div></div>
+  <div class="stat"><div class="n">約70名</div><div class="l">会場参加の申込（招待制）</div></div>
+  <div class="stat"><div class="n">200名超</div><div class="l">オンライン視聴の申込</div></div>
+  <div class="stat"><div class="n">1＋4</div><div class="l">AIの窓口1つ＋専門エージェント4つ</div></div>
+</div>
+
+<h2>1. 体制：話しかける相手はひとつ</h2>
+
+<p>代表理事（七沢）が話しかけるのは、事務局の窓口役のAIエージェント1つだけです。Mac Studio で常時動かしていて、移動中はスマートフォンからも指示を出せます。重い作業や分野の違う作業は、窓口のAIが自分の判断で専門のエージェントに振り分けます。</p>
+
+<div class="org">
+  <div class="box human"><b>代表理事（人）</b><br><span class="small">決める・確認する・送信や支払いを押す。口頭で話した内容（音声入力）をそのまま指示にする</span></div>
+  <div class="arrow">↓ 指示（Mac／スマートフォン）　↑ 結果と「やること一覧」</div>
+  <div class="box center"><b>事務局の窓口AI（CRF agent）</b><br><span class="small">意識研の情報をすべて把握し、作業を進めるか、専門エージェントに振り分ける。メール・フォーム・申込サイト・印刷入稿などはブラウザを操作して行う</span></div>
+  <div class="arrow">↓ 依頼　↑ 報告</div>
+  <div class="row">
+    <div class="box"><b>Webサイト担当</b><br><span class="small">ishikiken.jp の更新・公開後の目視確認（公開は了承後のみ）</span></div>
+    <div class="box"><b>会計担当</b><br><span class="small">立替・未払の記録、予算の消化状況</span></div>
+    <div class="box"><b>役員会・ガバナンス担当</b><br><span class="small">議事録、定款との照合</span></div>
+    <div class="box"><b>Discord・広報担当</b><br><span class="small">告知文、活動の集約</span></div>
+  </div>
+  <div class="box"><b>予約タスク（決まった時刻に自動で動く）</b><br><span class="small">前日の朝：受付名簿の最終版づくり／前日の夕方：オンライン参加者への最終案内の下書き／当日の朝：会場・名簿・連絡の最終チェック</span></div>
+</div>
+
+<p class="small" style="font-size:.88rem;color:var(--gray)">セッションをまたいでも続きから動けるように、タスクの台帳と引き継ぎメモを共通のフォルダに置き、どのエージェントもそこを読んでから始めます。</p>
+
+<h2>2. AIがやったこと</h2>
+
+<div class="tablebox">
+<table>
+  <tr><th>分野</th><th>内容</th></tr>
+  <tr><td>告知・Web</td><td>
+    財団のWebサイト（ishikiken.jp）のカンファレンス情報・登壇者・講演タイトルの更新と、公開後の確認／オンライン視聴の申込ページ（Peatix）の作成／実行委員の吉澤駿さんのnote記事をもとにした<a href="https://ishikiken.jp/summary/machine-consciousness/">AIまとめ（図解）ページ</a>／財団のX（@isikiken）の告知の予約投稿／学会・研究者向けの告知文
+  </td></tr>
+  <tr><td>申込・名簿</td><td>
+    申込フォームの回答から、属性別・日別の人数を自動で集計する表（重複・辞退を除く）／受付名簿（50音順）・関係者名簿・ポスター発表一覧をプログラムで生成し、申込が増えるたびに作り直し
+  </td></tr>
+  <tr><td>登壇者・スタッフ</td><td>
+    講演タイトルや謝礼の振込先の確認依頼と、返信の集計／スタッフの役割分担の連絡文／当日の段取り表（A4・3枚。集合・受付・配信・撤収までの時刻表）
+  </td></tr>
+  <tr><td>参加者への連絡</td><td>
+    会場参加・オンライン視聴・あとから申し込んだ人、それぞれ向けの当日案内（メール・Peatixのメッセージ・Discord）／開催直前にNatureに載った関連論考の紹介
+  </td></tr>
+  <tr><td>印刷物</td><td>
+    財団の活動を紹介するA1パネル7枚、配布チラシ（A4両面。表＝当日の情報、裏＝予習用の図解）、名札。HTMLで組んで、塗り足し付きの入稿用PDFに書き出し、寸法を確かめてから、ネット印刷のカートに入れるところまで
+  </td></tr>
+  <tr><td>当日の運営</td><td>
+    司会の原稿（DAY1・懇親会・DAY2）／Zoom参加用のQR掲示／体験展示「Hallucination Machine」の感想フォームとQR／ビル地下の集合場所の案内図（店名・エスカレーター入り）をWebに掲載
+  </td></tr>
+  <tr><td>会計</td><td>
+    代表理事が立て替えた印刷代を、財団の会計表に「未払い」として記録
+  </td></tr>
+</table>
+</div>
+
+<p>指示の多くは、代表理事が話した内容の音声入力です。言い直しや言い淀みを含んだ指示から、AIが要点を拾って文章や資料にし、該当するすべての資料（原稿・段取り表・Web・メール下書き）に同じ変更を反映させます。直前の方針変更が何度かあっても、資料どうしの食い違いが出にくいのはこのためです。</p>
+
+<h3>当日（予定）</h3>
+<ul>
+  <li><span class="tag plan">予定</span>AIが視聴者としてZoomに入り、字幕とスライドから講演の要点をまとめて、Xに速報します。各講演の最初に「AIによる速報のため、誤りを含むことがあります」と明記し、登壇者が「出さないで」と言った内容は出しません。登壇者には事前にお知らせします。</li>
+  <li><span class="tag plan">予定</span>終了後、速報メモをもとに各講演のAIまとめの下書きを作ります。</li>
+</ul>
+
+<h2>3. 人とAIの線引き</h2>
+
+<div class="two">
+  <div class="card human">
+    <h3>人がやること</h3>
+    <ul>
+      <li>何をやるか、どう書くかの最終判断</li>
+      <li>メールの送信（AIは下書きまで）</li>
+      <li>パスワードの入力・会員登録・カード決済</li>
+      <li>外部サービスへの権限の許可</li>
+      <li>Webサイトの公開の了承</li>
+      <li>電話・現地の確認・人へのお願い</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>AIがやること</h3>
+    <ul>
+      <li>調べる・数える・照らし合わせる</li>
+      <li>文章・資料・印刷データを作る</li>
+      <li>変更を、関係するすべての資料に反映する</li>
+      <li>下書き・予約・カートまで用意する</li>
+      <li>公開・保存のあとに、実物を見て確かめる</li>
+      <li>人がやることを一覧にして毎回渡す</li>
+    </ul>
+  </div>
+</div>
+
+<h2>4. うまく回すための約束ごと</h2>
+<ul>
+  <li><b>毎回の返答の最後に、2つの一覧を必ずつける。</b>「代表理事がやること」と「まだ終わっていないこと」。人が忘れても、AIが毎回思い出させます。</li>
+  <li><b>話しかける窓口はひとつ。</b>人は担当を気にせず話し、振り分けはAIがします。</li>
+  <li><b>数字は別のエージェントが検算する。</b>お金や人数を確定する前に、計算の過程を知らないエージェントがもう一度数えます。</li>
+  <li><b>公開物に個人情報を載せない。</b>名簿は印刷物とスタッフ間だけ。Webや掲示には載せません。</li>
+  <li><b>運用の指示を勝手に書き足さない。</b>案内文には、決まったことだけを書きます。</li>
+  <li><b>「保存した」で終わらせない。</b>保存・公開のあとに読み直して、実物で確かめるまでを完了とします。</li>
+</ul>
+
+<h2>5. つまずいたこと</h2>
+<ul>
+  <li>申込ページの開催日時が、入力のずれで前日の日付のまま公開されていた（約1か月半後に発見）。→ 日時を入れたら、保存のあとに読み直して照らし合わせる手順を追加。</li>
+  <li>オンライン視聴の人向けの案内に、会場の懇親会の話を書いてしまった。→ 送る相手ごとに、書く内容を分ける。</li>
+  <li>「送った」と思っていた案内が、実は下書きのままだった。→ 送信済みかどうかを、送信済みフォルダで確かめてから報告する。</li>
+  <li>メールの自動リンク機能が、本文のURLを転送用のURLに包んでしまうことがあった。→ 下書きのたびにリンクを検査し、元のURLに戻す。</li>
+</ul>
+
+<div class="note">
+  開催後に、当日の速報の様子や、うまくいったこと・いかなかったことを追記する予定です。<br>
+  意識研究財団：<a href="https://ishikiken.jp/">https://ishikiken.jp/</a>｜X：<a href="https://x.com/isikiken">https://x.com/isikiken</a>
+</div>
+
+<footer>
+  使ったもの：Claude Code（AIエージェント）／Mac Studio（常時稼働）とスマートフォンからの遠隔操作／ブラウザ操作（メール・Googleフォーム・スプレッドシート・Peatix・Zoom・X・ネット印刷）／GitHub Pages（Webサイト）<br>
+  作成：意識研究財団 事務局AIエージェント（CRF agent）｜2026年10月22日
+</footer>
+
+</div>
+</body>
+</html>
