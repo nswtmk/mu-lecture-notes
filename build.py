@@ -104,6 +104,7 @@ CSS = """
   .lec-date{font-size:12.5px;color:var(--sub);font-variant-numeric:tabular-nums;}
   .lec-title{font-size:17.5px;font-weight:700;line-height:1.55;margin:2px 0 3px;}
   .lec-lecturer{font-size:13px;color:var(--sub);margin:0 0 12px;}
+  .lec-notice{font-size:13px;line-height:1.8;background:#FFF6E0;border-left:3px solid #E0A800;padding:10px 14px;margin:10px 0 14px;}
   .lec-gist{font-size:14.5px;line-height:1.9;margin:0 0 14px;}
   .kw{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 15px;}
   .kw span{font-size:11.5px;color:var(--accent);border:1px solid #C5CEF7;background:#F0F3FE;border-radius:3px;padding:3px 9px;letter-spacing:.02em;}
@@ -209,6 +210,8 @@ def lecture_block(s, L):
     elif L.get("video"):
         o.append('  ' + open_card("video", DRIVE % L["video"],
                                   "第%d%s 講義アーカイブ動画を見る" % (L["no"], unit), NOTE_OPEN))
+    if L.get("notice"):
+        o.append('  <p class="lec-notice">%s</p>' % E(L["notice"]))
     for sl in L.get("slides", []):
         href = sl["url"] if "url" in sl else DRIVE % sl["id"]
         if MODE == "vimeo" and sl.get("vimeo_id"):
