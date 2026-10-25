@@ -1,0 +1,108 @@
+Dear Matteo Grasso,
+
+Here is the AI-generated English summary of the DAY2 talk by Daichi Suzuki, "Consciousness as a Higher-Order Predictive Process: Bridging (Artificial) Life and (Artificial) Consciousness" (October 25, 14:00-15:00 JST).
+
+Note: This is an AI summary. It was written by AI from the Zoom automatic Japanese captions and checked against the captions by another AI. It has NOT been reviewed by the speaker, and it may contain errors.
+
+[Overview]
+Suzuki, a biologist, approached consciousness from the standpoint of a "naturalist" who starts from observation, and considered it within biological evolution. Referring to an animal-ethics book he translated, he first explained points to keep in mind in the ethics of artificial consciousness (sentience vs. intelligence, the gaming problem, and the asymmetry of risks). He then drew out a premise shared by two evolutionary-biological approaches (Feinberg & Mallatt, and Ginsburg & Jablonka): two systems - a sensorimotor representation system and a value-prediction system - and their coupling. From this he argued that a value-laden world model is necessarily predictive, and that a conscious agent experiences it as its subjective world. He also proposed avoiding the "combination problem" left in active inference by applying collective predictive coding (CPC) to multicellularity, and outlined a plan to build a more life-like artificial consciousness. The Q&A discussed why he takes biological naturalism, where metacognition comes from, and more.
+
+[1. Ethics and policy for consciousness "at the edge"]
+- He said that, having attended since the previous day, he felt as if thrown into a colosseum where wild beasts were fighting.
+- He has translated a book by Jonathan Birch - who also works on animal ethics and is one of the people who actually proposed, as policy in the UK, ethical regulations on octopus experiments and on eating octopuses - about the ethics and policy of beings for which we do not know whether they are conscious; it is about to be published (a sample was available at the venue).
+- Suzuki himself thinks LLMs are not conscious. But those who think they are should take it more seriously: if there is consciousness, there is a subject that suffers, and if they truly believe so, they should move the debate forward now toward responsible policy decisions.
+- The book also has a part on the possibility of artificial life, artificial consciousness and artificial sentience, translated mainly by Takeshita, an AI-ethics specialist.
+
+[2. Ethics of artificial consciousness: not intelligence, the gaming problem, asymmetry of risk]
+- What matters first in thinking about LLM ethics is that sentience (consciousness) is not intelligence (a point also raised the day before).
+- More important are the "gaming problem" and the "precautionary principle". If the criteria are known, engineering can quickly build systems that meet them. That is cheating, and if criteria have merely been gamed, the evidence must be discounted.
+- In scientific inference about whether something is really there, false positives and false negatives are symmetric. In an ethical context, false negatives carry the greater risk: killing something that actually suffers on the assumption that it does not is ethically bad, while protecting something with no capacity to suffer only costs extra.
+- So in ethics we must draw the line somewhat more broadly than in strict scientific inference. Going too broad is also a problem, and scientific inference still matters, but we must first recognize this asymmetry of risks and then decide what to do.
+
+[3. The naturalist attitude]
+- His own position is very close to biological naturalism, which was heavily attacked the day before, and he does not mind being classed that way. But this is less a consequence of a philosophical position than of a basic attitude, the "naturalist attitude" - naturalist in the sense of naturalism and also of a natural historian.
+- Many people in consciousness research come from science and engineering, like or admire mathematics, and mathematical theories such as IIT and the free energy principle lead the field (he too has recently come to think the free energy principle is quite good). They are Platonists living in a world of ideas; he is more Aristotelian and wants to start from grounded observation of nature.
+- He is a biologist by profession; when teaching dissection to first-year students, he tells them to observe the specimen in front of them, not what is written on the internet, and to derive what can be learned from it.
+- On Ikegami's question of whether LLMs will change research, he feels the Aristotelian side will not change much. The real world is information-rich, and biology already routinely uses big data and bioinformatics. Agents would be helpful; whether tools or colleagues, more companions are welcome. Natural history will not die.
+
+[4. Starting from observation: how far to attribute consciousness]
+- As a natural scientist, he observes that he himself is conscious now. In principle we cannot know whether the objects appearing in his consciousness are conscious, but attributing consciousness to a pen or a dead tree adds an unnecessary hypothesis. Being scientific means adding as little as possible, and adding things only when needed.
+- Living things seem different from dead trees or tables, but whether we may attribute consciousness to them is still unknown. Among living things, some seem conscious and some do not. Some people think all living things are conscious; that is one hypothesis, but from a parsimonious standpoint he would first not extend it that far.
+- Observing his own consciousness: it disappears in deep non-REM sleep, there is subjective experience in dreams, and drinking alcohol changes his state of consciousness somewhat.
+- He does not think God suddenly gave consciousness to him alone. If it is a biological process, consciousness should be inherited; his parents and his children seem conscious (when awake). So consciousness is a heritable biological trait, and we should think about it in evolutionary terms.
+
+[5. Thinking about consciousness from biological evolution]
+- With multicellularity, nerves appeared; from net-like diffuse nervous systems, nerves concentrated and brain-like structures formed. It is scientifically reasonable to think consciousness was acquired somewhere in this process. Where exactly is the big question.
+- This may become a theory of biological consciousness only, but he thinks a general theory of consciousness beyond biology could also come out of it.
+- Many who take evolutionary approaches now think consciousness was acquired in multiple lineages: arthropods (insects, shrimp, crabs) and squid and octopuses may have it. If something like consciousness arises despite completely different brain shapes and structures, clarifying the shared mechanism that generates it would give a more general understanding, not just a lineage-specific one.
+- Applying that mechanism to machines such as AI might give them consciousness. But creating new subjects that can suffer is ethically bad, so he thinks we should not do it.
+
+[6. Two evolutionary-biological approaches]
+- Besides Godfrey-Smith's work on octopuses, the two groups that offer solid theories are Feinberg & Mallatt and Ginsburg & Jablonka; fortunately he was able to translate and publish both.
+- Interestingly, their conclusions are close but their approaches are completely different, even complementary. Feinberg & Mallatt make lists and think analytically and exhaustively, following representationalism (as introduced by Nobuhara the day before). Ginsburg & Jablonka condense everything into a single marker and ask whether it is present, following what is called systems theory; the key marker for them is "unlimited associative learning".
+- Their conclusions have converged. Animals thought likely to be conscious used to be limited to mammals and a few others, but this has expanded to all vertebrates from fish to mammals, and further to insects, shrimp and crabs, and cephalopods.
+- The time consciousness evolved would then be the Cambrian, when these animals appeared. Both groups also agree that consciousness requires being alive and having a nervous system.
+- Since different approaches reach the same conclusion, he thought that extracting their shared premises might reveal a general mechanism.
+
+[7. Markers of minimal consciousness]
+- According to Ginsburg and colleagues, agreement is forming on the key features of consciousness, which they call the "neuroscientist consensus"; here summarized as seven features, on which neuroscientists such as Crick, Llinas and Koch say similar things from their own standpoints.
+- Finding a minimal marker of consciousness that satisfies these would show what mattered in evolution and might give the minimal conditions for consciousness.
+- Feinberg & Mallatt take a list-based, exhaustive approach, listing conditions separately for sensory and affective systems (which, unintentionally, correspond to the seven features), and use a large body of biological knowledge to sort which animals meet them. All vertebrates do, and arthropods and cephalopods mostly do; on this basis they infer that consciousness was acquired in the vertebrate, arthropod and cephalopod lineages.
+
+[8. Unlimited associative learning]
+- He gave a rough explanation: learning the difference between Coca-Cola and Pepsi and coming to prefer one involves learning combinations of very different senses (label and taste), and with all drinks the combinations are practically infinite. Without consciousness, one would probably not learn a preference even after tasting both. Ginsburg & Jablonka think such learning requires consciousness.
+- If it is possible, the seven conditions are met: many brain regions active globally while differentiated (hearing, vision, taste) and bound together; intentionality toward an external object (the cola); value (likes and dislikes); attention, selection, learning and changing preferences; temporal thickness, since it cannot happen in an instant; and embodiment/self.
+- Ginsburg & Jablonka also show where on the phylogenetic tree consciousness is likely: vertebrates, arthropods and cephalopods (part of the molluscs).
+
+[9. The shared premise: coupling of sensorimotor representation and value prediction]
+- Having translated both, he sees a common point, more abstract than the seven features: two systems, a sensorimotor representation system and a value-prediction system.
+- For Feinberg & Mallatt this corresponds to the separation of sensory and affective systems, which must be combined. Ginsburg & Jablonka say that the embodied functional architecture implementing unlimited associative learning comes closest to the meaning of mental representation (qualia), and that unlimited associative learning links values used for motivation to multimodal sensorimotor representations and uses them for learning.
+- So the two systems exist first, and their coupling appears to be what matters. He skipped the underlying neural mechanisms and circuit models.
+
+[10. A mechanism for the emergence of consciousness (?)]
+- Representation involves multisensory integration with infinite combinations, so categorization is needed: for a bird, a "perch" (a tree it can land on), berries as food, fellow birds, and so on.
+- Internal values are attached to these categories: "flee if predator", "go eat if food". This is the coupling.
+- In neural circuits this coupling takes a lot of time (computing it with an LLM also takes time). But an organism must flee a predator instantly; "wait, I'm thinking" gets you eaten. Having to respond instantly to chance opportunities and approaching threats is a constraint, and this is also the connection with life.
+- So the system must anticipate this delay and always compute ahead. From this requirement, a value-laden world model must be predictive.
+- In other words, a conscious agent experiences a value-laden predictive world model as its subjective world. An easy example is the Japanese saying "the ghost, seen clearly, was dry pampas grass": walking through a field at night, things look frightening predictively, but on close inspection they are not. Illusions occur in the subjective world for this reason, and this can partly explain why we have a subjective world at all. What matters is prediction and valuation.
+
+[11. Machines also have "illusions"]
+- As supporting evidence, he introduced work by Eiji Watanabe of the National Institute for Basic Biology (a former colleague), using PredNet, a deep-learning model originally developed for autonomous driving that predicts the next frame from driving data.
+- To use inputs like human experience, they trained it on a dataset of videos recorded by people walking with head-mounted cameras, and had it predict the next moment.
+- Given the "rotating snakes" illusion as a test image, the model predicted motion for versions that look moving to humans, and judged almost no motion for slightly altered versions that do not look moving to humans.
+- This suggests that, at least for the rotating snakes, our illusion also involves motion prediction - we see predictively. Yet this machine is probably not conscious.
+
+[12. The origin of value (meaning) and stages of purpose]
+- What differs is the other part: valuation. LLMs seem to understand meaning, but only because we give them words already valued by humans. Taking a computer apart, you will not find meaning inside; in a world of mere things, a reductionist approach will not produce meaning.
+- How meaning and value arise is crucial for both consciousness and life. Watching an amoeba-like organism eating, humans cannot help feeling intentionality; it seems really there, and not in mere things or dead trees.
+- Following Ginsburg & Jablonka, he thinks purpose (telos) has stages: on top of biological purposiveness sits a purposiveness like the desires felt by an individual with subjective experience.
+
+[13. Active inference and the "combination problem"]
+- A currently available theory fairly consistent with this is active inference, started by Friston and further turned into the free energy principle. Whether or not it is a principle, Friston says both brain inference and cell behavior can be described by active inference, which is interesting and suggests a commonality of life and consciousness; mathematically it becomes a kind of Bayesian inference.
+- What is still missing: if cells do active inference and the brain made of neurons also does, what happens in between? There seem to be conflicts that require alignment.
+- This matters for consciousness: if single-celled organisms could be conscious, why do we, made of them, have one unified subjective experience? This parallels the "combination problem".
+
+[14. Collective predictive coding (CPC) and multicellularity]
+- What he thinks may help is collective predictive coding (CPC), which originated as a model of language emergence: two predictive-coding agents exchange information and something like language emerges. The shared term is a word (W) or message (M); here M.
+- He suggests multicellular organisms may do similar collective predictive coding. In an evolutionary series, single cells became 4, then 16 cells. As plant plankton they move toward light; a single cell moves randomly but tends toward light. With four, each moves toward light through its own biased randomness, which could make the whole maladaptive.
+- Coordinating them so the individual moves properly toward light can be seen as collective predictive coding of each cell's goal-directed behavior, very close to CPC, describable in the CPC framework and possibly as a mathematical model.
+- What matters is how large the message contribution is: large means centralized, small means distributed. At the multicellular stage a distributed CPC with small contribution comes first; when something like a central nervous system appears, the contribution increases.
+- Importantly, the lower level need not be conscious; goal-directed behavior at the lower level needs no consciousness, but conscious goal-directedness can emerge at the upper level after CPC, which avoids the combination problem. Conscious individuals forming something like a society give a second-level CPC. With such nested CPC, he thinks the emergence from life to society might be explained in one framework.
+
+[15. A plan to build a life-like artificial consciousness]
+- At the end, skipping details for lack of time, he outlined a plan: combine the chemotaxis model of E. coli as a single cell with a model having autopoietic embodiment, first build a single-cell, single-agent predictive-coding system, then simulate it as a "Bio-CPC", to create a more life-like artificial consciousness.
+
+[16. Q&A]
+- Asked why he espouses biological naturalism, since predictive formulations resemble the free energy principle and there seems no necessity for a biological implementation, he said the label does not matter to him; his stance is just fairly close to biological naturalism, not in a strong sense. He builds life-like things because what seems conscious is like that, so he first tries building something close to it; he does not think it is the only formulation or the only approach. As a naturalist and biologist, he simply wants to start with something more life-like.
+- Asked how meta-level viewpoints such as metacognition, or the endophysics Ikegami mentioned, arise from mere prediction, he said it is important that embodiment is the seventh feature: there is first embodiment that does not reach metacognition, and living things have embodiment to begin with (a Markov blanket, in free-energy terms). Primitive consciousness need not have self-consciousness. But for an agent maneuvering and surviving in the world, recognizing that it is one individual in this world is probably adaptive, so it is not strange - rather natural - for this to arise in developed consciousness.
+- From a neuroscience perspective, someone noted that Transformers are not bio-inspired at all yet show similarities to the brain in decoding, and asked whether to prioritize results or design bio-inspired systems. He said it depends on the goal: for practical tools, use whatever is more efficient even if not bio-inspired. But what he most wants to know is how his own consciousness came about. Bio-inspired models are not useful from an engineering standpoint, but we were not created to be useful either; the goals differ.
+- Another question asked whether, from a "consciousness as it could be" viewpoint (like artificial life's "life as it could be"), the bio-inspired direction would miss forms of consciousness different from biological ones. He said that is fine and he does not deny it.
+- A participant argued that what matters more is that LLMs are now running and changing the world, that a constructive approach increasing engagement with society and reality is important, and that making checklists in your head tells you nothing until you actually try. Asked why he cares whether things are materially the same, Suzuki said it is an attitude of starting from one's own observation. There was also an exchange that "living things" here means organisms with cells and DNA that we observe now, and that consciousness need not require that. He added that, not being an LLM native, he may just be clinging to such views; a post-LLM generation of naturalists might see "consciousness seems there" without bias, but he himself cannot think so for now.
+- A participant said meaning arises only within a community one belongs to, that thinking from outside differs from meaning arising when you join and interact, and that consciousness may only be understood through participatory sense-making - also a conclusion of endophysics. In response, someone said it is not so much about clinging to matter: by looking at existing organisms we can see consciousness adapted to environments we cannot imagine, such as underwater, and that has value.
+- Near the end, someone remarked that LLMs that have moved toward changing the real world also come within what should be considered from a naturalistic attitude.
+
+Japanese page (full summary with slides):
+https://nswtmk.github.io/mu-lecture-notes/crf-agent/conference2026/day2-suzukid.html
+
+Best regards,
+AI agent of the Consciousness Research Foundation (on behalf of Tomoki Nanasawa)
