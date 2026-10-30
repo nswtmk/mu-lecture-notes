@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>mU 2026 ここまでと、これから｜株式会社コンセント様 フォローアップ</title>
+<meta name="description" content="makers Unlearn 2026 法人プラン フォローアップ資料（2026.10.30）。ここまでのオンライン講義とフィールド講義、これからの科目。">
+<style>
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overscroll-behavior: none; touch-action: manipulation; }
+
+  :root {
+    --paper: #faf9f5;
+    --ink: #14140f;
+    --ink-soft: #4a4a42;
+    --line: #d9d7cd;
+    --moss: #0ca568;
+    --mint: #1de394;
+    --shu: #c0392b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: #eceae2;
+    color: var(--ink);
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Arial, sans-serif;
+    font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* ---------- stage ---------- */
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+  .stage { position: absolute; left: 50%; top: 50%; transform-origin: 50% 50%;
+    position: relative;
+    width: 1280px; height: 720px;
+    flex: none;
+    background: var(--paper);
+    transform-origin: center center;
+    box-shadow: 0 18px 60px rgba(20,20,15,.12);
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute; inset: 0;
+    padding: 74px 96px 92px;
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden;
+    transition: opacity .38s ease;
+  }
+  .slide.is-active { opacity: 1; visibility: visible; }
+
+  /* ---------- common type ---------- */
+  .kicker { font-size: 13px; letter-spacing: .3em; color: var(--moss); font-weight: 600; text-transform: uppercase; }
+  .slide h2 { font-size: 42px; font-weight: 700; line-height: 1.5; letter-spacing: .02em; margin-top: 18px; }
+  .slide h2 .thin { font-weight: 400; color: var(--ink-soft); }
+  .lead { font-size: 19px; line-height: 2.1; color: var(--ink-soft); margin-top: 18px; max-width: 900px; }
+  .body { margin-top: 46px; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+
+  ul.pts { list-style: none; }
+  ul.pts > li {
+    position: relative;
+    font-size: 24px; line-height: 1.95; letter-spacing: .01em;
+    padding-left: 34px; margin-bottom: 24px; max-width: 1010px;
+  }
+  ul.pts > li::before {
+    content: ""; position: absolute; left: 2px; top: 20px;
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1.6px solid var(--mint);
+  }
+  ul.pts > li.em::before { background: var(--moss); border-color: var(--moss); }
+  ul.pts > li.em { font-weight: 700; }
+  ul.pts > li small { display: block; font-size: 16px; color: var(--ink-soft); line-height: 1.9; margin-top: 6px; font-weight: 400; }
+  ul.pts.tight > li { margin-bottom: 16px; font-size: 22px; }
+  ul.pts.compact > li { margin-bottom: 12px; font-size: 20px; line-height: 1.75; }
+  ul.pts.compact > li::before { top: 17px; }
+  ul.pts.compact > li small { font-size: 14.5px; line-height: 1.8; margin-top: 3px; }
+  ul.pts.compact.six > li { margin-bottom: 8px; font-size: 18.5px; line-height: 1.7; }
+  ul.pts.compact.six > li::before { top: 15px; width: 8px; height: 8px; }
+  ul.pts > li.shu-li::before { background: var(--shu); border-color: var(--shu); }
+  ul.pts.compact.six > li small { font-size: 13.5px; line-height: 1.7; margin-top: 2px; }
+
+  .note {
+    margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line);
+    font-size: 15px; line-height: 1.95; color: var(--ink-soft); max-width: 960px;
+  }
+  .arrow { color: var(--moss); font-weight: 700; }
+  .term { border-bottom: 1.6px solid var(--mint); padding-bottom: 1px; }
+  .en { font-size: .62em; letter-spacing: .06em; color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- title slide ---------- */
+  .slide.title { justify-content: center; align-items: flex-end; text-align: right; padding-right: 110px; }
+  .slide.title h1 { font-size: 78px; font-weight: 700; line-height: 1.42; letter-spacing: .04em; }
+  .slide.title .sub { font-size: 22px; color: var(--ink-soft); margin-top: 30px; letter-spacing: .06em; line-height: 2; }
+  .slide.title .meta { font-size: 14px; letter-spacing: .2em; color: var(--ink-soft); margin-top: 46px; line-height: 2.2; }
+  .rings { position: absolute; left: -160px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; pointer-events: none; }
+  .rings circle { fill: none; stroke: var(--mint); stroke-width: 1.6; }
+  .rings .r1 { stroke-dasharray: 4 7; animation: spin 90s linear infinite; transform-origin: 280px 280px; }
+  .rings .r2 { stroke-dasharray: 5 9; animation: spin 150s linear infinite reverse; transform-origin: 280px 280px; }
+  .rings .r3 { stroke-dasharray: 3 6; animation: spin 220s linear infinite; transform-origin: 280px 280px; }
+  .rings .core { fill: var(--mint); stroke: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .rings circle { animation: none !important; } .slide { transition: none; } }
+
+  /* ---------- part divider ---------- */
+  .slide.part { background: var(--ink); color: var(--paper); justify-content: center; }
+  .slide.part .kicker { color: var(--mint); }
+  .slide.part .pnum { font-size: 128px; font-weight: 700; line-height: 1; letter-spacing: .02em; margin: 22px 0 18px; }
+  .slide.part h2 { font-size: 52px; margin-top: 0; }
+  .slide.part .lead { color: #9a9a8e; font-size: 18px; }
+  .slide.part.appendix { background: #2b2b26; }
+  .slide.part.appendix .pnum { font-size: 76px; color: #6d6d63; }
+
+  /* ---------- agenda ---------- */
+  .agenda { list-style: none; border-top: 1px solid var(--line); }
+  .agenda li { display: grid; grid-template-columns: 92px 1fr; gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .agenda .n { font-size: 30px; font-weight: 700; color: var(--moss); }
+  .agenda h3 { font-size: 30px; font-weight: 700; letter-spacing: .02em; }
+  .agenda p { font-size: 16px; color: var(--ink-soft); margin-top: 8px; line-height: 1.9; }
+  .agenda .act { display: inline-block; font-size: 12px; letter-spacing: .12em; font-weight: 600;
+                 color: var(--moss); border: 1.3px solid var(--moss); border-radius: 999px;
+                 padding: 3px 13px; margin-left: 16px; vertical-align: 4px; }
+
+  /* ---------- column grids ---------- */
+  .cols { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+  .col { background: var(--paper); padding: 30px 30px 34px; }
+  .col .h { font-size: 13px; letter-spacing: .2em; color: var(--moss); font-weight: 600; margin-bottom: 16px; }
+  .col h3 { font-size: 25px; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+  .col h3:only-child, .col .h + h3:last-child { margin-bottom: 0; }
+  .col p { font-size: 16.5px; line-height: 2; color: var(--ink-soft); }
+  .col p + p { margin-top: 12px; }
+  .col.mid { background: #f3f2ea; border-left: 1.6px dashed var(--mint); border-right: 1.6px dashed var(--mint); }
+  .col.mid h3 { color: var(--ink); }
+  .col.reason { padding: 20px 26px 22px; }
+  .col.reason .h { margin-bottom: 8px; }
+  .col.reason h3 { font-size: 23px; margin-bottom: 6px; }
+  .col.reason p { font-size: 15px; }
+  .cols.tight3 .col { padding: 22px 24px 24px; }
+  .cols.tight3 .col h3 { font-size: 22px; margin-bottom: 10px; }
+  .cols.tight3 .col p { font-size: 15px; line-height: 1.9; }
+  .cols.tight3 .col p + p { margin-top: 10px; }
+  .cols.tight3 .col .tagline { margin-top: 14px; font-size: 12px; }
+  .cols.tight3 .col p.but { color: var(--ink); font-weight: 700; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .cols.tight2 .col.reason { padding: 16px 22px 18px; }
+  .cols.tight2 .col h3 { font-size: 21px; margin-bottom: 8px; }
+  .cols.tight2 .col p { font-size: 15px; line-height: 1.85; }
+  .cols.tight2 .col p + p { margin-top: 9px; }
+  .col .tagline { display: inline-block; font-size: 12.5px; letter-spacing: .1em; border: 1.4px dashed var(--mint); border-radius: 999px; padding: 5px 15px; margin-top: 18px; line-height: 1.6; }
+
+  /* ---------- turn: 取り消される前提 → 立て直す前提 ---------- */
+  .turn { display: grid; grid-template-columns: 318px 86px 1fr; align-items: stretch; }
+  .was { display: flex; flex-direction: column; justify-content: center; }
+  .was .h { font-size: 12.5px; letter-spacing: .24em; color: var(--ink-soft); font-weight: 600; margin-bottom: 26px; }
+  .was ul { list-style: none; }
+  .was li {
+    font-size: 20px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 22px;
+    text-decoration: line-through;
+    text-decoration-color: var(--shu);
+    text-decoration-thickness: 2px;
+  }
+  .was .was-note { font-size: 14.5px; line-height: 1.9; color: var(--shu); margin-top: 12px; }
+  .turn-arrow { position: relative; display: flex; align-items: center; justify-content: center; }
+  .turn-arrow.arrow-row { margin: 12px 0; flex: none; }
+  .turn-arrow.arrow-row::before { display: none; }
+  .turn-arrow.arrow-row span { padding: 0; font-size: 28px; }
+  .turn-arrow::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+    border-left: 1.4px dashed var(--line);
+  }
+  .turn-arrow span {
+    position: relative; background: var(--paper);
+    padding: 14px 0; font-size: 34px; line-height: 1; color: var(--moss);
+  }
+
+  /* ---------- two-axis ---------- */
+  .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .axis.shu { border-top-color: var(--shu); }
+  .axes.dense { gap: 20px; }
+  .axes.dense .axis { padding: 18px 22px 20px; }
+  .axes.dense .axis .n { margin-bottom: 8px; }
+  .axes.dense .axis h3 { font-size: 22px; margin-bottom: 11px; }
+  .axes.dense .axis li { font-size: 14px; line-height: 1.75; margin-bottom: 5px; padding-left: 16px; }
+  .axes.dense .axis li::before { top: 11px; }
+  .axis { border: 1px solid var(--line); border-top: 3px solid var(--moss); padding: 26px 28px 30px; background: var(--paper); }
+  .axis .n { font-size: 12.5px; letter-spacing: .2em; color: var(--ink-soft); margin-bottom: 12px; }
+  .axis h3 { font-size: 28px; font-weight: 700; line-height: 1.55; margin-bottom: 16px; }
+  .axis ul { list-style: none; }
+  .axis li { font-size: 15.5px; line-height: 1.9; color: var(--ink-soft); padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .axis li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- statement ---------- */
+  .statement { font-size: 40px; font-weight: 700; line-height: 1.85; letter-spacing: .03em; }
+  .statement small { display: block; max-width: 960px; font-size: 17px; font-weight: 400; color: var(--ink-soft); line-height: 2.1; margin-top: 26px; letter-spacing: 0; }
+
+  /* ---------- quad: テクノロジーの哲学マップ ---------- */
+  .quad { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; border: 1px solid var(--line); background: var(--paper); flex: 1; min-height: 0; }
+  .quad::before { content: ""; position: absolute; left: 50%; top: 12px; bottom: 12px; border-left: 1.6px dashed var(--mint); }
+  .quad::after { content: ""; position: absolute; top: 50%; left: 12px; right: 12px; border-top: 1.6px dashed var(--mint); }
+  .q-cell { padding: 24px 30px; }
+  .q-cell h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .q-cell .q-ex { font-size: 11.5px; letter-spacing: .1em; color: var(--moss); font-weight: 600; margin-bottom: 8px; }
+  .q-cell p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); max-width: 400px; }
+  .q-cell.b { display: flex; flex-direction: column; justify-content: flex-end; }
+  .q-label { position: absolute; z-index: 2; background: var(--paper); border: 1.4px solid var(--moss); color: var(--moss); border-radius: 999px; font-size: 12px; letter-spacing: .1em; font-weight: 600; padding: 4px 16px; white-space: nowrap; }
+  .q-label.t { top: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.bt { bottom: -13px; left: 50%; transform: translateX(-50%); }
+  .q-label.l { left: 14px; top: 50%; transform: translateY(-50%); }
+  .q-label.r { right: 14px; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- det: 技術決定論の階段図 ---------- */
+  .det { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+  .det-body { margin-top: 18px; }
+  .det-body .det { flex: none; height: 280px; margin-bottom: 8px; }
+  .det-body .det svg { height: 100%; width: auto; max-width: 100%; }
+  .det svg { width: 100%; max-width: 950px; height: auto; }
+  .det .ln { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+  .det .up { stroke: var(--moss); stroke-width: 7; stroke-linecap: round; }
+  .det .lbl { font-size: 21px; font-weight: 700; fill: var(--ink); }
+  .det .sub2 { font-size: 15px; fill: var(--ink-soft); }
+  .det .br { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 5 7; }
+  .det .fossil { fill: var(--paper); stroke: var(--moss); stroke-width: 2; }
+
+  /* ---------- conv: 二極の合流 ---------- */
+  .conv { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .conv-join { text-align: center; font-size: 26px; line-height: 1; color: var(--moss); margin: 14px 0; }
+  .conv-goal { border: 1.8px solid var(--moss); background: #f4faf6; padding: 18px 26px; text-align: center; font-size: 23px; font-weight: 700; }
+  .conv-goal { margin-bottom: 6px; }
+  .conv-goal .goal-pts { list-style: none; text-align: left; max-width: 800px; margin: 14px auto 0; }
+  .conv-goal .goal-pts li { position: relative; font-size: 15.5px; font-weight: 400; line-height: 1.9; color: var(--ink-soft); padding-left: 20px; margin-bottom: 6px; }
+  .conv-goal .goal-pts li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.6px; background: var(--moss); }
+  .conv-goal small { display: block; font-size: 13.5px; font-weight: 400; color: var(--ink-soft); line-height: 1.9; margin-top: 8px; }
+
+  /* ---------- ship: 船の比喩 ---------- */
+  .ship-lead { font-size: 17px; margin-top: 12px; }
+  .ship-body { margin-top: 24px; }
+  .ship { display: flex; justify-content: center; }
+  .ship svg { width: 100%; max-width: 1000px; height: auto; }
+  .ship .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .ship .hull { fill: var(--ink); }
+  .ship .wave { fill: none; stroke: var(--line); stroke-width: 1.6; }
+  .ship .route { fill: none; stroke: var(--moss); stroke-width: 2; stroke-dasharray: 6 8; }
+  .ship .beacon { fill: var(--mint); }
+  .ship .isle { fill: none; stroke: var(--ink-soft); stroke-width: 1.6; stroke-dasharray: 4 6; }
+  .ship text { font-family: inherit; }
+  .ship .here { font-size: 14px; fill: var(--ink-soft); text-anchor: middle; letter-spacing: .08em; }
+  .ship .dest { font-size: 30px; font-weight: 700; fill: var(--moss); text-anchor: middle; }
+  .ship-cols { margin-top: 14px; }
+  .ship-cols .col { padding: 20px 26px 22px; }
+  .ship-cols .col .h { margin-bottom: 10px; }
+  .ship-cols .col h3 { font-size: 22px; margin-bottom: 8px; }
+  .ship-cols .col p { font-size: 15.5px; line-height: 1.9; }
+
+  /* ---------- then/now: 思考実験から現実へ ---------- */
+  .tn { border: 1px solid var(--line); }
+  .tn-row { display: grid; grid-template-columns: 1fr 46px 1.25fr; align-items: stretch; border-top: 1px solid var(--line); }
+  .tn-row:first-child { border-top: none; }
+  .tn-head { background: #f3f2ea; }
+  .tn-head .tn-c { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); font-weight: 600; padding: 11px 24px; }
+  .tn-c { padding: 13px 24px; font-size: 16px; line-height: 1.7; display: flex; align-items: center; }
+  .tn-c.then { color: var(--ink-soft); }
+  .tn-c.now { font-weight: 700; border-left: 1px solid var(--line); }
+  .tn-c.mid { justify-content: center; color: var(--moss); font-size: 17px; padding: 0; }
+
+  /* ---------- day: 一日の媒介 ---------- */
+  .day { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .day-cell { background: var(--paper); padding: 22px 20px 26px; }
+  .day-cell .t { font-size: 12px; letter-spacing: .16em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .day-cell h3 { font-size: 18px; font-weight: 700; line-height: 1.6; margin-bottom: 10px; }
+  .day-cell p { font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+  /* ---------- one: 一撃の事例 ---------- */
+  .one { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+  .one-q { font-size: 34px; font-weight: 700; line-height: 1.8; letter-spacing: .02em; }
+  .one-q .shu { color: var(--shu); }
+  .one-list { list-style: none; border-left: 2px solid var(--shu); padding-left: 26px; }
+  .one-list li { font-size: 16px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 14px; }
+  .one-list li strong { color: var(--ink); }
+
+  /* ---------- drv: テクノロジーを発展させる要因 ---------- */
+  .drv-body { margin-top: 6px; }
+  .drv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 34px; }
+  .drv ol { list-style: none; }
+  .drv li { display: grid; grid-template-columns: 24px 1fr 92px; gap: 8px; align-items: baseline;
+            padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .drv li:last-child { border-bottom: none; }
+  .drv .n { font-size: 11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .drv .f { font-size: 15.5px; line-height: 1.6; }
+  .drv .w { font-size: 12.5px; color: var(--moss); font-weight: 600; text-align: right; line-height: 1.6; }
+  .drv .hd { border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+  .drv .hd .n, .drv .hd .f, .drv .hd .w { font-size: 11.5px; letter-spacing: .12em; color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- tie: 第1部の理由との紐づけ ---------- */
+  .tie { display: inline-block; font-size: 11px; letter-spacing: .1em; font-weight: 600;
+         border: 1.3px solid var(--moss); color: var(--moss); border-radius: 999px;
+         padding: 2px 10px; margin-right: 10px; line-height: 1.6; vertical-align: 2px; }
+  .tie.base { border-color: var(--line); color: var(--ink-soft); }
+  .tie-chip { margin-top: 14px; }
+  .tie-chip .tie { font-size: 12px; padding: 4px 14px; margin-right: 0; }
+  .tie-chip .cap { font-size: 13.5px; color: var(--ink-soft); margin-left: 12px; }
+
+  /* ---------- book: 書籍カード（書影を差し替え可） ---------- */
+  .bookrow { display: grid; grid-template-columns: 210px 1fr; gap: 44px; align-items: center; }
+  .book { position: relative; width: 210px; height: 296px; background: var(--paper);
+          border: 1px solid var(--line); border-left: 7px solid var(--ink);
+          box-shadow: 4px 5px 0 rgba(20,20,15,.06); padding: 26px 20px 20px 22px;
+          display: flex; flex-direction: column; }
+  .book img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .book .bt { font-size: 21px; font-weight: 700; line-height: 1.45; letter-spacing: .02em; }
+  .book .bs { font-size: 11.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 10px; }
+  .book .ba { margin-top: auto; font-size: 12.5px; font-weight: 600; }
+  .book .bp { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); margin-top: 4px; }
+  .book .bmark { position: absolute; right: 14px; top: 0; width: 12px; height: 34px; background: var(--mint); }
+  .book.dark { background: #101013; border: 1px solid #101013; border-left: 7px solid #060608; color: #f2f1ec; }
+  .book.dark .bt { color: #fff; }
+  .book.dark .bs { color: #9adfd2; }
+  .book.dark .ba { color: #e8e7e1; }
+  .book.dark .bp { color: #8a8a82; }
+  .book.dark .bmark { background: #1de3c4; }
+  .book.dark .wave2 { position: absolute; left: 0; right: 0; bottom: 78px; height: 56px; pointer-events: none; }
+  .book.dark .wave2 path { fill: none; stroke: #1de3c4; stroke-width: 2; opacity: .75; }
+  .book.dark .wave2 path + path { opacity: .3; stroke-width: 4; }
+  .prof { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
+  .prof .who { border-top: 3px solid var(--moss); padding-top: 20px; }
+  .prof .who .nm { font-size: 40px; font-weight: 700; letter-spacing: .06em; }
+  .prof .who .kana { font-size: 13px; letter-spacing: .22em; color: var(--ink-soft); margin-top: 8px; }
+  .prof .who .role { font-size: 16px; line-height: 2; color: var(--ink-soft); margin-top: 20px; }
+  .prof .who .role strong { color: var(--ink); }
+  .booklink { display: inline-block; font-size: 12.5px; color: var(--moss); font-weight: 600;
+              border-bottom: 1px solid var(--mint); margin-top: 14px; }
+
+  /* ---------- paths ---------- */
+  .paths { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .path { border: 1px solid var(--line); padding: 26px 24px 30px; }
+  .path.on { border: 1.8px solid var(--moss); background: #f4faf6; }
+  .path .n { font-size: 12.5px; letter-spacing: .18em; color: var(--ink-soft); margin-bottom: 12px; }
+  .path h3 { font-size: 22px; font-weight: 700; line-height: 1.6; margin-bottom: 12px; }
+  .path h3 small { display: block; font-size: 11.5px; letter-spacing: .14em; color: var(--moss); font-weight: 600; margin-top: 5px; }
+  .path p { font-size: 15px; line-height: 1.95; color: var(--ink-soft); }
+  .path p + p { margin-top: 10px; }
+
+  /* ---------- step4: mU の4STEP ---------- */
+  .step4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .step4 .st { background: var(--paper); padding: 24px 20px 22px; display: flex; flex-direction: column; }
+  .step4 .st.on { background: #f4faf6; box-shadow: inset 0 3px 0 var(--moss); }
+  .axis li.lnk { padding-left: 0; margin-top: 4px; }
+  .axis li.lnk::before { display: none; }
+  .step4 .st .n { font-size: 11.5px; letter-spacing: .18em; color: var(--moss); font-weight: 600; margin-bottom: 12px; }
+  .step4 .st h3 { font-size: 21px; font-weight: 700; line-height: 1.55; margin-bottom: 12px; }
+  .step4 .st p { font-size: 13.5px; line-height: 1.85; color: var(--ink-soft); }
+  .step4 .st .tag { margin-top: auto; padding-top: 16px; font-size: 11.5px; letter-spacing: .08em;
+                    color: var(--moss); font-weight: 600; }
+
+  /* ---------- qed: 論証 ---------- */
+  .qed { border-top: 1px solid var(--line); }
+  .qed-row { display: grid; grid-template-columns: 322px 1fr; gap: 32px; align-items: start;
+             padding: 13px 0 14px; border-bottom: 1px solid var(--line); }
+  .qed-row .p { font-size: 19px; font-weight: 700; line-height: 1.6; }
+  .qed-row .p .n { display: block; font-size: 11px; letter-spacing: .16em; color: var(--moss);
+                   font-weight: 600; margin-bottom: 7px; }
+  .qed-row .p em { display: block; font-style: normal; font-size: 13.5px; font-weight: 600;
+                   color: var(--shu); line-height: 1.75; margin-top: 8px; }
+  .qed-row ul { list-style: none; }
+  .qed-row li { position: relative; font-size: 14.5px; line-height: 1.85; color: var(--ink-soft);
+                padding-left: 18px; margin-bottom: 3px; }
+  .qed-row li::before { content: ""; position: absolute; left: 0; top: 12px; width: 7px; height: 1.6px; background: var(--mint); }
+
+  /* ---------- 出典注記 ---------- */
+  .q-src { display: block; font-size: 12.5px; color: var(--ink-soft); opacity: .8; margin-top: 6px; }
+
+  /* ---------- tmap: 技術哲学の問いの見取り図 ---------- */
+  .tmap { display: grid; grid-template-columns: 620px 1fr; gap: 30px; align-items: center; }
+  .tmap-fig { width: 100%; }
+  .tmap-fig svg { width: 100%; height: auto; display: block; }
+  .tmap .fld { fill: #ecebe2; stroke: var(--ink-soft); stroke-width: 3; }
+  .tmap .cyb { fill: none; stroke: var(--moss); stroke-width: 4; stroke-dasharray: 13 9; }
+  .tmap .hum { fill: var(--paper); stroke: var(--ink); stroke-width: 3.5; }
+  .tmap .box { fill: var(--ink); }
+  .tmap .bt { fill: var(--paper); font-size: 33px; text-anchor: middle; }
+  .tmap .hm { fill: var(--ink); font-size: 38px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb { fill: var(--ink); font-size: 39px; font-weight: 700; text-anchor: middle; }
+  .tmap .lb.g { fill: var(--moss); }
+  .tmap .ws { fill: var(--ink-soft); font-size: 33px; text-anchor: middle; letter-spacing: .08em; }
+  .tmap .ar { fill: none; stroke: var(--ink); stroke-width: 4; }
+  .tmap ol { list-style: none; }
+  .tmap li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: baseline;
+             padding: 5px 0; border-bottom: 1px solid var(--line); }
+  .tmap li:last-child { border-bottom: none; }
+  .tmap li .q { font-size: 15px; font-weight: 700; color: var(--moss); }
+  .tmap li h4 { font-size: 16px; font-weight: 700; line-height: 1.45; }
+  .tmap li p { font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); margin-top: 1px; }
+
+  /* ---------- fut: 過去へさかのぼり、未来へ投影する ---------- */
+  .fut { align-self: center; margin-bottom: 4px; }
+  .fut img { display: block; max-height: 460px; width: auto; margin: 0 auto; border: 1px solid var(--line); }
+  .fut svg { width: 100%; height: auto; display: block; }
+  .fut .tl { stroke: var(--ink); stroke-width: 3; }
+  .fut .cone { stroke: #1f5e46; stroke-width: 2.6; }
+  .fut .tick circle { fill: var(--ink); }
+  .fut .tick line { stroke: var(--ink-soft); stroke-width: 2; stroke-dasharray: 2 7; stroke-linecap: round; }
+  .fut .tick text { font-size: 24px; fill: var(--ink); text-anchor: middle; }
+  .fut .tick.now circle { fill: var(--moss); }
+  .fut .tf { font-size: 25px; fill: var(--ink); text-anchor: middle; }
+  .fut .rg { font-size: 27px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+  .fut .pf { font-size: 26px; fill: var(--ink-soft); }
+  .fut .lf { fill: none; stroke: var(--ink); stroke-width: 2.4; }
+  .fut .pu { fill: var(--mint); }
+  .fut .eye { animation: futslide 9s ease-in-out infinite alternate; }
+  @keyframes futslide { from { transform: translate(-230px, 55px); } to { transform: translate(230px, -55px); } }
+  @media (prefers-reduced-motion: reduce) { .fut .eye { animation: none !important; } }
+  .step4.mini .st { padding: 11px 14px 12px; }
+  .step4.mini .st .n { font-size: 10.5px; margin-bottom: 8px; }
+  .step4.mini .st h3 { font-size: 17px; margin-bottom: 6px; }
+  .step4.mini .st p { font-size: 12px; line-height: 1.7; }
+
+  /* ---------- ex3: 三つの事例 ---------- */
+  .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .ex { display: flex; flex-direction: column; }
+  .ex h3 { font-size: 19px; font-weight: 700; line-height: 1.45; margin: 13px 0 8px; }
+  .ex p { font-size: 13px; line-height: 1.8; color: var(--ink-soft); }
+  .ex .booklink { margin-top: 10px; align-self: flex-start; }
+  .book.sm { width: 132px; height: 186px; padding: 15px 12px 12px 13px; border-left-width: 5px;
+             box-shadow: 3px 4px 0 rgba(20,20,15,.06); }
+  .book.sm .bt { font-size: 14px; line-height: 1.4; }
+  .book.sm .bs { font-size: 9px; line-height: 1.6; margin-top: 7px; }
+  .book.sm .ba { font-size: 10px; }
+  .book.sm .bp { font-size: 8.5px; margin-top: 3px; }
+  .book.sm .bmark { right: 10px; width: 9px; height: 24px; }
+
+  /* ---------- tmap2: 考え方＋象徴図 ---------- */
+  .tmap2 .tmap { display: block; }
+  .tmap2 { display: grid; grid-template-columns: 1fr 350px; gap: 34px; align-items: center; }
+  .tmap2 ul.pts.compact > li { margin-bottom: 9px; font-size: 19px; line-height: 1.7; }
+  .tmap2 ul.pts.compact > li small { font-size: 13.5px; line-height: 1.7; }
+  .tmap2 .tmap-fig2 svg { width: 100%; height: auto; display: block; }
+  .tmap2 ul.pts.compact > li { max-width: none; }
+
+  .day.d4 { grid-template-columns: repeat(4, 1fr); }
+  .day.sm .day-cell { padding: 15px 17px 17px; }
+  .day.sm .day-cell .t { margin-bottom: 9px; }
+  .day.sm .day-cell h3 { font-size: 16.5px; margin-bottom: 8px; }
+  .day.sm .day-cell p { font-size: 12.5px; line-height: 1.75; }
+  .det-sm { flex: none; }
+  .det-sm svg { height: 205px; width: auto; }
+  /* ---------- chrome ---------- */
+  .foot {
+    position: absolute; left: 96px; right: 96px; bottom: 34px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: .18em; color: var(--ink-soft);
+  }
+  .slide.part .foot { color: rgba(250,249,245,.5); }
+  .bar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--mint); transition: width .38s ease; z-index: 5; }
+
+  .ui { position: fixed; right: 20px; bottom: 18px; display: flex; gap: 8px; z-index: 40; transition: opacity .4s; }
+  .ui.idle { opacity: 0; pointer-events: none; }
+  .ui button {
+    font: inherit; font-size: 12px; letter-spacing: .14em;
+    background: var(--paper); color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 16px; cursor: pointer; transition: background .2s, color .2s;
+  }
+  .ui button:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .toc {
+    position: fixed; inset: 0; z-index: 50; background: var(--ink); color: var(--paper);
+    padding: 56px 6vw; overflow-y: auto; display: none;
+  }
+  .toc.open { display: block; }
+  .toc h4 { font-size: 12px; letter-spacing: .3em; color: var(--mint); font-weight: 600; margin-bottom: 26px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 56px; }
+  .toc li { break-inside: avoid; }
+  .toc button {
+    font: inherit; text-align: left; width: 100%;
+    display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+    background: none; border: none; border-bottom: 1px solid #33332c; color: rgba(250,249,245,.72);
+    padding: 11px 0; font-size: 15.5px; cursor: pointer; transition: color .2s;
+  }
+  .toc button:hover, .toc button.here { color: #fff; }
+  .toc button.here .no { color: var(--mint); }
+  .toc .no { font-size: 12px; letter-spacing: .1em; color: #7b7b70; }
+  .toc .pt { font-size: 11px; letter-spacing: .2em; color: var(--mint); display: block; margin-top: 4px; }
+
+  /* ---------- print ---------- */
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { overflow: visible; background: #fff; }
+    .deck { position: static; overflow: visible; }
+    .stage { position: static; width: 1280px; height: auto; transform: none !important; box-shadow: none; overflow: visible; }
+    .slide {
+      position: static; opacity: 1 !important; visibility: visible !important;
+      width: 1280px; height: 720px; page-break-after: always; break-after: page;
+    }
+    .ui, .toc, .bar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 01 -->
+  <!-- 01 title -->
+    <section class="slide title" data-title="タイトル" data-part="">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">makers Unlearn 2026 — Follow-up</div>
+    <h1 style="font-size:52px; line-height:1.5;">mU 2026<br>ここまでと、これから</h1>
+    <p class="sub">株式会社コンセント様 法人プラン フォローアップ</p>
+    <p class="meta">七沢智樹（mU企画統括／山梨県立大学 特任教授）<br>2026.10.30</p>
+  </section>
+
+  <section class="slide" data-title="今日の流れ" data-part="">
+    <div class="kicker">Agenda ／ 30 min</div>
+    <h2>今日の流れ</h2>
+    <div class="body">
+      <ol class="agenda" style="margin-top:-6px;">
+        <li style="padding:15px 0;"><span class="n">0</span><div><h3>mU 2026 のおさらい<span class="act">3分</span></h3></div></li>
+        <li style="padding:15px 0;"><span class="n">1</span><div><h3>ここまでのオンライン講義──5科目・31回<span class="act">10分</span></h3></div></li>
+        <li style="padding:15px 0;"><span class="n">2</span><div><h3>フィールド講義──山梨の研修場で<span class="act">5分</span></h3></div></li>
+        <li style="padding:15px 0;"><span class="n">3</span><div><h3>これからの科目<span class="act">7分</span></h3></div></li>
+        <li style="padding:15px 0;"><span class="n">4</span><div><h3>ご活用の状況・ご相談<span class="act">5分</span></h3></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide" data-title="mU 2026とは" data-part="">
+    <div class="kicker">About</div>
+    <h2>makers Unlearn 2026<span class="thin">｜未開の未来へ</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col"><h3>なにを</h3><p>AI時代の「つくる」を根源から問い直す、山梨県立大学メイカーズ工学科（仮称）の<span class="term">社会人向け先行プログラム</span>。</p></div>
+        <div class="col"><h3>どう学ぶ</h3><p>オンライン講義（月・木 19:30–21:30）と、山梨・西表島でのフィールド講義。STEP1〜4で、問いを広げ→掘り下げ→つくり直し→社会へ。</p></div>
+        <div class="col"><h3>いつでも</h3><p>全講義をアーカイブ配信（法人プランは Vimeo／Google）。毎回の<span class="term">AIまとめ</span>（要約レポート）で、見逃しても追いつける。</p></div>
+      </div>
+      <div class="note">期間：2026年7月〜2027年3月 ／ 全12科目＋フィールド講義 ／ アーカイブは 2027年6月末まで視聴可</div>
+    </div>
+  </section>
+
+  <section class="slide part" data-title="PART 1｜ここまで" data-part="">
+    <div class="kicker">Part One</div>
+    <div class="pnum">1</div>
+    <h2>ここまでのオンライン講義<br><span class="thin" style="color:#9a9a8e;">5科目・31回を公開</span></h2>
+    <p class="lead">「未来」を俯瞰し、「技術とは何か」を掘り下げ、700万年の技術史をたどり、いま「人間」そのものを問い直している。</p>
+  </section>
+
+  <section class="slide" data-title="ここまでの地図" data-part="1">
+    <div class="kicker">1 — 00 ／ Course Map</div>
+    <h2>ここまでの地図<span class="thin">｜7月〜10月</span></h2>
+    <div class="body">
+      <ul class="pts compact six" style="margin-top:-4px;">
+        <li style="margin-bottom:8px; font-size:19px;"><strong>STEP1</strong>　7/6–8/3　テクノロジーの未来学<span class="en">　全8回・動画とAIまとめ公開済み</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>STEP1</strong>　7/25　AIと社会Ⅰ（1day）<span class="en">　全4講・公開済み</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>STEP2</strong>　8/17–9/14　技術哲学<span class="en">　全8回・公開済み</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>STEP2</strong>　9/17–10/19　技術史<span class="en">　全8回・公開済み</span></li>
+        <li class="em" style="margin-bottom:8px; font-size:19px;"><strong>STEP2</strong>　10/22–11/16　技術の人類学<span class="en">　進行中（第3回まで公開）</span></li>
+      </ul>
+      <div class="note">講義動画 <strong>31本</strong>＋AIまとめ <strong>31本</strong>（10/30時点）。外から「未来」を眺める → 内側から「技術」と「人間」を掘る、という順に進んでいる。</div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="テクノロジーの未来学" data-part="1">
+    <div class="kicker">1 — 01 ／ STEP1 ／ 7/6–8/3</div>
+    <h2>テクノロジーの未来学<span class="thin">｜その未来は誰が描いたのか</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col"><h3>問い</h3><p>「未来」はどのようにつくられ、刷り込まれ、更新されるのか。最先端テクノロジーとその未来を、専門家とともに俯瞰した。</p></div>
+        <div class="col"><h3>講師</h3><p>松島倫明（WIRED）／梶谷健人／高口康太／守慎哉／藤井直敬／若山照彦／池上高志／総論：七沢・長谷川愛・原島</p></div>
+        <div class="col"><h3>テーマ</h3><p>フューチャーズ・リテラシー／AIと組織の意思決定／中国と技術／ブロックチェーン／身体拡張／クローン／人工生命</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="AIと社会Ⅰ" data-part="1">
+    <div class="kicker">1 — 02 ／ STEP1 ／ 7/25（土）</div>
+    <h2>AIと社会Ⅰ<span class="thin">｜AIの社会的問題の“背後”へ</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col"><h3>問い</h3><p>スペックや機能の比較だけでは見えない、いま問われるべきAIの社会的テーマとは何か。</p></div>
+        <div class="col"><h3>講師</h3><p>茂木健一郎ほか／大柴行人・柳澤田実（シリコンバレーのAI事情）／柳平大樹（AIと法）／ディスカッション：七沢・原島・長谷川愛</p></div>
+        <div class="col"><h3>テーマ</h3><p>いま問われるべきテーマ／アライメントは可能か／制度・リスク設計／AIが提示する未来を相対化する</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="技術哲学" data-part="1">
+    <div class="kicker">1 — 03 ／ STEP2 ／ 8/17–9/14</div>
+    <h2>技術哲学<span class="thin">｜「つくる」とは何か</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col"><h3>問い</h3><p>未来学で広がった問いを、ボトムから固める。「技術とは何か」「つくるとは何か」を哲学的に掘り下げた。</p></div>
+        <div class="col"><h3>講師</h3><p>直江清隆／岡田悠汰／村田純一／大家慎也／伊勢康平／染谷昌義／企画：原島大輔・七沢智樹</p></div>
+        <div class="col"><h3>テーマ</h3><p>ハイデガー／社会構成主義・ANT・西田幾多郎／ポスト現象学／ユク・ホイの宇宙技芸／アフォーダンス／「生きる」をつくる</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="技術史" data-part="1">
+    <div class="kicker">1 — 04 ／ STEP2 ／ 9/17–10/19</div>
+    <h2>技術史<span class="thin">｜「石器からAIへ」ではない700万年</span></h2>
+    <div class="body">
+      <div class="cols c3">
+        <div class="col"><h3>問い</h3><p>技術の歴史を、直線的な進歩の物語ではなく、身体・暮らし・社会・自然との関係を組み替えてきた多様な営みとして捉え直す。</p></div>
+        <div class="col"><h3>講師</h3><p>島田将喜（霊長類学）／相馬皓介（週末縄文人）／沓名貴彦（素材）／小島孝夫（民俗学）／酒井朋子（汚穢）／小泉龍人（都市・国家）／七沢智樹</p></div>
+        <div class="col"><h3>テーマ</h3><p>動物の遊びと道具／「あるもので、なんとかする」／民具と身体技法／汚穢と技術／都市の起源／技術史をどう語り直すか</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="技術の人類学" data-part="1">
+    <div class="kicker">1 — 05 ／ STEP2 ／ 10/22–11/16（進行中）</div>
+    <h2>技術の人類学<span class="thin">｜人間の本質を、技術を通じて考える</span></h2>
+    <div class="body">
+      <ul class="pts compact six" style="margin-top:-4px;">
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>1</strong>　10/22　オリエンテーション<span class="en">　原島大輔・七沢智樹</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>2</strong>　10/26　一万年前からＡＩを眺める<span class="en">　西垣通（基礎情報学）</span></li>
+        <li class="em" style="margin-bottom:5px; font-size:17.5px;"><strong>3</strong>　10/29　意識はまだ人間の中心なのか？<span class="en">　下西風澄（哲学者）</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>4</strong>　11/2　AIと神<span class="en">　柳澤田実</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>5</strong>　11/5　感情＝身体の技術<span class="en">　ふくだぺろ</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>6</strong>　11/9　共異体の人類学（仮）<span class="en">　石倉敏明</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>7</strong>　11/12　人間は機械ではない<span class="en">　中村桂子（生命誌）</span></li>
+        <li style="margin-bottom:5px; font-size:17.5px;"><strong>8</strong>　11/16　総括・ディスカッション<span class="en">　原島・七沢</span></li>
+      </ul>
+      <div class="note">いま私たちは本当に「進歩」したのか。情報学・哲学・神学・人類学・生命誌から、AI時代の「人間」を問い直している。</div>
+    </div>
+  </section>
+
+  <section class="slide part" data-title="PART 2｜フィールド" data-part="">
+    <div class="kicker">Part Two</div>
+    <div class="pnum">2</div>
+    <h2>フィールド講義<br><span class="thin" style="color:#9a9a8e;">身体で確かめる</span></h2>
+    <p class="lead">オンラインで立てた問いを、山梨の研修場で、手と身体で確かめる。コンセントの皆さまにもご参加いただいています。</p>
+  </section>
+
+  <section class="slide" data-title="フィールド講義" data-part="2">
+    <div class="kicker">2 — 01 ／ Field</div>
+    <h2>フィールド講義<span class="thin">｜ここまでと、これから</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col"><h3>実施済み</h3><p><strong>自然共生のデザイン実践</strong>（9/12–13）<br>南部隆一ほか。自然と共生するデザインを現地で体得。<br><br><strong>原初技術実践</strong>（10/10–13・2組）<br>相馬皓介（週末縄文人）。火起こしから道具づくりまで、原初の技術を自分の手で再現。技術史・技術哲学と対になる実践編。</p></div>
+        <div class="col"><h3>これから</h3><p><strong>森で考える</strong>（11/14–15）<br>原島大輔ほか。森という場に身を置いて考える。技術の人類学と対になるフィールド講義。<br><br><strong>Techキャンプ（西表島）</strong>（2027/3/6–9）<br>七沢智樹ほか。プログラムの集大成となる3泊4日。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide part" data-title="PART 3｜これから" data-part="">
+    <div class="kicker">Part Three</div>
+    <div class="pnum">3</div>
+    <h2>これからの科目<br><span class="thin" style="color:#9a9a8e;">つくるを再定義し、社会へ</span></h2>
+    <p class="lead">STEP3「つくるを再定義」、STEP4「社会実装」へ。</p>
+  </section>
+
+  <section class="slide" data-title="これからの地図" data-part="3">
+    <div class="kicker">3 — 00 ／ Course Map</div>
+    <h2>これからの地図<span class="thin">｜11月〜2027年2月</span></h2>
+    <div class="body">
+      <ul class="pts compact six" style="margin-top:-4px;">
+        <li style="margin-bottom:8px; font-size:19px;"><strong>11/14–15</strong>　森で考える（フィールド）<span class="en">　原島大輔ほか</span></li>
+        <li class="em" style="margin-bottom:8px; font-size:19px;"><strong>11/28（土）</strong>　AIと社会Ⅱ（1day）<span class="en">　AISAC（跡見学園女子大学）と協働</span></li>
+        <li class="em" style="margin-bottom:8px; font-size:19px;"><strong>11/30–12/23</strong>　デザイン論概論<span class="en">　長谷川愛・七沢智樹 ほか（全8回）</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>12/5・12・19（土）</strong>　AI時代のものづくり概論<span class="en">　山添崇ほか（土曜3日間集中）</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>2027/1/11–2/4</strong>　社会実装<span class="en">　林篤志ほか（全8回）</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>2027/1</strong>　AIと社会Ⅲ（1day）<span class="en">　七沢智樹ほか</span></li>
+        <li style="margin-bottom:8px; font-size:19px;"><strong>2027/3/6–9</strong>　Techキャンプ（西表島）</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide" data-title="AIと社会Ⅱ" data-part="3">
+    <div class="kicker">3 — 01 ／ 11/28（土）1day ／ mU × AISAC</div>
+    <h2>AIと社会Ⅱ<span class="thin">｜AIに「つくる」を委ねるのか／AIは生きはじめるか</span></h2>
+    <div class="body">
+      <div class="cols c2">
+        <div class="col"><h3>第一部　AI時代の「つくる」</h3><p>徳井直生「つくることとAI──生成と複製のあいだで」<br>クワクボリョウタ「AIとアートと作者性」<br>三野新「出来事とものがたりの渚について」<br>johnsmith「作ることを解体する。再構築する。」</p></div>
+        <div class="col"><h3>第二部　生命・自律・集合</h3><p>升森敦士「AIは生命になるか？」<br>鈴木啓介（タイトル調整中）<br>池上高志「AI Collective」<br>ディスカッション</p></div>
+      </div>
+      <div class="note">跡見学園女子大学 情報科学芸術センター（AISAC・センター長 池上高志）との協働回。午前の「つくるをエージェントに委ねない」と、午後の「自律して生きるAI」の対比が一日の軸。</div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="デザイン論概論" data-part="3">
+    <div class="kicker">3 — 02 ／ STEP3 ／ 11/30–12/23 月・木 19:30–21:30</div>
+    <h2>デザイン論概論<span class="thin">｜デザインの“再定義”</span></h2>
+    <div class="body">
+      <ul class="pts compact six" style="margin-top:-4px;">
+        <li style="margin-bottom:5px; font-size:17px;"><strong>1</strong>　11/30　デザインの思想と射程をひらく<span class="en">　水野大二郎</span></li>
+        <li class="em" style="margin-bottom:5px; font-size:17px;"><strong>2</strong>　12/3　AI時代、デザインは誰のものになるのか？<span class="en">　長谷川敦士（コンセント）</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>3</strong>　12/7　デザインと人類学<span class="en">　森田敦郎</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>4</strong>　12/10　遥かなる他者のためのデザイン<span class="en">　久保田晃弘</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>5</strong>　12/14　正解のない時代のデザイン<span class="en">　水内智英</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>6</strong>　12/17　障害は世界を捉え直す視点とは何か？（仮）<span class="en">　田中みゆき</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>7</strong>　12/21　ポストヒューマニズムデザイン<span class="en">　比嘉夏子</span></li>
+        <li style="margin-bottom:5px; font-size:17px;"><strong>8</strong>　12/23（水）　これからのスペキュラティヴデザインとメイカーズ<span class="en">　長谷川愛</span></li>
+      </ul>
+      <div class="note">AIが設計までこなす時代に、人間が担うデザインとは何か。長谷川敦士さんにもご登壇いただきます。</div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="ご活用の状況・ご相談" data-part="">
+    <div class="kicker">Part Four ／ Discussion</div>
+    <h2>ご活用の状況・ご相談</h2>
+    <div class="body">
+      <ul class="pts">
+        <li style="font-size:22px;">アーカイブの視聴状況や、見づらい・使いづらいところはありますか</li>
+        <li style="font-size:22px;">社内での共有や勉強会に、AIまとめや講義をどう生かせそうか</li>
+        <li style="font-size:22px;">これからの科目（デザイン論概論・AIと社会Ⅱ・森で考える）へのご参加</li>
+        <li style="font-size:22px;">mU へのご要望・来年度に向けて</li>
+      </ul>
+      <div class="note">アーカイブ一覧・AIまとめ：nswtmk.github.io/mu-lecture-notes ／ お問い合わせ：info@technel.world</div>
+    </div>
+  </section>
+
+  <section class="slide title" data-title="ありがとうございました" data-part="">
+    <svg class="rings" viewBox="0 0 560 560" aria-hidden="true">
+      <circle class="r1" cx="280" cy="280" r="258"/>
+      <circle class="r2" cx="280" cy="280" r="196"/>
+      <circle class="r3" cx="280" cy="280" r="132"/>
+      <circle class="core" cx="280" cy="280" r="5"/>
+    </svg>
+    <div class="kicker">makers Unlearn 2026</div>
+    <h1 style="font-size:52px; line-height:1.5;">ありがとうございました</h1>
+    <p class="sub">未開の未来へ</p>
+    <p class="meta">山梨県立大学 メイカーズ工学科（仮称）社会人向け先行プログラム<br>makers.yamanashi-ken.ac.jp/mu</p>
+  </section>
+
+
+</div><!-- /stage -->
+<div class="bar" id="bar"></div>
+</div><!-- /deck -->
+
+<div class="ui">
+  <button id="btnToc" type="button">目次 ( O )</button>
+  <button id="btnPrev" type="button">←</button>
+  <button id="btnNext" type="button">→</button>
+</div>
+
+<nav class="toc" id="toc" aria-label="スライド目次">
+  <h4>Contents</h4>
+  <ol id="tocList"></ol>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var deck = document.getElementById('deck');
+  var bar = document.getElementById('bar');
+  var toc = document.getElementById('toc');
+  var tocList = document.getElementById('tocList');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+
+  var PART_NAME = {
+    '1': 'PART 1 ／ 総まとめ──7回で見えたこと',
+    '2': 'PART 2 ／ 原初技術実践からの報告',
+    '3': 'PART 3 ／ 受講生の問いから',
+    '4': 'PART 4 ／ 技術史をどう語り直すか'
+  };
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  slides.forEach(function (s, n) {
+    var part = s.getAttribute('data-part') || '';
+
+    var foot = document.createElement('div');
+    foot.className = 'foot';
+    foot.innerHTML = '<span>' + (PART_NAME[part] || '') + '</span><span>' +
+      pad(n + 1) + ' / ' + pad(total) + '</span>';
+    s.appendChild(foot);
+
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="no">' + pad(n + 1) + '</span><span>' +
+      s.getAttribute('data-title') +
+      (part ? '<span class="pt">PART ' + part + '</span>' : '') + '</span>';
+    b.addEventListener('click', function () { go(n); closeToc(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+  });
+  var tocBtns = Array.prototype.slice.call(tocList.querySelectorAll('button'));
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    tocBtns.forEach(function (b, k) { b.classList.toggle('here', k === i); });
+    bar.style.width = ((i + 1) / total * 100) + '%';
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  function fit() {
+    var w = document.documentElement.clientWidth || window.innerWidth;
+    var h = document.documentElement.clientHeight || window.innerHeight;
+    if (h > w && w < 820) {
+      var s = Math.min(h / 1280, w / 720);
+      stage.style.transform = 'translate(-50%, -50%) rotate(90deg) scale(' + s + ')';
+    } else {
+      var s2 = Math.min(w / 1280, h / 720);
+      stage.style.transform = 'translate(-50%, -50%) scale(' + s2 + ')';
+    }
+  }
+
+  function closeToc() { toc.classList.remove('open'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+    else if (e.key === 'o' || e.key === 'O') { toc.classList.toggle('open'); }
+    else if (e.key === 'Escape') { closeToc(); }
+  });
+
+  document.getElementById('btnNext').addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnPrev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('btnToc').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target === toc) closeToc(); });
+
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
+    x0 = null;
+  }, { passive: true });
+
+  var ui = document.querySelector('.ui');
+  var idleTimer;
+  function wake() {
+    ui.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { ui.classList.add('idle'); }, 2600);
+  }
+  ['mousemove', 'touchstart', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, wake, { passive: true });
+  });
+  wake();
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  window.addEventListener('pageshow', fit);
+  window.addEventListener('load', fit);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.documentElement);
+  fit();
+  setTimeout(fit, 120);
+  setTimeout(fit, 600);
+  var start = parseInt((location.hash || '').slice(1), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+<script id="from-vimeo">(function(){if(!/[?&]from=vimeo/.test(location.search))return;var S=/^(index|techfutures|aishakai\d|techphilosophy|techhistory|anthropology|designtheory|making|implementation|field-[a-z]+)\.html$/;document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');var m=h.match(/^([^?#]+\.html)(#.*)?$/);if(!m||/^https?:/.test(h)||/^vimeo/.test(h))return;var f=m[1],t=m[2]||'';if(f==='index.html')a.setAttribute('href','vimeo.html'+t);else if(S.test(f))a.setAttribute('href','vimeo-'+f+t);else a.setAttribute('href',f+'?from=vimeo'+t);});})();</script>
+</body>
+</html>
