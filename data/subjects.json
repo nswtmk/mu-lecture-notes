@@ -58,7 +58,7 @@
             "鉄の馬",
             "7つの軸・14のキーワード"
           ],
-          "voices": "techfutures-01-voices.html"
+          "_voices_removed": "techfutures-01-voices.html"
         },
         {
           "no": 2,
@@ -82,7 +82,7 @@
             "入口と出口",
             "気質の希少性"
           ],
-          "voices": "techfutures-02-voices.html"
+          "_voices_removed": "techfutures-02-voices.html"
         },
         {
           "no": 3,
@@ -106,7 +106,7 @@
             "腐海のイノベーション",
             "ゆるさ"
           ],
-          "voices": "techfutures-03-voices.html"
+          "_voices_removed": "techfutures-03-voices.html"
         },
         {
           "no": 4,
@@ -130,7 +130,7 @@
             "Plurality",
             "デジタル・オフグリッド"
           ],
-          "voices": "techfutures-04-voices.html"
+          "_voices_removed": "techfutures-04-voices.html"
         },
         {
           "no": 5,
@@ -154,7 +154,7 @@
             "ブレーキを外す",
             "意志と責任"
           ],
-          "voices": "techfutures-05-voices.html"
+          "_voices_removed": "techfutures-05-voices.html"
         },
         {
           "no": 6,
@@ -178,7 +178,7 @@
             "時間スケールの反転",
             "失敗を論文にする"
           ],
-          "voices": "techfutures-06-voices.html"
+          "_voices_removed": "techfutures-06-voices.html"
         },
         {
           "no": 7,
@@ -202,7 +202,7 @@
             "ノイズ",
             "生物を見て作ると生物以下"
           ],
-          "voices": "techfutures-07-voices.html"
+          "_voices_removed": "techfutures-07-voices.html"
         },
         {
           "no": 8,
@@ -400,7 +400,7 @@
             "普遍論理と普遍倫理",
             "惑星的課題"
           ],
-          "voices": "techphilosophy-01-voices.html"
+          "_voices_removed": "techphilosophy-01-voices.html"
         },
         {
           "no": 2,
@@ -425,7 +425,7 @@
             "技術決定論批判",
             "人工物の政治性"
           ],
-          "voices": "techphilosophy-02-voices.html"
+          "_voices_removed": "techphilosophy-02-voices.html"
         },
         {
           "no": 3,
@@ -450,7 +450,7 @@
             "テクネーとポイエーシス",
             "総かり立て体制（ゲシュテル）"
           ],
-          "voices": "techphilosophy-03-voices.html"
+          "_voices_removed": "techphilosophy-03-voices.html"
         },
         {
           "no": 4,
@@ -475,7 +475,7 @@
             "アクターネットワーク理論",
             "作られたものから作るものへ"
           ],
-          "voices": "techphilosophy-04-voices.html"
+          "_voices_removed": "techphilosophy-04-voices.html"
         },
         {
           "no": 5,
@@ -494,7 +494,7 @@
             "道徳的主体化",
             "道徳的設計"
           ],
-          "voices": "techphilosophy-05-voices.html"
+          "_voices_removed": "techphilosophy-05-voices.html"
         },
         {
           "no": 6,
@@ -513,7 +513,7 @@
             "和魂洋才の失敗",
             "複層化"
           ],
-          "voices": "techphilosophy-06-voices.html"
+          "_voices_removed": "techphilosophy-06-voices.html"
         },
         {
           "no": 7,
@@ -538,7 +538,7 @@
             "世界のメニュー化",
             "生命の技芸"
           ],
-          "voices": "techphilosophy-07-voices.html"
+          "_voices_removed": "techphilosophy-07-voices.html"
         },
         {
           "no": 8,
@@ -567,7 +567,7 @@
             "眠っている技術",
             "悲嘆可能性の惑星化"
           ],
-          "voices": "techphilosophy-08-voices.html"
+          "_voices_removed": "techphilosophy-08-voices.html"
         }
       ],
       "slug": "techphilosophy",
