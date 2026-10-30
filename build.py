@@ -228,7 +228,7 @@ def lecture_block(s, L):
         if L.get("summary"):
             links.append('<a class="ai-btn" href="%s">AIまとめを読む</a>' % qv(L["summary"]))
         if L.get("voices"):
-            links.append('<a class="ai-btn" href="%s">受講生の感想を読む</a>' % qv(L["voices"]))
+            links.append('<a class="ai-btn" href="%s">受講生の感想（要約）を読む</a>' % qv(L["voices"]))
         o.append('  <div class="lec-links">%s</div>' % "".join(links))
     o.append('</div>\n')
     return "\n".join(o)
